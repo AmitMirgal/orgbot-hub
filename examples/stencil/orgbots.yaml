@@ -1,0 +1,17 @@
+name: Empty stencil
+slug: stencil
+description: A blank roster. Desk only, plus one seat you are expected to replace.
+license: MIT
+runtimes:
+  - cursor
+topics:
+  - starter
+  - example
+desk:
+  name: Front Desk
+  job: Hold every question until a job has repeated enough to earn a seat.
+seats:
+  - name: First seat
+    job: Replace this the moment the same job comes back twice.
+    repeats_when: you notice you are answering the same thing again
+rule: spawn a seat when the job repeats; random stays at the desk

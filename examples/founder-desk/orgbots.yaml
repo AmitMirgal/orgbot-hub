@@ -1,0 +1,28 @@
+name: Founder desk
+slug: founder-desk
+description: A one-person company split into a front desk and named seats.
+license: MIT
+runtimes:
+  - claude-code
+  - cursor
+topics:
+  - founder
+  - ops
+  - example
+desk:
+  name: Front Desk
+  job: Route inbound work. Hold anything that is not already a repeating job.
+seats:
+  - name: Fundraising
+    job: Investor updates, round narrative, and inbound from funds.
+    repeats_when: the same raise question comes back twice
+  - name: Product
+    job: Spec the next slice, cut scope, write the changelog.
+    repeats_when: a product decision keeps returning
+  - name: Hiring
+    job: Scorecards, outreach, and interview loops.
+    repeats_when: hiring is no longer a one-off
+  - name: Ops
+    job: Billing, vendors, and the calendar nobody owns.
+    repeats_when: the same operational mess repeats
+rule: spawn a seat when the job repeats; random stays at the desk

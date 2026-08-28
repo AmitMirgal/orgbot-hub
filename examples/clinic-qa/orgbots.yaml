@@ -1,0 +1,27 @@
+name: Clinic QA desk
+slug: clinic-qa
+description: A triage desk for a clinic-style QA loop. Intake stays named. Random stays at triage.
+license: MIT
+runtimes:
+  - claude-code
+topics:
+  - health
+  - qa
+  - example
+desk:
+  name: Triage
+  job: Sort inbound reports. Keep one-off questions. Hand repeating failure modes to a seat.
+seats:
+  - name: Intake
+    job: Capture the report with the same fields every time.
+    repeats_when: every new ticket needs the same form
+  - name: Chart review
+    job: Reconstruct what happened from the log and the chart.
+    repeats_when: reconstruction is a standing job
+  - name: QA
+    job: Reproduce, grade severity, write the regression note.
+    repeats_when: the same class of defect returns
+  - name: Follow-up
+    job: Close the loop with the reporter in plain language.
+    repeats_when: status updates are themselves a job
+rule: spawn a seat when the job repeats; random stays at the desk
