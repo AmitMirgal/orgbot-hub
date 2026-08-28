@@ -4,7 +4,6 @@ import { GeistMono } from "geist/font/mono";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SiteHeader } from "@/components/site-header";
 import { currentProfile, listPacks } from "@/lib/catalog";
-import { isSupabaseConfigured } from "@/lib/supabase/env";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,13 +16,10 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const configured = isSupabaseConfigured();
-  const [profile, packs] = configured
-    ? await Promise.all([
-        currentProfile().catch(() => null),
-        listPacks().catch(() => []),
-      ])
-    : [null, []];
+  const [profile, packs] = await Promise.all([
+    currentProfile().catch(() => null),
+    listPacks().catch(() => []),
+  ]);
 
   const options = packs.map((pack) => ({
     owner: pack.owner.githubLogin,

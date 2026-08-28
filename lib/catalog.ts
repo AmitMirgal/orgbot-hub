@@ -1,10 +1,18 @@
-import { createClient, getSessionUserId } from "@/lib/supabase/server";
 import {
   type Pack,
   type PackCard,
   type Profile,
   type Seat,
 } from "@/lib/pack";
+import {
+  getExamplePack,
+  getExampleProfile,
+  listExamplePacks,
+  listExamplePacksByOwner,
+  listExampleTopics,
+} from "@/lib/example-catalog";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { createClient, getSessionUserId } from "@/lib/supabase/server";
 
 type ProfileRow = {
   id: string;
@@ -144,6 +152,8 @@ const packSelect = `
 `;
 
 export async function listPacks(query: CatalogQuery = {}): Promise<PackCard[]> {
+  if (!isSupabaseConfigured()) return listExamplePacks(query);
+
   const supabase = await createClient();
   if (!supabase) throw new CatalogUnavailableError();
 
@@ -174,6 +184,8 @@ export async function listPacks(query: CatalogQuery = {}): Promise<PackCard[]> {
 }
 
 export async function getPack(owner: string, slug: string): Promise<Pack | null> {
+  if (!isSupabaseConfigured()) return getExamplePack(owner, slug);
+
   const supabase = await createClient();
   if (!supabase) throw new CatalogUnavailableError();
 
@@ -197,6 +209,8 @@ export async function getPack(owner: string, slug: string): Promise<Pack | null>
 }
 
 export async function getProfile(login: string): Promise<Profile | null> {
+  if (!isSupabaseConfigured()) return getExampleProfile(login);
+
   const supabase = await createClient();
   if (!supabase) throw new CatalogUnavailableError();
   const { data, error } = await supabase
@@ -210,6 +224,8 @@ export async function getProfile(login: string): Promise<Profile | null> {
 }
 
 export async function listPacksByOwner(login: string): Promise<PackCard[]> {
+  if (!isSupabaseConfigured()) return listExamplePacksByOwner(login);
+
   const profile = await getProfile(login);
   if (!profile) return [];
   const supabase = await createClient();
@@ -225,6 +241,8 @@ export async function listPacksByOwner(login: string): Promise<PackCard[]> {
 }
 
 export async function listTopics(): Promise<{ topic: string; count: number }[]> {
+  if (!isSupabaseConfigured()) return listExampleTopics();
+
   const packs = await listPacks();
   const counts = new Map<string, number>();
   for (const pack of packs) {

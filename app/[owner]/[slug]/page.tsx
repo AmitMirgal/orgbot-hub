@@ -15,7 +15,6 @@ import {
   readCatalog,
 } from "@/lib/catalog";
 import { formatCount, packFiles } from "@/lib/pack";
-import { isSupabaseConfigured } from "@/lib/supabase/env";
 
 export const dynamic = "force-dynamic";
 
@@ -25,9 +24,6 @@ export async function generateMetadata({
   params: Promise<{ owner: string; slug: string }>;
 }): Promise<Metadata> {
   const { owner, slug } = await params;
-  if (!isSupabaseConfigured()) {
-    return { title: `${owner}/${slug}` };
-  }
   try {
     const pack = await getPack(owner, slug);
     if (!pack) return { title: `${owner}/${slug}` };
@@ -46,14 +42,6 @@ export default async function PackPage({
   params: Promise<{ owner: string; slug: string }>;
 }) {
   const { owner, slug } = await params;
-
-  if (!isSupabaseConfigured()) {
-    return (
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-10">
-        <CatalogOffline />
-      </main>
-    );
-  }
 
   const packResult = await readCatalog(() => getPack(owner, slug));
   if (packResult.status === "offline") {

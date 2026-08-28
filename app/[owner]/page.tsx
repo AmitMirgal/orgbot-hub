@@ -7,7 +7,6 @@ import {
   listPacksByOwner,
   readCatalog,
 } from "@/lib/catalog";
-import { isSupabaseConfigured } from "@/lib/supabase/env";
 
 export const dynamic = "force-dynamic";
 
@@ -17,14 +16,6 @@ export default async function AuthorPage({
   params: Promise<{ owner: string }>;
 }) {
   const { owner } = await params;
-
-  if (!isSupabaseConfigured()) {
-    return (
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-10">
-        <CatalogOffline />
-      </main>
-    );
-  }
 
   const profileResult = await readCatalog(() => getProfile(owner));
   if (profileResult.status === "offline") {

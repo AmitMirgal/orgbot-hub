@@ -5,7 +5,6 @@ import { Leaderboard } from "@/components/leaderboard";
 import { PackGrid } from "@/components/pack-grid";
 import { SearchHero } from "@/components/search-hero";
 import { listPacks, readCatalog } from "@/lib/catalog";
-import { isSupabaseConfigured } from "@/lib/supabase/env";
 
 export const dynamic = "force-dynamic";
 
@@ -18,15 +17,6 @@ export default async function Home({
   const q = params.q?.trim() || undefined;
   const topic = params.topic?.trim() || undefined;
   const official = params.official === "1";
-
-  if (!isSupabaseConfigured()) {
-    return (
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
-        <Hero q={q} />
-        <CatalogOffline />
-      </main>
-    );
-  }
 
   const result = await readCatalog(() => listPacks({ q, topic, official }));
   if (result.status === "offline") {
