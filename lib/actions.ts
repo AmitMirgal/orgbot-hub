@@ -2,17 +2,15 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, getSessionUserId } from "@/lib/supabase/server";
 import { fetchPackFiles } from "@/lib/github";
 import { parseOrgbotYaml, type OrgbotManifest } from "@/lib/orgbot-yaml";
 
 async function requireUser() {
-  const supabase = await createClient();
+  const { supabase, userId } = await getSessionUserId();
   if (!supabase) {
     return { supabase: null, userId: null as string | null, error: "Supabase is not configured." };
   }
-  const { data } = await supabase.auth.getClaims();
-  const userId = typeof data?.claims?.sub === "string" ? data.claims.sub : null;
   return { supabase, userId, error: userId ? null : "Sign in with GitHub to publish." };
 }
 

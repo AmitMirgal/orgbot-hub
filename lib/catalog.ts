@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { createClient, getSessionUserId } from "@/lib/supabase/server";
 import {
   type Pack,
   type PackCard,
@@ -105,8 +105,35 @@ function mapPack(row: PackRow): Pack | null {
 }
 
 function toCard(pack: Pack): PackCard {
-  const { readmeMd: _readmeMd, rule: _rule, ...card } = pack;
-  return card;
+  return {
+    id: pack.id,
+    owner: pack.owner,
+    slug: pack.slug,
+    name: pack.name,
+    description: pack.description,
+    githubUrl: pack.githubUrl,
+    license: pack.license,
+    official: pack.official,
+    topics: pack.topics,
+    runtimes: pack.runtimes,
+    likesCount: pack.likesCount,
+    clonesCount: pack.clonesCount,
+    seats: pack.seats,
+  };
+}
+
+export type CatalogRead<T> =
+  | { status: "ok"; data: T }
+  | { status: "offline"; message?: string };
+
+export async function readCatalog<T>(load: () => Promise<T>): Promise<CatalogRead<T>> {
+  try {
+    return { status: "ok", data: await load() };
+  } catch (error) {
+    const message =
+      error instanceof CatalogUnavailableError ? error.message : undefined;
+    return { status: "offline", message };
+  }
 }
 
 const packSelect = `
@@ -211,11 +238,8 @@ export async function listTopics(): Promise<{ topic: string; count: number }[]> 
 }
 
 export async function currentProfile(): Promise<Profile | null> {
-  const supabase = await createClient();
-  if (!supabase) return null;
-  const { data: claimsData } = await supabase.auth.getClaims();
-  const userId = claimsData?.claims?.sub;
-  if (typeof userId !== "string") return null;
+  const { supabase, userId } = await getSessionUserId();
+  if (!supabase || !userId) return null;
   const { data } = await supabase
     .from("profiles")
     .select("id, github_login, name, avatar_url")

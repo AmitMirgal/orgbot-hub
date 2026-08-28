@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import { PublishForm } from "@/components/publish-form";
 import { currentProfile } from "@/lib/catalog";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
@@ -17,14 +16,18 @@ export default async function PublishPage() {
   }
 
   const profile = await currentProfile();
-  if (!profile) {
-    redirect("/");
-  }
 
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-4 py-10">
       <Header />
-      <PublishForm />
+      {profile ? (
+        <PublishForm />
+      ) : (
+        <p className="text-[14px] text-muted-foreground">
+          Sign in with GitHub to publish a pack. The catalog only caches the roster.
+          Git stays the source of truth.
+        </p>
+      )}
     </main>
   );
 }

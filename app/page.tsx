@@ -4,7 +4,7 @@ import { CatalogOffline } from "@/components/catalog-offline";
 import { Leaderboard } from "@/components/leaderboard";
 import { PackGrid } from "@/components/pack-grid";
 import { SearchHero } from "@/components/search-hero";
-import { CatalogUnavailableError, listPacks } from "@/lib/catalog";
+import { listPacks, readCatalog } from "@/lib/catalog";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 
 export const dynamic = "force-dynamic";
@@ -28,19 +28,16 @@ export default async function Home({
     );
   }
 
-  let packs;
-  try {
-    packs = await listPacks({ q, topic, official });
-  } catch (error) {
-    const message =
-      error instanceof CatalogUnavailableError ? error.message : undefined;
+  const result = await readCatalog(() => listPacks({ q, topic, official }));
+  if (result.status === "offline") {
     return (
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
         <Hero q={q} />
-        <CatalogOffline message={message} />
+        <CatalogOffline message={result.message} />
       </main>
     );
   }
+  const packs = result.data;
 
   const trending = [...packs].sort((a, b) => b.clonesCount - a.clonesCount).slice(0, 8);
   const heading = official

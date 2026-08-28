@@ -28,6 +28,11 @@ export async function updateSession(request: NextRequest) {
     },
   });
 
+  const hasSession = request.cookies
+    .getAll()
+    .some((cookie) => cookie.name.includes("auth-token"));
+  if (!hasSession) return supabaseResponse;
+
   try {
     await supabase.auth.getClaims();
   } catch {
