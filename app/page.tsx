@@ -28,17 +28,14 @@ export default async function Home() {
   const packs = packsResult.data;
   const featured = packs.find((pack) => pack.featured) ?? packs[0];
   const rest = packs.filter((pack) => pack.id !== featured?.id);
-  const stats = statsResult.status === "ok" ? statsResult.data : { packs: packs.length, seats: 0 };
+  const stats = statsResult.status === "ok" ? statsResult.data : { packs: packs.length };
 
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
       <Hero />
-      <section className="flex flex-wrap gap-6 text-[13px] text-muted-foreground">
+      <section className="flex flex-wrap gap-6 text-base text-muted-foreground">
         <p>
           <span className="font-mono text-foreground">{formatCount(stats.packs)}</span> packs
-        </p>
-        <p>
-          <span className="font-mono text-foreground">{formatCount(stats.seats)}</span> seats
         </p>
       </section>
       {featured ? (
@@ -55,10 +52,12 @@ export default async function Home() {
         <HeaderLabel href="/marketplace">Trending</HeaderLabel>
         <Leaderboard packs={packs.slice(0, 6)} />
       </section>
-      <section className="flex flex-col gap-3">
-        <HeaderLabel href="/marketplace">Packs</HeaderLabel>
-        <PackGrid packs={rest.length > 0 ? rest : packs} />
-      </section>
+      {rest.length > 0 ? (
+        <section className="flex flex-col gap-3">
+          <HeaderLabel href="/marketplace">Packs</HeaderLabel>
+          <PackGrid packs={rest} />
+        </section>
+      ) : null}
     </main>
   );
 }
@@ -66,15 +65,14 @@ export default async function Home() {
 function Hero() {
   return (
     <section className="flex max-w-2xl flex-col gap-4">
-      <p className="text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
-        Packs
-      </p>
-      <h1 className="font-pixel text-3xl leading-tight tracking-wide sm:text-4xl">
-        company of bots you can install
+      <h1 className="font-pixel text-6xl leading-none tracking-tight sm:text-7xl md:text-8xl">
+        ORGBOT
       </h1>
-      <p className="max-w-xl text-[15px] leading-6 text-muted-foreground">
-        Front desk plus named seats. Random questions stay at the desk. Official Grok
-        install only.
+      <p className="font-sans text-lg sm:text-xl">
+        The open Grok Bot pack directory
+      </p>
+      <p className="text-base text-muted-foreground">
+        Front desk plus named seats. Random stays at the desk. Install is official Grok only.
       </p>
       <SearchHero />
     </section>
@@ -90,10 +88,10 @@ function HeaderLabel({
 }) {
   return (
     <div className="flex items-center justify-between">
-      <h2 className="text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
+      <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
         {children}
       </h2>
-      <Link href={href} className="text-[12px] text-muted-foreground hover:text-foreground">
+      <Link href={href} className="text-xs text-muted-foreground hover:text-foreground">
         View
       </Link>
     </div>

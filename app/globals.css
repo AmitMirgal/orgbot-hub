@@ -82,6 +82,7 @@
   --sidebar-accent-foreground: oklch(0.2 0.01 286);
   --sidebar-border: oklch(0.2 0.01 286 / 10%);
   --sidebar-ring: oklch(0.45 0.01 286);
+  --badge-accent: oklch(0.72 0.14 75);
 }
 
 .dark {
@@ -116,6 +117,7 @@
   --sidebar-accent-foreground: oklch(0.97 0.002 286);
   --sidebar-border: oklch(1 0 0 / 8%);
   --sidebar-ring: oklch(0.55 0.01 286);
+  --badge-accent: oklch(0.78 0.12 75);
 }
 
 @layer base {
@@ -126,6 +128,8 @@
     @apply font-sans;
   }
   body {
-    @apply bg-background text-foreground tracking-tight antialiased;
+    @apply bg-background text-foreground font-normal tracking-tight antialiased;
+    font-size: 16px;
+    line-height: 1.5;
   }
 }

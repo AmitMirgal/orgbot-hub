@@ -10,7 +10,7 @@ export default async function SubmitPage() {
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-4 py-10">
       <section className="flex flex-col gap-2">
-        <p className="text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
+        <p className="text-xs tracking-[0.18em] text-muted-foreground uppercase">
           Submit
         </p>
         <h1 className="text-2xl font-medium tracking-tight">Add a pack</h1>

@@ -30,13 +30,13 @@ export function RosterList({
         <Table>
           <TableHeader>
             <TableRow className="hover:bg-transparent">
-              <TableHead className="text-[11px] tracking-wide text-muted-foreground uppercase">
+              <TableHead className="text-xs tracking-wide text-muted-foreground uppercase">
                 Seat
               </TableHead>
-              <TableHead className="text-[11px] tracking-wide text-muted-foreground uppercase">
+              <TableHead className="text-xs tracking-wide text-muted-foreground uppercase">
                 Job
               </TableHead>
-              <TableHead className="text-[11px] tracking-wide text-muted-foreground uppercase">
+              <TableHead className="text-xs tracking-wide text-muted-foreground uppercase">
                 Install
               </TableHead>
             </TableRow>

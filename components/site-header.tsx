@@ -44,8 +44,8 @@ export type PackOption = {
 function Wordmark() {
   return (
     <Link href="/" className="flex min-h-11 items-center">
-      <span className="font-pixel text-[15px] tracking-wide text-foreground">
-        orgbot-hub
+      <span className="font-pixel text-lg tracking-tight text-foreground">
+        ORGBOT
       </span>
     </Link>
   );
@@ -132,7 +132,7 @@ function HeaderSearch({
         onFocus={onOpenPalette}
         placeholder="Search packs"
         aria-label="Search packs"
-        className="h-11 bg-background pl-8"
+        className="h-12 bg-background pl-8 text-base"
       />
     </form>
   );
@@ -224,7 +224,7 @@ export function SiteHeader({
             </SheetTrigger>
             <SheetContent side="right" className="w-72">
               <SheetHeader>
-                <SheetTitle className="font-pixel text-[15px]">orgbot-hub</SheetTitle>
+                <SheetTitle className="font-pixel text-lg tracking-tight">ORGBOT</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col gap-1 px-4">
                 {nav}
@@ -276,7 +276,7 @@ export function SiteHeader({
                 }}
               >
                 <span className="truncate">{pack.name}</span>
-                <span className="ml-auto font-mono text-[11px] text-muted-foreground">
+                <span className="ml-auto font-mono text-xs text-muted-foreground">
                   @{pack.owner}
                 </span>
               </CommandItem>

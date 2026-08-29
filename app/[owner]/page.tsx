@@ -56,7 +56,7 @@ export default async function AuthorPage({
         </div>
       </section>
       <section className="flex flex-col gap-3">
-        <h2 className="text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
+        <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
           Packs
         </h2>
         <PackGrid packs={packsResult.data} />
