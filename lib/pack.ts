@@ -54,8 +54,8 @@ export function orderedSeats(pack: { seats: Seat[] }): Seat[] {
   return pack.seats.slice().sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
-export function seatCount(pack: { seats: Seat[] }): number {
-  return pack.seats.length;
+export function rosterNames(pack: { seats: Seat[] }): string[] {
+  return orderedSeats(pack).map((item) => item.name);
 }
 
 export function packHref(pack: { owner: { githubLogin: string }; slug: string }): string {

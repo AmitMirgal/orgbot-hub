@@ -17,13 +17,13 @@ export function Leaderboard({ packs }: { packs: PackCard[] }) {
       <Table>
         <TableHeader>
           <TableRow className="hover:bg-transparent">
-            <TableHead className="text-[11px] tracking-wide text-muted-foreground uppercase">
+            <TableHead className="text-xs tracking-wide text-muted-foreground uppercase">
               Name
             </TableHead>
-            <TableHead className="text-[11px] tracking-wide text-muted-foreground uppercase">
+            <TableHead className="text-xs tracking-wide text-muted-foreground uppercase">
               What it does
             </TableHead>
-            <TableHead className="hidden text-[11px] tracking-wide text-muted-foreground uppercase sm:table-cell">
+            <TableHead className="hidden text-xs tracking-wide text-muted-foreground uppercase sm:table-cell">
               Topic
             </TableHead>
           </TableRow>

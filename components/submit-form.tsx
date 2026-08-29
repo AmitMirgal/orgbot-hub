@@ -2,25 +2,22 @@
 
 import { useState } from "react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { submitPack } from "@/lib/actions";
 import { DEFAULT_ROUTING_RULE } from "@/lib/pack";
-import { TOPICS } from "@/lib/topics";
 
 export function SubmitForm({ disabled = false }: { disabled?: boolean }) {
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
-  const [topics, setTopics] = useState<string[]>([]);
 
   async function onSubmit(formData: FormData) {
     if (disabled) return;
     setPending(true);
     setError(null);
-    for (const topic of topics) formData.append("topics", topic);
     const result = await submitPack(formData);
     if (result?.error) setError(result.error);
     setPending(false);
@@ -58,25 +55,13 @@ export function SubmitForm({ disabled = false }: { disabled?: boolean }) {
         />
       </Field>
       <div className="flex flex-col gap-2">
-        <p className="text-[11px] tracking-wide text-muted-foreground uppercase">Topics</p>
-        <div className="flex flex-wrap gap-3">
-          {TOPICS.map((topic) => (
-            <label key={topic} className="flex min-h-11 items-center gap-2 text-[13px]">
-              <Switch
-                checked={topics.includes(topic)}
-                onCheckedChange={(checked) => {
-                  setTopics((current) =>
-                    checked ? [...current, topic] : current.filter((item) => item !== topic)
-                  );
-                }}
-              />
-              {topic}
-            </label>
-          ))}
-        </div>
+        <p className="text-xs tracking-wide text-muted-foreground uppercase">Topics</p>
+        <Badge variant="accent" className="w-fit rounded-md font-normal">
+          Topics — Coming soon
+        </Badge>
       </div>
       <div className="flex flex-col gap-3 rounded-lg border border-border p-4">
-        <p className="text-[11px] tracking-wide text-muted-foreground uppercase">Desk</p>
+        <p className="text-xs tracking-wide text-muted-foreground uppercase">Desk</p>
         <Field label="Desk name" htmlFor="deskName">
           <Input id="deskName" name="deskName" required className="h-11" placeholder="Chief of Staff" />
         </Field>
@@ -93,7 +78,7 @@ export function SubmitForm({ disabled = false }: { disabled?: boolean }) {
         </Field>
       </div>
       <div className="flex flex-col gap-3 rounded-lg border border-border p-4">
-        <p className="text-[11px] tracking-wide text-muted-foreground uppercase">Named seat</p>
+        <p className="text-xs tracking-wide text-muted-foreground uppercase">Named seat</p>
         <Field label="Seat name" htmlFor="seatName">
           <Input id="seatName" name="seatName" className="h-11" />
         </Field>

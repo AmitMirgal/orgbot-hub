@@ -13,8 +13,10 @@ export default async function SubmitPage() {
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-4 py-10">
       <section className="flex flex-col gap-2">
-        <h1 className="text-2xl font-medium tracking-tight">Submit</h1>
-        <p className="text-[15px] font-medium tracking-tight">Add a pack</p>
+        <p className="text-xs tracking-[0.18em] text-muted-foreground uppercase">
+          Submit
+        </p>
+        <h1 className="text-2xl font-medium tracking-tight">Add a pack</h1>
         <p className="text-[14px] text-muted-foreground">
           Paste official https://x.ai/bot/… URLs plus the roster. We never invent an ID.
           Install still happens in Grok.

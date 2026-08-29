@@ -39,7 +39,7 @@ That writes `.env.local` and serves the catalog at `http://127.0.0.1:54321`. Git
 pnpm dev
 ```
 
-The app listens on `http://127.0.0.1:43147`. If those env vars are unset, the bundled seed still renders the Lauren pack plus two stencils.
+The app listens on `http://127.0.0.1:43147`. If those env vars are unset, the bundled seed still renders the Lauren pack.
 
 ## Submit
 
@@ -47,4 +47,4 @@ Sign in if GitHub auth is wired. Paste official `https://x.ai/bot/…` URLs plus
 
 ## Seed
 
-The featured pack is Lauren (`/poteto/lauren`). Desk is Dr Eggbot. The named seat is point peddler. Both use public Grok template URLs. `official` is false. Clinic QA and the empty stencil have no install URLs until a publisher pastes one.
+The featured pack is Lauren (`/poteto/lauren`). Desk is Dr Eggbot at `https://x.ai/bot/93gOz3op1UQdBdbekQFLK`. `official` is false. `examples/stencil/` stays in git as a blank roster example and is not in the public catalog.

@@ -30,18 +30,15 @@ export default async function Home() {
   const packs = packsResult.data;
   const featured = packs.find((pack) => pack.featured) ?? packs[0];
   const rest = packs.filter((pack) => pack.id !== featured?.id);
-  const stats = statsResult.status === "ok" ? statsResult.data : { packs: packs.length, seats: 0 };
+  const stats = statsResult.status === "ok" ? statsResult.data : { packs: packs.length };
 
   return (
     <>
       <HeroBanner />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
-        <section className="flex flex-wrap gap-6 text-[13px] text-muted-foreground">
+        <section className="flex flex-wrap gap-6 text-base text-muted-foreground">
           <p>
             <span className="font-mono text-foreground">{formatCount(stats.packs)}</span> packs
-          </p>
-          <p>
-            <span className="font-mono text-foreground">{formatCount(stats.seats)}</span> seats
           </p>
         </section>
         {featured ? (
@@ -58,10 +55,12 @@ export default async function Home() {
           <HeaderLabel href="/marketplace">Trending</HeaderLabel>
           <Leaderboard packs={packs.slice(0, 6)} />
         </section>
-        <section className="flex flex-col gap-3">
-          <HeaderLabel href="/marketplace">Packs</HeaderLabel>
-          <PackGrid packs={rest.length > 0 ? rest : packs} />
-        </section>
+        {rest.length > 0 ? (
+          <section className="flex flex-col gap-3">
+            <HeaderLabel href="/marketplace">Packs</HeaderLabel>
+            <PackGrid packs={rest} />
+          </section>
+        ) : null}
       </main>
     </>
   );
@@ -76,10 +75,10 @@ function HeaderLabel({
 }) {
   return (
     <div className="flex items-center justify-between">
-      <h2 className="text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
+      <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
         {children}
       </h2>
-      <Link href={href} className="text-[12px] text-muted-foreground hover:text-foreground">
+      <Link href={href} className="text-xs text-muted-foreground hover:text-foreground">
         View
       </Link>
     </div>

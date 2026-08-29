@@ -26,7 +26,7 @@ export async function CatalogBrowse({
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-10">
       <section className="flex max-w-2xl flex-col gap-2">
-        <p className="text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
+        <p className="text-xs tracking-[0.18em] text-muted-foreground uppercase">
           {eyebrow}
         </p>
         <h1 className="text-2xl font-medium tracking-tight">{title}</h1>

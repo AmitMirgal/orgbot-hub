@@ -23,7 +23,7 @@ export function SearchHero({ defaultQuery = "" }: { defaultQuery?: string }) {
         onChange={(event) => setValue(event.target.value)}
         placeholder="Search packs"
         aria-label="Search packs"
-        className="h-11 bg-background pl-9 text-[15px]"
+        className="h-12 bg-background pl-9 text-base"
       />
     </form>
   );

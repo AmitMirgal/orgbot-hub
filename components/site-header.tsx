@@ -48,7 +48,7 @@ const SOCIAL_LINKS = [
 function Wordmark() {
   return (
     <Link href="/" className="flex min-h-11 items-center">
-      <span className="font-pixel text-[15px] tracking-wide text-foreground">
+      <span className="font-pixel text-lg tracking-tight text-foreground">
         ORGBOT
       </span>
     </Link>
@@ -168,7 +168,7 @@ export function SiteHeader({ packs }: { packs: PackOption[] }) {
             </SheetTrigger>
             <SheetContent side="right" className="w-72">
               <SheetHeader>
-                <SheetTitle className="font-pixel text-[15px]">ORGBOT</SheetTitle>
+                <SheetTitle className="font-pixel text-lg tracking-tight">ORGBOT</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col gap-1 px-4">
                 <div className="flex items-center gap-1">{socials}</div>
@@ -213,7 +213,7 @@ export function SiteHeader({ packs }: { packs: PackOption[] }) {
                 }}
               >
                 <span className="truncate">{pack.name}</span>
-                <span className="ml-auto font-mono text-[11px] text-muted-foreground">
+                <span className="ml-auto font-mono text-xs text-muted-foreground">
                   @{pack.owner}
                 </span>
               </CommandItem>
