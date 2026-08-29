@@ -5,6 +5,7 @@ import { AddEveryBot } from "@/components/add-every-bot";
 import { AddToGrok } from "@/components/add-to-grok";
 import { CatalogOffline } from "@/components/catalog-offline";
 import { MarkdownCard } from "@/components/markdown-card";
+import { NetworkHandle } from "@/components/network-handle";
 import { PackGrid } from "@/components/pack-grid";
 import { RosterList } from "@/components/roster-list";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -68,7 +69,7 @@ export default async function PackPage({
               <p className="text-xs tracking-[0.18em] text-muted-foreground uppercase">
                 Pack
               </p>
-              <h1 className="text-3xl font-medium tracking-tight">{pack.name}</h1>
+              <h1 className="text-3xl font-bold tracking-tight">{pack.name}</h1>
               <div className="flex flex-wrap gap-1.5">
                 {pack.topics.map((topic) => (
                   <Link key={topic} href={`/topics/${topic}`}>
@@ -190,28 +191,20 @@ export default async function PackPage({
               ) : null}
               {pack.owner.xHandle ? (
                 <p>
-                  X{" "}
-                  <a
-                    href={`https://x.com/${pack.owner.xHandle}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono hover:underline"
-                  >
-                    @{pack.owner.xHandle}
-                  </a>
+                  <NetworkHandle
+                    network="x"
+                    handle={pack.owner.xHandle}
+                    personName={pack.owner.name ?? pack.owner.githubLogin}
+                  />
                 </p>
               ) : null}
               {pack.githubUrl ? (
                 <p>
-                  GitHub{" "}
-                  <a
-                    href={pack.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono break-all hover:underline"
-                  >
-                    {pack.githubUrl.replace("https://github.com/", "")}
-                  </a>
+                  <NetworkHandle
+                    network="github"
+                    url={pack.githubUrl}
+                    personName={pack.owner.name ?? pack.owner.githubLogin}
+                  />
                 </p>
               ) : (
                 <p className="text-muted-foreground">No git source listed.</p>
