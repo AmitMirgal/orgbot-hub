@@ -13,17 +13,17 @@ export function Leaderboard({ packs }: { packs: PackCard[] }) {
   if (packs.length === 0) return null;
 
   return (
-    <div className="overflow-hidden rounded-lg border border-border">
+    <div className="overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
       <Table>
         <TableHeader>
           <TableRow className="hover:bg-transparent">
-            <TableHead className="text-xs tracking-wide text-muted-foreground uppercase">
+            <TableHead className="text-xs font-bold tracking-wide text-muted-foreground uppercase">
               Name
             </TableHead>
-            <TableHead className="text-xs tracking-wide text-muted-foreground uppercase">
+            <TableHead className="text-xs font-bold tracking-wide text-muted-foreground uppercase">
               What it does
             </TableHead>
-            <TableHead className="hidden text-xs tracking-wide text-muted-foreground uppercase sm:table-cell">
+            <TableHead className="hidden text-xs font-bold tracking-wide text-muted-foreground uppercase sm:table-cell">
               Topic
             </TableHead>
           </TableRow>

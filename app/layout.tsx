@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { GeistPixelSquare } from "geist/font/pixel";
-import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { Providers } from "@/app/providers";
 import { listPacks } from "@/lib/catalog";
@@ -39,9 +38,14 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           <footer className="border-t border-border">
             <p className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-4 text-[12px] text-muted-foreground">
               <span>orgbots is a directory of Grok Bot teams you can install.</span>
-              <Link href="/about" className="hover:text-foreground">
-                About
-              </Link>
+              <a
+                href="https://github.com/AmitMirgal/orgbot-hub"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-foreground"
+              >
+                GitHub
+              </a>
             </p>
           </footer>
         </Providers>

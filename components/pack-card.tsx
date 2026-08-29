@@ -18,15 +18,15 @@ export function PackCardView({ pack }: { pack: PackCard }) {
         size="sm"
         className="h-full rounded-lg bg-card py-0 ring-1 ring-border transition-colors hover:bg-accent/40"
       >
-        <CardHeader className="gap-1.5 border-b border-border px-4 py-3">
-          <CardTitle className="text-lg font-medium tracking-tight">
+        <CardHeader className="gap-1.5 border-b border-border px-6 py-5">
+          <CardTitle className="text-lg font-bold tracking-tight">
             {pack.name}
           </CardTitle>
           <p className="text-sm text-muted-foreground">
             {pack.description}
           </p>
         </CardHeader>
-        <CardContent className="flex flex-1 flex-col gap-3 px-4 py-3">
+        <CardContent className="flex flex-1 flex-col gap-3 px-6 py-5">
           <div className="flex flex-wrap gap-1.5">
             {pack.featured ? (
               <Badge variant="accent" className="rounded-md font-normal">

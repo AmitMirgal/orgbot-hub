@@ -66,7 +66,7 @@ export default async function PackPage({
         <div className="flex flex-col gap-8">
           <header className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
             <div className="flex min-w-0 flex-col gap-3">
-              <p className="text-xs tracking-[0.18em] text-muted-foreground uppercase">
+              <p className="text-base font-bold tracking-[0.18em] text-muted-foreground uppercase">
                 Pack
               </p>
               <h1 className="text-3xl font-bold tracking-tight">{pack.name}</h1>
@@ -116,7 +116,7 @@ export default async function PackPage({
           </Alert>
 
           <section className="flex flex-col gap-3">
-            <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
+            <h2 className="text-base font-bold tracking-[0.16em] text-muted-foreground uppercase">
               What it includes
             </h2>
             <div className="flex flex-wrap gap-1.5">
@@ -134,7 +134,7 @@ export default async function PackPage({
           </section>
 
           <section className="flex flex-col gap-2">
-            <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
+            <h2 className="text-base font-bold tracking-[0.16em] text-muted-foreground uppercase">
               What it does
             </h2>
             <p className="text-base text-muted-foreground">{pack.description}</p>
@@ -142,7 +142,7 @@ export default async function PackPage({
           </section>
 
           <section className="flex flex-col gap-3">
-            <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
+            <h2 className="text-base font-bold tracking-[0.16em] text-muted-foreground uppercase">
               Roster
             </h2>
             <RosterList
@@ -155,7 +155,7 @@ export default async function PackPage({
 
           {pack.readmeMd ? (
             <section className="flex flex-col gap-3">
-              <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
+              <h2 className="text-base font-bold tracking-[0.16em] text-muted-foreground uppercase">
                 Notes
               </h2>
               <MarkdownCard markdown={pack.readmeMd} />
@@ -164,7 +164,7 @@ export default async function PackPage({
 
           {related.length > 0 ? (
             <section className="flex flex-col gap-3">
-              <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
+              <h2 className="text-base font-bold tracking-[0.16em] text-muted-foreground uppercase">
                 Related
               </h2>
               <PackGrid packs={related} />
@@ -174,12 +174,12 @@ export default async function PackPage({
 
         <aside className="flex flex-col gap-4 lg:pt-10">
           <Card className="rounded-lg bg-card py-0 ring-1 ring-border">
-            <CardHeader className="px-4 py-3">
-              <CardTitle className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
+            <CardHeader className="px-6 py-5">
+              <CardTitle className="text-base font-bold tracking-[0.16em] text-muted-foreground uppercase">
                 Source
               </CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col gap-2 px-4 pb-4 text-[13px]">
+            <CardContent className="flex flex-col gap-2 px-6 pb-6 text-[13px]">
               <p>
                 Author{" "}
                 <Link href={`/${pack.owner.githubLogin}`} className="font-mono hover:underline">

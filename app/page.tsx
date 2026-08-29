@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { CatalogOffline } from "@/components/catalog-offline";
-import { HeroBanner } from "@/components/hero-banner";
+import { HeroBanner, HeroCopy } from "@/components/hero-banner";
 import { Leaderboard } from "@/components/leaderboard";
 import { PackCardView } from "@/components/pack-card";
 import { PackGrid } from "@/components/pack-grid";
@@ -22,7 +22,10 @@ export default async function Home() {
       <>
         <HeroBanner />
         <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
-          <SearchHero />
+          <section className="flex flex-col gap-6">
+            <HeroCopy />
+            <SearchHero />
+          </section>
           <CatalogOffline message={packsResult.message} />
         </main>
       </>
@@ -38,7 +41,10 @@ export default async function Home() {
     <>
       <HeroBanner />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
-        <SearchHero />
+        <section className="flex flex-col gap-6">
+          <HeroCopy />
+          <SearchHero />
+        </section>
         <section className="flex flex-wrap gap-6 text-base text-muted-foreground">
           <p>
             <span className="font-mono text-foreground">{formatCount(stats.packs)}</span> packs
@@ -78,7 +84,7 @@ function HeaderLabel({
 }) {
   return (
     <div className="flex items-center justify-between">
-      <h2 className="text-xs font-bold tracking-[0.16em] text-muted-foreground uppercase">
+      <h2 className="text-base font-bold tracking-[0.16em] text-muted-foreground uppercase">
         {children}
       </h2>
       <Link href={href} className="text-xs text-muted-foreground hover:text-foreground">

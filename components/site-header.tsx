@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState, type ComponentType } from "react";
+import { useEffect, useState } from "react";
 import { MenuIcon } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
-import { GitHubLogo, XLogo } from "@/components/network-icons";
 import { Button } from "@/components/ui/button";
 import {
   CommandDialog,
@@ -31,50 +30,30 @@ export type PackOption = {
   featured: boolean;
 };
 
-const NAV = [{ href: "/submit", label: "Submit" }] as const;
-
-const SOCIAL_LINKS = [
-  {
-    href: "https://x.com/amit_mirgal",
-    label: "X",
-    icon: XLogo,
-  },
-  {
-    href: "https://github.com/AmitMirgal/orgbot-hub",
-    label: "GitHub",
-    icon: GitHubLogo,
-  },
+const NAV = [
+  { href: "/about", label: "About" },
+  { href: "/submit", label: "Submit" },
 ] as const;
 
-function Wordmark() {
+function BrandMark() {
   return (
-    <Link href="/" className="flex min-h-11 items-center">
-      <span className="font-pixel text-lg tracking-tight text-foreground">
-        ORGBOT
-      </span>
-    </Link>
+    <span
+      aria-hidden
+      className="inline-flex size-4 shrink-0 items-center justify-center rounded-[2px] bg-black dark:bg-white"
+    >
+      <span className="size-2 rounded-[1px] bg-white dark:bg-black" />
+    </span>
   );
 }
 
-function SocialLink({
-  href,
-  label,
-  icon: Icon,
-}: {
-  href: string;
-  label: string;
-  icon: ComponentType<{ className?: string }>;
-}) {
+function Wordmark() {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={label}
-      className="inline-flex size-8 items-center justify-center text-muted-foreground hover:text-foreground"
-    >
-      <Icon className="size-5" />
-    </a>
+    <Link href="/" className="flex min-h-11 items-center gap-2">
+      <BrandMark />
+      <span className="font-pixel text-lg font-bold tracking-tight text-foreground">
+        ORGBOT
+      </span>
+    </Link>
   );
 }
 
@@ -109,10 +88,6 @@ export function SiteHeader({ packs }: { packs: PackOption[] }) {
     router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/marketplace");
   }
 
-  const socials = SOCIAL_LINKS.map((item) => (
-    <SocialLink key={item.href} href={item.href} label={item.label} icon={item.icon} />
-  ));
-
   const nav = NAV.map((item) => (
     <Link
       key={item.href}
@@ -127,10 +102,8 @@ export function SiteHeader({ packs }: { packs: PackOption[] }) {
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
         <Wordmark />
-        <div className="ml-auto hidden items-center gap-1 md:flex">
-          {socials}
-          <Separator orientation="vertical" className="mx-1 h-5 self-center" />
-          {nav}
+        <div className="ml-auto hidden items-center gap-5 md:flex">
+          <nav className="flex items-center gap-5">{nav}</nav>
           <ModeToggle />
         </div>
         <div className="ml-auto md:hidden">
@@ -147,11 +120,13 @@ export function SiteHeader({ packs }: { packs: PackOption[] }) {
             </SheetTrigger>
             <SheetContent side="right" className="w-72">
               <SheetHeader>
-                <SheetTitle className="font-pixel text-lg tracking-tight">ORGBOT</SheetTitle>
+                <SheetTitle className="flex items-center gap-2 font-pixel text-lg font-bold tracking-tight">
+                  <BrandMark />
+                  ORGBOT
+                </SheetTitle>
               </SheetHeader>
               <div className="flex flex-col gap-1 px-4">
-                <div className="flex items-center gap-1">{socials}</div>
-                {nav}
+                <nav className="flex flex-col gap-1">{nav}</nav>
                 <Separator className="my-2" />
                 <div className="flex items-center justify-between">
                   <span className="text-[12px] text-muted-foreground">Mode</span>

@@ -4,8 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export function MarkdownCard({ markdown }: { markdown: string }) {
   return (
-    <Card className="rounded-lg bg-transparent py-0 ring-1 ring-border">
-      <CardContent className="pack-readme px-5 py-5 text-[14px] leading-7">
+    <Card className="rounded-lg py-0 ring-1 ring-border">
+      <CardContent className="pack-readme px-6 py-6 text-[14px] leading-7">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{

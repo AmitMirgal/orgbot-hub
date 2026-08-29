@@ -57,17 +57,19 @@ export function HeroBanner() {
           />
         )}
       </div>
-      <div className="pointer-events-none relative z-10 mx-auto flex min-h-[280px] w-full max-w-6xl flex-col justify-center gap-4 px-4 py-10 md:min-h-[420px]">
-        <h1 className="font-pixel text-4xl font-bold leading-none tracking-wide sm:text-6xl">
-          ORGBOT
-        </h1>
-        <p className="text-[17px] font-bold tracking-tight sm:text-xl">
-          The open Grok Bot pack directory
-        </p>
-        <p className="max-w-xl text-[15px] leading-6 text-muted-foreground">
-          orgbots is a directory of Grok Bot teams you can install.
-        </p>
-      </div>
     </section>
+  );
+}
+
+export function HeroCopy() {
+  return (
+    <div className="flex flex-col gap-4">
+      <p className="text-[17px] font-bold tracking-tight sm:text-xl">
+        The open Grok Bot pack directory
+      </p>
+      <p className="max-w-xl text-[15px] leading-6 text-muted-foreground">
+        orgbots is a directory of Grok Bot teams you can install.
+      </p>
+    </div>
   );
 }

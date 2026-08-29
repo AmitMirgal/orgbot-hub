@@ -1,5 +1,4 @@
 import { AddToGrok } from "@/components/add-to-grok";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
   Table,
@@ -26,17 +25,17 @@ export function RosterList({
 
   return (
     <>
-      <div className="hidden overflow-hidden rounded-lg border border-border md:block">
+      <div className="hidden overflow-hidden rounded-lg border border-border bg-card text-card-foreground md:block">
         <Table>
           <TableHeader>
             <TableRow className="hover:bg-transparent">
-              <TableHead className="text-xs tracking-wide text-muted-foreground uppercase">
+              <TableHead className="text-xs font-bold tracking-wide text-muted-foreground uppercase">
                 Seat
               </TableHead>
-              <TableHead className="text-xs tracking-wide text-muted-foreground uppercase">
+              <TableHead className="text-xs font-bold tracking-wide text-muted-foreground uppercase">
                 Job
               </TableHead>
-              <TableHead className="text-xs tracking-wide text-muted-foreground uppercase">
+              <TableHead className="text-xs font-bold tracking-wide text-muted-foreground uppercase">
                 Install
               </TableHead>
             </TableRow>
@@ -45,14 +44,7 @@ export function RosterList({
             {rows.map((seat) => (
               <TableRow key={seat.id}>
                 <TableCell className="align-top">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[13px] font-medium">{seat.name}</span>
-                    {seat.isDesk ? (
-                      <Badge variant="secondary" className="w-fit rounded-md font-normal">
-                        desk
-                      </Badge>
-                    ) : null}
-                  </div>
+                  <span className="text-[13px] font-medium">{seat.name}</span>
                 </TableCell>
                 <TableCell className="max-w-[28rem] whitespace-normal align-top text-[13px] text-muted-foreground">
                   {seat.job}
@@ -74,15 +66,8 @@ export function RosterList({
 
       <div className="flex flex-col gap-3 md:hidden">
         {rows.map((seat) => (
-          <div key={seat.id} className="rounded-lg border border-border bg-card p-4">
-            <div className="flex items-start justify-between gap-2">
-              <p className="text-[14px] font-medium">{seat.name}</p>
-              {seat.isDesk ? (
-                <Badge variant="secondary" className="rounded-md font-normal">
-                  desk
-                </Badge>
-              ) : null}
-            </div>
+          <div key={seat.id} className="rounded-lg border border-border bg-card p-6 text-card-foreground">
+            <p className="text-[14px] font-medium">{seat.name}</p>
             <p className="mt-1 text-[13px] text-muted-foreground">{seat.job}</p>
             <Separator className="my-3" />
             <AddToGrok
