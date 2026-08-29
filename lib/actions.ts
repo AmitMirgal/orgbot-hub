@@ -6,9 +6,7 @@ import { looksLikeSecret, parseGrokTemplateUrl } from "@/lib/grok-url";
 import { DEFAULT_ROUTING_RULE, slugify } from "@/lib/pack";
 import { isTopic } from "@/lib/topics";
 import { createClient, getSessionUserId } from "@/lib/supabase/server";
-
-export type SubmitStatus = "coming-soon" | "open";
-export const SUBMIT_STATUS: SubmitStatus = "coming-soon";
+import { SUBMIT_STATUS } from "@/lib/submit-status";
 
 async function requireUser() {
   const { supabase, userId } = await getSessionUserId();

@@ -1,6 +1,6 @@
 import { SubmitForm } from "@/components/submit-form";
 import { Badge } from "@/components/ui/badge";
-import { SUBMIT_STATUS } from "@/lib/actions";
+import { SUBMIT_STATUS } from "@/lib/submit-status";
 import { currentProfile } from "@/lib/catalog";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 
