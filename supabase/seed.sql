@@ -99,11 +99,24 @@ on conflict (id) do update
       avatar_url = excluded.avatar_url;
 
 delete from public.likes
-where pack_id = '10000000-0000-0000-0000-000000000001';
+where pack_id in (
+  '10000000-0000-0000-0000-000000000001',
+  '10000000-0000-0000-0000-000000000002',
+  '10000000-0000-0000-0000-000000000003'
+);
 delete from public.seats
-where pack_id = '10000000-0000-0000-0000-000000000001';
+where pack_id in (
+  '10000000-0000-0000-0000-000000000001',
+  '10000000-0000-0000-0000-000000000002',
+  '10000000-0000-0000-0000-000000000003',
+  '10000000-0000-0000-0000-000000000010'
+);
 delete from public.packs
-where id = '10000000-0000-0000-0000-000000000001';
+where id in (
+  '10000000-0000-0000-0000-000000000001',
+  '10000000-0000-0000-0000-000000000002',
+  '10000000-0000-0000-0000-000000000003'
+);
 
 insert into public.packs (
   id, owner_id, slug, name, description, github_url, official, featured,
@@ -123,36 +136,6 @@ insert into public.packs (
   0,
   'Random and “make me a bot” stay at Dr Eggbot. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots she published as https://x.ai/bot/… belong here. When she publishes another official link, add a seat. Do not invent unpublished Eng/PM/recruiter bots.$readme$
-),
-(
-  '10000000-0000-0000-0000-000000000002',
-  '00000000-0000-0000-0000-000000000001',
-  'clinic-qa',
-  'Clinic QA desk',
-  'A triage desk for a clinic-style QA loop. Intake stays named. Random stays at triage. No patient records. No clinic secrets.',
-  null,
-  false,
-  false,
-  array['clinic'],
-  0,
-  0,
-  'Spawn a seat when the job repeats; random stays at the desk.',
-  $readme$Stencil only. Front desk plus QA-style seats. Do not put PHI here. Do not invent a live https://x.ai/bot/… link until you publish one.$readme$
-),
-(
-  '10000000-0000-0000-0000-000000000003',
-  '00000000-0000-0000-0000-000000000001',
-  'stencil',
-  'Empty stencil',
-  'A blank roster. Desk plus one untitled seat you replace when a job repeats.',
-  null,
-  false,
-  false,
-  array['founder'],
-  0,
-  0,
-  'Spawn a seat when the job repeats; random stays at the desk.',
-  $readme$Start here. The desk is real. The untitled seat is a reminder, not a personality. Add an official https://x.ai/bot/… link before anyone can install.$readme$
 )
 on conflict (id) do update
   set owner_id = excluded.owner_id,
@@ -164,13 +147,6 @@ on conflict (id) do update
       topics = excluded.topics,
       routing_rule = excluded.routing_rule,
       readme_md = excluded.readme_md;
-
-delete from public.seats
-where pack_id in (
-  '10000000-0000-0000-0000-000000000010',
-  '10000000-0000-0000-0000-000000000002',
-  '10000000-0000-0000-0000-000000000003'
-);
 
 insert into public.seats (
   id, pack_id, name, job, repeats_when, is_desk, sort_order, grok_template_url
@@ -184,76 +160,6 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/93gOz3op1UQdBdbekQFLK'
-  ),
-  (
-    '20000000-0000-0000-0000-000000000002',
-    '10000000-0000-0000-0000-000000000010',
-    'point peddler',
-    'Credit-card and airline points. One job: how to book.',
-    'the same booking question comes back',
-    false,
-    1,
-    'https://x.ai/bot/PFD95widaEeqjkYLLUZmD'
-  ),
-  (
-    '20000000-0000-0000-0000-000000000011',
-    '10000000-0000-0000-0000-000000000002',
-    'Triage',
-    'Sort inbound reports. Keep one-off questions. Hand repeating failure modes to a seat.',
-    null,
-    true,
-    0,
-    null
-  ),
-  (
-    '20000000-0000-0000-0000-000000000012',
-    '10000000-0000-0000-0000-000000000002',
-    'Intake',
-    'Capture the report with the same fields every time.',
-    'every new ticket needs the same form',
-    false,
-    1,
-    null
-  ),
-  (
-    '20000000-0000-0000-0000-000000000013',
-    '10000000-0000-0000-0000-000000000002',
-    'QA',
-    'Reproduce, grade severity, write the regression note.',
-    'the same class of defect returns',
-    false,
-    2,
-    null
-  ),
-  (
-    '20000000-0000-0000-0000-000000000014',
-    '10000000-0000-0000-0000-000000000002',
-    'Follow-up',
-    'Close the loop with the reporter in plain language.',
-    'status updates are themselves a job',
-    false,
-    3,
-    null
-  ),
-  (
-    '20000000-0000-0000-0000-000000000021',
-    '10000000-0000-0000-0000-000000000003',
-    'Front desk',
-    'Hold every question until a job has repeated enough to earn a seat.',
-    null,
-    true,
-    0,
-    null
-  ),
-  (
-    '20000000-0000-0000-0000-000000000022',
-    '10000000-0000-0000-0000-000000000003',
-    'Untitled seat',
-    'Replace this the moment the same job comes back twice.',
-    'you notice you are answering the same thing again',
-    false,
-    1,
-    null
   )
 on conflict (id) do update
   set pack_id = excluded.pack_id,
