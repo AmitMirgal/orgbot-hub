@@ -12,18 +12,18 @@ export function SearchHero({ defaultQuery = "" }: { defaultQuery?: string }) {
   function onSubmit(event: FormEvent) {
     event.preventDefault();
     const q = value.trim();
-    router.push(q ? `/?q=${encodeURIComponent(q)}` : "/");
+    router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/marketplace");
   }
 
   return (
     <form onSubmit={onSubmit} className="relative">
-      <SearchIcon className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
+      <SearchIcon className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
       <Input
         value={value}
         onChange={(event) => setValue(event.target.value)}
         placeholder="Search packs"
         aria-label="Search packs"
-        className="h-11 rounded-md border-border bg-background pl-9 font-sans text-[15px] md:text-[15px]"
+        className="h-11 bg-background pl-9 text-[15px]"
       />
     </form>
   );

@@ -24,9 +24,11 @@ if ! sudo -u postgres psql -d orgbots -tAc "select 1 from information_schema.tab
   sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/migrations/20260828021918_catalog.sql"
 fi
 
-if ! sudo -u postgres psql -d orgbots -tAc "select count(*) from public.packs" | grep -qv '^0$'; then
-  sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/seed.sql"
+if ! sudo -u postgres psql -d orgbots -tAc "select 1 from information_schema.columns where table_schema='public' and table_name='seats' and column_name='grok_template_url'" | grep -q 1; then
+  sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/migrations/20260829065540_pack_first.sql"
 fi
+
+sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/seed.sql"
 
 sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 <<'SQL'
 grant connect on database orgbots to authenticator, anon, authenticated, service_role;
@@ -41,6 +43,7 @@ grant insert, delete on public.likes to authenticated;
 grant insert, update on public.profiles to authenticated;
 grant usage, select on all sequences in schema public to anon, authenticated, service_role;
 grant execute on function public.increment_clones(uuid) to anon, authenticated;
+grant execute on function public.increment_installs(uuid) to anon, authenticated;
 alter default privileges in schema public grant select on tables to anon, authenticated, service_role;
 SQL
 

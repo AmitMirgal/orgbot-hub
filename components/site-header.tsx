@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { MenuIcon, SearchIcon } from "lucide-react";
+import { ModeToggle } from "@/components/mode-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,6 +22,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
@@ -36,21 +38,22 @@ export type PackOption = {
   owner: string;
   slug: string;
   name: string;
-  official: boolean;
+  featured: boolean;
 };
 
 function Wordmark() {
   return (
-    <Link href="/" className="flex items-center gap-2">
-      <span className="flex size-5 items-center justify-center rounded-[4px] border border-border">
-        <span className="block h-2.5 w-2.5 rounded-[1px] bg-foreground/80" />
+    <Link href="/" className="flex min-h-11 items-center">
+      <span className="font-pixel text-[15px] tracking-wide text-foreground">
+        orgbot-hub
       </span>
-      <span className="text-[13px] font-medium tracking-tight">orgbots</span>
     </Link>
   );
 }
 
 function SignInButton() {
+  if (!createClient()) return null;
+
   async function onSignIn() {
     const supabase = createClient();
     if (!supabase) return;
@@ -62,7 +65,7 @@ function SignInButton() {
   }
 
   return (
-    <Button variant="outline" size="sm" onClick={onSignIn}>
+    <Button variant="outline" className="min-h-11" onClick={onSignIn}>
       GitHub sign-in
     </Button>
   );
@@ -73,8 +76,8 @@ function AccountMenu({ profile }: { profile: Profile }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon-sm" className="rounded-full">
-          <Avatar size="sm">
+        <Button variant="ghost" size="icon" className="size-11 rounded-full">
+          <Avatar className="h-7 w-7">
             {profile.avatarUrl ? (
               <AvatarImage src={profile.avatarUrl} alt={profile.githubLogin} />
             ) : null}
@@ -87,7 +90,7 @@ function AccountMenu({ profile }: { profile: Profile }) {
           <Link href={`/${profile.githubLogin}`}>{profile.githubLogin}</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/publish">Publish</Link>
+          <Link href="/submit">Submit</Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem
@@ -105,6 +108,41 @@ function AccountMenu({ profile }: { profile: Profile }) {
     </DropdownMenu>
   );
 }
+
+function HeaderSearch({
+  onOpenPalette,
+}: {
+  onOpenPalette: () => void;
+}) {
+  const router = useRouter();
+  const [value, setValue] = useState("");
+
+  function onSubmit(event: FormEvent) {
+    event.preventDefault();
+    const q = value.trim();
+    router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/marketplace");
+  }
+
+  return (
+    <form onSubmit={onSubmit} className="relative hidden min-w-0 flex-1 md:block">
+      <SearchIcon className="pointer-events-none absolute top-1/2 left-2.5 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+      <Input
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
+        onFocus={onOpenPalette}
+        placeholder="Search packs"
+        aria-label="Search packs"
+        className="h-11 bg-background pl-8"
+      />
+    </form>
+  );
+}
+
+const NAV = [
+  { href: "/topics", label: "Topics" },
+  { href: "/marketplace", label: "Marketplace" },
+  { href: "/submit", label: "Submit" },
+];
 
 export function SiteHeader({
   profile,
@@ -140,74 +178,66 @@ export function SiteHeader({
   function goSearch(value: string) {
     const q = value.trim();
     setOpen(false);
-    router.push(q ? `/?q=${encodeURIComponent(q)}` : "/");
+    router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/marketplace");
   }
 
-  const nav = (
-    <>
-      <Link
-        href="/topics"
-        className="text-[13px] text-muted-foreground hover:text-foreground"
-      >
-        Topics
-      </Link>
-      <Link
-        href="/official"
-        className="text-[13px] text-muted-foreground hover:text-foreground"
-      >
-        Official
-      </Link>
-      {profile ? (
-        <Link
-          href="/publish"
-          className="text-[13px] text-muted-foreground hover:text-foreground"
-        >
-          Publish
-        </Link>
-      ) : null}
-    </>
-  );
+  const nav = NAV.map((item) => (
+    <Link
+      key={item.href}
+      href={item.href}
+      className="inline-flex min-h-11 items-center text-[13px] text-muted-foreground hover:text-foreground"
+    >
+      {item.label}
+    </Link>
+  ));
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-12 max-w-6xl items-center gap-3 px-4">
+      <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
         <Wordmark />
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="hidden min-w-0 flex-1 items-center gap-2 rounded-md border border-border bg-background px-2.5 py-1 text-left text-[13px] text-muted-foreground md:flex"
-        >
-          <SearchIcon className="size-3.5" />
-          <span className="flex-1 truncate">Search packs</span>
-          <kbd className="font-mono text-[10px] text-muted-foreground/80">/</kbd>
-        </button>
-        <nav className="ml-auto hidden items-center gap-4 sm:flex">{nav}</nav>
-        <div className="ml-auto flex items-center gap-2 sm:ml-0">
+        <HeaderSearch onOpenPalette={() => setOpen(true)} />
+        <nav className="ml-auto hidden items-center gap-3 md:flex">{nav}</nav>
+        <div className="ml-auto flex items-center gap-1 md:ml-0">
           <Button
             variant="ghost"
-            size="icon-sm"
-            className="md:hidden"
+            size="icon"
+            className="size-11 md:hidden"
             onClick={() => setOpen(true)}
             aria-label="Search"
           >
-            <SearchIcon className="size-4" />
+            <SearchIcon className="h-4 w-4" />
           </Button>
+          <div className="hidden md:block">
+            <ModeToggle />
+          </div>
           {profile ? <AccountMenu profile={profile} /> : <SignInButton />}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon-sm" className="sm:hidden" aria-label="Menu">
-                <MenuIcon className="size-4" />
+              <Button
+                variant="ghost"
+                size="icon"
+                className="size-11 md:hidden"
+                aria-label="Menu"
+              >
+                <MenuIcon className="h-4 w-4" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-72">
               <SheetHeader>
-                <SheetTitle>orgbots</SheetTitle>
+                <SheetTitle className="font-pixel text-[15px]">orgbot-hub</SheetTitle>
               </SheetHeader>
-              <div className="flex flex-col gap-3 px-4">
+              <div className="flex flex-col gap-1 px-4">
                 {nav}
-                <Separator />
+                <Separator className="my-2" />
+                <div className="flex items-center justify-between">
+                  <span className="text-[12px] text-muted-foreground">Mode</span>
+                  <ModeToggle />
+                </div>
                 {profile ? (
-                  <Link href={`/${profile.githubLogin}`} className="text-[13px]">
+                  <Link
+                    href={`/${profile.githubLogin}`}
+                    className="inline-flex min-h-11 items-center text-[13px]"
+                  >
                     {profile.githubLogin}
                   </Link>
                 ) : null}
@@ -220,7 +250,7 @@ export function SiteHeader({
         open={open}
         onOpenChange={setOpen}
         title="Search packs"
-        description="Find a roster by name"
+        description="Find a pack by name, topic, or seat"
       >
         <CommandInput
           placeholder="Search packs"
@@ -247,7 +277,7 @@ export function SiteHeader({
               >
                 <span className="truncate">{pack.name}</span>
                 <span className="ml-auto font-mono text-[11px] text-muted-foreground">
-                  {pack.owner}/{pack.slug}
+                  @{pack.owner}
                 </span>
               </CommandItem>
             ))}

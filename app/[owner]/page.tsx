@@ -16,7 +16,6 @@ export default async function AuthorPage({
   params: Promise<{ owner: string }>;
 }) {
   const { owner } = await params;
-
   const profileResult = await readCatalog(() => getProfile(owner));
   if (profileResult.status === "offline") {
     return (
@@ -27,7 +26,6 @@ export default async function AuthorPage({
   }
   if (!profileResult.data) notFound();
   const profile = profileResult.data;
-
   const packsResult = await readCatalog(() => listPacksByOwner(owner));
   if (packsResult.status === "offline") {
     return (
@@ -36,13 +34,12 @@ export default async function AuthorPage({
       </main>
     );
   }
-  const packs = packsResult.data;
   const initials = (profile.name ?? profile.githubLogin).slice(0, 1).toUpperCase();
 
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-10">
       <section className="flex items-center gap-4">
-        <Avatar className="size-12">
+        <Avatar className="h-12 w-12">
           {profile.avatarUrl ? (
             <AvatarImage src={profile.avatarUrl} alt={profile.githubLogin} />
           ) : null}
@@ -53,7 +50,8 @@ export default async function AuthorPage({
             {profile.name ?? profile.githubLogin}
           </h1>
           <p className="font-mono text-[13px] text-muted-foreground">
-            {profile.githubLogin}
+            @{profile.githubLogin}
+            {profile.xHandle ? ` · x.com/${profile.xHandle}` : ""}
           </p>
         </div>
       </section>
@@ -61,7 +59,7 @@ export default async function AuthorPage({
         <h2 className="text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
           Packs
         </h2>
-        <PackGrid packs={packs} />
+        <PackGrid packs={packsResult.data} />
       </section>
     </main>
   );

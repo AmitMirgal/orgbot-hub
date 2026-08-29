@@ -1,6 +1,6 @@
 import { parse } from "yaml";
 import { z } from "zod";
-import { DEFAULT_RULE } from "@/lib/pack";
+import { DEFAULT_ROUTING_RULE } from "@/lib/pack";
 
 const seatYamlSchema = z.object({
   name: z.string().trim().min(1),
@@ -23,7 +23,7 @@ const orgbotYamlSchema = z.object({
     job: z.string().trim().min(1),
   }),
   seats: z.array(seatYamlSchema).default([]),
-  rule: z.string().trim().min(1).default(DEFAULT_RULE),
+  rule: z.string().trim().min(1).default(DEFAULT_ROUTING_RULE),
 });
 
 export type OrgbotManifest = z.infer<typeof orgbotYamlSchema>;

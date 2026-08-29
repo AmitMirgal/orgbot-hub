@@ -1,10 +1,13 @@
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
 export function CatalogOffline({ message }: { message?: string }) {
   return (
-    <div className="border border-dashed border-border px-4 py-10 text-center">
-      <p className="text-[13px] text-muted-foreground">
+    <Alert>
+      <AlertTitle>Catalog offline</AlertTitle>
+      <AlertDescription>
         {message ??
-          "The catalog is offline. Start local Supabase, then set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY."}
-      </p>
-    </div>
+          "Start local Supabase, then set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY. Browse still works from the bundled seed if those are unset."}
+      </AlertDescription>
+    </Alert>
   );
 }

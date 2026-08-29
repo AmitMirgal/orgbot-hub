@@ -9,8 +9,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  outputFileTracingIncludes: {
-    "/": ["./examples/**/*"],
+  async redirects() {
+    return [
+      { source: "/featured/lauren", destination: "/poteto/lauren", permanent: false },
+      { source: "/publish", destination: "/submit", permanent: false },
+      { source: "/official", destination: "/about", permanent: false },
+    ];
   },
 };
 

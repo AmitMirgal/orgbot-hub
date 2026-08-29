@@ -50,14 +50,14 @@ export function LikeButton({
   }
 
   return (
-    <div className="flex flex-col items-end gap-1">
+    <div className="flex flex-col items-start gap-1">
       <Button
         variant={liked ? "secondary" : "outline"}
-        size="sm"
+        className="min-h-11"
         onClick={onLike}
         disabled={pending}
       >
-        {liked ? "Liked" : "Like"}
+        {liked ? "Upvoted" : "Upvote"}
         <span className="font-mono text-[11px] text-muted-foreground">
           {formatCount(likes)}
         </span>

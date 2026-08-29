@@ -1,0 +1,6 @@
+ts	phase	decision	why	evidence	result
+2026-08-29T06:55:00Z	frame	keep this Next.js app and make Pack the product unit	the repo already had App Router, shadcn, Geist, and Supabase	package.json, supabase/migrations/20260828021918_catalog.sql	scoped to in-place rewrite
+2026-08-29T06:56:00Z	design	skip architect arena	pages, seed seats, and install href grammar were already specified	user case	architect skipped
+2026-08-29T07:00:00Z	scaffold	parse official x.ai/bot URLs at the boundary	install hrefs must never accept grokbot.dev or invented IDs	lib/grok-url.ts	parser written
+2026-08-29T07:05:00Z	schema	migrate existing tables instead of a second app	catalog already had profiles, packs, seats, likes	supabase/migrations/20260829065540_pack_first.sql	migration created
+2026-08-29T07:20:00Z	verify	fall back to seed when hosted Supabase has no packs table	a stranger still has to see Lauren first	lib/catalog.ts, pnpm build, browser home and /poteto/lauren	VERIFIED

@@ -2,86 +2,99 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { CatalogOffline } from "@/components/catalog-offline";
 import { Leaderboard } from "@/components/leaderboard";
+import { PackCardView } from "@/components/pack-card";
 import { PackGrid } from "@/components/pack-grid";
 import { SearchHero } from "@/components/search-hero";
-import { listPacks, readCatalog } from "@/lib/catalog";
+import { catalogStats, listPacks, readCatalog } from "@/lib/catalog";
+import { formatCount } from "@/lib/pack";
 
 export const dynamic = "force-dynamic";
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: Promise<{ q?: string; topic?: string; official?: string }>;
-}) {
-  const params = await searchParams;
-  const q = params.q?.trim() || undefined;
-  const topic = params.topic?.trim() || undefined;
-  const official = params.official === "1";
+export default async function Home() {
+  const [packsResult, statsResult] = await Promise.all([
+    readCatalog(() => listPacks()),
+    readCatalog(() => catalogStats()),
+  ]);
 
-  const result = await readCatalog(() => listPacks({ q, topic, official }));
-  if (result.status === "offline") {
+  if (packsResult.status === "offline") {
     return (
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
-        <Hero q={q} />
-        <CatalogOffline message={result.message} />
+        <Hero />
+        <CatalogOffline message={packsResult.message} />
       </main>
     );
   }
-  const packs = result.data;
 
-  const trending = [...packs].sort((a, b) => b.clonesCount - a.clonesCount).slice(0, 8);
-  const heading = official
-    ? "Official"
-    : topic
-      ? `Topic · ${topic}`
-      : q
-        ? `Results`
-        : "Trending";
+  const packs = packsResult.data;
+  const featured = packs.find((pack) => pack.featured) ?? packs[0];
+  const rest = packs.filter((pack) => pack.id !== featured?.id);
+  const stats = statsResult.status === "ok" ? statsResult.data : { packs: packs.length, seats: 0 };
 
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
-      <Hero q={q} />
+      <Hero />
+      <section className="flex flex-wrap gap-6 text-[13px] text-muted-foreground">
+        <p>
+          <span className="font-mono text-foreground">{formatCount(stats.packs)}</span> packs
+        </p>
+        <p>
+          <span className="font-mono text-foreground">{formatCount(stats.seats)}</span> seats
+        </p>
+      </section>
+      {featured ? (
+        <section className="flex flex-col gap-3">
+          <HeaderLabel href={`/${featured.owner.githubLogin}/${featured.slug}`}>
+            Featured
+          </HeaderLabel>
+          <div className="max-w-xl">
+            <PackCardView pack={featured} />
+          </div>
+        </section>
+      ) : null}
       <section className="flex flex-col gap-3">
-        <HeaderLabel>{heading}</HeaderLabel>
-        <Leaderboard packs={trending} />
+        <HeaderLabel href="/marketplace">Trending</HeaderLabel>
+        <Leaderboard packs={packs.slice(0, 6)} />
       </section>
       <section className="flex flex-col gap-3">
-        <HeaderLabel>Directory</HeaderLabel>
-        <PackGrid packs={packs} />
+        <HeaderLabel href="/marketplace">Packs</HeaderLabel>
+        <PackGrid packs={rest.length > 0 ? rest : packs} />
       </section>
     </main>
   );
 }
 
-function Hero({ q }: { q?: string }) {
+function Hero() {
   return (
     <section className="flex max-w-2xl flex-col gap-4">
       <p className="text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
-        Open directory
+        Packs
       </p>
-      <h1 className="text-3xl font-medium tracking-tight sm:text-4xl">
-        A company of bots.
+      <h1 className="font-pixel text-3xl leading-tight tracking-wide sm:text-4xl">
+        company of bots you can install
       </h1>
       <p className="max-w-xl text-[15px] leading-6 text-muted-foreground">
-        Packs are rosters, not prompts. Front desk first. Named seats for jobs that
-        keep coming back. Clone them like a model.
+        Front desk plus named seats. Random questions stay at the desk. Official Grok
+        install only.
       </p>
-      <SearchHero defaultQuery={q ?? ""} />
-      <p className="font-mono text-[12px] text-muted-foreground">
-        npx orgbots add owner/pack
-      </p>
+      <SearchHero />
     </section>
   );
 }
 
-function HeaderLabel({ children }: { children: ReactNode }) {
+function HeaderLabel({
+  children,
+  href,
+}: {
+  children: ReactNode;
+  href: string;
+}) {
   return (
     <div className="flex items-center justify-between">
       <h2 className="text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
         {children}
       </h2>
-      <Link href="/topics" className="text-[12px] text-muted-foreground hover:text-foreground">
-        Topics
+      <Link href={href} className="text-[12px] text-muted-foreground hover:text-foreground">
+        View
       </Link>
     </div>
   );
