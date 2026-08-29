@@ -52,10 +52,12 @@ export default async function Home() {
         <HeaderLabel href="/marketplace">Trending</HeaderLabel>
         <Leaderboard packs={packs.slice(0, 6)} />
       </section>
-      <section className="flex flex-col gap-3">
-        <HeaderLabel href="/marketplace">Packs</HeaderLabel>
-        <PackGrid packs={rest.length > 0 ? rest : packs} />
-      </section>
+      {rest.length > 0 ? (
+        <section className="flex flex-col gap-3">
+          <HeaderLabel href="/marketplace">Packs</HeaderLabel>
+          <PackGrid packs={rest} />
+        </section>
+      ) : null}
     </main>
   );
 }
