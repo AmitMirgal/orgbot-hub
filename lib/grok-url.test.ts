@@ -12,6 +12,18 @@ test("accepts official x.ai bot URLs", () => {
     "https://x.ai/bot/s/PFD95widaEeqjkYLLUZmD"
   );
   assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/fcJJMM58AdXSTBdW3xWyW"),
+    "https://x.ai/bot/fcJJMM58AdXSTBdW3xWyW"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/ph5mcXqVy2p176Br7BJYi"),
+    "https://x.ai/bot/ph5mcXqVy2p176Br7BJYi"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/FU-Ev6_Ju4lFGWwWRD0GD"),
+    "https://x.ai/bot/FU-Ev6_Ju4lFGWwWRD0GD"
+  );
+  assert.equal(
     parseGrokTemplateUrl("https://x.ai/bot/o4gWkNGmffEaVtOhaEsA7"),
     "https://x.ai/bot/o4gWkNGmffEaVtOhaEsA7"
   );

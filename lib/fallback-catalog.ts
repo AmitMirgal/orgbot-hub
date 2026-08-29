@@ -11,6 +11,8 @@ export type FallbackQuery = {
 
 const EXAMPLES_OWNER_ID = "00000000-0000-0000-0000-000000000001";
 const POTETO_OWNER_ID = "00000000-0000-0000-0000-000000000002";
+const KRISTA_OWNER_ID = "00000000-0000-0000-0000-000000000003";
+const ERIC_OWNER_ID = "00000000-0000-0000-0000-000000000004";
 const NAOUFALELH_OWNER_ID = "00000000-0000-0000-0000-000000000005";
 
 const EXAMPLES_OWNER: Profile = {
@@ -27,6 +29,22 @@ const POTETO_OWNER: Profile = {
   name: "Lauren Tan",
   avatarUrl: null,
   xHandle: "poteto",
+};
+
+const KRISTA_OWNER: Profile = {
+  id: KRISTA_OWNER_ID,
+  githubLogin: "kristaletz",
+  name: "Krista Letz",
+  avatarUrl: "https://avatars.githubusercontent.com/u/225127725?v=4",
+  xHandle: "kristaletz",
+};
+
+const ERIC_OWNER: Profile = {
+  id: ERIC_OWNER_ID,
+  githubLogin: "ericzakariasson",
+  name: "Eric Zakariasson",
+  avatarUrl: "https://avatars.githubusercontent.com/u/25622412?v=4",
+  xHandle: "ericzakariasson",
 };
 
 const NAOUFALELH_OWNER: Profile = {
@@ -74,6 +92,75 @@ const LAUREN: Pack = {
   ],
 };
 
+const KRISTA: Pack = {
+  id: "10000000-0000-0000-0000-000000000011",
+  owner: KRISTA_OWNER,
+  slug: "krista",
+  name: "Krista",
+  description:
+    "Public Grok Bot templates Krista Letz (@kristaletz) has shared. One pack, her roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  routingRule:
+    "Random GTM questions stay at PG. Use Echo only for call-to-slides. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots she published as https://x.ai/bot/… belong here. When she publishes another official link, add a seat. Do not invent unpublished Chief of Staff or Salesforce bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000002",
+      name: "PG",
+      job: "Prospecting bot that researches accounts, watches recent podcasts and webinars for personal hooks, and can optionally sign into X or LinkedIn to find recent posts. Builds a contact spreadsheet and drafts outreach from CRM and meeting notes.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/fcJJMM58AdXSTBdW3xWyW",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000003",
+      name: "Echo",
+      job: "Turns a customer call into slides from customer context. Works with Figma or Google Slides, and Granola or Gong notes.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/ph5mcXqVy2p176Br7BJYi",
+    }),
+  ],
+};
+
+const ERIC: Pack = {
+  id: "10000000-0000-0000-0000-000000000012",
+  owner: ERIC_OWNER,
+  slug: "eric",
+  name: "Eric",
+  description:
+    "Public Grok Bot templates Eric Zakariasson (@ericzakariasson) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["developer"],
+  likesCount: 0,
+  installsCount: 0,
+  routingRule:
+    "Random questions stay at Projects Manager. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished Coder, Writer, or Researcher bots from his guide.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000004",
+      name: "Projects Manager",
+      job: "A Grok Bot projects manager. Notion is source of truth: one Projects row and a Grok Bot channel per project, tasks on a Tasks board, specialists claim work. The user decides. Agents execute. Does not do specialist work.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/FU-Ev6_Ju4lFGWwWRD0GD",
+    }),
+  ],
+};
+
 const NAO: Pack = {
   id: "10000000-0000-0000-0000-000000000013",
   owner: NAOUFALELH_OWNER,
@@ -104,8 +191,8 @@ const NAO: Pack = {
   ],
 };
 
-const ALL_PACKS: Pack[] = [LAUREN, NAO];
-const ALL_PROFILES: Profile[] = [POTETO_OWNER, EXAMPLES_OWNER, NAOUFALELH_OWNER];
+const ALL_PACKS: Pack[] = [LAUREN, KRISTA, ERIC, NAO];
+const ALL_PROFILES: Profile[] = [POTETO_OWNER, EXAMPLES_OWNER, KRISTA_OWNER, ERIC_OWNER, NAOUFALELH_OWNER];
 
 function toCard(pack: Pack): PackCard {
   const { readmeMd: _readme, routingRule: _rule, ...card } = pack;
