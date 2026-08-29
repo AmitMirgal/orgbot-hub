@@ -6,6 +6,7 @@ import { looksLikeSecret, parseGrokTemplateUrl } from "@/lib/grok-url";
 import { DEFAULT_ROUTING_RULE, slugify } from "@/lib/pack";
 import { isTopic } from "@/lib/topics";
 import { createClient, getSessionUserId } from "@/lib/supabase/server";
+import { SUBMIT_STATUS } from "@/lib/submit-status";
 
 async function requireUser() {
   const { supabase, userId } = await getSessionUserId();
@@ -54,6 +55,10 @@ function parseTopics(formData: FormData): string[] {
 }
 
 export async function submitPack(formData: FormData) {
+  if (SUBMIT_STATUS === "coming-soon") {
+    return { error: "Submit is coming soon." };
+  }
+
   const { supabase, userId, error } = await requireUser();
   if (!supabase || !userId) return { error: error ?? "Not signed in." };
 
