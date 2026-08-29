@@ -220,6 +220,21 @@ const HalftoneReveal = ({
   const rafRef = useRef<number | null>(null);
   const followRef = useRef<number>(follow);
   const mouseRef = useRef({ x: 0.5, y: 0.5, sx: 0.5, sy: 0.5, active: 0, target: 0 });
+  const lookRef = useRef({
+    dotSize,
+    dotDensity,
+    angle,
+    shape,
+    inkColor,
+    paperColor,
+    mode,
+    contrast,
+    invert,
+    revealRadius,
+    edge,
+    idleReveal,
+    trigger
+  });
 
   useEffect(() => {
     followRef.current = follow;
@@ -248,6 +263,7 @@ const HalftoneReveal = ({
     container.appendChild(gl.canvas);
 
     const texture = new Texture(gl, { generateMipmaps: false });
+    const look = lookRef.current;
 
     const uniforms = {
       tMap: { value: texture },
@@ -255,19 +271,19 @@ const HalftoneReveal = ({
       uImageSize: { value: [1, 1] },
       uMouse: { value: [0.5, 0.5] },
       uActivity: { value: 0 },
-      uDotSize: { value: dotSize },
-      uDensity: { value: dotDensity },
-      uAngle: { value: angle },
-      uShape: { value: SHAPES[shape] ?? 0 },
-      uInk: { value: hexToRgb(inkColor) },
-      uPaper: { value: hexToRgb(paperColor) },
-      uMode: { value: MODES[mode] ?? 0 },
-      uContrast: { value: contrast },
-      uInvert: { value: invert ? 1 : 0 },
-      uRevealRadius: { value: revealRadius },
-      uEdge: { value: edge },
-      uIdleReveal: { value: idleReveal },
-      uTrigger: { value: TRIGGERS[trigger] ?? 1 }
+      uDotSize: { value: look.dotSize },
+      uDensity: { value: look.dotDensity },
+      uAngle: { value: look.angle },
+      uShape: { value: SHAPES[look.shape] ?? 0 },
+      uInk: { value: hexToRgb(look.inkColor) },
+      uPaper: { value: hexToRgb(look.paperColor) },
+      uMode: { value: MODES[look.mode] ?? 0 },
+      uContrast: { value: look.contrast },
+      uInvert: { value: look.invert ? 1 : 0 },
+      uRevealRadius: { value: look.revealRadius },
+      uEdge: { value: look.edge },
+      uIdleReveal: { value: look.idleReveal },
+      uTrigger: { value: TRIGGERS[look.trigger] ?? 1 }
     };
     uniformsRef.current = uniforms;
 
@@ -338,10 +354,24 @@ const HalftoneReveal = ({
       rendererRef.current = null;
       uniformsRef.current = null;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [src]);
 
   useEffect(() => {
+    lookRef.current = {
+      dotSize,
+      dotDensity,
+      angle,
+      shape,
+      inkColor,
+      paperColor,
+      mode,
+      contrast,
+      invert,
+      revealRadius,
+      edge,
+      idleReveal,
+      trigger
+    };
     const u = uniformsRef.current;
     if (!u) return;
     u.uDotSize.value = dotSize;
