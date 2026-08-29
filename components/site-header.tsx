@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent, useEffect, useState } from "react";
-import { MenuIcon, SearchIcon } from "lucide-react";
+import { useEffect, useState, type ComponentType } from "react";
+import { MenuIcon } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   CommandDialog,
@@ -15,14 +14,6 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
@@ -31,8 +22,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import type { Profile } from "@/lib/pack";
-import { createClient } from "@/lib/supabase/client";
 
 export type PackOption = {
   owner: string;
@@ -41,116 +30,76 @@ export type PackOption = {
   featured: boolean;
 };
 
+const NAV = [{ href: "/submit", label: "Submit" }] as const;
+
+const SOCIAL_LINKS = [
+  {
+    href: "https://x.com/amit_mirgal",
+    label: "X",
+    icon: XLogo,
+  },
+  {
+    href: "https://github.com/AmitMirgal/orgbot-hub",
+    label: "GitHub",
+    icon: GitHubLogo,
+  },
+] as const;
+
 function Wordmark() {
   return (
     <Link href="/" className="flex min-h-11 items-center">
       <span className="font-pixel text-[15px] tracking-wide text-foreground">
-        orgbot-hub
+        ORGBOT
       </span>
     </Link>
   );
 }
 
-function SignInButton() {
-  if (!createClient()) return null;
-
-  async function onSignIn() {
-    const supabase = createClient();
-    if (!supabase) return;
-    const origin = window.location.origin;
-    await supabase.auth.signInWithOAuth({
-      provider: "github",
-      options: { redirectTo: `${origin}/auth/callback` },
-    });
-  }
-
+function XLogo({ className }: { className?: string }) {
   return (
-    <Button variant="outline" className="min-h-11" onClick={onSignIn}>
-      GitHub sign-in
-    </Button>
-  );
-}
-
-function AccountMenu({ profile }: { profile: Profile }) {
-  const initials = (profile.name ?? profile.githubLogin).slice(0, 1).toUpperCase();
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="size-11 rounded-full">
-          <Avatar className="h-7 w-7">
-            {profile.avatarUrl ? (
-              <AvatarImage src={profile.avatarUrl} alt={profile.githubLogin} />
-            ) : null}
-            <AvatarFallback>{initials}</AvatarFallback>
-          </Avatar>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
-        <DropdownMenuItem asChild>
-          <Link href={`/${profile.githubLogin}`}>{profile.githubLogin}</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link href="/submit">Submit</Link>
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem
-          onSelect={() => {
-            const form = document.createElement("form");
-            form.method = "post";
-            form.action = "/auth/sign-out";
-            document.body.appendChild(form);
-            form.submit();
-          }}
-        >
-          Sign out
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
-}
-
-function HeaderSearch({
-  onOpenPalette,
-}: {
-  onOpenPalette: () => void;
-}) {
-  const router = useRouter();
-  const [value, setValue] = useState("");
-
-  function onSubmit(event: FormEvent) {
-    event.preventDefault();
-    const q = value.trim();
-    router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/marketplace");
-  }
-
-  return (
-    <form onSubmit={onSubmit} className="relative hidden min-w-0 flex-1 md:block">
-      <SearchIcon className="pointer-events-none absolute top-1/2 left-2.5 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-      <Input
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
-        onFocus={onOpenPalette}
-        placeholder="Search packs"
-        aria-label="Search packs"
-        className="h-11 bg-background pl-8"
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className}>
+      <path
+        fill="currentColor"
+        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.837L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"
       />
-    </form>
+    </svg>
   );
 }
 
-const NAV = [
-  { href: "/topics", label: "Topics" },
-  { href: "/marketplace", label: "Marketplace" },
-  { href: "/submit", label: "Submit" },
-];
+function GitHubLogo({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className}>
+      <path
+        fill="currentColor"
+        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+      />
+    </svg>
+  );
+}
 
-export function SiteHeader({
-  profile,
-  packs,
+function SocialLink({
+  href,
+  label,
+  icon: Icon,
 }: {
-  profile: Profile | null;
-  packs: PackOption[];
+  href: string;
+  label: string;
+  icon: ComponentType<{ className?: string }>;
 }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={label}
+      className="inline-flex size-8 items-center justify-center text-muted-foreground hover:text-foreground"
+    >
+      <Icon className="size-5" />
+    </a>
+  );
+}
+
+export function SiteHeader({ packs }: { packs: PackOption[] }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -181,6 +130,10 @@ export function SiteHeader({
     router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/marketplace");
   }
 
+  const socials = SOCIAL_LINKS.map((item) => (
+    <SocialLink key={item.href} href={item.href} label={item.label} icon={item.icon} />
+  ));
+
   const nav = NAV.map((item) => (
     <Link
       key={item.href}
@@ -195,28 +148,19 @@ export function SiteHeader({
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
         <Wordmark />
-        <HeaderSearch onOpenPalette={() => setOpen(true)} />
-        <nav className="ml-auto hidden items-center gap-3 md:flex">{nav}</nav>
-        <div className="ml-auto flex items-center gap-1 md:ml-0">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="size-11 md:hidden"
-            onClick={() => setOpen(true)}
-            aria-label="Search"
-          >
-            <SearchIcon className="h-4 w-4" />
-          </Button>
-          <div className="hidden md:block">
-            <ModeToggle />
-          </div>
-          {profile ? <AccountMenu profile={profile} /> : <SignInButton />}
+        <div className="ml-auto hidden items-center gap-1 md:flex">
+          {socials}
+          <Separator orientation="vertical" className="mx-1 h-5 self-center" />
+          {nav}
+          <ModeToggle />
+        </div>
+        <div className="ml-auto md:hidden">
           <Sheet>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
-                className="size-11 md:hidden"
+                className="size-11"
                 aria-label="Menu"
               >
                 <MenuIcon className="h-4 w-4" />
@@ -224,23 +168,16 @@ export function SiteHeader({
             </SheetTrigger>
             <SheetContent side="right" className="w-72">
               <SheetHeader>
-                <SheetTitle className="font-pixel text-[15px]">orgbot-hub</SheetTitle>
+                <SheetTitle className="font-pixel text-[15px]">ORGBOT</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col gap-1 px-4">
+                <div className="flex items-center gap-1">{socials}</div>
                 {nav}
                 <Separator className="my-2" />
                 <div className="flex items-center justify-between">
                   <span className="text-[12px] text-muted-foreground">Mode</span>
                   <ModeToggle />
                 </div>
-                {profile ? (
-                  <Link
-                    href={`/${profile.githubLogin}`}
-                    className="inline-flex min-h-11 items-center text-[13px]"
-                  >
-                    {profile.githubLogin}
-                  </Link>
-                ) : null}
               </div>
             </SheetContent>
           </Sheet>
