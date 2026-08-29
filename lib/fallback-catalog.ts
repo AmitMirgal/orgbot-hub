@@ -13,6 +13,7 @@ const EXAMPLES_OWNER_ID = "00000000-0000-0000-0000-000000000001";
 const POTETO_OWNER_ID = "00000000-0000-0000-0000-000000000002";
 const KRISTA_OWNER_ID = "00000000-0000-0000-0000-000000000003";
 const ERIC_OWNER_ID = "00000000-0000-0000-0000-000000000004";
+const NAOUFALELH_OWNER_ID = "00000000-0000-0000-0000-000000000005";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -44,6 +45,14 @@ const ERIC_OWNER: Profile = {
   name: "Eric Zakariasson",
   avatarUrl: "https://avatars.githubusercontent.com/u/25622412?v=4",
   xHandle: "ericzakariasson",
+};
+
+const NAOUFALELH_OWNER: Profile = {
+  id: NAOUFALELH_OWNER_ID,
+  githubLogin: "naoufalelh",
+  name: "Naoufal El hassnaoui",
+  avatarUrl: "https://avatars.githubusercontent.com/u/10200999?v=4",
+  xHandle: "naoufal_elh",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -152,8 +161,38 @@ const ERIC: Pack = {
   ],
 };
 
-const ALL_PACKS: Pack[] = [LAUREN, KRISTA, ERIC];
-const ALL_PROFILES: Profile[] = [POTETO_OWNER, EXAMPLES_OWNER, KRISTA_OWNER, ERIC_OWNER];
+const NAO: Pack = {
+  id: "10000000-0000-0000-0000-000000000013",
+  owner: NAOUFALELH_OWNER,
+  slug: "nao",
+  name: "Nao",
+  description:
+    "Public Grok Bot templates Nao (@naoufal_elh) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["developer"],
+  likesCount: 0,
+  installsCount: 0,
+  routingRule:
+    "Random questions stay at Rutin. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000005",
+      name: "Rutin",
+      job: "A Monday-morning optimizer that scans every bot's routines and proposes schedule fixes, including how many runs you save each week if you apply them. On first chat it runs that scan immediately, waits for your okay, then applies only what you approve.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/o4gWkNGmffEaVtOhaEsA7",
+    }),
+  ],
+};
+
+const ALL_PACKS: Pack[] = [LAUREN, KRISTA, ERIC, NAO];
+const ALL_PROFILES: Profile[] = [POTETO_OWNER, EXAMPLES_OWNER, KRISTA_OWNER, ERIC_OWNER, NAOUFALELH_OWNER];
 
 function toCard(pack: Pack): PackCard {
   const { readmeMd: _readme, routingRule: _rule, ...card } = pack;
