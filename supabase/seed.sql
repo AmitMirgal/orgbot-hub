@@ -48,6 +48,40 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000003',
+  'authenticated',
+  'authenticated',
+  'kristaletz@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"kristaletz","preferred_username":"kristaletz","full_name":"Krista Letz"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000004',
+  'authenticated',
+  'authenticated',
+  'ericzakariasson@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"ericzakariasson","preferred_username":"ericzakariasson","full_name":"Eric Zakariasson"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 on conflict (id) do nothing;
 
@@ -85,13 +119,53 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000003',
+  '00000000-0000-0000-0000-000000000003',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000003',
+    'email', 'kristaletz@orgbots.dev',
+    'user_name', 'kristaletz'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000004',
+  '00000000-0000-0000-0000-000000000004',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000004',
+    'email', 'ericzakariasson@orgbots.dev',
+    'user_name', 'ericzakariasson'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 on conflict (provider_id, provider) do nothing;
 
 insert into public.profiles (id, github_login, name, x_handle, avatar_url)
 values
   ('00000000-0000-0000-0000-000000000001', 'examples', 'examples', null, null),
-  ('00000000-0000-0000-0000-000000000002', 'poteto', 'Lauren Tan', 'poteto', null)
+  ('00000000-0000-0000-0000-000000000002', 'poteto', 'Lauren Tan', 'poteto', null),
+  (
+    '00000000-0000-0000-0000-000000000003',
+    'kristaletz',
+    'Krista Letz',
+    'kristaletz',
+    'https://avatars.githubusercontent.com/u/225127725?v=4'
+  ),
+  (
+    '00000000-0000-0000-0000-000000000004',
+    'ericzakariasson',
+    'Eric Zakariasson',
+    'ericzakariasson',
+    'https://avatars.githubusercontent.com/u/25622412?v=4'
+  )
 on conflict (id) do update
   set github_login = excluded.github_login,
       name = excluded.name,
@@ -109,7 +183,9 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000001',
   '10000000-0000-0000-0000-000000000002',
   '10000000-0000-0000-0000-000000000003',
-  '10000000-0000-0000-0000-000000000010'
+  '10000000-0000-0000-0000-000000000010',
+  '10000000-0000-0000-0000-000000000011',
+  '10000000-0000-0000-0000-000000000012'
 );
 delete from public.packs
 where id in (
@@ -160,6 +236,93 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/93gOz3op1UQdBdbekQFLK'
+  )
+on conflict (id) do update
+  set pack_id = excluded.pack_id,
+      name = excluded.name,
+      job = excluded.job,
+      repeats_when = excluded.repeats_when,
+      is_desk = excluded.is_desk,
+      sort_order = excluded.sort_order,
+      grok_template_url = excluded.grok_template_url;
+
+insert into public.packs (
+  id, owner_id, slug, name, description, github_url, official, featured,
+  topics, likes_count, installs_count, routing_rule, readme_md
+) values
+(
+  '10000000-0000-0000-0000-000000000011',
+  '00000000-0000-0000-0000-000000000003',
+  'krista',
+  'Krista',
+  'Public Grok Bot templates Krista Letz (@kristaletz) has shared. One pack, her roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random GTM questions stay at PG. Use Echo only for call-to-slides. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots she published as https://x.ai/bot/… belong here. When she publishes another official link, add a seat. Do not invent unpublished Chief of Staff or Salesforce bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000012',
+  '00000000-0000-0000-0000-000000000004',
+  'eric',
+  'Eric',
+  'Public Grok Bot templates Eric Zakariasson (@ericzakariasson) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['developer'],
+  0,
+  0,
+  'Random questions stay at Projects Manager. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished Coder, Writer, or Researcher bots from his guide.$readme$
+)
+on conflict (id) do update
+  set owner_id = excluded.owner_id,
+      slug = excluded.slug,
+      name = excluded.name,
+      description = excluded.description,
+      official = excluded.official,
+      featured = excluded.featured,
+      topics = excluded.topics,
+      routing_rule = excluded.routing_rule,
+      readme_md = excluded.readme_md;
+
+insert into public.seats (
+  id, pack_id, name, job, repeats_when, is_desk, sort_order, grok_template_url
+) values
+  (
+    '20000000-0000-0000-0000-000000000002',
+    '10000000-0000-0000-0000-000000000011',
+    'PG',
+    'Prospecting bot that researches accounts, watches recent podcasts and webinars for personal hooks, and can optionally sign into X or LinkedIn to find recent posts. Builds a contact spreadsheet and drafts outreach from CRM and meeting notes.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/fcJJMM58AdXSTBdW3xWyW'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000003',
+    '10000000-0000-0000-0000-000000000011',
+    'Echo',
+    'Turns a customer call into slides from customer context. Works with Figma or Google Slides, and Granola or Gong notes.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/ph5mcXqVy2p176Br7BJYi'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000004',
+    '10000000-0000-0000-0000-000000000012',
+    'Projects Manager',
+    'A Grok Bot projects manager. Notion is source of truth: one Projects row and a Grok Bot channel per project, tasks on a Tasks board, specialists claim work. The user decides. Agents execute. Does not do specialist work.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/FU-Ev6_Ju4lFGWwWRD0GD'
   )
 on conflict (id) do update
   set pack_id = excluded.pack_id,
