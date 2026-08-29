@@ -338,6 +338,7 @@ const HalftoneReveal = ({
       rendererRef.current = null;
       uniformsRef.current = null;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [src]);
 
   useEffect(() => {
