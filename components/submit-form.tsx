@@ -11,12 +11,13 @@ import { submitPack } from "@/lib/actions";
 import { DEFAULT_ROUTING_RULE } from "@/lib/pack";
 import { TOPICS } from "@/lib/topics";
 
-export function SubmitForm() {
+export function SubmitForm({ disabled = false }: { disabled?: boolean }) {
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
   const [topics, setTopics] = useState<string[]>([]);
 
   async function onSubmit(formData: FormData) {
+    if (disabled) return;
     setPending(true);
     setError(null);
     for (const topic of topics) formData.append("topics", topic);
@@ -27,6 +28,10 @@ export function SubmitForm() {
 
   return (
     <form action={onSubmit} className="flex flex-col gap-6">
+      <fieldset
+        disabled={disabled}
+        className="flex min-w-0 flex-col gap-6 border-0 p-0 disabled:opacity-60"
+      >
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Pack name" htmlFor="name">
           <Input id="name" name="name" required className="h-11" placeholder="Lauren" />
@@ -120,9 +125,10 @@ export function SubmitForm() {
           <AlertDescription>{error}</AlertDescription>
         </Alert>
       ) : null}
-      <Button type="submit" disabled={pending} className="min-h-11 w-fit">
+      <Button type="submit" disabled={disabled || pending} className="min-h-11 w-fit">
         {pending ? "Saving…" : "Submit pack"}
       </Button>
+      </fieldset>
     </form>
   );
 }

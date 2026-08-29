@@ -7,6 +7,9 @@ import { DEFAULT_ROUTING_RULE, slugify } from "@/lib/pack";
 import { isTopic } from "@/lib/topics";
 import { createClient, getSessionUserId } from "@/lib/supabase/server";
 
+export type SubmitStatus = "coming-soon" | "open";
+export const SUBMIT_STATUS: SubmitStatus = "coming-soon";
+
 async function requireUser() {
   const { supabase, userId } = await getSessionUserId();
   if (!supabase) {
@@ -54,6 +57,10 @@ function parseTopics(formData: FormData): string[] {
 }
 
 export async function submitPack(formData: FormData) {
+  if (SUBMIT_STATUS === "coming-soon") {
+    return { error: "Submit is coming soon." };
+  }
+
   const { supabase, userId, error } = await requireUser();
   if (!supabase || !userId) return { error: error ?? "Not signed in." };
 
