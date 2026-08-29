@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import HalftoneReveal from "@/components/HalftoneReveal";
-import { SearchHero } from "@/components/search-hero";
 
 const HERO_SRC = "/hero-halftone.png";
 
@@ -59,18 +58,15 @@ export function HeroBanner() {
         )}
       </div>
       <div className="pointer-events-none relative z-10 mx-auto flex min-h-[280px] w-full max-w-6xl flex-col justify-center gap-4 px-4 py-10 md:min-h-[420px]">
-        <h1 className="font-pixel text-4xl leading-none tracking-wide sm:text-6xl">
+        <h1 className="font-pixel text-4xl font-bold leading-none tracking-wide sm:text-6xl">
           ORGBOT
         </h1>
-        <p className="text-[17px] font-medium tracking-tight sm:text-xl">
+        <p className="text-[17px] font-bold tracking-tight sm:text-xl">
           The open Grok Bot pack directory
         </p>
         <p className="max-w-xl text-[15px] leading-6 text-muted-foreground">
           orgbots is a directory of Grok Bot teams you can install.
         </p>
-        <div className="pointer-events-auto max-w-xl">
-          <SearchHero />
-        </div>
       </div>
     </section>
   );
