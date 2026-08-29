@@ -11,6 +11,10 @@ test("accepts official x.ai bot URLs", () => {
     parseGrokTemplateUrl("https://www.x.ai/bot/s/PFD95widaEeqjkYLLUZmD/"),
     "https://x.ai/bot/s/PFD95widaEeqjkYLLUZmD"
   );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/o4gWkNGmffEaVtOhaEsA7"),
+    "https://x.ai/bot/o4gWkNGmffEaVtOhaEsA7"
+  );
 });
 
 test("rejects unofficial or unsafe install targets", () => {
