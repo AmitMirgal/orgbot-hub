@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { AddEveryBot } from "@/components/add-every-bot";
 import { AddToGrok } from "@/components/add-to-grok";
 import { CatalogOffline } from "@/components/catalog-offline";
-import { LikeButton } from "@/components/like-button";
 import { MarkdownCard } from "@/components/markdown-card";
 import { PackGrid } from "@/components/pack-grid";
 import { RosterList } from "@/components/roster-list";
@@ -13,9 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import {
-  currentProfile,
   getPack,
-  hasLiked,
   readCatalog,
   relatedPacks,
 } from "@/lib/catalog";
@@ -57,8 +54,6 @@ export default async function PackPage({
   }
   if (!packResult.data) notFound();
   const pack = packResult.data;
-  const profile = await currentProfile();
-  const liked = await hasLiked(pack.id, profile?.id ?? null);
   const related = await relatedPacks(pack).catch(() => []);
   const desk = deskOf(pack);
   const seats = namedSeats(pack);
@@ -70,23 +65,20 @@ export default async function PackPage({
         <div className="flex flex-col gap-8">
           <header className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
             <div className="flex min-w-0 flex-col gap-3">
-              <p className="text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
+              <p className="text-xs tracking-[0.18em] text-muted-foreground uppercase">
                 Pack
               </p>
               <h1 className="text-3xl font-medium tracking-tight">{pack.name}</h1>
               <div className="flex flex-wrap gap-1.5">
                 {pack.topics.map((topic) => (
                   <Link key={topic} href={`/topics/${topic}`}>
-                    <Badge variant="outline" className="rounded-md font-normal">
+                    <Badge variant="accent" className="rounded-md font-normal">
                       {topic}
                     </Badge>
                   </Link>
                 ))}
-                <Badge variant="secondary" className="rounded-md font-normal">
-                  {pack.seats.length} seats
-                </Badge>
               </div>
-              <p className="font-mono text-[12px] text-muted-foreground">
+              <p className="font-mono text-xs text-muted-foreground">
                 shared by{" "}
                 <Link href={`/${pack.owner.githubLogin}`} className="hover:text-foreground">
                   {ownerHandle(pack)}
@@ -101,15 +93,7 @@ export default async function PackPage({
                 owner={pack.owner.githubLogin}
                 slug={pack.slug}
               />
-              <LikeButton
-                packId={pack.id}
-                owner={pack.owner.githubLogin}
-                slug={pack.slug}
-                likes={pack.likesCount}
-                liked={liked}
-                signedIn={Boolean(profile)}
-              />
-              <p className="font-mono text-[12px] text-muted-foreground">
+              <p className="font-mono text-xs text-muted-foreground">
                 {formatCount(pack.installsCount)} installs
               </p>
             </div>
@@ -131,12 +115,12 @@ export default async function PackPage({
           </Alert>
 
           <section className="flex flex-col gap-3">
-            <h2 className="text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
+            <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
               What it includes
             </h2>
             <div className="flex flex-wrap gap-1.5">
               {desk ? (
-                <Badge variant="secondary" className="rounded-md font-normal">
+                <Badge variant="accent" className="rounded-md font-normal">
                   Desk · {desk.name}
                 </Badge>
               ) : null}
@@ -149,15 +133,15 @@ export default async function PackPage({
           </section>
 
           <section className="flex flex-col gap-2">
-            <h2 className="text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
+            <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
               What it does
             </h2>
-            <p className="text-[15px] leading-6 text-muted-foreground">{pack.description}</p>
+            <p className="text-base text-muted-foreground">{pack.description}</p>
             <p className="text-[13px] text-muted-foreground">{pack.routingRule}</p>
           </section>
 
           <section className="flex flex-col gap-3">
-            <h2 className="text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
+            <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
               Roster
             </h2>
             <RosterList
@@ -170,7 +154,7 @@ export default async function PackPage({
 
           {pack.readmeMd ? (
             <section className="flex flex-col gap-3">
-              <h2 className="text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
+              <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
                 Notes
               </h2>
               <MarkdownCard markdown={pack.readmeMd} />
@@ -179,7 +163,7 @@ export default async function PackPage({
 
           {related.length > 0 ? (
             <section className="flex flex-col gap-3">
-              <h2 className="text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
+              <h2 className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
                 Related
               </h2>
               <PackGrid packs={related} />
@@ -190,7 +174,7 @@ export default async function PackPage({
         <aside className="flex flex-col gap-4 lg:pt-10">
           <Card className="rounded-lg bg-card py-0 ring-1 ring-border">
             <CardHeader className="px-4 py-3">
-              <CardTitle className="text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
+              <CardTitle className="text-xs tracking-[0.16em] text-muted-foreground uppercase">
                 Source
               </CardTitle>
             </CardHeader>

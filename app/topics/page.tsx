@@ -15,7 +15,7 @@ export default async function TopicsPage() {
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-10">
       <section className="flex max-w-2xl flex-col gap-2">
-        <p className="text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
+        <p className="text-xs tracking-[0.18em] text-muted-foreground uppercase">
           Topics
         </p>
         <h1 className="text-2xl font-medium tracking-tight">Browse by job</h1>
@@ -25,9 +25,9 @@ export default async function TopicsPage() {
         {TOPICS.map((topic) => (
           <li key={topic}>
             <Link href={`/topics/${topic}`} className="inline-flex min-h-11 items-center">
-              <Badge variant="outline" className="rounded-md px-3 py-1.5 font-normal">
+              <Badge variant="accent" className="rounded-md px-3 py-1.5 font-normal">
                 {topic}
-                <span className="ml-2 font-mono text-[11px] text-muted-foreground">
+                <span className="ml-2 font-mono text-xs opacity-80">
                   {counts.get(topic) ?? 0}
                 </span>
               </Badge>

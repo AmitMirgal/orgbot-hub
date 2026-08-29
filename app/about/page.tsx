@@ -4,12 +4,12 @@ export default function AboutPage() {
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-col gap-6 px-4 py-10">
       <section className="flex flex-col gap-2">
-        <p className="text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
+        <p className="text-xs tracking-[0.18em] text-muted-foreground uppercase">
           About
         </p>
         <h1 className="text-2xl font-medium tracking-tight">This is packs</h1>
       </section>
-      <div className="flex flex-col gap-4 text-[15px] leading-6 text-muted-foreground">
+      <div className="flex flex-col gap-4 text-base text-muted-foreground">
         <p>
           A pack is a tiny company of named chats. Front desk first. Spawn a seat
           only when the same job keeps coming back.

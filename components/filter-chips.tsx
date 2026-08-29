@@ -35,13 +35,6 @@ function hrefFor(filters: Filters, next: Partial<Filters>): string {
 }
 
 export function FilterChips(filters: Filters) {
-  const seatBands: Array<{ value?: SeatBand; label: string }> = [
-    { value: undefined, label: "Any seats" },
-    { value: "1", label: "1 seat" },
-    { value: "2-3", label: "2–3 seats" },
-    { value: "4+", label: "4+ seats" },
-  ];
-
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap gap-1.5">
@@ -56,6 +49,7 @@ export function FilterChips(filters: Filters) {
             href={hrefFor(filters, { topic })}
             active={filters.topic === topic}
             label={topic}
+            accent
           />
         ))}
       </div>
@@ -69,15 +63,8 @@ export function FilterChips(filters: Filters) {
           href={hrefFor(filters, { featured: true })}
           active={Boolean(filters.featured)}
           label="Featured"
+          accent
         />
-        {seatBands.map((band) => (
-          <Chip
-            key={band.label}
-            href={hrefFor(filters, { seatBand: band.value })}
-            active={(filters.seatBand ?? undefined) === band.value}
-            label={band.label}
-          />
-        ))}
       </div>
     </div>
   );
@@ -87,16 +74,22 @@ function Chip({
   href,
   active,
   label,
+  accent,
 }: {
   href: string;
   active: boolean;
   label: string;
+  accent?: boolean;
 }) {
   return (
     <Link href={href} className="inline-flex min-h-11 items-center">
       <Badge
-        variant={active ? "default" : "outline"}
-        className="rounded-md px-2.5 py-1 font-normal"
+        variant={accent ? "accent" : active ? "default" : "outline"}
+        className={
+          active && accent
+            ? "rounded-md px-2.5 py-1 font-medium"
+            : "rounded-md px-2.5 py-1 font-normal"
+        }
       >
         {label}
       </Badge>
