@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CatalogOffline } from "@/components/catalog-offline";
+import { NetworkHandle } from "@/components/network-handle";
 import { PackGrid } from "@/components/pack-grid";
 import {
   getProfile,
@@ -49,10 +50,16 @@ export default async function AuthorPage({
           <h1 className="text-2xl font-medium tracking-tight">
             {profile.name ?? profile.githubLogin}
           </h1>
-          <p className="font-mono text-[13px] text-muted-foreground">
-            @{profile.githubLogin}
-            {profile.xHandle ? ` · x.com/${profile.xHandle}` : ""}
-          </p>
+          <div className="flex flex-wrap items-center gap-2 font-mono text-[13px] text-muted-foreground">
+            <span>@{profile.githubLogin}</span>
+            {profile.xHandle ? (
+              <NetworkHandle
+                network="x"
+                handle={profile.xHandle}
+                personName={profile.name ?? profile.githubLogin}
+              />
+            ) : null}
+          </div>
         </div>
       </section>
       <section className="flex flex-col gap-3">
