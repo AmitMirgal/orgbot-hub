@@ -1,0 +1,15 @@
+{
+  "name": "orgbot-hub",
+  "install": "bash .cursor/install.sh",
+  "start": "bash scripts/start-local-catalog.sh",
+  "terminals": [
+    {
+      "name": "dev",
+      "command": "pnpm dev"
+    }
+  ],
+  "ports": [
+    { "name": "app", "port": 43147 },
+    { "name": "catalog-api", "port": 54321 }
+  ]
+}
