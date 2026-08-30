@@ -14,6 +14,7 @@ const POTETO_OWNER_ID = "00000000-0000-0000-0000-000000000002";
 const KRISTA_OWNER_ID = "00000000-0000-0000-0000-000000000003";
 const ERIC_OWNER_ID = "00000000-0000-0000-0000-000000000004";
 const NAOUFALELH_OWNER_ID = "00000000-0000-0000-0000-000000000005";
+const GNURIO_OWNER_ID = "00000000-0000-0000-0000-000000000006";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -53,6 +54,14 @@ const NAOUFALELH_OWNER: Profile = {
   name: "Naoufal El hassnaoui",
   avatarUrl: "https://avatars.githubusercontent.com/u/10200999?v=4",
   xHandle: "naoufal_elh",
+};
+
+const GNURIO_OWNER: Profile = {
+  id: GNURIO_OWNER_ID,
+  githubLogin: "gnurio",
+  name: "George Nurijanian",
+  avatarUrl: "https://avatars.githubusercontent.com/u/6743730?v=4",
+  xHandle: "nurijanian",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -191,8 +200,38 @@ const NAO: Pack = {
   ],
 };
 
-const ALL_PACKS: Pack[] = [LAUREN, KRISTA, ERIC, NAO];
-const ALL_PROFILES: Profile[] = [POTETO_OWNER, EXAMPLES_OWNER, KRISTA_OWNER, ERIC_OWNER, NAOUFALELH_OWNER];
+const GEORGE: Pack = {
+  id: "10000000-0000-0000-0000-000000000014",
+  owner: GNURIO_OWNER,
+  slug: "george",
+  name: "George",
+  description:
+    "Public Grok Bot templates George Nurijanian (@nurijanian) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  routingRule:
+    "Random questions stay at AI PM OS. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. This sample is not the full paid AI PM OS.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000006",
+      name: "AI PM OS",
+      job: "A sample of the AI PM OS for product managers. Default recipe is Problem First. Also has Make Requirements Great and Decisions. Does not include the full 243-skill paid OS.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/9dtfHw4LHmwc5uBC-a9vj",
+    }),
+  ],
+};
+
+const ALL_PACKS: Pack[] = [LAUREN, KRISTA, ERIC, NAO, GEORGE];
+const ALL_PROFILES: Profile[] = [POTETO_OWNER, EXAMPLES_OWNER, KRISTA_OWNER, ERIC_OWNER, NAOUFALELH_OWNER, GNURIO_OWNER];
 
 function toCard(pack: Pack): PackCard {
   const { readmeMd: _readme, routingRule: _rule, ...card } = pack;
