@@ -99,6 +99,23 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000006',
+  'authenticated',
+  'authenticated',
+  'gnurio@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"gnurio","preferred_username":"gnurio","full_name":"George Nurijanian"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 on conflict (id) do nothing;
 
@@ -175,6 +192,19 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000006',
+  '00000000-0000-0000-0000-000000000006',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000006',
+    'email', 'gnurio@orgbots.dev',
+    'user_name', 'gnurio'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 on conflict (provider_id, provider) do nothing;
 
@@ -202,6 +232,13 @@ values
     'Naoufal El hassnaoui',
     'naoufal_elh',
     'https://avatars.githubusercontent.com/u/10200999?v=4'
+  ),
+  (
+    '00000000-0000-0000-0000-000000000006',
+    'gnurio',
+    'George Nurijanian',
+    'nurijanian',
+    'https://avatars.githubusercontent.com/u/6743730?v=4'
   )
 on conflict (id) do update
   set github_login = excluded.github_login,
@@ -223,7 +260,8 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000010',
   '10000000-0000-0000-0000-000000000011',
   '10000000-0000-0000-0000-000000000012',
-  '10000000-0000-0000-0000-000000000013'
+  '10000000-0000-0000-0000-000000000013',
+  '10000000-0000-0000-0000-000000000014'
 );
 delete from public.packs
 where id in (
@@ -413,6 +451,58 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/o4gWkNGmffEaVtOhaEsA7'
+  )
+on conflict (id) do update
+  set pack_id = excluded.pack_id,
+      name = excluded.name,
+      job = excluded.job,
+      repeats_when = excluded.repeats_when,
+      is_desk = excluded.is_desk,
+      sort_order = excluded.sort_order,
+      grok_template_url = excluded.grok_template_url;
+
+insert into public.packs (
+  id, owner_id, slug, name, description, github_url, official, featured,
+  topics, likes_count, installs_count, routing_rule, readme_md
+) values
+(
+  '10000000-0000-0000-0000-000000000014',
+  '00000000-0000-0000-0000-000000000006',
+  'george',
+  'George',
+  'Public Grok Bot templates George Nurijanian (@nurijanian) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at AI PM OS. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. This sample is not the full paid AI PM OS.$readme$
+)
+on conflict (id) do update
+  set owner_id = excluded.owner_id,
+      slug = excluded.slug,
+      name = excluded.name,
+      description = excluded.description,
+      official = excluded.official,
+      featured = excluded.featured,
+      topics = excluded.topics,
+      routing_rule = excluded.routing_rule,
+      readme_md = excluded.readme_md;
+
+insert into public.seats (
+  id, pack_id, name, job, repeats_when, is_desk, sort_order, grok_template_url
+) values
+  (
+    '20000000-0000-0000-0000-000000000006',
+    '10000000-0000-0000-0000-000000000014',
+    'AI PM OS',
+    'A sample of the AI PM OS for product managers. Default recipe is Problem First. Also has Make Requirements Great and Decisions. Does not include the full 243-skill paid OS.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/9dtfHw4LHmwc5uBC-a9vj'
   )
 on conflict (id) do update
   set pack_id = excluded.pack_id,
