@@ -56,6 +56,7 @@ export function RosterList({
                     packId={packId}
                     owner={owner}
                     slug={slug}
+                    seatName={seat.name}
                   />
                 </TableCell>
               </TableRow>
@@ -76,6 +77,7 @@ export function RosterList({
               packId={packId}
               owner={owner}
               slug={slug}
+              seatName={seat.name}
             />
           </div>
         ))}

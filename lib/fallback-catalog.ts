@@ -120,6 +120,7 @@ const LAUREN: Pack = {
   topics: ["founder", "developer"],
   likesCount: 0,
   installsCount: 0,
+  visitsCount: 0,
   routingRule:
     'Random and “make me a bot” stay at Dr Eggbot. Use a named seat only when that job is already in this pack.',
   readmeMd:
@@ -150,6 +151,7 @@ const KRISTA: Pack = {
   topics: ["founder"],
   likesCount: 0,
   installsCount: 0,
+  visitsCount: 0,
   routingRule:
     "Random GTM questions stay at PG. Use Echo only for call-to-slides. Named seats only when that job is already in this pack.",
   readmeMd:
@@ -189,6 +191,7 @@ const ERIC: Pack = {
   topics: ["developer"],
   likesCount: 0,
   installsCount: 0,
+  visitsCount: 0,
   routingRule:
     "Random questions stay at Projects Manager. Use a named seat only when that job is already in this pack.",
   readmeMd:
@@ -219,6 +222,7 @@ const NAO: Pack = {
   topics: ["developer"],
   likesCount: 0,
   installsCount: 0,
+  visitsCount: 0,
   routingRule:
     "Random questions stay at Rutin. Use a named seat only when that job is already in this pack.",
   readmeMd:

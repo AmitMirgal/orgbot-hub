@@ -108,6 +108,7 @@ function mapPack(row: PackRow): Pack | null {
     topics: row.topics ?? [],
     likesCount: row.likes_count,
     installsCount: row.installs_count,
+    visitsCount: row.installs_count,
     readmeMd: row.readme_md,
     routingRule: row.routing_rule,
     seats,

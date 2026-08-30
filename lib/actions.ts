@@ -229,7 +229,7 @@ export async function toggleLike(packId: string, owner: string, slug: string) {
   return { error: null };
 }
 
-export async function recordInstall(packId: string, owner: string, slug: string) {
+export async function recordVisit(packId: string, owner: string, slug: string) {
   const supabase = await createClient();
   if (!supabase) return { error: "Catalog is not reachable." };
   const { error } = await supabase.rpc("increment_installs", { p_pack_id: packId });

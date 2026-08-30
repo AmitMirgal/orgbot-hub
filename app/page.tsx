@@ -24,7 +24,12 @@ export default async function Home() {
         <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
           <section className="flex flex-col gap-6">
             <HeroCopy />
-            <SearchHero />
+            <div className="flex flex-col gap-2">
+              <SearchHero />
+              <Link href="/search" className="text-xs text-muted-foreground hover:text-foreground">
+                Ask the catalog
+              </Link>
+            </div>
           </section>
           <CatalogOffline message={packsResult.message} />
         </main>
@@ -42,8 +47,13 @@ export default async function Home() {
       <HeroBanner />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
         <section className="flex flex-col gap-6">
-          <HeroCopy />
-          <SearchHero />
+            <HeroCopy />
+            <div className="flex flex-col gap-2">
+              <SearchHero />
+              <Link href="/search" className="text-xs text-muted-foreground hover:text-foreground">
+                Ask the catalog
+              </Link>
+            </div>
         </section>
         <section className="flex flex-wrap gap-6 text-base text-muted-foreground">
           <p>

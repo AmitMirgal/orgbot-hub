@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { CheckIcon, CopyIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { recordInstall } from "@/lib/actions";
+import { recordVisit } from "@/lib/actions";
 import { parseGrokTemplateUrl } from "@/lib/grok-url";
+import { captureVisit } from "@/lib/visits-client";
 
 export function AddToGrok({
   url,
@@ -12,12 +13,14 @@ export function AddToGrok({
   packId,
   owner,
   slug,
+  seatName,
 }: {
   url: string | null;
   label: string;
   packId: string;
   owner: string;
   slug: string;
+  seatName?: string;
 }) {
   const href = parseGrokTemplateUrl(url);
   const [copied, setCopied] = useState(false);
@@ -35,22 +38,27 @@ export function AddToGrok({
     );
   }
 
-  async function onInstall() {
-    await recordInstall(packId, owner, slug);
+  function onAdd() {
+    void recordVisit(packId, owner, slug);
+    captureVisit({
+      packId,
+      identity: { owner, slug },
+      source: "add_to_grok",
+      seatName,
+    });
   }
 
   async function onCopy() {
     if (!href) return;
     await navigator.clipboard.writeText(href);
     setCopied(true);
-    await recordInstall(packId, owner, slug);
     window.setTimeout(() => setCopied(false), 1400);
   }
 
   return (
     <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
       <Button asChild className="min-h-11">
-        <a href={href} target="_blank" rel="noopener noreferrer" onClick={onInstall}>
+        <a href={href} target="_blank" rel="noopener noreferrer" onClick={onAdd}>
           {label}
         </a>
       </Button>

@@ -10,9 +10,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { recordInstall } from "@/lib/actions";
+import { recordVisit } from "@/lib/actions";
 import { parseGrokTemplateUrl } from "@/lib/grok-url";
 import { orderedSeats, type Seat } from "@/lib/pack";
+import { captureVisit } from "@/lib/visits-client";
 
 export function AddEveryBot({
   seats,
@@ -44,6 +45,15 @@ export function AddEveryBot({
     );
   }
 
+  function trackEvery() {
+    void recordVisit(packId, owner, slug);
+    captureVisit({
+      packId,
+      identity: { owner, slug },
+      source: "add_every_bot",
+    });
+  }
+
   async function openAll() {
     const nextOpened: string[] = [];
     let hitBlock = false;
@@ -57,13 +67,13 @@ export function AddEveryBot({
     }
     setOpened(nextOpened);
     setBlocked(hitBlock);
-    await recordInstall(packId, owner, slug);
+    trackEvery();
   }
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="min-h-11">
+        <Button variant="outline" className="min-h-11" onClick={trackEvery}>
           Add every bot in this pack
         </Button>
       </DialogTrigger>
@@ -83,7 +93,6 @@ export function AddEveryBot({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-foreground underline-offset-4 hover:underline"
-                onClick={() => recordInstall(packId, owner, slug)}
               >
                 {index + 1}. {item.isDesk ? "Desk · " : ""}
                 {item.name}

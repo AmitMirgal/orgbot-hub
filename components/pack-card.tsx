@@ -1,15 +1,11 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  formatCount,
-  ownerHandle,
-  packHref,
-  rosterNames,
-  type PackCard,
-} from "@/lib/pack";
+import { visitsLabel } from "@/lib/api-pack";
+import { ownerHandle, packHref, rosterNames, type PackCard } from "@/lib/pack";
 
 export function PackCardView({ pack }: { pack: PackCard }) {
+  const visitsCount = pack.visitsCount;
   const names = rosterNames(pack).slice(0, 5);
 
   return (
@@ -51,7 +47,7 @@ export function PackCardView({ pack }: { pack: PackCard }) {
               shared by {ownerHandle(pack)}
             </span>
             <span className="font-mono text-xs text-muted-foreground">
-              {formatCount(pack.installsCount)} installs
+              {visitsLabel(visitsCount)}
             </span>
           </div>
         </CardContent>

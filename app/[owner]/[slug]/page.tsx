@@ -17,7 +17,8 @@ import {
   readCatalog,
   relatedPacks,
 } from "@/lib/catalog";
-import { deskOf, formatCount, namedSeats, ownerHandle } from "@/lib/pack";
+import { visitsLabel } from "@/lib/api-pack";
+import { deskOf, namedSeats, ownerHandle } from "@/lib/pack";
 
 export const dynamic = "force-dynamic";
 
@@ -59,6 +60,7 @@ export default async function PackPage({
   const desk = deskOf(pack);
   const seats = namedSeats(pack);
   const multiSeat = pack.seats.length > 1;
+  const visitsCount = pack.visitsCount;
 
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-10">
@@ -93,9 +95,10 @@ export default async function PackPage({
                 packId={pack.id}
                 owner={pack.owner.githubLogin}
                 slug={pack.slug}
+                seatName={desk?.name}
               />
               <p className="font-mono text-xs text-muted-foreground">
-                {formatCount(pack.installsCount)} installs
+                {visitsLabel(visitsCount)}
               </p>
             </div>
           </header>

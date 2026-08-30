@@ -33,6 +33,7 @@ export type Pack = {
   topics: string[];
   likesCount: number;
   installsCount: number;
+  visitsCount: number;
   readmeMd: string | null;
   routingRule: string;
   seats: Seat[];
