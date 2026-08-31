@@ -1,6 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import type { SessionUser } from "@/lib/session-user";
+import { isAuthSessionCookie } from "@/lib/supabase/auth-cookie";
 import { supabaseAnonKey, supabaseUrl } from "@/lib/supabase/env";
 
 export type { SessionUser };
@@ -8,7 +9,7 @@ export type { SessionUser };
 function hasAuthCookie(
   cookieStore: { getAll: () => { name: string }[] }
 ): boolean {
-  return cookieStore.getAll().some((cookie) => cookie.name.includes("auth-token"));
+  return cookieStore.getAll().some((cookie) => isAuthSessionCookie(cookie.name));
 }
 
 export async function createClient() {
