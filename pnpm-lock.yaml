@@ -20,6 +20,12 @@ importers:
       '@mastra/core':
         specifier: ^1.63.2
         version: 1.63.2(ai@7.0.84(zod@4.4.3))(express@5.2.1)(zod@4.4.3)
+      '@mastra/memory':
+        specifier: ^1.28.1
+        version: 1.28.1(@mastra/core@1.63.2(ai@7.0.84(zod@4.4.3))(express@5.2.1)(zod@4.4.3))
+      '@mastra/pg':
+        specifier: ^1.22.2
+        version: 1.22.2(@mastra/core@1.63.2(ai@7.0.84(zod@4.4.3))(express@5.2.1)(zod@4.4.3))
       '@prisma/adapter-pg':
         specifier: ^7.10.0
         version: 7.10.0
@@ -775,6 +781,18 @@ packages:
     engines: {node: '>=22.13.0'}
     peerDependencies:
       zod: ^3.25.0 || ^4.0.0
+
+  '@mastra/memory@1.28.1':
+    resolution: {integrity: sha512-ZMKblBgsr7mVBVqsZTT2DYZ7yzCQq7Zc9iEsHrDDSFSa8s9k4ysS7fXNNWUzLzzr7jOiHtvrg6fmfH32snEy5w==}
+    engines: {node: '>=22.13.0'}
+    peerDependencies:
+      '@mastra/core': '>=1.4.1-0 <2.0.0-0'
+
+  '@mastra/pg@1.22.2':
+    resolution: {integrity: sha512-h5qS6YFVa3y9tLFWciuWf6vjbZUhXMhm6En8GXL6TLociRG/bxIB3n7ZQjLyLVeZElYWE1MgGU8olKsvGmHgRw==}
+    engines: {node: '>=22.13.0'}
+    peerDependencies:
+      '@mastra/core': '>=1.63.1-0 <2.0.0-0'
 
   '@mastra/schema-compat@1.3.7':
     resolution: {integrity: sha512-06WfY+j9rulYnDp8CM7pL7JIyrntkMolqmyyb1VJNEzlYTQCIcJcY0SwQiubZv2tztmoYGikszDiRVyXp0E9gA==}
@@ -2383,6 +2401,9 @@ packages:
     resolution: {integrity: sha512-hsU18Ae8CDTR6Kgu9DYf0EbCr/a5iGL0rytQDobUcdpYOKokk8LEjVphnXkDkgpi0wYVsqrXuP0bZxJaTqdgoA==}
     engines: {node: '>= 0.4'}
 
+  async-mutex@0.5.0:
+    resolution: {integrity: sha512-1A94B18jkJ3DYq284ohPxoXbfTA5HsQ7/Mf4DEhcyLx3Bz27Rh59iScbB6EPiP+B+joue6YCxcMXSbFC1tZKwA==}
+
   atomically@1.7.0:
     resolution: {integrity: sha512-Xcz9l0z7y9yQ9rdDaxlmaI4uJHf/T8g9hOEzJcsEqX2SjCj4J20uK7+ldkDHMbpJDK76wF7xEIgxc/vSlsfw5w==}
     engines: {node: '>=10.12.0'}
@@ -2701,6 +2722,14 @@ packages:
   debounce-fn@4.0.0:
     resolution: {integrity: sha512-8pYCQiL9Xdcg0UPSD3d+0KMlOjp+KGU5EPwYddgzQ7DATsg4fuUDjQtsYLmWjnk2obnNHgV3vE2Y4jejSOJVBQ==}
     engines: {node: '>=10'}
+
+  debug@2.6.9:
+    resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
 
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
@@ -3383,6 +3412,10 @@ packages:
     resolution: {integrity: sha512-1dhVQZXhcHje7798IVM+xoo/1ZdVfzOMIc8/rgVSijRK38EDqOJoGula9N/8ZI5RD8QTxNQtK/Gozpr+qUqRRA==}
     engines: {node: '>=20.0.0'}
 
+  iconv-lite@0.4.24:
+    resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
+    engines: {node: '>=0.10.0'}
+
   iconv-lite@0.7.3:
     resolution: {integrity: sha512-IKXpvIzjnC9XTAUbVBcMfGS0EPaIXtW6v+zr+RRp+hqULEpo0owZax6wyRwPOJbWbzjYspQwusTsfVr0ifh4uQ==}
     engines: {node: '>=0.10.0'}
@@ -4051,6 +4084,9 @@ packages:
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
+  ms@2.0.0:
+    resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
+
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
@@ -4074,6 +4110,11 @@ packages:
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+
+  needle@2.9.1:
+    resolution: {integrity: sha512-6R9fqJ5Zcmf+uYaFgdIHmLwNldn5HbK8L5ybn7Uz+ylX/rnOsSp1AHcvQSrCaFN+qNM1wpymHqD7mVasEOlHGQ==}
+    engines: {node: '>= 4.4.x'}
+    hasBin: true
 
   negotiator@1.1.0:
     resolution: {integrity: sha512-NMPBRMJgiQHjbd8phG3Vebdx4kZ1H121rbl5IkMqeOsahptB9BKo/d7oJ3zTXqTgagn2bWlNSXkh0QUGM31RYg==}
@@ -4433,6 +4474,9 @@ packages:
       typescript:
         optional: true
 
+  probe-image-size@7.4.0:
+    resolution: {integrity: sha512-cdEprVtZxV+awMde9X+4jILBFYh4CARxVrQaMl4wY4YcPWbul9jntXrIW95NInBDyJwcVUP3U0T6yukN8rMBaQ==}
+
   prompts@2.4.2:
     resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
     engines: {node: '>= 6'}
@@ -4653,6 +4697,10 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
+  sax@1.6.1:
+    resolution: {integrity: sha512-42tBVwLWnaQvW5zc4HbZrTuWccECCZfBi92FDuwtqxasH+JbPB3/FOKb1m222K42R4WxuxzzMsTswfzgtSu64Q==}
+    engines: {node: '>=11.0.0'}
+
   scheduler@0.27.0:
     resolution: {integrity: sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==}
 
@@ -4790,6 +4838,9 @@ packages:
   stop-iteration-iterator@1.1.0:
     resolution: {integrity: sha512-eLoXW/DHyl62zxY4SCaIgnRhuMr6ri4juEYARS8E6sCEqzKpOiE521Ucofdx+KnDZl5xmvGYaaKCk5FEOxJCoQ==}
     engines: {node: '>= 0.4'}
+
+  stream-parser@0.3.1:
+    resolution: {integrity: sha512-bJ/HgKq41nlKvlhccD5kaCr/P+Hu0wPNKPJOH7en+YrJu/9EgqUF+88w5Jb6KNcjOFMhfX4B2asfeAtIGuHObQ==}
 
   streamdown@2.6.0:
     resolution: {integrity: sha512-nQZVUn4GvB2R5SAlDNph20iKZeW+RM4gv6G1H3ACypEnmQf8PgTHZ/1Ta2OACRwQ2coK7aW5AeIAa7Ls5zk+RA==}
@@ -5848,6 +5899,31 @@ snapshots:
       - supports-color
       - utf-8-validate
       - workflow
+
+  '@mastra/memory@1.28.1(@mastra/core@1.63.2(ai@7.0.84(zod@4.4.3))(express@5.2.1)(zod@4.4.3))':
+    dependencies:
+      '@mastra/core': 1.63.2(ai@7.0.84(zod@4.4.3))(express@5.2.1)(zod@4.4.3)
+      '@mastra/schema-compat': 1.3.7(zod@4.4.3)
+      async-mutex: 0.5.0
+      diff: 8.0.4
+      json-schema: 0.4.0
+      lru-cache: 11.5.2
+      probe-image-size: 7.4.0
+      tokenx: 1.6.0
+      xxhash-wasm: 1.1.0
+      zod: 4.4.3
+    transitivePeerDependencies:
+      - supports-color
+
+  '@mastra/pg@1.22.2(@mastra/core@1.63.2(ai@7.0.84(zod@4.4.3))(express@5.2.1)(zod@4.4.3))':
+    dependencies:
+      '@mastra/core': 1.63.2(ai@7.0.84(zod@4.4.3))(express@5.2.1)(zod@4.4.3)
+      async-mutex: 0.5.0
+      pg: 8.23.0
+      pg-connection-string: 2.14.0
+      xxhash-wasm: 1.1.0
+    transitivePeerDependencies:
+      - pg-native
 
   '@mastra/schema-compat@1.3.7(zod@4.4.3)':
     dependencies:
@@ -7517,6 +7593,10 @@ snapshots:
 
   async-function@1.0.0: {}
 
+  async-mutex@0.5.0:
+    dependencies:
+      tslib: 2.8.1
+
   atomically@1.7.0: {}
 
   available-typed-arrays@1.0.7:
@@ -7824,6 +7904,10 @@ snapshots:
   debounce-fn@4.0.0:
     dependencies:
       mimic-fn: 3.1.0
+
+  debug@2.6.9:
+    dependencies:
+      ms: 2.0.0
 
   debug@3.2.7:
     dependencies:
@@ -8712,6 +8796,10 @@ snapshots:
 
   iceberg-js@0.8.1: {}
 
+  iconv-lite@0.4.24:
+    dependencies:
+      safer-buffer: 2.1.2
+
   iconv-lite@0.7.3:
     dependencies:
       safer-buffer: 2.1.2
@@ -9493,6 +9581,8 @@ snapshots:
 
   minimist@1.2.8: {}
 
+  ms@2.0.0: {}
+
   ms@2.1.3: {}
 
   mysql2@3.15.3:
@@ -9516,6 +9606,14 @@ snapshots:
   napi-postinstall@0.3.4: {}
 
   natural-compare@1.4.0: {}
+
+  needle@2.9.1:
+    dependencies:
+      debug: 3.2.7
+      iconv-lite: 0.4.24
+      sax: 1.6.1
+    transitivePeerDependencies:
+      - supports-color
 
   negotiator@1.1.0:
     dependencies:
@@ -9884,6 +9982,14 @@ snapshots:
       - react
       - react-dom
 
+  probe-image-size@7.4.0:
+    dependencies:
+      lodash.merge: 4.6.2
+      needle: 2.9.1
+      stream-parser: 0.3.1
+    transitivePeerDependencies:
+      - supports-color
+
   prompts@2.4.2:
     dependencies:
       kleur: 3.0.3
@@ -10208,6 +10314,8 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
+  sax@1.6.1: {}
+
   scheduler@0.27.0: {}
 
   section-matter@1.0.0:
@@ -10416,6 +10524,12 @@ snapshots:
     dependencies:
       es-errors: 1.3.0
       internal-slot: 1.1.0
+
+  stream-parser@0.3.1:
+    dependencies:
+      debug: 2.6.9
+    transitivePeerDependencies:
+      - supports-color
 
   streamdown@2.6.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:

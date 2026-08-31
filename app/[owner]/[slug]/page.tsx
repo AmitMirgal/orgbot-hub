@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AddToGrok } from "@/components/add-to-grok";
+import { PackInstall } from "@/components/pack-install";
 import { CatalogOffline } from "@/components/catalog-offline";
 import { MarkdownCard } from "@/components/markdown-card";
 import { NetworkHandle } from "@/components/network-handle";
@@ -16,7 +16,6 @@ import {
   readCatalog,
   relatedPacks,
 } from "@/lib/catalog";
-import { visitsLabel } from "@/lib/api-pack";
 import { deskOf, namedSeats, ownerHandle } from "@/lib/pack";
 
 export const dynamic = "force-dynamic";
@@ -87,19 +86,15 @@ export default async function PackPage({
                 </Link>
               </p>
             </div>
-            <div className="flex w-full flex-col gap-3 lg:w-auto">
-              <AddToGrok
-                url={desk?.grokTemplateUrl ?? null}
-                label={multiSeat ? "add desk to grok bot" : "add to grok bot"}
-                packId={pack.id}
-                owner={pack.owner.githubLogin}
-                slug={pack.slug}
-                seatName={desk?.name}
-              />
-              <p className="font-mono text-xs text-muted-foreground">
-                {visitsLabel(visitsCount)}
-              </p>
-            </div>
+            <PackInstall
+              url={desk?.grokTemplateUrl ?? null}
+              label={multiSeat ? "add desk to grok bot" : "add to grok bot"}
+              packId={pack.id}
+              owner={pack.owner.githubLogin}
+              slug={pack.slug}
+              seatName={desk?.name}
+              visitsCount={visitsCount}
+            />
           </header>
 
           <Alert>

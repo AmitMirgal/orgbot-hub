@@ -26,8 +26,14 @@ function asIso(value: unknown): string {
   return next.toISOString();
 }
 
+export const TEAM_CHAT_QUOTA_HEADER = "x-team-chat-quota";
+
+export function utcDayKey(from = new Date()): string {
+  return from.toISOString().slice(0, 10);
+}
+
 export function utcDay(from = new Date()): Date {
-  return new Date(Date.UTC(from.getUTCFullYear(), from.getUTCMonth(), from.getUTCDate()));
+  return new Date(`${utcDayKey(from)}T00:00:00.000Z`);
 }
 
 export function utcResetAt(from = new Date()): Date {
@@ -102,6 +108,20 @@ export function quotaMeterText(quota: TeamChatQuota): string {
     return "0 / 20 messages left today. Resets 00:00 UTC.";
   }
   return `${quota.remaining_messages} / 20 left today`;
+}
+
+export function serializeTeamChatQuota(quota: TeamChatQuota): string {
+  return JSON.stringify(quota);
+}
+
+export function quotaFromResponse(response: Response): TeamChatQuota | null {
+  const raw = response.headers.get(TEAM_CHAT_QUOTA_HEADER);
+  if (!raw) return null;
+  try {
+    return parseTeamChatQuota(JSON.parse(raw) as unknown);
+  } catch {
+    return null;
+  }
 }
 
 export function estimatePromptTokens(params: unknown): number {

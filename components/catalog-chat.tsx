@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent, type KeyboardEvent, type ReactNode } from "react";
-import { DefaultChatTransport } from "ai";
+import { DefaultChatTransport, type UIMessage } from "ai";
 import { useChat } from "@ai-sdk/react";
 import { ArrowUpIcon, CheckIcon, CopyIcon, MessageCircleIcon, PlusIcon, XIcon } from "lucide-react";
 import { AuthorMarquee } from "@/components/author-marquee";
@@ -36,7 +36,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { recordVisit } from "@/lib/actions";
 import { parseCatalogSeat, publicXHandle, type CatalogSeat } from "@/lib/api-pack";
 import {
   authorsFromSeats,
@@ -48,11 +47,12 @@ import { parseGrokTemplateUrl } from "@/lib/grok-url";
 import type { TopAuthor } from "@/lib/top-authors";
 import {
   emptyTeamChatQuota,
+  quotaFromResponse,
   quotaMeterText,
   type TeamChatQuota,
 } from "@/lib/team-quota";
 import { cn } from "@/lib/utils";
-import { captureVisit } from "@/lib/visits-client";
+import { useRecordVisit } from "@/lib/visits-record";
 
 const pageChatShellClassName =
   "flex h-full min-h-0 min-w-0 flex-1 overflow-hidden";
@@ -97,6 +97,8 @@ export function CatalogChat({
   surface = "card",
   authors = [],
   quota: initialQuota,
+  messages: initialMessages = [],
+  chatId,
   signedIn = true,
 }: {
   api: "/api/v1/agent/search" | "/api/v1/agent/submit";
@@ -112,6 +114,8 @@ export function CatalogChat({
   surface?: "card" | "page";
   authors?: TopAuthor[];
   quota?: TeamChatQuota;
+  messages?: UIMessage[];
+  chatId?: string;
   signedIn?: boolean;
 }) {
   const router = useRouter();
@@ -127,42 +131,38 @@ export function CatalogChat({
     signedIn &&
     (!quota.allowed || quota.remaining_messages <= 0);
   const { messages, sendMessage, status } = useChat({
+    id: chatId,
+    messages: initialMessages,
     transport: new DefaultChatTransport({
       api,
       fetch: async (input, init) => {
         const response = await fetch(input, init);
-        if (surface === "page" && response.status === 429) {
-          const body = (await response
-            .clone()
-            .json()
-            .catch(() => null)) as {
-            error?: string;
-            reset_at?: string;
-            token_blocked?: boolean;
-          } | null;
-          if (body?.error === "quota") {
-            setQuota((current) => ({
-              ...current,
-              allowed: false,
-              remaining_messages: 0,
-              reset_at: body.reset_at ?? current.reset_at,
-              token_blocked: Boolean(body.token_blocked),
-            }));
+        if (surface === "page") {
+          const next = quotaFromResponse(response);
+          if (next) {
+            setQuota(next);
+          } else if (response.status === 429) {
+            const body = (await response
+              .clone()
+              .json()
+              .catch(() => null)) as {
+              error?: string;
+              reset_at?: string;
+              token_blocked?: boolean;
+            } | null;
+            if (body?.error === "quota") {
+              setQuota((current) => ({
+                ...current,
+                allowed: false,
+                remaining_messages: 0,
+                reset_at: body.reset_at ?? current.reset_at,
+                token_blocked: Boolean(body.token_blocked),
+              }));
+            }
           }
-        }
-        if (surface === "page" && response.status === 401) {
-          router.push(loginHref);
-        }
-        if (surface === "page" && response.ok) {
-          setQuota((current) => {
-            const remaining = Math.max(current.remaining_messages - 1, 0);
-            return {
-              ...current,
-              messages: current.messages + 1,
-              remaining_messages: remaining,
-              allowed: remaining > 0 && !current.token_blocked,
-            };
-          });
+          if (response.status === 401) {
+            router.push(loginHref);
+          }
         }
         return response;
       },
@@ -493,6 +493,7 @@ function SeatBubble({
   onAddToDraft?: (seat: CatalogSeat) => void;
 }) {
   const href = parseGrokTemplateUrl(seat.grokTemplateUrl);
+  const record = useRecordVisit();
   return (
     <Bubble variant="outline" className="max-w-full min-w-0">
       <BubbleContent className="flex w-full max-w-full min-w-0 flex-col gap-2">
@@ -509,16 +510,10 @@ function SeatBubble({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
-                  void recordVisit(
-                    seat.packId,
-                    seat.pack.owner,
-                    seat.pack.slug,
-                    "desk_mix",
-                    seat.name
-                  );
-                  captureVisit({
+                  void record({
                     packId: seat.packId,
-                    identity: { owner: seat.pack.owner, slug: seat.pack.slug },
+                    owner: seat.pack.owner,
+                    slug: seat.pack.slug,
                     source: "desk_mix",
                     seatName: seat.name,
                   });
@@ -567,6 +562,7 @@ function DraftRoster({
   draft: CatalogSeat[];
   onRemove: (url: string) => void;
 }) {
+  const record = useRecordVisit();
   return (
     <aside className="flex flex-col gap-3 rounded-lg border border-border bg-card px-4 py-3">
       <div>
@@ -596,16 +592,10 @@ function DraftRoster({
                         rel="noopener noreferrer"
                         aria-label={`Add ${seat.name} to Grok`}
                         onClick={() => {
-                          void recordVisit(
-                            seat.packId,
-                            seat.pack.owner,
-                            seat.pack.slug,
-                            "desk_mix",
-                            seat.name
-                          );
-                          captureVisit({
+                          void record({
                             packId: seat.packId,
-                            identity: { owner: seat.pack.owner, slug: seat.pack.slug },
+                            owner: seat.pack.owner,
+                            slug: seat.pack.slug,
                             source: "desk_mix",
                             seatName: seat.name,
                           });

@@ -112,6 +112,7 @@ test("local catalog start points Prisma at Postgres", () => {
   assert.match(start, /DATABASE_URL=postgresql:\/\/postgres:postgres@127\.0\.0\.1:5432\/orgbots/);
   assert.match(start, /pack_visits\.sql/);
   assert.match(start, /team_chat_usage\.sql/);
+  assert.match(start, /pack_visits_server_owned\.sql/);
   assert.match(start, /team_chat_usage_server_owned\.sql/);
   assert.match(example, /DATABASE_URL=/);
   assert.match(example, /Schema changes go through prisma migrate, not supabase/);
@@ -133,6 +134,123 @@ test("prisma reads seeded packs when DATABASE_URL is set", async () => {
     );
     assert.equal(rows.length, 1, "seeded poteto/lauren must exist in the Prisma tables");
   } finally {
+    await client.end();
+  }
+});
+
+test("pack_visits is server-owned so Prisma can count visits", () => {
+  const sql = read("supabase/migrations/20260831192000_pack_visits_server_owned.sql");
+  const prismaSql = read(
+    "prisma/migrations/20260831192000_pack_visits_server_owned/migration.sql"
+  );
+  assert.match(sql, /disable row level security/i);
+  assert.match(sql, /no force row level security/i);
+  assert.match(prismaSql, /DISABLE ROW LEVEL SECURITY/);
+  assert.match(prismaSql, /NO FORCE ROW LEVEL SECURITY/);
+});
+
+test("pack visits stay on a second read", async () => {
+  const url = process.env.DATABASE_URL?.trim();
+  if (!url) return;
+  const { applyVisitCounts, emptyVisitCounts, addVisitCount } = await import(
+    "./visits-count.ts"
+  );
+  const pg = await import("pg");
+  const Client = pg.Client ?? pg.default.Client;
+  const client = new Client({ connectionString: url });
+  await client.connect();
+  const packId = "10000000-0000-0000-0000-000000000010";
+  try {
+    const rls = await client.query(
+      `select c.relforcerowsecurity
+       from pg_class c
+       join pg_namespace n on n.oid = c.relnamespace
+       where n.nspname = 'public' and c.relname = 'pack_visits'`
+    );
+    assert.equal(rls.rows[0]?.relforcerowsecurity, false);
+    await client.query(
+      `delete from pack_visits where pack_owner = 'poteto' and pack_slug = 'lauren'`
+    );
+    await client.query(
+      `insert into pack_visits (id, pack_id, pack_owner, pack_slug, source)
+       values ($1, $2, 'poteto', 'lauren', 'add_to_grok'),
+              ($3, $2, 'poteto', 'lauren', 'desk_mix'),
+              ($4, $2, 'poteto', 'lauren', 'add_to_grok')`,
+      [`visit-persist-a`, packId, `visit-persist-b`, `visit-persist-c`]
+    );
+    const first = await client.query(
+      `select pack_id, pack_owner, pack_slug, count(*)::int as n
+       from pack_visits
+       where pack_owner = 'poteto' and pack_slug = 'lauren'
+       group by pack_id, pack_owner, pack_slug`
+    );
+    const second = await client.query(
+      `select pack_id, pack_owner, pack_slug, count(*)::int as n
+       from pack_visits
+       where pack_owner = 'poteto' and pack_slug = 'lauren'
+       group by pack_id, pack_owner, pack_slug`
+    );
+    assert.equal(first.rows.length, 1);
+    assert.deepEqual(first.rows[0], second.rows[0]);
+    assert.equal(first.rows[0].n, 3);
+    const counts = emptyVisitCounts();
+    addVisitCount(
+      counts,
+      first.rows[0].pack_id,
+      first.rows[0].pack_owner,
+      first.rows[0].pack_slug,
+      first.rows[0].n
+    );
+    const [overlaid] = applyVisitCounts(
+      [
+        {
+          id: packId,
+          owner: { githubLogin: "poteto" },
+          slug: "lauren",
+          visitsCount: 99,
+        },
+      ],
+      counts
+    );
+    assert.equal(overlaid.visitsCount, 3);
+  } finally {
+    await client.query(`delete from pack_visits where id like 'visit-persist-%'`);
+    await client.end();
+  }
+});
+
+test("team chat usage stays on the UTC day after a second read", async () => {
+  const url = process.env.DATABASE_URL?.trim();
+  if (!url) return;
+  const { utcDayKey, quotaFromUsage } = await import("./team-quota.ts");
+  const pg = await import("pg");
+  const Client = pg.Client ?? pg.default.Client;
+  const client = new Client({ connectionString: url });
+  await client.connect();
+  const userId = "bbbbbbbb-cccc-dddd-eeee-ffffffffffff";
+  const day = utcDayKey();
+  try {
+    await client.query(`delete from team_chat_usage where user_id = $1`, [userId]);
+    await client.query(
+      `insert into team_chat_usage (user_id, day, messages, tokens)
+       values ($1, $2::date, 3, 30)`,
+      [userId, day]
+    );
+    const first = await client.query(
+      `select messages, tokens from team_chat_usage
+       where user_id = $1 and day = $2::date`,
+      [userId, day]
+    );
+    const second = await client.query(
+      `select messages, tokens from team_chat_usage
+       where user_id = $1 and day = $2::date`,
+      [userId, day]
+    );
+    assert.equal(first.rows.length, 1);
+    assert.deepEqual(first.rows[0], second.rows[0]);
+    assert.equal(quotaFromUsage(first.rows[0]).remaining_messages, 17);
+  } finally {
+    await client.query(`delete from team_chat_usage where user_id = $1`, [userId]);
     await client.end();
   }
 });

@@ -6,8 +6,8 @@ import {
   type VisitCounts,
 } from "@/lib/visits-count";
 
-async function loadVisitCounts(): Promise<VisitCounts> {
-  if (!prisma) return emptyVisitCounts();
+async function loadVisitCounts(): Promise<VisitCounts | null> {
+  if (!prisma) return null;
   try {
     const groups = await prisma.packVisit.groupBy({
       by: ["packId", "packOwner", "packSlug"],
@@ -25,7 +25,7 @@ async function loadVisitCounts(): Promise<VisitCounts> {
     }
     return counts;
   } catch {
-    return emptyVisitCounts();
+    return null;
   }
 }
 
@@ -36,5 +36,7 @@ export async function withVisitCounts<T extends {
   visitsCount: number;
 }>(packs: T[]): Promise<T[]> {
   if (packs.length === 0) return packs;
-  return applyVisitCounts(packs, await loadVisitCounts());
+  const counts = await loadVisitCounts();
+  if (!counts) return packs;
+  return applyVisitCounts(packs, counts);
 }
