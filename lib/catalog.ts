@@ -141,7 +141,9 @@ function applySeatBand(packs: Pack[], seatBand?: SeatBand): Pack[] {
   return packs.filter((pack) => matchesSeatBand(pack.seats.length, seatBand));
 }
 
-function sortPacks(packs: Pack[]): Pack[] {
+function sortPacks<
+  T extends { featured?: boolean; visitsCount: number; name: string },
+>(packs: T[]): T[] {
   return sortPacksByVisits(packs);
 }
 

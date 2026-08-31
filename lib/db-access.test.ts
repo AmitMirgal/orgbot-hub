@@ -152,7 +152,9 @@ test("pack_visits is server-owned so Prisma can count visits", () => {
 test("pack visits stay on a second read", async () => {
   const url = process.env.DATABASE_URL?.trim();
   if (!url) return;
-  const { withVisitCounts } = await import("./visits-store.ts");
+  const { applyVisitCounts, emptyVisitCounts, addVisitCount } = await import(
+    "./visits-count.ts"
+  );
   const pg = await import("pg");
   const Client = pg.Client ?? pg.default.Client;
   const client = new Client({ connectionString: url });
@@ -177,21 +179,39 @@ test("pack visits stay on a second read", async () => {
       [`visit-persist-a`, packId, `visit-persist-b`, `visit-persist-c`]
     );
     const first = await client.query(
-      `select count(*)::int as n from pack_visits where pack_owner = 'poteto' and pack_slug = 'lauren'`
+      `select pack_id, pack_owner, pack_slug, count(*)::int as n
+       from pack_visits
+       where pack_owner = 'poteto' and pack_slug = 'lauren'
+       group by pack_id, pack_owner, pack_slug`
     );
     const second = await client.query(
-      `select count(*)::int as n from pack_visits where pack_owner = 'poteto' and pack_slug = 'lauren'`
+      `select pack_id, pack_owner, pack_slug, count(*)::int as n
+       from pack_visits
+       where pack_owner = 'poteto' and pack_slug = 'lauren'
+       group by pack_id, pack_owner, pack_slug`
     );
+    assert.equal(first.rows.length, 1);
+    assert.deepEqual(first.rows[0], second.rows[0]);
     assert.equal(first.rows[0].n, 3);
-    assert.equal(second.rows[0].n, 3);
-    const [overlaid] = await withVisitCounts([
-      {
-        id: packId,
-        owner: { githubLogin: "poteto" },
-        slug: "lauren",
-        visitsCount: 99,
-      },
-    ]);
+    const counts = emptyVisitCounts();
+    addVisitCount(
+      counts,
+      first.rows[0].pack_id,
+      first.rows[0].pack_owner,
+      first.rows[0].pack_slug,
+      first.rows[0].n
+    );
+    const [overlaid] = applyVisitCounts(
+      [
+        {
+          id: packId,
+          owner: { githubLogin: "poteto" },
+          slug: "lauren",
+          visitsCount: 99,
+        },
+      ],
+      counts
+    );
     assert.equal(overlaid.visitsCount, 3);
   } finally {
     await client.query(`delete from pack_visits where id like 'visit-persist-%'`);

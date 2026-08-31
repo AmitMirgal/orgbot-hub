@@ -3,6 +3,7 @@ import {
   addVisitCount,
   applyVisitCounts,
   emptyVisitCounts,
+  type VisitCounts,
 } from "@/lib/visits-count";
 
 async function loadVisitCounts(): Promise<VisitCounts | null> {
