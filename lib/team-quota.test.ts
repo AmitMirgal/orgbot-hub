@@ -8,6 +8,7 @@ import {
   quotaFromUsage,
   quotaMeterText,
   serializeTeamChatQuota,
+  teamDeskConsumeGate,
   utcDay,
   utcDayKey,
 } from "./team-quota.ts";
@@ -83,4 +84,12 @@ test("estimatePromptTokens counts request text", () => {
       messages: [{ role: "user", parts: [{ type: "text", text: "a".repeat(40) }] }],
     }) >= 10
   );
+});
+
+test("teamDeskConsumeGate treats a null consume as unreachable", () => {
+  assert.equal(teamDeskConsumeGate(null).kind, "unreachable");
+  const exhausted = quotaFromUsage({ messages: 20, tokens: 10 }, false);
+  assert.equal(teamDeskConsumeGate(exhausted).kind, "exhausted");
+  const ok = quotaFromUsage({ messages: 1, tokens: 8 });
+  assert.equal(teamDeskConsumeGate(ok).kind, "ok");
 });
