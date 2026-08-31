@@ -1,10 +1,15 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
+  TEAM_CHAT_QUOTA_HEADER,
   estimatePromptTokens,
   parseTeamChatQuota,
+  quotaFromResponse,
   quotaFromUsage,
   quotaMeterText,
+  serializeTeamChatQuota,
+  utcDay,
+  utcDayKey,
 } from "./team-quota.ts";
 
 test("quotaMeterText hides the token cap unless it blocked the turn", () => {
@@ -52,6 +57,24 @@ test("quotaFromUsage ranks a Prisma usage row", () => {
   assert.equal(quota.remaining_messages, 1);
   assert.equal(quota.allowed, false);
   assert.equal(quota.token_blocked, true);
+});
+
+test("utcDay is the UTC calendar day, not the local clock", () => {
+  const from = new Date("2026-08-31T22:15:00.000-07:00");
+  assert.equal(utcDayKey(from), "2026-09-01");
+  assert.equal(utcDay(from).toISOString(), "2026-09-01T00:00:00.000Z");
+});
+
+test("quotaFromResponse reads the server meter header", () => {
+  const quota = quotaFromUsage({ messages: 3, tokens: 40 });
+  const response = new Response(null, {
+    headers: { [TEAM_CHAT_QUOTA_HEADER]: serializeTeamChatQuota(quota) },
+  });
+  const parsed = quotaFromResponse(response);
+  assert.ok(parsed);
+  assert.equal(parsed.messages, 3);
+  assert.equal(parsed.remaining_messages, 17);
+  assert.equal(quotaFromResponse(new Response(null)), null);
 });
 
 test("estimatePromptTokens counts request text", () => {

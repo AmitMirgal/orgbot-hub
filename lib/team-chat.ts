@@ -1,8 +1,30 @@
 import { rateLimitAgent, streamAgent } from "@/lib/agent-http";
 import { getSessionUserId } from "@/lib/supabase/server";
+import { deskStreamParams } from "@/lib/team-desk-thread";
+import {
+  TEAM_CHAT_QUOTA_HEADER,
+  estimatePromptTokens,
+  serializeTeamChatQuota,
+  type TeamChatQuota,
+} from "@/lib/team-quota";
 import { consumeTeamChatTurn, refundTeamChatTurn } from "@/lib/team-quota-store";
-import { estimatePromptTokens } from "@/lib/team-quota";
 import { agentRuntimeStatus } from "@/src/mastra/model";
+
+function withQuotaHeader(response: Response, quota: TeamChatQuota | null): Response {
+  if (!quota) return response;
+  const headers = new Headers(response.headers);
+  headers.set(TEAM_CHAT_QUOTA_HEADER, serializeTeamChatQuota(quota));
+  const exposed = headers.get("Access-Control-Expose-Headers");
+  headers.set(
+    "Access-Control-Expose-Headers",
+    exposed ? `${exposed}, ${TEAM_CHAT_QUOTA_HEADER}` : TEAM_CHAT_QUOTA_HEADER
+  );
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
 
 export async function streamTeamDesk(request: Request): Promise<Response> {
   if (request.method !== "POST") {
@@ -25,26 +47,32 @@ export async function streamTeamDesk(request: Request): Promise<Response> {
     );
   }
 
-  const params = await request.json();
+  const params = deskStreamParams(userId, await request.json());
   const tokens = estimatePromptTokens(params);
   const consumed = await consumeTeamChatTurn(userId, tokens);
   if (consumed && !consumed.allowed) {
-    return Response.json(
-      {
-        error: "quota",
-        remaining: 0,
-        reset_at: consumed.reset_at,
-        token_blocked: consumed.token_blocked,
-      },
-      { status: 429 }
+    return withQuotaHeader(
+      Response.json(
+        {
+          error: "quota",
+          remaining: 0,
+          reset_at: consumed.reset_at,
+          token_blocked: consumed.token_blocked,
+        },
+        { status: 429 }
+      ),
+      consumed
     );
   }
 
   try {
-    return await streamAgent("orgbotsDesk", request, {
-      params,
-      skipRateLimit: true,
-    });
+    return withQuotaHeader(
+      await streamAgent("orgbotsDesk", request, {
+        params,
+        skipRateLimit: true,
+      }),
+      consumed
+    );
   } catch {
     if (consumed) await refundTeamChatTurn(userId, tokens);
     return Response.json({ error: "mix_failed" }, { status: 503 });

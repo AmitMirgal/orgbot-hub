@@ -301,10 +301,14 @@ test("search is catalog browse and team is the chat builder", () => {
   assert.doesNotMatch(team, /redirect\("\/login\?next=\/team"\)/);
   assert.match(team, /signedIn=\{signedIn\}/);
   assert.match(team, /readTeamChatQuotaForUser/);
+  assert.match(team, /readTeamDeskMessages/);
+  assert.match(team, /teamDeskThreadId/);
   assert.doesNotMatch(team, /from "@\/lib\/team-chat"/);
   assert.match(chat, /Sign in to mix a team/);
   assert.match(chat, /login\?next=\/team/);
   assert.match(chat, /quotaMeterText/);
+  assert.match(chat, /quotaFromResponse/);
+  assert.doesNotMatch(chat, /remaining_messages - 1/);
   assert.match(chat, /Mix \(/);
   assert.match(chat, /Your mix/);
   assert.match(chat, /from "@\/components\/ui\/sheet"/);
@@ -371,12 +375,30 @@ test("team mixer requires auth and consumes daily quota before the model", () =>
   assert.match(teamChat, /getSessionUserId/);
   assert.match(teamChat, /consumeTeamChatTurn/);
   assert.match(teamChat, /refundTeamChatTurn/);
+  assert.match(teamChat, /deskStreamParams/);
+  assert.match(teamChat, /TEAM_CHAT_QUOTA_HEADER/);
   assert.doesNotMatch(teamChat, /quota_unavailable/);
   assert.doesNotMatch(teamChat, /\.rpc\(/);
   assert.match(store, /prisma\.teamChatUsage/);
   assert.doesNotMatch(store, /\$transaction/);
   assert.match(schema, /model TeamChatUsage/);
   assert.match(store, /return emptyTeamChatQuota\(\);/);
+  const desk = readFileSync(
+    fileURLToPath(new URL("../src/mastra/agents/desk.ts", import.meta.url)),
+    "utf8"
+  );
+  const mastraIndex = readFileSync(
+    fileURLToPath(new URL("../src/mastra/index.ts", import.meta.url)),
+    "utf8"
+  );
+  const mastraStore = readFileSync(
+    fileURLToPath(new URL("../src/mastra/storage.ts", import.meta.url)),
+    "utf8"
+  );
+  assert.match(desk, /from "@mastra\/memory"/);
+  assert.match(desk, /new Memory/);
+  assert.match(mastraStore, /PostgresStore/);
+  assert.match(mastraIndex, /orgbotsStorage/);
   assert.match(catalog, /prisma\.pack/);
   assert.doesNotMatch(catalog, /createClient/);
   assert.doesNotMatch(catalog, /\.from\(/);

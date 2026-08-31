@@ -1,6 +1,8 @@
 import { CatalogChat } from "@/components/catalog-chat";
 import { listPacks, readCatalog } from "@/lib/catalog";
 import { getSessionUserId } from "@/lib/supabase/server";
+import { readTeamDeskMessages } from "@/lib/team-desk-memory";
+import { teamDeskThreadId } from "@/lib/team-desk-thread";
 import { readTeamChatQuotaForUser } from "@/lib/team-quota-store";
 import { topAuthors } from "@/lib/top-authors";
 import { agentRuntimeStatus } from "@/src/mastra/model";
@@ -19,12 +21,15 @@ export default async function TeamPage() {
   const catalog = await readCatalog(() => listPacks());
   const authors = catalog.status === "ok" ? topAuthors(catalog.data) : [];
   const quota = userId ? await readTeamChatQuotaForUser(userId) : undefined;
+  const messages = userId ? await readTeamDeskMessages(userId) : [];
   return (
     <CatalogChat
       surface="page"
       mix
       authors={authors}
       quota={quota}
+      messages={messages}
+      chatId={userId ? teamDeskThreadId(userId) : undefined}
       signedIn={signedIn}
       api="/api/v1/agent/search"
       title="Team"

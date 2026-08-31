@@ -1,10 +1,24 @@
 import { Agent } from "@mastra/core/agent";
+import { Memory } from "@mastra/memory";
 import { mastraModel } from "../model";
+import { orgbotsStorage } from "../storage";
 import { getPackTool, searchPacks, searchSeats } from "../tools/catalog";
+
+function deskMemory() {
+  if (!orgbotsStorage) return undefined;
+  return new Memory({
+    storage: orgbotsStorage,
+    vector: false,
+    options: {
+      lastMessages: 20,
+    },
+  });
+}
 
 export const orgbotsDesk = new Agent({
   id: "orgbotsDesk",
   name: "orgbots desk",
+  memory: deskMemory(),
   instructions: `You mix a visitor's draft roster from seats that already exist in the orgbots catalog.
 
 Use searchSeats first. Query by jobs, not vendor names (front desk, billing, QA). searchPacks and getPack are backup only when the user names a pack.

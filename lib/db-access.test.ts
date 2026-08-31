@@ -137,6 +137,42 @@ test("prisma reads seeded packs when DATABASE_URL is set", async () => {
   }
 });
 
+test("team chat usage stays on the UTC day after a second read", async () => {
+  const url = process.env.DATABASE_URL?.trim();
+  if (!url) return;
+  const { utcDayKey, quotaFromUsage } = await import("./team-quota.ts");
+  const pg = await import("pg");
+  const Client = pg.Client ?? pg.default.Client;
+  const client = new Client({ connectionString: url });
+  await client.connect();
+  const userId = "bbbbbbbb-cccc-dddd-eeee-ffffffffffff";
+  const day = utcDayKey();
+  try {
+    await client.query(`delete from team_chat_usage where user_id = $1`, [userId]);
+    await client.query(
+      `insert into team_chat_usage (user_id, day, messages, tokens)
+       values ($1, $2::date, 3, 30)`,
+      [userId, day]
+    );
+    const first = await client.query(
+      `select messages, tokens from team_chat_usage
+       where user_id = $1 and day = $2::date`,
+      [userId, day]
+    );
+    const second = await client.query(
+      `select messages, tokens from team_chat_usage
+       where user_id = $1 and day = $2::date`,
+      [userId, day]
+    );
+    assert.equal(first.rows.length, 1);
+    assert.deepEqual(first.rows[0], second.rows[0]);
+    assert.equal(quotaFromUsage(first.rows[0]).remaining_messages, 17);
+  } finally {
+    await client.query(`delete from team_chat_usage where user_id = $1`, [userId]);
+    await client.end();
+  }
+});
+
 test("team_chat_usage meters JWT user ids that are not in auth.users", async () => {
   const url = process.env.DATABASE_URL?.trim();
   if (!url) return;
