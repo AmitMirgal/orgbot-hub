@@ -39,7 +39,7 @@ That writes `.env.local` and serves the catalog at `http://127.0.0.1:54321`. Git
 pnpm dev
 ```
 
-The app listens on `http://127.0.0.1:43147`. If those env vars are unset, the bundled seed still renders Lauren, Krista, Eric, Nao, and George.
+The app listens on `http://127.0.0.1:43147`. If those env vars are unset, the bundled seed still renders Lauren, Krista, Eric, Nao, George, Hiten, Brad, Farzad, and Corey.
 
 ## Submit
 
@@ -47,4 +47,4 @@ Sign in if GitHub auth is wired. Paste official `https://x.ai/bot/…` URLs plus
 
 ## Seed
 
-The featured pack is Lauren (`/poteto/lauren`). Desk is Dr Eggbot at `https://x.ai/bot/93gOz3op1UQdBdbekQFLK`. `official` is false. Krista (`/kristaletz/krista`), Eric (`/ericzakariasson/eric`), Nao (`/naoufalelh/nao`), and George (`/gnurio/george`) are also seeded, all `official` false and `featured` false. `examples/stencil/` stays in git as a blank roster example and is not in the public catalog.
+The featured pack is Lauren (`/poteto/lauren`). Desk is Dr Eggbot at `https://x.ai/bot/93gOz3op1UQdBdbekQFLK`. `official` is false. Krista (`/kristaletz/krista`), Eric (`/ericzakariasson/eric`), Nao (`/naoufalelh/nao`), George (`/gnurio/george`), Hiten (`/hnshah/hiten`), Brad (`/BradShannon/brad`), Farzad (`/farzyness/farzad`), and Corey (`/cjblev/corey`) are also seeded, all `official` false and `featured` false. `examples/stencil/` stays in git as a blank roster example and is not in the public catalog.
