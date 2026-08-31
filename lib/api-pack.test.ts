@@ -57,6 +57,8 @@ test("seats serializer omits invalid grokTemplateUrl", () => {
   );
   assert.ok(seats.some((seat) => seat.pack.owner === "poteto"));
   assert.ok(seats.some((seat) => seat.pack.owner === "kristaletz"));
+  assert.ok(seats.some((seat) => seat.author.xHandle === "poteto"));
+  assert.ok(seats.some((seat) => seat.author.githubLogin === "kristaletz"));
 });
 
 test("card visits come from pack_visits owner/slug counts", () => {
@@ -140,6 +142,17 @@ test("pack filters are one row, not two All groups", () => {
   assert.doesNotMatch(src, /All packs/);
 });
 
+test("author profile card is an X identity card", () => {
+  const src = readFileSync(
+    fileURLToPath(new URL("../components/author-profile-card.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(src, /network="x"/);
+  assert.match(src, /authorHref/);
+  assert.match(src, /authorAvatarSrc/);
+  assert.match(src, /publicXHandle/);
+});
+
 test("home lists packs and does not embed chat", () => {
   const src = readFileSync(
     fileURLToPath(new URL("../app/page.tsx", import.meta.url)),
@@ -168,7 +181,14 @@ test("catalog chat uses shadcn Message, Bubble, and Streamdown", () => {
   assert.match(src, /surface = "card"/);
   assert.match(src, /desk_mix/);
   assert.match(src, /ChatMarkdown/);
-  assert.match(src, /variant=\{isUser \? "default" : "secondary"\}/);
+  assert.match(src, /variant="ghost"/);
+  assert.match(src, /variant="secondary"/);
+  assert.match(src, /AuthorProfileCard/);
+  assert.match(src, /authorsFromSeats/);
+  assert.match(src, /CatalogThreadMessage/);
+  assert.match(src, /Nothing matched in the catalog/);
+  assert.match(src, /The mix did not go through/);
+  assert.doesNotMatch(src, /variant=\{isUser \? "default" : "secondary"\}/);
   assert.doesNotMatch(src, /Ask the catalog/);
 });
 
@@ -356,6 +376,17 @@ test("submit page keeps the agent chat and marks it coming soon", () => {
   assert.match(panel, /api="\/api\/v1\/agent\/submit"/);
   assert.match(panel, /comingSoon/);
   assert.match(route, /Submit is coming soon/);
+});
+
+test("dev chat thread preview is hidden in production", () => {
+  const src = readFileSync(
+    fileURLToPath(new URL("../app/internal/chat-thread/page.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(src, /NODE_ENV === "production"/);
+  assert.match(src, /notFound/);
+  assert.match(src, /ChatThreadPreview/);
+  assert.match(src, /tool-searchSeats/);
 });
 
 test("pack page and mix add one bot at a time", () => {

@@ -1,4 +1,8 @@
-import { parseCatalogSeat, type CatalogSeat } from "@/lib/api-pack";
+import {
+  parseCatalogSeat,
+  type CatalogAuthor,
+  type CatalogSeat,
+} from "@/lib/api-pack";
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object";
@@ -21,6 +25,18 @@ export function seatsFromChatParts(parts: unknown[]): CatalogSeat[] {
     }
   }
   return seats;
+}
+
+export function authorsFromSeats(seats: CatalogSeat[]): CatalogAuthor[] {
+  const seen = new Set<string>();
+  const authors: CatalogAuthor[] = [];
+  for (const seat of seats) {
+    const key = seat.author.githubLogin.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    authors.push(seat.author);
+  }
+  return authors;
 }
 
 export function messageText(parts: unknown[]): string {
