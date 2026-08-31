@@ -7,6 +7,7 @@ import { DefaultChatTransport } from "ai";
 import { useChat } from "@ai-sdk/react";
 import { ArrowUpIcon, CheckIcon, CopyIcon, MessageCircleIcon, PlusIcon, XIcon } from "lucide-react";
 import { AuthorMarquee } from "@/components/author-marquee";
+import { AuthorProfileCard } from "@/components/author-profile-card";
 import { ChatMarkdown } from "@/components/chat-markdown";
 import { TeamMix } from "@/components/team-mix";
 import { Badge } from "@/components/ui/badge";
@@ -32,8 +33,13 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { recordVisit } from "@/lib/actions";
-import { parseCatalogSeat, type CatalogSeat } from "@/lib/api-pack";
-import { hasToolActivity, messageText, seatsFromChatParts } from "@/lib/chat-seats";
+import { parseCatalogSeat, publicXHandle, type CatalogSeat } from "@/lib/api-pack";
+import {
+  authorsFromSeats,
+  hasToolActivity,
+  messageText,
+  seatsFromChatParts,
+} from "@/lib/chat-seats";
 import { parseGrokTemplateUrl } from "@/lib/grok-url";
 import type { TopAuthor } from "@/lib/top-authors";
 import {
@@ -232,7 +238,7 @@ export function CatalogChat({
                 </MessageScrollerItem>
               ) : null}
               {messages.map((message, index) => (
-                <ThreadMessage
+                <CatalogThreadMessage
                   key={message.id}
                   message={message}
                   last={index === messages.length - 1}
@@ -248,6 +254,20 @@ export function CatalogChat({
                       Searching the catalog…
                     </MarkerContent>
                   </Marker>
+                </MessageScrollerItem>
+              ) : null}
+              {status === "error" ? (
+                <MessageScrollerItem>
+                  <Message align="start">
+                    <MessageContent>
+                      <MessageHeader>Agent</MessageHeader>
+                      <Bubble variant="destructive">
+                        <BubbleContent>
+                          The mix did not go through. Try again.
+                        </BubbleContent>
+                      </Bubble>
+                    </MessageContent>
+                  </Message>
                 </MessageScrollerItem>
               ) : null}
               <div ref={endRef} aria-hidden className="h-px w-px" />
@@ -366,7 +386,7 @@ export function CatalogChat({
   );
 }
 
-function ThreadMessage({
+export function CatalogThreadMessage({
   message,
   last,
   mix,
@@ -383,33 +403,39 @@ function ThreadMessage({
   const parts = message.parts ?? [];
   const text = messageText(parts);
   const seats = mix ? seatsFromChatParts(parts) : [];
+  const authors = authorsFromSeats(seats);
   const searching = !isUser && last && hasToolActivity(parts);
+  const emptyReply =
+    !isUser && last && !waiting && !searching && !text && seats.length === 0;
 
-  if (!text && seats.length === 0 && !searching) return null;
+  if (isUser && !text) return null;
+  if (!isUser && !text && seats.length === 0 && !searching && !emptyReply) {
+    return null;
+  }
 
   return (
     <MessageScrollerItem messageId={message.id} scrollAnchor={last}>
       <Message align={isUser ? "end" : "start"}>
         <MessageContent>
           <MessageHeader>{isUser ? "You" : "Agent"}</MessageHeader>
-          {text ? (
+          {isUser && text ? (
+            <Bubble variant="ghost">
+              <BubbleContent className="whitespace-pre-wrap">{text}</BubbleContent>
+            </Bubble>
+          ) : null}
+          {!isUser && text ? (
             <Bubble
-              variant={isUser ? "default" : "secondary"}
-              className={
-                isUser
-                  ? undefined
-                  : "*:data-[slot=bubble-content]:border-border dark:*:data-[slot=bubble-content]:border-white/20"
-              }
+              variant="secondary"
+              className="*:data-[slot=bubble-content]:border-border dark:*:data-[slot=bubble-content]:border-white/20"
             >
-              <BubbleContent className={isUser ? "whitespace-pre-wrap" : undefined}>
-                {isUser ? (
-                  text
-                ) : (
-                  <ChatMarkdown streaming={last && waiting}>{text}</ChatMarkdown>
-                )}
+              <BubbleContent>
+                <ChatMarkdown streaming={last && waiting}>{text}</ChatMarkdown>
               </BubbleContent>
             </Bubble>
           ) : null}
+          {authors.map((author) => (
+            <AuthorProfileCard key={author.githubLogin} author={author} />
+          ))}
           {seats.map((seat) => (
             <SeatBubble key={seat.id} seat={seat} onAddToDraft={onAddToDraft} />
           ))}
@@ -417,6 +443,14 @@ function ThreadMessage({
             <Marker>
               <MarkerContent className="animate-pulse">Searching the catalog…</MarkerContent>
             </Marker>
+          ) : null}
+          {emptyReply ? (
+            <Bubble
+              variant="secondary"
+              className="*:data-[slot=bubble-content]:border-border dark:*:data-[slot=bubble-content]:border-white/20"
+            >
+              <BubbleContent>Nothing matched in the catalog.</BubbleContent>
+            </Bubble>
           ) : null}
         </MessageContent>
       </Message>
@@ -438,7 +472,7 @@ function SeatBubble({
         <p className="font-medium">{seat.name}</p>
         <p className="text-[13px] text-muted-foreground">{seat.job}</p>
         <p className="text-[12px] text-muted-foreground">
-          Shared by @{seat.pack.owner} · {seat.pack.href}
+          Shared by @{publicXHandle(seat.author.xHandle) ?? seat.pack.owner} · {seat.pack.href}
         </p>
         <div className="flex flex-wrap gap-2">
           {href ? (

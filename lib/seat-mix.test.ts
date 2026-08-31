@@ -4,7 +4,11 @@ import type { CatalogSeat } from "./api-pack.ts";
 import { parseRequirementJobs, selectMix } from "./seat-mix.ts";
 
 function seat(
-  partial: Omit<CatalogSeat, "pack"> & { owner: string; slug?: string; packName?: string }
+  partial: Omit<CatalogSeat, "pack" | "author"> & {
+    owner: string;
+    slug?: string;
+    packName?: string;
+  }
 ): CatalogSeat {
   return {
     id: partial.id,
@@ -18,6 +22,12 @@ function seat(
       slug: partial.slug ?? partial.owner,
       name: partial.packName ?? partial.owner,
       href: `/${partial.owner}/${partial.slug ?? partial.owner}`,
+    },
+    author: {
+      githubLogin: partial.owner,
+      name: null,
+      avatarUrl: null,
+      xHandle: null,
     },
   };
 }

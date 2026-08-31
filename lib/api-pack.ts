@@ -23,6 +23,13 @@ export type CatalogSeatPack = {
   href: string;
 };
 
+export type CatalogAuthor = {
+  githubLogin: string;
+  name: string | null;
+  avatarUrl: string | null;
+  xHandle: string | null;
+};
+
 export type CatalogSeat = {
   id: string;
   name: string;
@@ -31,6 +38,7 @@ export type CatalogSeat = {
   grokTemplateUrl: string;
   packId: string;
   pack: CatalogSeatPack;
+  author: CatalogAuthor;
 };
 
 export type PublicPack = {
@@ -69,6 +77,13 @@ export const publicPackSchema = z.object({
   seats: z.array(publicSeatSchema),
 });
 
+export const catalogAuthorSchema = z.object({
+  githubLogin: z.string(),
+  name: z.string().nullable(),
+  avatarUrl: z.string().nullable(),
+  xHandle: z.string().nullable(),
+});
+
 export const catalogSeatSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -82,7 +97,35 @@ export const catalogSeatSchema = z.object({
     name: z.string(),
     href: z.string(),
   }),
+  author: catalogAuthorSchema.optional(),
 });
+
+export function catalogAuthorFromOwner(
+  owner: {
+    githubLogin: string;
+    name?: string | null;
+    avatarUrl?: string | null;
+    xHandle?: string | null;
+  },
+  author?: Partial<CatalogAuthor> | null
+): CatalogAuthor {
+  return {
+    githubLogin: author?.githubLogin ?? owner.githubLogin,
+    name: author?.name ?? owner.name ?? null,
+    avatarUrl: author?.avatarUrl ?? owner.avatarUrl ?? null,
+    xHandle: author?.xHandle ?? owner.xHandle ?? null,
+  };
+}
+
+export function authorAvatarSrc(author: CatalogAuthor): string {
+  return author.avatarUrl ?? `https://github.com/${author.githubLogin}.png`;
+}
+
+export function publicXHandle(handle: string | null | undefined): string | null {
+  if (!handle) return null;
+  const trimmed = handle.trim().replace(/^@+/, "");
+  return trimmed.length > 0 ? trimmed : null;
+}
 
 export function toPublicPack(pack: Pack | PackCard): PublicPack {
   return {
@@ -125,6 +168,7 @@ export function toCatalogSeat(
       name: pack.name,
       href: packHref(pack),
     },
+    author: catalogAuthorFromOwner(pack.owner),
   };
 }
 
@@ -133,7 +177,15 @@ export function parseCatalogSeat(value: unknown): CatalogSeat | null {
   if (!parsed.success) return null;
   const grokTemplateUrl = parseGrokTemplateUrl(parsed.data.grokTemplateUrl);
   if (!grokTemplateUrl) return null;
-  return { ...parsed.data, grokTemplateUrl };
+  const { author: rawAuthor, ...rest } = parsed.data;
+  return {
+    ...rest,
+    grokTemplateUrl,
+    author: catalogAuthorFromOwner(
+      { githubLogin: rest.pack.owner },
+      rawAuthor
+    ),
+  };
 }
 
 export function seatsFromPacks(packs: Array<Pack | PackCard>): CatalogSeat[] {
