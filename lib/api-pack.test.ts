@@ -301,6 +301,8 @@ test("team mixer requires auth and consumes daily quota before the model", () =>
   assert.match(callback, /exchangeCodeForSession/);
   assert.match(callback, /createRouteHandlerClient/);
   assert.doesNotMatch(callback, /\/\?auth=error/);
+  assert.match(callback, /verifyOtp/);
+  assert.match(proxy, /authCallbackBounceUrl/);
   assert.doesNotMatch(proxy, /path === "\/team"/);
   assert.match(search, /streamTeamDesk/);
   assert.match(teamChat, /getSessionUserId/);
