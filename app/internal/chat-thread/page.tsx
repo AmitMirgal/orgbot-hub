@@ -23,6 +23,11 @@ export default function ChatThreadPreviewPage() {
       parts: [{ type: "text", text: "lauren" }],
     },
     {
+      id: "agent-empty",
+      role: "assistant",
+      parts: [{ type: "text", text: "   " }],
+    },
+    {
       id: "agent-lauren",
       role: "assistant",
       parts: [

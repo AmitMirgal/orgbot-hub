@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { looksLikeSecret, parseGrokTemplateUrl } from "@/lib/grok-url";
 import { DEFAULT_ROUTING_RULE, slugify } from "@/lib/pack";
-import { prisma } from "@/lib/prisma";
+import { logPrismaFailure, prisma } from "@/lib/prisma";
 import { getSessionUserId } from "@/lib/supabase/server";
 import { SUBMIT_STATUS } from "@/lib/submit-status";
 import { isTopic } from "@/lib/topics";
@@ -246,7 +246,8 @@ export async function recordVisit(
     visitsCount = await prisma.packVisit.count({
       where: { packOwner: owner, packSlug: slug },
     });
-  } catch {
+  } catch (error) {
+    logPrismaFailure("recordVisit", error);
     return { error: "Catalog is not reachable." };
   }
 

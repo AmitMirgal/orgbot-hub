@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "@/generated/prisma/client";
 import { postgresConnectionString } from "./env-url.ts";
-import { utcDay, quotaFromUsage } from "./team-quota.ts";
+import { utcDay, quotaFromUsage, quotaMeterText } from "./team-quota.ts";
 import {
   applyVisitCounts,
   emptyVisitCounts,
@@ -156,6 +156,8 @@ test("local catalog start points Prisma at Postgres", () => {
   assert.match(example, /Table CRUD goes through Prisma, not Supabase PostgREST/);
   assert.match(example, /Schema changes go through prisma migrate, not supabase/);
   assert.match(example, /Mastra memory uses DIRECT_URL/);
+  assert.match(example, /NEXT_PUBLIC_SUPABASE_URL is https/);
+  assert.match(example, /pnpm prisma:migrate:deploy/);
 });
 
 test("prisma client and mastra storage only open postgres URLs", () => {
@@ -285,6 +287,67 @@ test("team chat usage stays on the UTC day after a second read", async () => {
     assert.equal(quotaFromUsage(first).remaining_messages, 17);
   } finally {
     await prisma.teamChatUsage.deleteMany({ where: { userId } });
+  }
+});
+
+test("one consume turn leaves 19 of 20 messages", async () => {
+  if (!prisma) return;
+  const userId = "cccccccc-dddd-eeee-ffff-000000000001";
+  const day = utcDay();
+  await prisma.teamChatUsage.deleteMany({ where: { userId } });
+  try {
+    await prisma.teamChatUsage.upsert({
+      where: { userId_day: { userId, day } },
+      create: { userId, day, messages: 0, tokens: 0 },
+      update: {},
+    });
+    const allowed = await prisma.teamChatUsage.updateMany({
+      where: {
+        userId,
+        day,
+        messages: { lt: 20 },
+        tokens: { lte: 50_000 - 8 },
+      },
+      data: {
+        messages: { increment: 1 },
+        tokens: { increment: 8 },
+      },
+    });
+    assert.equal(allowed.count, 1);
+    const row = await prisma.teamChatUsage.findUniqueOrThrow({
+      where: { userId_day: { userId, day } },
+    });
+    const quota = quotaFromUsage(row, allowed.count > 0);
+    assert.equal(quota.messages, 1);
+    assert.equal(quota.remaining_messages, 19);
+    assert.equal(quota.allowed, true);
+    assert.equal(quotaMeterText(quota), "19 / 20 left today");
+  } finally {
+    await prisma.teamChatUsage.deleteMany({ where: { userId } });
+  }
+});
+
+test("pack_visits insert does not require a packs row", async () => {
+  if (!prisma) return;
+  const packId = "99999999-0000-4000-8000-000000000001";
+  const visitId = "visit-fallback-no-pack";
+  await prisma.packVisit.deleteMany({ where: { id: visitId } });
+  try {
+    await prisma.packVisit.create({
+      data: {
+        id: visitId,
+        packId,
+        packOwner: "examples",
+        packSlug: "ghost-mix",
+        source: "add_to_grok",
+      },
+    });
+    const count = await prisma.packVisit.count({
+      where: { packOwner: "examples", packSlug: "ghost-mix" },
+    });
+    assert.equal(count, 1);
+  } finally {
+    await prisma.packVisit.deleteMany({ where: { id: visitId } });
   }
 });
 

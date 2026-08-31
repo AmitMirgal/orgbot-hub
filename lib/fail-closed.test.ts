@@ -10,8 +10,9 @@ function read(rel: string): string {
 
 test("streamTeamDesk fails closed when consume returns null", () => {
   const teamChat = read("./team-chat.ts");
-  assert.match(teamChat, /if \(!consumed\)/);
+  assert.match(teamChat, /teamDeskConsumeGate/);
   assert.match(teamChat, /catalog_unreachable/);
+  assert.match(teamChat, /case "unreachable"/);
   assert.match(teamChat, /status: 503/);
   assert.doesNotMatch(teamChat, /if \(consumed && !consumed\.allowed\)/);
 });
@@ -37,7 +38,8 @@ test("visit overlay logs Prisma failures instead of keeping installsCount", () =
   assert.match(store, /logPrismaFailure/);
   assert.match(actions, /logPrismaFailure/);
   assert.match(quota, /logPrismaFailure/);
-  assert.match(store, /applyVisitCounts\(packs, emptyVisitCounts\(\)\)/);
+  assert.match(store, /return emptyVisitCounts\(\)/);
+  assert.doesNotMatch(store, /if \(!counts\) return packs/);
 });
 
 test("assistant bubble waits for trimmed streamed text", () => {

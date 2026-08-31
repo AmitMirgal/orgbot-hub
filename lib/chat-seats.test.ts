@@ -7,7 +7,11 @@ import {
   publicXHandle,
   seatsFromPacks,
 } from "./api-pack.ts";
-import { authorsFromSeats, seatsFromChatParts } from "./chat-seats.ts";
+import {
+  authorsFromSeats,
+  catalogThreadRender,
+  seatsFromChatParts,
+} from "./chat-seats.ts";
 
 test("catalog seats carry the pack author identity", () => {
   const lauren = getFallbackPack("poteto", "lauren");
@@ -79,3 +83,69 @@ test("catalogAuthorFromOwner prefers explicit author fields", () => {
   assert.equal(author.name, "Overridden");
   assert.equal(author.xHandle, "other");
 });
+
+test("catalogThreadRender omits empty and whitespace bubbles", () => {
+  assert.equal(
+    catalogThreadRender({
+      role: "user",
+      parts: [{ type: "text", text: "   " }],
+      last: true,
+      mix: true,
+      waiting: false,
+    }).kind,
+    "omit"
+  );
+  assert.equal(
+    catalogThreadRender({
+      role: "assistant",
+      parts: [{ type: "text", text: "" }],
+      last: true,
+      mix: true,
+      waiting: true,
+    }).kind,
+    "omit"
+  );
+  assert.equal(
+    catalogThreadRender({
+      role: "assistant",
+      parts: [{ type: "text", text: "\n" }],
+      last: true,
+      mix: true,
+      waiting: true,
+    }).kind,
+    "omit"
+  );
+  const searching = catalogThreadRender({
+    role: "assistant",
+    parts: [{ type: "tool-searchSeats", state: "input-streaming" }],
+    last: true,
+    mix: true,
+    waiting: true,
+  });
+  assert.equal(searching.kind, "omit");
+  const typed = catalogThreadRender({
+    role: "assistant",
+    parts: [{ type: "text", text: "  Mix these seats.  " }],
+    last: true,
+    mix: true,
+    waiting: true,
+  });
+  assert.equal(typed.kind, "assistant");
+  if (typed.kind === "assistant") {
+    assert.equal(typed.text, "Mix these seats.");
+    assert.equal(typed.emptyReply, false);
+  }
+  const emptyReply = catalogThreadRender({
+    role: "assistant",
+    parts: [{ type: "text", text: "" }],
+    last: true,
+    mix: true,
+    waiting: false,
+  });
+  assert.equal(emptyReply.kind, "assistant");
+  if (emptyReply.kind === "assistant") {
+    assert.equal(emptyReply.text, null);
+    assert.equal(emptyReply.emptyReply, true);
+  }
+});
+
