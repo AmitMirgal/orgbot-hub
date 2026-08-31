@@ -4,18 +4,18 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { looksLikeSecret, parseGrokTemplateUrl } from "@/lib/grok-url";
 import { DEFAULT_ROUTING_RULE, slugify } from "@/lib/pack";
-import { isTopic } from "@/lib/topics";
 import { prisma } from "@/lib/prisma";
-import { createClient, getSessionUserId } from "@/lib/supabase/server";
+import { getSessionUserId } from "@/lib/supabase/server";
 import { SUBMIT_STATUS } from "@/lib/submit-status";
+import { isTopic } from "@/lib/topics";
 import type { VisitSource } from "@/lib/visits";
 
 async function requireUser() {
-  const { supabase, userId } = await getSessionUserId();
-  if (!supabase) {
-    return { supabase: null, userId: null as string | null, error: "Supabase is not configured." };
+  const { userId } = await getSessionUserId();
+  if (!prisma) {
+    return { userId: null as string | null, error: "Catalog is not reachable." };
   }
-  return { supabase, userId, error: userId ? null : "Sign in with GitHub to submit." };
+  return { userId, error: userId ? null : "Sign in with GitHub to submit." };
 }
 
 type DraftSeat = {
@@ -61,8 +61,8 @@ export async function submitPack(formData: FormData) {
     return { error: "Submit is coming soon." };
   }
 
-  const { supabase, userId, error } = await requireUser();
-  if (!supabase || !userId) return { error: error ?? "Not signed in." };
+  const { userId, error } = await requireUser();
+  if (!prisma || !userId) return { error: error ?? "Not signed in." };
 
   const name = String(formData.get("name") ?? "").trim();
   const slugInput = String(formData.get("slug") ?? "").trim();
@@ -142,54 +142,53 @@ export async function submitPack(formData: FormData) {
     });
   }
 
-  const { error: packError, data: pack } = await supabase
-    .from("packs")
-    .upsert(
-      {
-        owner_id: userId,
+  let pack: { id: string };
+  try {
+    pack = await prisma.pack.upsert({
+      where: { ownerId_slug: { ownerId: userId, slug } },
+      create: {
+        ownerId: userId,
         slug,
         name,
         description,
-        github_url: githubUrl,
+        githubUrl,
         official: false,
         featured: false,
         topics,
-        readme_md: readmeMd,
-        routing_rule: routingRule,
-        updated_at: new Date().toISOString(),
+        readmeMd,
+        routingRule,
       },
-      { onConflict: "owner_id,slug" }
-    )
-    .select("id")
-    .single();
-
-  if (packError || !pack) {
-    return { error: packError?.message ?? "Could not save pack." };
+      update: {
+        name,
+        description,
+        githubUrl,
+        topics,
+        readmeMd,
+        routingRule,
+      },
+      select: { id: true },
+    });
+    await prisma.seat.deleteMany({ where: { packId: pack.id } });
+    await prisma.seat.createMany({
+      data: seats.map((item) => ({
+        packId: pack.id,
+        name: item.name,
+        job: item.job,
+        repeatsWhen: item.repeatsWhen,
+        isDesk: item.isDesk,
+        sortOrder: item.sortOrder,
+        grokTemplateUrl: item.grokTemplateUrl,
+      })),
+    });
+  } catch {
+    return { error: "Could not save pack." };
   }
 
-  const { error: deleteError } = await supabase.from("seats").delete().eq("pack_id", pack.id);
-  if (deleteError) return { error: deleteError.message };
-
-  const { error: seatError } = await supabase.from("seats").insert(
-    seats.map((item) => ({
-      pack_id: pack.id,
-      name: item.name,
-      job: item.job,
-      repeats_when: item.repeatsWhen,
-      is_desk: item.isDesk,
-      sort_order: item.sortOrder,
-      grok_template_url: item.grokTemplateUrl,
-    }))
-  );
-  if (seatError) return { error: seatError.message };
-
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("github_login")
-    .eq("id", userId)
-    .single();
-
-  const owner = profile?.github_login;
+  const profile = await prisma.profile.findUnique({
+    where: { id: userId },
+    select: { githubLogin: true },
+  });
+  const owner = profile?.githubLogin;
   if (!owner) return { error: "Profile is missing a GitHub login." };
 
   revalidatePath("/");
@@ -201,28 +200,22 @@ export async function submitPack(formData: FormData) {
 }
 
 export async function toggleLike(packId: string, owner: string, slug: string) {
-  const { supabase, userId, error } = await requireUser();
-  if (!supabase || !userId) return { error: error ?? "Sign in to upvote." };
+  const { userId, error } = await requireUser();
+  if (!prisma || !userId) return { error: error ?? "Sign in to upvote." };
 
-  const { data: existing } = await supabase
-    .from("likes")
-    .select("pack_id")
-    .eq("pack_id", packId)
-    .eq("user_id", userId)
-    .maybeSingle();
-
-  if (existing) {
-    const { error: deleteError } = await supabase
-      .from("likes")
-      .delete()
-      .eq("pack_id", packId)
-      .eq("user_id", userId);
-    if (deleteError) return { error: deleteError.message };
-  } else {
-    const { error: insertError } = await supabase
-      .from("likes")
-      .insert({ pack_id: packId, user_id: userId });
-    if (insertError) return { error: insertError.message };
+  try {
+    const existing = await prisma.like.findUnique({
+      where: { userId_packId: { userId, packId } },
+    });
+    if (existing) {
+      await prisma.like.delete({
+        where: { userId_packId: { userId, packId } },
+      });
+    } else {
+      await prisma.like.create({ data: { packId, userId } });
+    }
+  } catch {
+    return { error: "Could not update like." };
   }
 
   revalidatePath("/");
@@ -238,43 +231,28 @@ export async function recordVisit(
   source: VisitSource = "add_to_grok",
   seatName?: string
 ) {
-  let wroteVisit = false;
-  if (prisma) {
-    try {
-      await prisma.packVisit.create({
-        data: {
-          packId,
-          packOwner: owner,
-          packSlug: slug,
-          source,
-          seatName: seatName ?? null,
-        },
-      });
-      wroteVisit = true;
-    } catch {
-      wroteVisit = false;
-    }
+  if (!prisma) return { error: "Catalog is not reachable." };
+  try {
+    await prisma.packVisit.create({
+      data: {
+        packId,
+        packOwner: owner,
+        packSlug: slug,
+        source,
+        seatName: seatName ?? null,
+      },
+    });
+  } catch {
+    return { error: "Catalog is not reachable." };
   }
 
-  const supabase = await createClient();
-  if (!wroteVisit && supabase) {
-    const inserted = await supabase.from("pack_visits").insert({
-      id: crypto.randomUUID(),
-      pack_id: packId,
-      pack_owner: owner,
-      pack_slug: slug,
-      source,
-      seat_name: seatName ?? null,
+  try {
+    await prisma.pack.update({
+      where: { id: packId },
+      data: { installsCount: { increment: 1 } },
     });
-    wroteVisit = !inserted.error;
-  }
-  if (supabase) {
-    const { error } = await supabase.rpc("increment_installs", { p_pack_id: packId });
-    if (error) {
-      await supabase.rpc("increment_clones", { p_pack_id: packId });
-    }
-  } else if (!wroteVisit) {
-    return { error: "Catalog is not reachable." };
+  } catch {
+    // Fallback catalog packs are not rows in packs.
   }
 
   revalidatePath("/");

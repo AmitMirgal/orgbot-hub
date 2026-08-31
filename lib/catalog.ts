@@ -14,27 +14,27 @@ import {
   type Profile,
   type Seat,
 } from "@/lib/pack";
+import { prisma } from "@/lib/prisma";
+import { getSessionUserId } from "@/lib/supabase/server";
 import { matchesSeatBand, type SeatBand } from "@/lib/topics";
-import { isSupabaseConfigured } from "@/lib/supabase/env";
-import { createClient, getSessionUserId } from "@/lib/supabase/server";
 import { withVisitCounts } from "@/lib/visits-store";
 
 type ProfileRow = {
   id: string;
-  github_login: string;
+  githubLogin: string;
   name: string | null;
-  avatar_url: string | null;
-  x_handle: string | null;
+  avatarUrl: string | null;
+  xHandle: string | null;
 };
 
 type SeatRow = {
   id: string;
   name: string;
   job: string;
-  repeats_when: string | null;
-  is_desk: boolean;
-  sort_order: number;
-  grok_template_url: string | null;
+  repeatsWhen: string | null;
+  isDesk: boolean;
+  sortOrder: number;
+  grokTemplateUrl: string | null;
 };
 
 type PackRow = {
@@ -42,16 +42,16 @@ type PackRow = {
   slug: string;
   name: string;
   description: string;
-  github_url: string | null;
+  githubUrl: string | null;
   official: boolean;
   featured: boolean;
-  topics: string[] | null;
-  likes_count: number;
-  installs_count: number;
-  readme_md: string | null;
-  routing_rule: string;
-  owner: ProfileRow | ProfileRow[] | null;
-  seats: SeatRow[] | null;
+  topics: string[];
+  likesCount: number;
+  installsCount: number;
+  readmeMd: string | null;
+  routingRule: string;
+  owner: ProfileRow | null;
+  seats: SeatRow[];
 };
 
 export type CatalogQuery = FallbackQuery;
@@ -63,18 +63,13 @@ export class CatalogUnavailableError extends Error {
   }
 }
 
-function asOwner(owner: PackRow["owner"]): ProfileRow | null {
-  if (!owner) return null;
-  return Array.isArray(owner) ? (owner[0] ?? null) : owner;
-}
-
 function mapProfile(row: ProfileRow): Profile {
   return {
     id: row.id,
-    githubLogin: row.github_login,
+    githubLogin: row.githubLogin,
     name: row.name,
-    avatarUrl: row.avatar_url,
-    xHandle: row.x_handle,
+    avatarUrl: row.avatarUrl,
+    xHandle: row.xHandle,
   };
 }
 
@@ -83,35 +78,35 @@ function mapSeat(row: SeatRow): Seat {
     id: row.id,
     name: row.name,
     job: row.job,
-    repeatsWhen: row.repeats_when,
-    isDesk: row.is_desk,
-    sortOrder: row.sort_order,
-    grokTemplateUrl: parseGrokTemplateUrl(row.grok_template_url),
+    repeatsWhen: row.repeatsWhen,
+    isDesk: row.isDesk,
+    sortOrder: row.sortOrder,
+    grokTemplateUrl: parseGrokTemplateUrl(row.grokTemplateUrl),
   };
 }
 
 function mapPack(row: PackRow): Pack | null {
-  const owner = asOwner(row.owner);
-  if (!owner) return null;
-  const seats = (row.seats ?? [])
+  if (!row.owner) return null;
+  const seats = row.seats
     .slice()
-    .sort((a, b) => a.sort_order - b.sort_order)
+    .sort((a, b) => a.sortOrder - b.sortOrder)
     .map(mapSeat);
+  const installs = Number.isFinite(row.installsCount) ? row.installsCount : 0;
   return {
     id: row.id,
-    owner: mapProfile(owner),
+    owner: mapProfile(row.owner),
     slug: row.slug,
     name: row.name,
     description: row.description,
-    githubUrl: row.github_url,
+    githubUrl: row.githubUrl,
     official: row.official,
     featured: row.featured,
     topics: row.topics ?? [],
-    likesCount: row.likes_count,
-    installsCount: row.installs_count,
-    visitsCount: Number.isFinite(row.installs_count) ? row.installs_count : 0,
-    readmeMd: row.readme_md,
-    routingRule: row.routing_rule,
+    likesCount: row.likesCount,
+    installsCount: installs,
+    visitsCount: installs,
+    readmeMd: row.readmeMd,
+    routingRule: row.routingRule,
     seats,
   };
 }
@@ -135,16 +130,10 @@ export async function readCatalog<T>(load: () => Promise<T>): Promise<CatalogRea
   }
 }
 
-const packSelect = `
-  id, slug, name, description, github_url, official, featured,
-  topics, likes_count, installs_count, readme_md, routing_rule,
-  owner:profiles!owner_id (id, github_login, name, avatar_url, x_handle),
-  seats (id, name, job, repeats_when, is_desk, sort_order, grok_template_url)
-`;
-
-function escapeIlike(value: string): string {
-  return value.replace(/[%_,()]/g, " ").trim();
-}
+const packInclude = {
+  owner: true,
+  seats: { orderBy: { sortOrder: "asc" as const } },
+};
 
 function applySeatBand(packs: Pack[], seatBand?: SeatBand): Pack[] {
   if (!seatBand) return packs;
@@ -159,11 +148,11 @@ function sortPacks(packs: Pack[]): Pack[] {
   });
 }
 
-async function fromSupabaseOrFallback<T>(
+async function fromPrismaOrFallback<T>(
   live: () => Promise<T>,
   fallback: () => T | Promise<T>
 ): Promise<T> {
-  if (!isSupabaseConfigured()) return fallback();
+  if (!prisma) return fallback();
   try {
     return await live();
   } catch {
@@ -172,74 +161,45 @@ async function fromSupabaseOrFallback<T>(
 }
 
 export async function listPacks(query: CatalogQuery = {}): Promise<PackCard[]> {
-  return fromSupabaseOrFallback(async () => {
-  const supabase = await createClient();
-  if (!supabase) throw new CatalogUnavailableError();
-
-  let request = supabase.from("packs").select(packSelect);
-
-  if (query.featured) request = request.eq("featured", true);
-  if (query.topic) request = request.contains("topics", [query.topic]);
-
-  if (query.q) {
-    const q = escapeIlike(query.q);
-    if (q) {
-      const { data: seatHits, error: seatError } = await supabase
-        .from("seats")
-        .select("pack_id")
-        .ilike("name", `%${q}%`);
-      if (seatError) throw new CatalogUnavailableError(seatError.message);
-      const seatPackIds = [...new Set((seatHits ?? []).map((row) => row.pack_id))];
-      const parts = [
-        `name.ilike.%${q}%`,
-        `description.ilike.%${q}%`,
-        `slug.ilike.%${q}%`,
-      ];
-      if (seatPackIds.length > 0) {
-        parts.push(`id.in.(${seatPackIds.join(",")})`);
-      }
-      request = request.or(parts.join(","));
-    }
-  }
-
-  const { data, error } = await request;
-  if (error) throw new CatalogUnavailableError(error.message);
-  const packs = applySeatBand(
-    sortPacks(
-      (data as PackRow[])
-        .map(mapPack)
-        .filter((pack): pack is Pack => pack !== null)
-    ),
-    query.seatBand
-  );
-  return packs.map(toCard);
+  return fromPrismaOrFallback(async () => {
+    if (!prisma) throw new CatalogUnavailableError();
+    const q = query.q?.trim();
+    const rows = await prisma.pack.findMany({
+      where: {
+        ...(query.featured ? { featured: true } : {}),
+        ...(query.topic ? { topics: { has: query.topic } } : {}),
+        ...(q
+          ? {
+              OR: [
+                { name: { contains: q, mode: "insensitive" } },
+                { description: { contains: q, mode: "insensitive" } },
+                { slug: { contains: q, mode: "insensitive" } },
+                { seats: { some: { name: { contains: q, mode: "insensitive" } } } },
+              ],
+            }
+          : {}),
+      },
+      include: packInclude,
+    });
+    const packs = applySeatBand(
+      sortPacks(rows.map(mapPack).filter((pack): pack is Pack => pack !== null)),
+      query.seatBand
+    );
+    return packs.map(toCard);
   }, () => listFallbackPacks(query)).then((packs) =>
     withVisitCounts(packs.length > 0 ? packs : listFallbackPacks(query))
   );
 }
 
 export async function getPack(owner: string, slug: string): Promise<Pack | null> {
-  return fromSupabaseOrFallback(async () => {
-  const supabase = await createClient();
-  if (!supabase) throw new CatalogUnavailableError();
-
-  const { data: profile, error: profileError } = await supabase
-    .from("profiles")
-    .select("id")
-    .eq("github_login", owner)
-    .maybeSingle();
-  if (profileError) throw new CatalogUnavailableError(profileError.message);
-  if (!profile) return null;
-
-  const { data, error } = await supabase
-    .from("packs")
-    .select(packSelect)
-    .eq("owner_id", profile.id)
-    .eq("slug", slug)
-    .maybeSingle();
-  if (error) throw new CatalogUnavailableError(error.message);
-  if (!data) return null;
-  return mapPack(data as PackRow);
+  return fromPrismaOrFallback(async () => {
+    if (!prisma) throw new CatalogUnavailableError();
+    const row = await prisma.pack.findFirst({
+      where: { slug, owner: { githubLogin: owner } },
+      include: packInclude,
+    });
+    if (!row) return null;
+    return mapPack(row);
   }, () => getFallbackPack(owner, slug)).then(async (pack) => {
     const resolved = pack ?? getFallbackPack(owner, slug);
     if (!resolved) return null;
@@ -249,38 +209,28 @@ export async function getPack(owner: string, slug: string): Promise<Pack | null>
 }
 
 export async function getProfile(login: string): Promise<Profile | null> {
-  return fromSupabaseOrFallback(async () => {
-  const supabase = await createClient();
-  if (!supabase) throw new CatalogUnavailableError();
-  const { data, error } = await supabase
-    .from("profiles")
-    .select("id, github_login, name, avatar_url, x_handle")
-    .eq("github_login", login)
-    .maybeSingle();
-  if (error) throw new CatalogUnavailableError(error.message);
-  if (!data) return null;
-  return mapProfile(data as ProfileRow);
+  return fromPrismaOrFallback(async () => {
+    if (!prisma) throw new CatalogUnavailableError();
+    const row = await prisma.profile.findUnique({
+      where: { githubLogin: login },
+    });
+    if (!row) return null;
+    return mapProfile(row);
   }, () => getFallbackProfile(login)).then(
     (profile) => profile ?? getFallbackProfile(login)
   );
 }
 
 export async function listPacksByOwner(login: string): Promise<PackCard[]> {
-  return fromSupabaseOrFallback(async () => {
-  const profile = await getProfile(login);
-  if (!profile) return [];
-  const supabase = await createClient();
-  if (!supabase) throw new CatalogUnavailableError();
-  const { data, error } = await supabase
-    .from("packs")
-    .select(packSelect)
-    .eq("owner_id", profile.id);
-  if (error) throw new CatalogUnavailableError(error.message);
-  return sortPacks(
-    (data as PackRow[])
-      .map(mapPack)
-      .filter((pack): pack is Pack => pack !== null)
-  ).map(toCard);
+  return fromPrismaOrFallback(async () => {
+    if (!prisma) throw new CatalogUnavailableError();
+    const rows = await prisma.pack.findMany({
+      where: { owner: { githubLogin: login } },
+      include: packInclude,
+    });
+    return sortPacks(
+      rows.map(mapPack).filter((pack): pack is Pack => pack !== null)
+    ).map(toCard);
   }, () => listFallbackPacksByOwner(login)).then((packs) =>
     withVisitCounts(packs.length > 0 ? packs : listFallbackPacksByOwner(login))
   );
@@ -318,26 +268,25 @@ export async function relatedPacks(pack: Pack, limit = 3): Promise<PackCard[]> {
 }
 
 export async function currentProfile(): Promise<Profile | null> {
-  const { supabase, userId } = await getSessionUserId();
-  if (!supabase || !userId) return null;
-  const { data } = await supabase
-    .from("profiles")
-    .select("id, github_login, name, avatar_url, x_handle")
-    .eq("id", userId)
-    .maybeSingle();
-  if (!data) return null;
-  return mapProfile(data as ProfileRow);
+  const { userId } = await getSessionUserId();
+  if (!userId || !prisma) return null;
+  try {
+    const row = await prisma.profile.findUnique({ where: { id: userId } });
+    if (!row) return null;
+    return mapProfile(row);
+  } catch {
+    return null;
+  }
 }
 
 export async function hasLiked(packId: string, userId: string | null): Promise<boolean> {
-  if (!userId) return false;
-  const supabase = await createClient();
-  if (!supabase) return false;
-  const { data } = await supabase
-    .from("likes")
-    .select("pack_id")
-    .eq("pack_id", packId)
-    .eq("user_id", userId)
-    .maybeSingle();
-  return Boolean(data);
+  if (!userId || !prisma) return false;
+  try {
+    const row = await prisma.like.findUnique({
+      where: { userId_packId: { userId, packId } },
+    });
+    return Boolean(row);
+  } catch {
+    return false;
+  }
 }

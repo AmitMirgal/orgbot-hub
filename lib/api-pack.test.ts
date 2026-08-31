@@ -86,7 +86,13 @@ test("prisma pack_visits uses enum, timestamptz, and named indexes", () => {
   assert.match(schema, /pack_visits_pack_id_idx/);
   assert.match(schema, /pack_visits_owner_slug_idx/);
   assert.match(schema, /@@map\("visit_source"\)/);
+  assert.match(schema, /model Profile/);
+  assert.match(schema, /model Pack/);
+  assert.match(schema, /model Seat/);
+  assert.match(schema, /model Like/);
   assert.match(store, /packVisit\.groupBy/);
+  assert.doesNotMatch(store, /createClient/);
+  assert.doesNotMatch(store, /\.from\(/);
   assert.match(visits, /from "@\/generated\/prisma\/enums"/);
 });
 
@@ -292,6 +298,14 @@ test("team mixer requires auth and consumes daily quota before the model", () =>
     fileURLToPath(new URL("./team-quota-store.ts", import.meta.url)),
     "utf8"
   );
+  const catalog = readFileSync(
+    fileURLToPath(new URL("./catalog.ts", import.meta.url)),
+    "utf8"
+  );
+  const actions = readFileSync(
+    fileURLToPath(new URL("./actions.ts", import.meta.url)),
+    "utf8"
+  );
   assert.match(login, /oauth\("github"\)/);
   assert.match(login, /oauth\("x"\)/);
   assert.match(login, /signInWithOAuth/);
@@ -313,6 +327,14 @@ test("team mixer requires auth and consumes daily quota before the model", () =>
   assert.match(store, /prisma\.teamChatUsage/);
   assert.match(schema, /model TeamChatUsage/);
   assert.match(store, /return emptyTeamChatQuota\(\);/);
+  assert.match(catalog, /prisma\.pack/);
+  assert.doesNotMatch(catalog, /createClient/);
+  assert.doesNotMatch(catalog, /\.from\(/);
+  assert.doesNotMatch(catalog, /\.rpc\(/);
+  assert.match(actions, /prisma\.packVisit\.create/);
+  assert.doesNotMatch(actions, /createClient/);
+  assert.doesNotMatch(actions, /\.rpc\(/);
+  assert.doesNotMatch(actions, /\.from\(/);
 });
 
 test("submit page keeps the agent chat and marks it coming soon", () => {

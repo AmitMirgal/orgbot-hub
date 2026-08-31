@@ -15,7 +15,77 @@ enum VisitSource {
   @@map("visit_source")
 }
 
-/// One row per Add-bot click. No Pack relation — catalog tables are not owned by this schema.
+/// Auth identity lives in Supabase Auth. This row is the catalog owner.
+model Profile {
+  id          String   @id @db.Uuid
+  githubLogin String   @unique @map("github_login")
+  name        String?
+  avatarUrl   String?  @map("avatar_url")
+  xHandle     String?  @map("x_handle")
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz
+  packs       Pack[]
+  likes       Like[]
+
+  @@map("profiles")
+}
+
+model Pack {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  ownerId       String   @map("owner_id") @db.Uuid
+  slug          String
+  name          String
+  description   String
+  githubUrl     String?  @map("github_url")
+  official      Boolean  @default(false)
+  featured      Boolean  @default(false)
+  topics        String[] @default([])
+  likesCount    Int      @default(0) @map("likes_count")
+  installsCount Int      @default(0) @map("installs_count")
+  readmeMd      String?  @map("readme_md")
+  routingRule   String   @default("Spawn a seat when the job repeats; random stays at the desk.") @map("routing_rule")
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt     DateTime @updatedAt @map("updated_at") @db.Timestamptz
+  owner         Profile  @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  seats         Seat[]
+  likes         Like[]
+
+  @@unique([ownerId, slug])
+  @@index([ownerId], map: "packs_owner_id_idx")
+  @@index([official], map: "packs_official_idx")
+  @@index([featured(sort: Desc)], map: "packs_featured_idx")
+  @@index([installsCount(sort: Desc)], map: "packs_installs_count_idx")
+  @@map("packs")
+}
+
+model Seat {
+  id              String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  packId          String  @map("pack_id") @db.Uuid
+  name            String
+  job             String
+  repeatsWhen     String? @map("repeats_when")
+  isDesk          Boolean @default(false) @map("is_desk")
+  sortOrder       Int     @default(0) @map("sort_order")
+  grokTemplateUrl String? @map("grok_template_url")
+  pack            Pack    @relation(fields: [packId], references: [id], onDelete: Cascade)
+
+  @@index([packId], map: "seats_pack_id_idx")
+  @@map("seats")
+}
+
+model Like {
+  userId    String   @map("user_id") @db.Uuid
+  packId    String   @map("pack_id") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  user      Profile  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  pack      Pack     @relation(fields: [packId], references: [id], onDelete: Cascade)
+
+  @@id([userId, packId])
+  @@index([packId], map: "likes_pack_id_idx")
+  @@map("likes")
+}
+
+/// One row per Add-bot click. Not related to Pack — fallback catalog ids are not rows.
 /// Card totals are counted from this table, not packs.installs_count.
 model PackVisit {
   id        String      @id @default(cuid())
