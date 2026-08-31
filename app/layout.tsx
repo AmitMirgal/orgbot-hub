@@ -36,10 +36,10 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} h-full`}
     >
-      <body className="flex min-h-dvh flex-col font-sans">
+      <body className="flex h-dvh min-h-0 flex-col overflow-hidden font-sans">
         <Providers>
           <SiteHeader packs={options} user={user} />
-          <div className="flex min-h-0 flex-1 flex-col overflow-x-hidden">{children}</div>
+          <div className="flex min-h-0 flex-1 flex-col overflow-x-hidden overflow-y-auto">{children}</div>
           <SiteFooter />
         </Providers>
       </body>

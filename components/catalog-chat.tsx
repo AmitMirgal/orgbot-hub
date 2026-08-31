@@ -55,7 +55,7 @@ import { cn } from "@/lib/utils";
 import { captureVisit } from "@/lib/visits-client";
 
 const pageChatShellClassName =
-  "flex h-[calc(100dvh-3.5rem)] min-h-0 min-w-0 flex-1 overflow-hidden";
+  "flex min-h-0 min-w-0 flex-1 overflow-hidden";
 
 export function ChatTranscript({
   children,

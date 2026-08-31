@@ -13,7 +13,7 @@ export function ChatThreadPreview({
   return (
     <section
       aria-label="Chat thread preview"
-      className="flex h-[calc(100dvh-3.5rem)] min-h-0 min-w-0 flex-1 overflow-hidden"
+      className="flex min-h-0 min-w-0 flex-1 overflow-hidden"
     >
       <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden bg-background">
         <ChatTranscript>

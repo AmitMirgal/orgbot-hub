@@ -206,10 +206,16 @@ test("catalog chat lets MessageScroller own overflow", () => {
     fileURLToPath(new URL("../components/chat-thread-preview.tsx", import.meta.url)),
     "utf8"
   );
+  const layout = readFileSync(
+    fileURLToPath(new URL("../app/layout.tsx", import.meta.url)),
+    "utf8"
+  );
   assert.match(scroller, /\[&::-webkit-scrollbar\]:hidden/);
   assert.doesNotMatch(scroller, /scrollbar-thin/);
   assert.match(chat, /overflow-x-hidden/);
-  assert.match(chat, /h-\[calc\(100dvh-3\.5rem\)\]/);
+  assert.match(chat, /pageChatShellClassName/);
+  assert.match(layout, /h-dvh/);
+  assert.match(layout, /overflow-y-auto/);
   assert.match(chat, /scrollAnchor=\{isUser\}/);
   assert.doesNotMatch(chat, /from "@\/components\/ui\/scroll-area"/);
   assert.doesNotMatch(chat, /<ScrollArea/);
