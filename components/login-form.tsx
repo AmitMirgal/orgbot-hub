@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { GitHubLogo, XLogo } from "@/components/network-icons";
-import { authCallbackUrl, safeNextPath } from "@/lib/auth-path";
+import { authCallbackUrl, authRedirectOrigin, safeNextPath } from "@/lib/auth-path";
 import { createClient } from "@/lib/supabase/client";
 
 export function LoginForm({
@@ -32,7 +32,10 @@ export function LoginForm({
     const { error: oauthError } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: authCallbackUrl(window.location.origin, dest),
+        redirectTo: authCallbackUrl(
+          authRedirectOrigin(window.location.origin),
+          dest
+        ),
       },
     });
     if (oauthError) {
@@ -55,7 +58,10 @@ export function LoginForm({
     const { error: otpError } = await supabase.auth.signInWithOtp({
       email: value,
       options: {
-        emailRedirectTo: authCallbackUrl(window.location.origin, dest),
+        emailRedirectTo: authCallbackUrl(
+          authRedirectOrigin(window.location.origin),
+          dest
+        ),
       },
     });
     setBusy(false);
