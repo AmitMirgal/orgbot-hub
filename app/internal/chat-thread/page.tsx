@@ -44,5 +44,5 @@ export default function ChatThreadPreviewPage() {
     },
   ];
 
-  return <ChatThreadPreview messages={messages} />;
+  return <ChatThreadPreview messages={messages} draft={seats.slice(0, 2)} />;
 }

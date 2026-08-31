@@ -5,11 +5,11 @@ import { useRouter } from "next/navigation";
 import { useState, type FormEvent, type KeyboardEvent, type ReactNode } from "react";
 import { DefaultChatTransport, type UIMessage } from "ai";
 import { useChat } from "@ai-sdk/react";
-import { ArrowUpIcon, CheckIcon, CopyIcon, MessageCircleIcon, PlusIcon, XIcon } from "lucide-react";
+import { ArrowUpIcon, CheckIcon, CopyIcon, MessageCircleIcon, PlusIcon } from "lucide-react";
 import { AuthorMarquee } from "@/components/author-marquee";
 import { AuthorProfileCard } from "@/components/author-profile-card";
 import { ChatMarkdown } from "@/components/chat-markdown";
-import { TeamMix } from "@/components/team-mix";
+import { MixSeatRow, TeamMix } from "@/components/team-mix";
 import { Badge } from "@/components/ui/badge";
 import { Bubble, BubbleContent } from "@/components/ui/bubble";
 import { Button } from "@/components/ui/button";
@@ -354,8 +354,8 @@ export function CatalogChat({
                   Mix ({draft.length})
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80 p-0">
-                <SheetHeader>
+              <SheetContent side="right" className="w-[min(100%,20rem)] p-0">
+                <SheetHeader className="pr-12">
                   <SheetTitle>Your mix</SheetTitle>
                 </SheetHeader>
                 <TeamMix draft={draft} onRemove={removeFromDraft} heading={false} />
@@ -371,7 +371,7 @@ export function CatalogChat({
           {composer}
         </div>
         {draft.length > 0 ? (
-          <aside className="hidden min-h-0 min-w-0 w-72 shrink-0 overflow-hidden border-l border-border md:flex md:w-80">
+          <aside className="hidden min-h-0 min-w-0 w-72 shrink-0 overflow-hidden border-l border-border md:flex md:w-80 md:min-w-80">
             <TeamMix draft={draft} onRemove={removeFromDraft} />
           </aside>
         ) : null}
@@ -562,9 +562,8 @@ function DraftRoster({
   draft: CatalogSeat[];
   onRemove: (url: string) => void;
 }) {
-  const record = useRecordVisit();
   return (
-    <aside className="flex flex-col gap-3 rounded-lg border border-border bg-card px-4 py-3">
+    <aside className="flex min-w-0 flex-col gap-4 overflow-hidden rounded-lg border border-border bg-card px-4 py-3">
       <div>
         <h3 className="text-sm font-medium">Draft mix</h3>
         <p className="text-[12px] text-muted-foreground">
@@ -574,50 +573,10 @@ function DraftRoster({
       {draft.length === 0 ? (
         <p className="text-[13px] text-muted-foreground">Add seats from the thread.</p>
       ) : (
-        <ul className="flex flex-col gap-2">
-          {draft.map((seat) => {
-            const href = parseGrokTemplateUrl(seat.grokTemplateUrl);
-            return (
-              <li key={seat.id} className="flex items-start justify-between gap-2 text-[13px]">
-                <div className="min-w-0">
-                  <p className="truncate font-medium">{seat.name}</p>
-                  <p className="truncate text-muted-foreground">@{seat.pack.owner}</p>
-                </div>
-                <div className="flex shrink-0 items-center">
-                  {href ? (
-                    <Button asChild size="icon-sm" variant="ghost">
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Add ${seat.name} to Grok`}
-                        onClick={() => {
-                          void record({
-                            packId: seat.packId,
-                            owner: seat.pack.owner,
-                            slug: seat.pack.slug,
-                            source: "desk_mix",
-                            seatName: seat.name,
-                          });
-                        }}
-                      >
-                        <PlusIcon className="size-3.5" />
-                      </a>
-                    </Button>
-                  ) : null}
-                  <Button
-                    type="button"
-                    size="icon-sm"
-                    variant="ghost"
-                    aria-label={`Remove ${seat.name}`}
-                    onClick={() => onRemove(seat.grokTemplateUrl)}
-                  >
-                    <XIcon className="size-3.5" />
-                  </Button>
-                </div>
-              </li>
-            );
-          })}
+        <ul className="flex min-w-0 flex-col gap-4">
+          {draft.map((seat) => (
+            <MixSeatRow key={seat.id} seat={seat} onRemove={onRemove} />
+          ))}
         </ul>
       )}
     </aside>

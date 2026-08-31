@@ -523,5 +523,7 @@ test("pack page and mix add one bot at a time", () => {
   assert.doesNotMatch(mix, /Add all/);
   assert.match(mix, /PlusIcon/);
   assert.match(mix, /Add \$\{seat\.name\} to Grok/);
+  assert.match(mix, /MixSeatRow/);
+  assert.doesNotMatch(mix, /truncate/);
   assert.doesNotMatch(chat, /Add all/);
 });
