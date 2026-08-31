@@ -28,10 +28,7 @@ export async function streamTeamDesk(request: Request): Promise<Response> {
   const params = await request.json();
   const tokens = estimatePromptTokens(params);
   const consumed = await consumeTeamChatTurn(userId, tokens);
-  if (!consumed) {
-    return Response.json({ error: "quota_unavailable" }, { status: 503 });
-  }
-  if (!consumed.allowed) {
+  if (consumed && !consumed.allowed) {
     return Response.json(
       {
         error: "quota",
@@ -48,8 +45,8 @@ export async function streamTeamDesk(request: Request): Promise<Response> {
       params,
       skipRateLimit: true,
     });
-  } catch (error) {
-    await refundTeamChatTurn(userId, tokens);
-    throw error;
+  } catch {
+    if (consumed) await refundTeamChatTurn(userId, tokens);
+    return Response.json({ error: "mix_failed" }, { status: 503 });
   }
 }

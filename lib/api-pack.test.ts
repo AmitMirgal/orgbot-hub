@@ -270,6 +270,16 @@ test("search is catalog browse and team is the chat builder", () => {
   assert.doesNotMatch(team, /HeroBanner/);
   assert.match(header, /href: "\/team", label: "Team"/);
   assert.match(header, /AuthNav/);
+  const authNav = readFileSync(
+    fileURLToPath(new URL("../components/auth-nav.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(authNav, /from "@\/components\/ui\/dropdown-menu"/);
+  assert.match(authNav, /DropdownMenuTrigger/);
+  assert.match(authNav, /account menu/);
+  assert.match(authNav, /variant="destructive"/);
+  assert.match(authNav, /requestSubmit/);
+  assert.doesNotMatch(authNav, /flex items-center gap-2/);
   assert.doesNotMatch(team, /redirect\("\/login\?next=\/team"\)/);
   assert.match(team, /signedIn=\{signedIn\}/);
   assert.match(team, /readTeamChatQuotaForUser/);
@@ -343,8 +353,10 @@ test("team mixer requires auth and consumes daily quota before the model", () =>
   assert.match(teamChat, /getSessionUserId/);
   assert.match(teamChat, /consumeTeamChatTurn/);
   assert.match(teamChat, /refundTeamChatTurn/);
+  assert.doesNotMatch(teamChat, /quota_unavailable/);
   assert.doesNotMatch(teamChat, /\.rpc\(/);
   assert.match(store, /prisma\.teamChatUsage/);
+  assert.doesNotMatch(store, /\$transaction/);
   assert.match(schema, /model TeamChatUsage/);
   assert.match(store, /return emptyTeamChatQuota\(\);/);
   assert.match(catalog, /prisma\.pack/);
@@ -387,6 +399,17 @@ test("dev chat thread preview is hidden in production", () => {
   assert.match(src, /notFound/);
   assert.match(src, /ChatThreadPreview/);
   assert.match(src, /tool-searchSeats/);
+});
+
+test("dev account menu preview is hidden in production", () => {
+  const src = readFileSync(
+    fileURLToPath(new URL("../app/internal/account-menu/page.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(src, /NODE_ENV === "production"/);
+  assert.match(src, /notFound/);
+  assert.match(src, /AuthNav/);
+  assert.match(src, /Account menu preview/);
 });
 
 test("pack page and mix add one bot at a time", () => {

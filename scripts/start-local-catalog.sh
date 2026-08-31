@@ -40,6 +40,8 @@ if ! sudo -u postgres psql -d orgbots -tAc "select 1 from information_schema.tab
   sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/migrations/20260831053203_team_chat_usage.sql"
 fi
 
+sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/migrations/20260831184500_team_chat_usage_server_owned.sql"
+
 sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/seed.sql"
 
 sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 <<'SQL'
