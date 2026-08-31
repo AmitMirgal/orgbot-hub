@@ -50,7 +50,8 @@ test("catalog env and prisma parse URLs at the process boundary", () => {
     fileURLToPath(new URL("../prisma.config.ts", import.meta.url)),
     "utf8"
   );
-  assert.match(env, /httpUrl\(process\.env\.NEXT_PUBLIC_SUPABASE_URL\)/);
+  assert.match(env, /parseSupabaseUrl\(process\.env\.NEXT_PUBLIC_SUPABASE_URL\)/);
+  assert.match(env, /return httpUrl\(value\)/);
   assert.match(prisma, /postgresUrl\(process\.env\.DATABASE_URL\)/);
   assert.match(config, /from "\.\/lib\/env-url"/);
 });

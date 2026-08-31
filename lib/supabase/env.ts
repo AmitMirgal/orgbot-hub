@@ -1,7 +1,11 @@
 import { httpUrl } from "@/lib/env-url";
 
+export function parseSupabaseUrl(value: string | undefined): string | undefined {
+  return httpUrl(value);
+}
+
 export function supabaseUrl(): string | undefined {
-  return httpUrl(process.env.NEXT_PUBLIC_SUPABASE_URL);
+  return parseSupabaseUrl(process.env.NEXT_PUBLIC_SUPABASE_URL);
 }
 
 export function supabaseAnonKey(): string | undefined {
