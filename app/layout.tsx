@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} h-full`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} h-full overflow-hidden`}
     >
       <body className="flex h-dvh min-h-0 flex-col overflow-hidden font-sans">
         <Providers>
