@@ -3,7 +3,9 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
-import { prisma } from "./prisma.ts";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "@/generated/prisma/client";
+import { postgresConnectionString } from "./env-url.ts";
 import { utcDay, quotaFromUsage } from "./team-quota.ts";
 import {
   applyVisitCounts,
@@ -12,6 +14,32 @@ import {
 } from "./visits-count.ts";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
+
+function catalogPrisma(): PrismaClient | null {
+  let raw: string | undefined;
+  try {
+    raw = readFileSync(join(ROOT, ".env.local"), "utf8").match(
+      /^DATABASE_URL=(.*)$/m
+    )?.[1];
+  } catch {
+    raw = process.env.DATABASE_URL;
+  }
+  const url = postgresConnectionString(raw);
+  if (!url) return null;
+  try {
+    const host = new URL(url).hostname;
+    if (host !== "127.0.0.1" && host !== "localhost") return null;
+    return new PrismaClient({ adapter: new PrismaPg({ connectionString: url }) });
+  } catch {
+    return null;
+  }
+}
+
+const prisma = catalogPrisma();
+
+test.after(async () => {
+  await prisma?.$disconnect();
+});
 
 const PRISMA_CRUD_FILES = [
   "lib/catalog.ts",
@@ -166,28 +194,27 @@ test("pack_visits is server-owned so Prisma can count visits", () => {
 test("pack visits stay on a second read", async () => {
   if (!prisma) return;
   const packId = "10000000-0000-0000-0000-000000000010";
-  await prisma.packVisit.deleteMany({
-    where: { packOwner: "poteto", packSlug: "lauren" },
-  });
+  const ids = ["visit-persist-a", "visit-persist-b", "visit-persist-c"];
+  await prisma.packVisit.deleteMany({ where: { id: { in: ids } } });
   try {
     await prisma.packVisit.createMany({
       data: [
         {
-          id: "visit-persist-a",
+          id: ids[0],
           packId,
           packOwner: "poteto",
           packSlug: "lauren",
           source: "add_to_grok",
         },
         {
-          id: "visit-persist-b",
+          id: ids[1],
           packId,
           packOwner: "poteto",
           packSlug: "lauren",
           source: "desk_mix",
         },
         {
-          id: "visit-persist-c",
+          id: ids[2],
           packId,
           packOwner: "poteto",
           packSlug: "lauren",
@@ -197,12 +224,12 @@ test("pack visits stay on a second read", async () => {
     });
     const first = await prisma.packVisit.groupBy({
       by: ["packId", "packOwner", "packSlug"],
-      where: { packOwner: "poteto", packSlug: "lauren" },
+      where: { id: { in: ids } },
       _count: { _all: true },
     });
     const second = await prisma.packVisit.groupBy({
       by: ["packId", "packOwner", "packSlug"],
-      where: { packOwner: "poteto", packSlug: "lauren" },
+      where: { id: { in: ids } },
       _count: { _all: true },
     });
     assert.equal(first.length, 1);
