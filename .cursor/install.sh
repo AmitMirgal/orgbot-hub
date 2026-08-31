@@ -16,6 +16,7 @@ fi
 
 # Project dependencies (pnpm 10 / Node 22 ship in the base image).
 corepack pnpm install --frozen-lockfile
+corepack pnpm exec prisma generate
 
 # Pre-fetch PostgREST so the first boot's start command is fast and does not
 # depend on GitHub being reachable at start time. Mirrors the download guarded

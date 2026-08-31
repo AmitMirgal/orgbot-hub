@@ -28,6 +28,18 @@ if ! sudo -u postgres psql -d orgbots -tAc "select 1 from information_schema.col
   sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/migrations/20260829065540_pack_first.sql"
 fi
 
+if ! sudo -u postgres psql -d orgbots -tAc "select 1 from information_schema.tables where table_schema='public' and table_name='pack_visits'" | grep -q 1; then
+  sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/migrations/20260830114800_pack_visits.sql"
+fi
+
+if sudo -u postgres psql -d orgbots -tAc "select data_type from information_schema.columns where table_schema='public' and table_name='pack_visits' and column_name='source'" | grep -qx text; then
+  sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/migrations/20260830145609_pack_visits_visit_source.sql"
+fi
+
+if ! sudo -u postgres psql -d orgbots -tAc "select 1 from information_schema.tables where table_schema='public' and table_name='team_chat_usage'" | grep -q 1; then
+  sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/migrations/20260831053203_team_chat_usage.sql"
+fi
+
 sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/seed.sql"
 
 sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 <<'SQL'
@@ -35,6 +47,7 @@ grant connect on database orgbots to authenticator, anon, authenticated, service
 SQL
 
 sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 <<'SQL'
+alter user postgres with password 'postgres';
 grant usage on schema public to anon, authenticated, service_role;
 grant select on all tables in schema public to anon, authenticated, service_role;
 grant insert, update, delete on public.packs to authenticated;
@@ -58,7 +71,11 @@ NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
 NEXT_PUBLIC_SUPABASE_ANON_KEY=$ANON_KEY
 SUPABASE_SERVICE_ROLE_KEY=$SERVICE_KEY
 NEXT_PUBLIC_SITE_URL=http://127.0.0.1:43147
+DATABASE_URL=postgresql://postgres:postgres@127.0.0.1:5432/orgbots
+DIRECT_URL=postgresql://postgres:postgres@127.0.0.1:5432/orgbots
 EOF
+
+(cd "$ROOT" && corepack pnpm exec prisma generate)
 
 pkill -f "$PGREST_BIN" 2>/dev/null || true
 pkill -f "scripts/catalog-proxy.mjs" 2>/dev/null || true
