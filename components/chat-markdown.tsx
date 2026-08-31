@@ -17,7 +17,7 @@ export function ChatMarkdown({
     <Streamdown
       animated={streaming}
       className={cn(
-        "text-sm leading-relaxed [&>*:first-child]:mt-0 [&>*:last-child]:mb-0",
+        "max-w-full min-w-0 overflow-x-auto text-sm leading-relaxed [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 [&_pre]:max-w-full [&_pre]:overflow-x-auto [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto",
         className
       )}
       controls={false}

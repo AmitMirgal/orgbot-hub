@@ -175,24 +175,25 @@ test("catalog chat uses shadcn Message, Bubble, and Streamdown", () => {
   assert.match(src, /Send message/);
   assert.match(src, /from "@\/components\/ui\/message"/);
   assert.match(src, /from "@\/components\/ui\/bubble"/);
+  assert.match(src, /from "@\/components\/ui\/input-group"/);
   assert.match(src, /MessageScroller/);
-  assert.match(src, /from "@\/components\/ui\/scroll-area"/);
-  assert.match(src, /<ScrollArea/);
+  assert.match(src, /ChatTranscript/);
+  assert.match(src, /InputGroupTextarea/);
   assert.match(src, /surface = "card"/);
   assert.match(src, /desk_mix/);
   assert.match(src, /ChatMarkdown/);
-  assert.match(src, /variant="ghost"/);
+  assert.match(src, /<Bubble variant="default"/);
   assert.match(src, /variant="secondary"/);
   assert.match(src, /AuthorProfileCard/);
   assert.match(src, /authorsFromSeats/);
   assert.match(src, /CatalogThreadMessage/);
   assert.match(src, /Nothing matched in the catalog/);
   assert.match(src, /The mix did not go through/);
-  assert.doesNotMatch(src, /variant=\{isUser \? "default" : "secondary"\}/);
+  assert.doesNotMatch(src, /<Bubble variant="ghost"/);
   assert.doesNotMatch(src, /Ask the catalog/);
 });
 
-test("chat scroller hides the native bar and uses shadcn ScrollBar", () => {
+test("catalog chat lets MessageScroller own overflow", () => {
   const scroller = readFileSync(
     fileURLToPath(new URL("../components/ui/message-scroller.tsx", import.meta.url)),
     "utf8"
@@ -201,10 +202,27 @@ test("chat scroller hides the native bar and uses shadcn ScrollBar", () => {
     fileURLToPath(new URL("../components/catalog-chat.tsx", import.meta.url)),
     "utf8"
   );
+  const preview = readFileSync(
+    fileURLToPath(new URL("../components/chat-thread-preview.tsx", import.meta.url)),
+    "utf8"
+  );
+  const layout = readFileSync(
+    fileURLToPath(new URL("../app/layout.tsx", import.meta.url)),
+    "utf8"
+  );
   assert.match(scroller, /\[&::-webkit-scrollbar\]:hidden/);
   assert.doesNotMatch(scroller, /scrollbar-thin/);
-  assert.match(chat, /from "@\/components\/ui\/scroll-area"/);
-  assert.match(chat, /<ScrollArea type="always"/);
+  assert.match(chat, /overflow-x-hidden/);
+  assert.match(chat, /pageChatShellClassName/);
+  assert.match(layout, /h-dvh/);
+  assert.match(layout, /overflow-y-auto/);
+  assert.match(chat, /scrollAnchor=\{isUser\}/);
+  assert.doesNotMatch(chat, /from "@\/components\/ui\/scroll-area"/);
+  assert.doesNotMatch(chat, /<ScrollArea/);
+  assert.doesNotMatch(chat, /overflow-visible/);
+  assert.doesNotMatch(chat, /scrollIntoView/);
+  assert.doesNotMatch(preview, /from "@\/components\/ui\/scroll-area"/);
+  assert.doesNotMatch(preview, /overflow-visible/);
 });
 
 test("dark theme lifts agent bubble off the card", () => {
