@@ -12,4 +12,8 @@ test("parseSupabaseUrl accepts http(s) origins and rejects placeholders", () => 
   assert.equal(parseSupabaseUrl(""), undefined);
   assert.equal(parseSupabaseUrl("not-a-url"), undefined);
   assert.equal(parseSupabaseUrl("postgres://127.0.0.1:5432/orgbots"), undefined);
+  assert.equal(
+    parseSupabaseUrl("[https://abcdefghijklmnop.supabase.co](https://abcdefghijklmnop.supabase.co)"),
+    "https://abcdefghijklmnop.supabase.co"
+  );
 });

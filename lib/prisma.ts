@@ -1,4 +1,5 @@
 import { PrismaPg } from "@prisma/adapter-pg";
+import { postgresUrl } from "@/lib/env-url";
 import { PrismaClient } from "@/generated/prisma/client";
 
 const globalForPrisma = globalThis as unknown as {
@@ -6,10 +7,14 @@ const globalForPrisma = globalThis as unknown as {
 };
 
 function createPrisma(): PrismaClient | null {
-  const connectionString = process.env.DATABASE_URL?.trim();
+  const connectionString = postgresUrl(process.env.DATABASE_URL);
   if (!connectionString) return null;
-  const adapter = new PrismaPg({ connectionString });
-  return new PrismaClient({ adapter });
+  try {
+    const adapter = new PrismaPg({ connectionString });
+    return new PrismaClient({ adapter });
+  } catch {
+    return null;
+  }
 }
 
 export const prisma = globalForPrisma.prisma ?? createPrisma();

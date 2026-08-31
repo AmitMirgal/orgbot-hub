@@ -246,7 +246,8 @@ test("search is catalog browse and team is the chat builder", () => {
   assert.match(header, /AuthNav/);
   assert.doesNotMatch(team, /redirect\("\/login\?next=\/team"\)/);
   assert.match(team, /signedIn=\{signedIn\}/);
-  assert.match(team, /readTeamChatQuota/);
+  assert.match(team, /readTeamChatQuotaForUser/);
+  assert.doesNotMatch(team, /from "@\/lib\/team-chat"/);
   assert.match(chat, /Sign in to mix a team/);
   assert.match(chat, /login\?next=\/team/);
   assert.match(chat, /quotaMeterText/);
@@ -311,6 +312,7 @@ test("team mixer requires auth and consumes daily quota before the model", () =>
   assert.doesNotMatch(teamChat, /\.rpc\(/);
   assert.match(store, /prisma\.teamChatUsage/);
   assert.match(schema, /model TeamChatUsage/);
+  assert.match(store, /return emptyTeamChatQuota\(\);/);
 });
 
 test("submit page keeps the agent chat and marks it coming soon", () => {

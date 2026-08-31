@@ -1,18 +1,8 @@
 import { rateLimitAgent, streamAgent } from "@/lib/agent-http";
 import { getSessionUserId } from "@/lib/supabase/server";
-import {
-  consumeTeamChatTurn,
-  readTeamChatQuotaForUser,
-  refundTeamChatTurn,
-} from "@/lib/team-quota-store";
-import { emptyTeamChatQuota, estimatePromptTokens } from "@/lib/team-quota";
+import { consumeTeamChatTurn, refundTeamChatTurn } from "@/lib/team-quota-store";
+import { estimatePromptTokens } from "@/lib/team-quota";
 import { agentRuntimeStatus } from "@/src/mastra/model";
-
-export async function readTeamChatQuota() {
-  const { userId } = await getSessionUserId();
-  if (!userId) return emptyTeamChatQuota();
-  return readTeamChatQuotaForUser(userId);
-}
 
 export async function streamTeamDesk(request: Request): Promise<Response> {
   if (request.method !== "POST") {

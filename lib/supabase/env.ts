@@ -1,15 +1,7 @@
+import { httpUrl } from "@/lib/env-url";
+
 export function parseSupabaseUrl(value: string | undefined): string | undefined {
-  const trimmed = value?.trim();
-  if (!trimmed) return undefined;
-  try {
-    const parsed = new URL(trimmed);
-    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
-      return undefined;
-    }
-    return trimmed;
-  } catch {
-    return undefined;
-  }
+  return httpUrl(value);
 }
 
 export function supabaseUrl(): string | undefined {
