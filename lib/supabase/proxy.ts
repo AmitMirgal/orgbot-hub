@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { isAuthSessionCookie } from "@/lib/supabase/auth-cookie";
 import { supabaseAnonKey, supabaseUrl } from "@/lib/supabase/env";
 
 export async function updateSession(request: NextRequest) {
@@ -7,6 +8,11 @@ export async function updateSession(request: NextRequest) {
   const url = supabaseUrl();
   const key = supabaseAnonKey();
   if (!url || !key) return supabaseResponse;
+
+  // PKCE lives in cookies on /auth/callback. Do not refresh or rewrite them here.
+  if (request.nextUrl.pathname.startsWith("/auth/")) {
+    return supabaseResponse;
+  }
 
   const supabase = createServerClient(url, key, {
     cookies: {
@@ -30,7 +36,7 @@ export async function updateSession(request: NextRequest) {
 
   const hasSession = request.cookies
     .getAll()
-    .some((cookie) => cookie.name.includes("auth-token"));
+    .some((cookie) => isAuthSessionCookie(cookie.name));
   if (!hasSession) return supabaseResponse;
 
   try {

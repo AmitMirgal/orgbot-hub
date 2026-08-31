@@ -9,6 +9,8 @@ import { listPacks } from "@/lib/catalog";
 import { getSessionUser } from "@/lib/supabase/server";
 import "./globals.css";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: {
     default: "orgbot-hub",

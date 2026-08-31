@@ -1,24 +1,30 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import type { EmailOtpType } from "@supabase/supabase-js";
 import { safeNextPath } from "@/lib/auth-path";
-import { createClient } from "@/lib/supabase/server";
+import { createRouteHandlerClient } from "@/lib/supabase/route-client";
 
-export async function GET(request: Request) {
-  const { searchParams, origin } = new URL(request.url);
-  const next = safeNextPath(searchParams.get("next"), "/");
-  const supabase = await createClient();
-  if (supabase && (await exchangeAuthReturn(supabase, searchParams))) {
-    return NextResponse.redirect(`${origin}${next}`);
-  }
-
-  const login = new URL("/login", origin);
+function loginRedirect(request: NextRequest, next: string) {
+  const login = request.nextUrl.clone();
+  login.pathname = "/login";
+  login.search = "";
   login.searchParams.set("error", "auth");
   login.searchParams.set("next", next);
   return NextResponse.redirect(login);
 }
 
+export async function GET(request: NextRequest) {
+  const { searchParams, origin } = request.nextUrl;
+  const next = safeNextPath(searchParams.get("next"), "/");
+  const destination = NextResponse.redirect(new URL(next, origin));
+  const supabase = createRouteHandlerClient(request, destination);
+  if (supabase && (await exchangeAuthReturn(supabase, searchParams))) {
+    return destination;
+  }
+  return loginRedirect(request, next);
+}
+
 async function exchangeAuthReturn(
-  supabase: NonNullable<Awaited<ReturnType<typeof createClient>>>,
+  supabase: NonNullable<ReturnType<typeof createRouteHandlerClient>>,
   params: URLSearchParams
 ): Promise<boolean> {
   const code = params.get("code");
