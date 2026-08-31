@@ -21,9 +21,17 @@ export function logPrismaFailure(scope: string, error: unknown): void {
   console.error(`[prisma] ${scope} failed`, error);
 }
 
+const MISSING_PRISMA_URL =
+  "Prisma has no postgres URL. Set DATABASE_URL and DIRECT_URL to postgresql://user:pass@host/db. Leftover http:// pooler hrefs are not database URLs.";
+
 function createPrisma(): PrismaClient | null {
   const connectionString = prismaPostgresUrl();
-  if (!connectionString) return null;
+  if (!connectionString) {
+    if (process.env.NODE_ENV === "production") {
+      console.error(MISSING_PRISMA_URL);
+    }
+    return null;
+  }
   try {
     const adapter = new PrismaPg({ connectionString });
     return new PrismaClient({ adapter });

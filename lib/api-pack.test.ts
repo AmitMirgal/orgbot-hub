@@ -413,13 +413,15 @@ test("team mixer requires auth and consumes daily quota before the model", () =>
   assert.match(proxy, /authCallbackBounceUrl/);
   assert.doesNotMatch(proxy, /path === "\/team"/);
   assert.match(search, /streamTeamDesk/);
+  assert.match(search, /maxDuration = 60/);
   assert.match(teamChat, /getSessionUserId/);
   assert.match(teamChat, /consumeTeamChatTurn/);
   assert.match(teamChat, /refundTeamChatTurn/);
   assert.match(teamChat, /deskStreamParams/);
   assert.match(teamChat, /orgbotsStorage/);
   assert.match(teamChat, /teamDeskConsumeGate/);
-  assert.match(teamChat, /catalog_unreachable/);
+  assert.match(teamChat, /case "unreachable"/);
+  assert.match(teamChat, /Mixing without a meter/);
   assert.match(teamChat, /TEAM_CHAT_QUOTA_HEADER/);
   assert.doesNotMatch(teamChat, /quota_unavailable/);
   assert.doesNotMatch(teamChat, /if \(consumed && !consumed\.allowed\)/);
