@@ -109,6 +109,8 @@ test("catalog env and prisma parse URLs at the process boundary", () => {
   assert.doesNotMatch(prisma, /createClient/);
   assert.match(config, /postgresConnectionString\(process\.env\.DATABASE_URL\)/);
   assert.match(config, /postgresConnectionString\(process\.env\.DIRECT_URL\)/);
+  assert.match(config, /GENERATE_PLACEHOLDER/);
+  assert.doesNotMatch(config, /DATABASE_URL is required/);
   const mastraStore = readFileSync(
     fileURLToPath(new URL("../src/mastra/storage.ts", import.meta.url)),
     "utf8"
