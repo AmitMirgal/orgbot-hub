@@ -112,6 +112,7 @@ test("local catalog start points Prisma at Postgres", () => {
   assert.match(start, /DATABASE_URL=postgresql:\/\/postgres:postgres@127\.0\.0\.1:5432\/orgbots/);
   assert.match(start, /pack_visits\.sql/);
   assert.match(start, /team_chat_usage\.sql/);
+  assert.match(start, /team_chat_usage_server_owned\.sql/);
   assert.match(example, /DATABASE_URL=/);
   assert.match(example, /Schema changes go through prisma migrate, not supabase/);
 });
@@ -132,6 +133,40 @@ test("prisma reads seeded packs when DATABASE_URL is set", async () => {
     );
     assert.equal(rows.length, 1, "seeded poteto/lauren must exist in the Prisma tables");
   } finally {
+    await client.end();
+  }
+});
+
+test("team_chat_usage meters JWT user ids that are not in auth.users", async () => {
+  const url = process.env.DATABASE_URL?.trim();
+  if (!url) return;
+  const pg = await import("pg");
+  const Client = pg.Client ?? pg.default.Client;
+  const client = new Client({ connectionString: url });
+  await client.connect();
+  const ghost = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee";
+  try {
+    const fk = await client.query(
+      `select 1 from pg_constraint where conname = 'team_chat_usage_user_id_fkey'`
+    );
+    assert.equal(fk.rowCount, 0, "quota rows must not FK auth.users");
+    await client.query(
+      `insert into team_chat_usage (user_id, day, messages, tokens)
+       values ($1, (timezone('utc', now()))::date, 1, 12)
+       on conflict (user_id, day) do update
+       set messages = team_chat_usage.messages + 1,
+           tokens = team_chat_usage.tokens + 12`,
+      [ghost]
+    );
+    const { rows } = await client.query(
+      `select messages, tokens from team_chat_usage
+       where user_id = $1 and day = (timezone('utc', now()))::date`,
+      [ghost]
+    );
+    assert.equal(rows.length, 1);
+    assert.ok(rows[0].messages >= 1);
+  } finally {
+    await client.query(`delete from team_chat_usage where user_id = $1`, [ghost]);
     await client.end();
   }
 });
