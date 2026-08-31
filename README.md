@@ -43,6 +43,8 @@ Set both URLs on Vercel preview and production:
 
 `NEXT_PUBLIC_SUPABASE_URL` is an https origin. It is not a database URL. Never pass it to Prisma or Mastra.
 
+A leftover `http://…pooler.supabase.com` href (often pasted from a markdown autolink, sometimes with the userinfo stripped) is also not a database URL. Prisma and Mastra skip it. Visit counts stay at 0 and quota metering is off until the env var is a real `postgresql://user:pass@host/db` string.
+
 `prisma generate` may use the local placeholder in `prisma.config.ts`. That is build-only. Runtime CRUD still needs a real `postgres://` URL.
 
 Apply schema with:

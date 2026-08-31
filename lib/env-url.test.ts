@@ -43,6 +43,14 @@ test("postgresUrl unwraps then encodes userinfo", () => {
   );
 });
 
+test("credential-less http pooler hrefs are not postgres URLs", () => {
+  const leftoverDb = "http://aws-0-us-west-2.pooler.supabase.com:6543";
+  const leftoverDirect = "http://aws-0-us-west-2.pooler.supabase.com:5432";
+  assert.equal(postgresConnectionString(leftoverDb), undefined);
+  assert.equal(postgresConnectionString(leftoverDirect), undefined);
+  assert.equal(isPostgresConnectionString(leftoverDb), false);
+});
+
 test("mastra storage ignores leftover http pooler URLs", () => {
   const leftover =
     "http://aws-0-us-west-2.pooler.supabase.com:6543/postgres?pgbouncer=true";

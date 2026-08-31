@@ -8,12 +8,13 @@ function read(rel: string): string {
   return readFileSync(fileURLToPath(new URL(rel, import.meta.url)), "utf8");
 }
 
-test("streamTeamDesk fails closed when consume returns null", () => {
+test("streamTeamDesk still mixes when consume returns null", () => {
   const teamChat = read("./team-chat.ts");
   assert.match(teamChat, /teamDeskConsumeGate/);
-  assert.match(teamChat, /catalog_unreachable/);
   assert.match(teamChat, /case "unreachable"/);
-  assert.match(teamChat, /status: 503/);
+  assert.match(teamChat, /Mixing without a meter/);
+  assert.match(teamChat, /mixDeskStream/);
+  assert.doesNotMatch(teamChat, /catalog_unreachable/);
   assert.doesNotMatch(teamChat, /if \(consumed && !consumed\.allowed\)/);
 });
 
@@ -54,7 +55,9 @@ test("Mastra storage logs a missing postgres URL instead of staying silent", () 
   const storage = read("../src/mastra/storage.ts");
   const desk = read("../src/mastra/agents/desk.ts");
   const index = read("../src/mastra/index.ts");
+  const prisma = read("./prisma.ts");
   assert.match(storage, /NEXT_PUBLIC_SUPABASE_URL is not a database URL/);
   assert.match(desk, /orgbotsStorage/);
   assert.match(index, /storage: orgbotsStorage/);
+  assert.match(prisma, /Leftover http:\/\/ pooler hrefs are not database URLs/);
 });

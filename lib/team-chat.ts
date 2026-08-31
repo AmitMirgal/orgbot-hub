@@ -57,7 +57,10 @@ export async function streamTeamDesk(request: Request): Promise<Response> {
   const gate = teamDeskConsumeGate(await consumeTeamChatTurn(userId, tokens));
   switch (gate.kind) {
     case "unreachable":
-      return Response.json({ error: "catalog_unreachable" }, { status: 503 });
+      console.error(
+        "[mix] quota store unreachable. Mixing without a meter. DATABASE_URL and DIRECT_URL must be postgresql:// with userinfo, not an http pooler href."
+      );
+      return mixDeskStream(request, params);
     case "exhausted":
       return withQuotaHeader(
         Response.json(
@@ -72,21 +75,36 @@ export async function streamTeamDesk(request: Request): Promise<Response> {
         gate.quota
       );
     case "ok":
-      try {
-        return withQuotaHeader(
-          await streamAgent("orgbotsDesk", request, {
-            params,
-            skipRateLimit: true,
-          }),
-          gate.quota
-        );
-      } catch {
-        await refundTeamChatTurn(userId, tokens);
-        return Response.json({ error: "mix_failed" }, { status: 503 });
-      }
+      return mixDeskStream(request, params, {
+        quota: gate.quota,
+        refund: { userId, tokens },
+      });
     default: {
       const _exhaustive: never = gate;
       return _exhaustive;
     }
+  }
+}
+
+async function mixDeskStream(
+  request: Request,
+  params: unknown,
+  options?: {
+    quota?: TeamChatQuota;
+    refund?: { userId: string; tokens: number };
+  }
+): Promise<Response> {
+  try {
+    const response = await streamAgent("orgbotsDesk", request, {
+      params,
+      skipRateLimit: true,
+    });
+    return options?.quota ? withQuotaHeader(response, options.quota) : response;
+  } catch (error) {
+    console.error("[mix] streamAgent failed", error);
+    if (options?.refund) {
+      await refundTeamChatTurn(options.refund.userId, options.refund.tokens);
+    }
+    return Response.json({ error: "mix_failed" }, { status: 503 });
   }
 }
