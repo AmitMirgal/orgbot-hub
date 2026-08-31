@@ -1,5 +1,5 @@
 import { PrismaPg } from "@prisma/adapter-pg";
-import { postgresUrl } from "@/lib/env-url";
+import { prismaPostgresUrl } from "@/lib/env-url";
 import { PrismaClient } from "@/generated/prisma/client";
 
 const globalForPrisma = globalThis as unknown as {
@@ -7,7 +7,8 @@ const globalForPrisma = globalThis as unknown as {
 };
 
 function createPrisma(): PrismaClient | null {
-  const connectionString = postgresUrl(process.env.DATABASE_URL);
+  // Pooler DATABASE_URL first, then DIRECT_URL. Leftover http:// hrefs are skipped.
+  const connectionString = prismaPostgresUrl();
   if (!connectionString) return null;
   try {
     const adapter = new PrismaPg({ connectionString });

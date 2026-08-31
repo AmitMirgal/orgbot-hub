@@ -1,9 +1,10 @@
 import { PrismaPg } from "@prisma/adapter-pg";
+import { prismaPostgresUrl } from "../lib/env-url";
 import { PrismaClient } from "../generated/prisma/client";
 
-const connectionString = process.env.DATABASE_URL?.trim();
+const connectionString = prismaPostgresUrl();
 if (!connectionString) {
-  console.error("DATABASE_URL is required");
+  console.error("DATABASE_URL or DIRECT_URL must be a postgres:// connection string");
   process.exit(1);
 }
 

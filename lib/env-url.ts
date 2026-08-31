@@ -56,7 +56,24 @@ export function postgresUrl(raw: string | undefined): string | undefined {
   return `${scheme}${encodedUser}:${encodedPassword}@${host}${path}`;
 }
 
-export function mastraPostgresUrl(raw?: string): string | undefined {
-  const value = postgresUrl(raw ?? process.env.DATABASE_URL);
+export function postgresConnectionString(
+  raw: string | undefined
+): string | undefined {
+  const value = postgresUrl(raw);
   return isPostgresConnectionString(value) ? value : undefined;
+}
+
+export function prismaPostgresUrl(): string | undefined {
+  return (
+    postgresConnectionString(process.env.DATABASE_URL) ??
+    postgresConnectionString(process.env.DIRECT_URL)
+  );
+}
+
+export function mastraPostgresUrl(raw?: string): string | undefined {
+  if (raw !== undefined) return postgresConnectionString(raw);
+  return (
+    postgresConnectionString(process.env.DIRECT_URL) ??
+    postgresConnectionString(process.env.DATABASE_URL)
+  );
 }

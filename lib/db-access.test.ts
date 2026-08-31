@@ -3,6 +3,13 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
+import { prisma } from "./prisma.ts";
+import { utcDay, quotaFromUsage } from "./team-quota.ts";
+import {
+  applyVisitCounts,
+  emptyVisitCounts,
+  addVisitCount,
+} from "./visits-count.ts";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 
@@ -88,6 +95,8 @@ test("supabase client files exist for auth and never touch catalog tables", () =
       `${rel} is the supabase auth client`
     );
     assert.equal(crudHits(src).join(","), "", `${rel} must stay auth-only`);
+    assert.doesNotMatch(src, /\.from\(\s*["'`]/, `${rel} must not query tables`);
+    assert.doesNotMatch(src, /\.rpc\(/, `${rel} must not call rpcs`);
     assert.doesNotMatch(src, PRISMA_MODEL, `${rel} must not mix prisma table calls`);
   }
 });
@@ -115,27 +124,32 @@ test("local catalog start points Prisma at Postgres", () => {
   assert.match(start, /pack_visits_server_owned\.sql/);
   assert.match(start, /team_chat_usage_server_owned\.sql/);
   assert.match(example, /DATABASE_URL=/);
+  assert.match(example, /DIRECT_URL=/);
+  assert.match(example, /Table CRUD goes through Prisma, not Supabase PostgREST/);
   assert.match(example, /Schema changes go through prisma migrate, not supabase/);
+  assert.match(example, /Mastra memory uses DIRECT_URL/);
+});
+
+test("prisma client and mastra storage only open postgres URLs", () => {
+  const prismaSrc = read("lib/prisma.ts");
+  const mastraStore = read("src/mastra/storage.ts");
+  const envUrl = read("lib/env-url.ts");
+  assert.match(prismaSrc, /prismaPostgresUrl/);
+  assert.doesNotMatch(prismaSrc, /createClient/);
+  assert.match(mastraStore, /mastraPostgresUrl/);
+  assert.match(mastraStore, /DIRECT_URL/);
+  assert.match(envUrl, /function prismaPostgresUrl/);
+  assert.match(envUrl, /function mastraPostgresUrl/);
 });
 
 test("prisma reads seeded packs when DATABASE_URL is set", async () => {
-  const url = process.env.DATABASE_URL?.trim();
-  if (!url) return;
-  const pg = await import("pg");
-  const Client = pg.Client ?? pg.default.Client;
-  const client = new Client({ connectionString: url });
-  await client.connect();
-  try {
-    const { rows } = await client.query(
-      `select p.slug, pr.github_login as owner
-       from packs p
-       join profiles pr on pr.id = p.owner_id
-       where pr.github_login = 'poteto' and p.slug = 'lauren'`
-    );
-    assert.equal(rows.length, 1, "seeded poteto/lauren must exist in the Prisma tables");
-  } finally {
-    await client.end();
-  }
+  if (!prisma) return;
+  const pack = await prisma.pack.findFirst({
+    where: { slug: "lauren", owner: { githubLogin: "poteto" } },
+    select: { slug: true, owner: { select: { githubLogin: true } } },
+  });
+  assert.equal(pack?.slug, "lauren", "seeded poteto/lauren must exist in the Prisma tables");
+  assert.equal(pack?.owner.githubLogin, "poteto");
 });
 
 test("pack_visits is server-owned so Prisma can count visits", () => {
@@ -150,56 +164,57 @@ test("pack_visits is server-owned so Prisma can count visits", () => {
 });
 
 test("pack visits stay on a second read", async () => {
-  const url = process.env.DATABASE_URL?.trim();
-  if (!url) return;
-  const { applyVisitCounts, emptyVisitCounts, addVisitCount } = await import(
-    "./visits-count.ts"
-  );
-  const pg = await import("pg");
-  const Client = pg.Client ?? pg.default.Client;
-  const client = new Client({ connectionString: url });
-  await client.connect();
+  if (!prisma) return;
   const packId = "10000000-0000-0000-0000-000000000010";
+  await prisma.packVisit.deleteMany({
+    where: { packOwner: "poteto", packSlug: "lauren" },
+  });
   try {
-    const rls = await client.query(
-      `select c.relforcerowsecurity
-       from pg_class c
-       join pg_namespace n on n.oid = c.relnamespace
-       where n.nspname = 'public' and c.relname = 'pack_visits'`
-    );
-    assert.equal(rls.rows[0]?.relforcerowsecurity, false);
-    await client.query(
-      `delete from pack_visits where pack_owner = 'poteto' and pack_slug = 'lauren'`
-    );
-    await client.query(
-      `insert into pack_visits (id, pack_id, pack_owner, pack_slug, source)
-       values ($1, $2, 'poteto', 'lauren', 'add_to_grok'),
-              ($3, $2, 'poteto', 'lauren', 'desk_mix'),
-              ($4, $2, 'poteto', 'lauren', 'add_to_grok')`,
-      [`visit-persist-a`, packId, `visit-persist-b`, `visit-persist-c`]
-    );
-    const first = await client.query(
-      `select pack_id, pack_owner, pack_slug, count(*)::int as n
-       from pack_visits
-       where pack_owner = 'poteto' and pack_slug = 'lauren'
-       group by pack_id, pack_owner, pack_slug`
-    );
-    const second = await client.query(
-      `select pack_id, pack_owner, pack_slug, count(*)::int as n
-       from pack_visits
-       where pack_owner = 'poteto' and pack_slug = 'lauren'
-       group by pack_id, pack_owner, pack_slug`
-    );
-    assert.equal(first.rows.length, 1);
-    assert.deepEqual(first.rows[0], second.rows[0]);
-    assert.equal(first.rows[0].n, 3);
+    await prisma.packVisit.createMany({
+      data: [
+        {
+          id: "visit-persist-a",
+          packId,
+          packOwner: "poteto",
+          packSlug: "lauren",
+          source: "add_to_grok",
+        },
+        {
+          id: "visit-persist-b",
+          packId,
+          packOwner: "poteto",
+          packSlug: "lauren",
+          source: "desk_mix",
+        },
+        {
+          id: "visit-persist-c",
+          packId,
+          packOwner: "poteto",
+          packSlug: "lauren",
+          source: "add_to_grok",
+        },
+      ],
+    });
+    const first = await prisma.packVisit.groupBy({
+      by: ["packId", "packOwner", "packSlug"],
+      where: { packOwner: "poteto", packSlug: "lauren" },
+      _count: { _all: true },
+    });
+    const second = await prisma.packVisit.groupBy({
+      by: ["packId", "packOwner", "packSlug"],
+      where: { packOwner: "poteto", packSlug: "lauren" },
+      _count: { _all: true },
+    });
+    assert.equal(first.length, 1);
+    assert.deepEqual(first[0], second[0]);
+    assert.equal(first[0]._count._all, 3);
     const counts = emptyVisitCounts();
     addVisitCount(
       counts,
-      first.rows[0].pack_id,
-      first.rows[0].pack_owner,
-      first.rows[0].pack_slug,
-      first.rows[0].n
+      first[0].packId,
+      first[0].packOwner,
+      first[0].packSlug,
+      first[0]._count._all
     );
     const [overlaid] = applyVisitCounts(
       [
@@ -214,77 +229,58 @@ test("pack visits stay on a second read", async () => {
     );
     assert.equal(overlaid.visitsCount, 3);
   } finally {
-    await client.query(`delete from pack_visits where id like 'visit-persist-%'`);
-    await client.end();
+    await prisma.packVisit.deleteMany({
+      where: { id: { in: ["visit-persist-a", "visit-persist-b", "visit-persist-c"] } },
+    });
   }
 });
 
 test("team chat usage stays on the UTC day after a second read", async () => {
-  const url = process.env.DATABASE_URL?.trim();
-  if (!url) return;
-  const { utcDayKey, quotaFromUsage } = await import("./team-quota.ts");
-  const pg = await import("pg");
-  const Client = pg.Client ?? pg.default.Client;
-  const client = new Client({ connectionString: url });
-  await client.connect();
+  if (!prisma) return;
   const userId = "bbbbbbbb-cccc-dddd-eeee-ffffffffffff";
-  const day = utcDayKey();
+  const day = utcDay();
+  await prisma.teamChatUsage.deleteMany({ where: { userId } });
   try {
-    await client.query(`delete from team_chat_usage where user_id = $1`, [userId]);
-    await client.query(
-      `insert into team_chat_usage (user_id, day, messages, tokens)
-       values ($1, $2::date, 3, 30)`,
-      [userId, day]
+    await prisma.teamChatUsage.create({
+      data: { userId, day, messages: 3, tokens: 30 },
+    });
+    const first = await prisma.teamChatUsage.findUnique({
+      where: { userId_day: { userId, day } },
+    });
+    const second = await prisma.teamChatUsage.findUnique({
+      where: { userId_day: { userId, day } },
+    });
+    assert.ok(first);
+    assert.deepEqual(
+      { messages: first.messages, tokens: first.tokens },
+      { messages: second?.messages, tokens: second?.tokens }
     );
-    const first = await client.query(
-      `select messages, tokens from team_chat_usage
-       where user_id = $1 and day = $2::date`,
-      [userId, day]
-    );
-    const second = await client.query(
-      `select messages, tokens from team_chat_usage
-       where user_id = $1 and day = $2::date`,
-      [userId, day]
-    );
-    assert.equal(first.rows.length, 1);
-    assert.deepEqual(first.rows[0], second.rows[0]);
-    assert.equal(quotaFromUsage(first.rows[0]).remaining_messages, 17);
+    assert.equal(quotaFromUsage(first).remaining_messages, 17);
   } finally {
-    await client.query(`delete from team_chat_usage where user_id = $1`, [userId]);
-    await client.end();
+    await prisma.teamChatUsage.deleteMany({ where: { userId } });
   }
 });
 
 test("team_chat_usage meters JWT user ids that are not in auth.users", async () => {
-  const url = process.env.DATABASE_URL?.trim();
-  if (!url) return;
-  const pg = await import("pg");
-  const Client = pg.Client ?? pg.default.Client;
-  const client = new Client({ connectionString: url });
-  await client.connect();
+  if (!prisma) return;
   const ghost = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee";
+  const day = utcDay();
   try {
-    const fk = await client.query(
-      `select 1 from pg_constraint where conname = 'team_chat_usage_user_id_fkey'`
-    );
-    assert.equal(fk.rowCount, 0, "quota rows must not FK auth.users");
-    await client.query(
-      `insert into team_chat_usage (user_id, day, messages, tokens)
-       values ($1, (timezone('utc', now()))::date, 1, 12)
-       on conflict (user_id, day) do update
-       set messages = team_chat_usage.messages + 1,
-           tokens = team_chat_usage.tokens + 12`,
-      [ghost]
-    );
-    const { rows } = await client.query(
-      `select messages, tokens from team_chat_usage
-       where user_id = $1 and day = (timezone('utc', now()))::date`,
-      [ghost]
-    );
-    assert.equal(rows.length, 1);
-    assert.ok(rows[0].messages >= 1);
+    const fk = await prisma.$queryRaw<Array<{ exists: number }>>`
+      select 1 as exists from pg_constraint where conname = 'team_chat_usage_user_id_fkey'
+    `;
+    assert.equal(fk.length, 0, "quota rows must not FK auth.users");
+    await prisma.teamChatUsage.upsert({
+      where: { userId_day: { userId: ghost, day } },
+      create: { userId: ghost, day, messages: 1, tokens: 12 },
+      update: { messages: { increment: 1 }, tokens: { increment: 12 } },
+    });
+    const row = await prisma.teamChatUsage.findUnique({
+      where: { userId_day: { userId: ghost, day } },
+    });
+    assert.ok(row);
+    assert.ok(row.messages >= 1);
   } finally {
-    await client.query(`delete from team_chat_usage where user_id = $1`, [ghost]);
-    await client.end();
+    await prisma.teamChatUsage.deleteMany({ where: { userId: ghost } });
   }
 });
