@@ -19,6 +19,15 @@ export function httpUrl(raw: string | undefined): string | undefined {
   }
 }
 
+export function isPostgresConnectionString(
+  value: string | undefined
+): value is string {
+  return Boolean(
+    value &&
+      (value.startsWith("postgresql://") || value.startsWith("postgres://"))
+  );
+}
+
 export function postgresUrl(raw: string | undefined): string | undefined {
   const value = unwrapMarkdownUrl(raw);
   if (!value) return undefined;
@@ -45,4 +54,9 @@ export function postgresUrl(raw: string | undefined): string | undefined {
     ? password
     : encodeURIComponent(password);
   return `${scheme}${encodedUser}:${encodedPassword}@${host}${path}`;
+}
+
+export function mastraPostgresUrl(raw?: string): string | undefined {
+  const value = postgresUrl(raw ?? process.env.DATABASE_URL);
+  return isPostgresConnectionString(value) ? value : undefined;
 }

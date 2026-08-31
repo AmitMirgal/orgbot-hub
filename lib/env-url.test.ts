@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
-import { httpUrl, postgresUrl, unwrapMarkdownUrl } from "./env-url.ts";
+import { httpUrl, isPostgresConnectionString, mastraPostgresUrl, postgresUrl, unwrapMarkdownUrl } from "./env-url.ts";
 
 test("unwrapMarkdownUrl restores URLs autolinked by rich-text secret pastes", () => {
   assert.equal(
@@ -40,6 +40,18 @@ test("postgresUrl unwraps then encodes userinfo", () => {
       "postgresql://u:p@w@[host:6543/postgres](http://host:6543/postgres)"
     ),
     "postgresql://u:p%40w@host:6543/postgres"
+  );
+});
+
+test("mastra storage ignores leftover http pooler URLs", () => {
+  const leftover =
+    "http://aws-0-us-west-2.pooler.supabase.com:6543/postgres?pgbouncer=true";
+  assert.equal(postgresUrl(leftover), leftover);
+  assert.equal(isPostgresConnectionString(leftover), false);
+  assert.equal(mastraPostgresUrl(leftover), undefined);
+  assert.equal(
+    mastraPostgresUrl("postgresql://u:p@127.0.0.1:5432/orgbots"),
+    "postgresql://u:p@127.0.0.1:5432/orgbots"
   );
 });
 

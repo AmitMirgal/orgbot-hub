@@ -417,6 +417,7 @@ test("team mixer requires auth and consumes daily quota before the model", () =>
   assert.match(teamChat, /consumeTeamChatTurn/);
   assert.match(teamChat, /refundTeamChatTurn/);
   assert.match(teamChat, /deskStreamParams/);
+  assert.match(teamChat, /mastraPostgresUrl/);
   assert.match(teamChat, /TEAM_CHAT_QUOTA_HEADER/);
   assert.doesNotMatch(teamChat, /quota_unavailable/);
   assert.doesNotMatch(teamChat, /\.rpc\(/);
@@ -439,6 +440,7 @@ test("team mixer requires auth and consumes daily quota before the model", () =>
   assert.match(desk, /from "@mastra\/memory"/);
   assert.match(desk, /new Memory/);
   assert.match(mastraStore, /PostgresStore/);
+  assert.match(mastraStore, /mastraPostgresUrl/);
   assert.match(mastraIndex, /orgbotsStorage/);
   assert.match(catalog, /prisma\.pack/);
   assert.doesNotMatch(catalog, /createClient/);

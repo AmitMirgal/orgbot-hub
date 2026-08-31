@@ -19,6 +19,22 @@ test("desk stream params pin memory to the signed-in user", () => {
   assert.deepEqual(params.messages, [next]);
 });
 
+test("desk stream params omit memory when storage cannot persist", () => {
+  const userId = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee";
+  const next = { id: "2", role: "user", parts: [{ type: "text", text: "mix" }] };
+  const params = deskStreamParams(
+    userId,
+    {
+      trigger: "submit-message",
+      messages: [next],
+      memory: { thread: "forged", resource: "forged" },
+    },
+    false
+  );
+  assert.equal("memory" in params, false);
+  assert.deepEqual(params.messages, [next]);
+});
+
 test("desk stream params keep regenerate history", () => {
   const userId = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee";
   const messages = [
