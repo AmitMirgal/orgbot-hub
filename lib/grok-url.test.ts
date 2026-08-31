@@ -51,6 +51,41 @@ test("accepts official x.ai bot URLs", () => {
     parseGrokTemplateUrl("https://x.ai/bot/VMwfgQlHkYfFkbPYDWzAA"),
     "https://x.ai/bot/VMwfgQlHkYfFkbPYDWzAA"
   );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/JeFTvcDX-7QT2evKGIb52"),
+    "https://x.ai/bot/JeFTvcDX-7QT2evKGIb52"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/uFRK1GoAsiopBLPY19QCe"),
+    "https://x.ai/bot/uFRK1GoAsiopBLPY19QCe"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/N0J32FbnVRuetJi1oJggh"),
+    "https://x.ai/bot/N0J32FbnVRuetJi1oJggh"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/vekulzIMXM8hDjkp-mDkX"),
+    "https://x.ai/bot/vekulzIMXM8hDjkp-mDkX"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/oSvAMKX_ahD56ZmgwtRys"),
+    "https://x.ai/bot/oSvAMKX_ahD56ZmgwtRys"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/JZAccYtlRFvDSU2CnMnkZ"),
+    "https://x.ai/bot/JZAccYtlRFvDSU2CnMnkZ"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/Ja9NzNTRz2ozzQLNfrJwI"),
+    "https://x.ai/bot/Ja9NzNTRz2ozzQLNfrJwI"
+  );
+});
+
+test("strips username suffixes from official bot URLs", () => {
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/N0J32FbnVRuetJi1oJggh/talsiach"),
+    "https://x.ai/bot/N0J32FbnVRuetJi1oJggh"
+  );
 });
 
 test("rejects unofficial or unsafe install targets", () => {
