@@ -31,6 +31,26 @@ test("accepts official x.ai bot URLs", () => {
     parseGrokTemplateUrl("https://x.ai/bot/9dtfHw4LHmwc5uBC-a9vj"),
     "https://x.ai/bot/9dtfHw4LHmwc5uBC-a9vj"
   );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/mqVPHm0oB3WPsnxbU1qB9"),
+    "https://x.ai/bot/mqVPHm0oB3WPsnxbU1qB9"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/pNLwpHs8rmtMzAkUi-Zu2"),
+    "https://x.ai/bot/pNLwpHs8rmtMzAkUi-Zu2"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/cGcG0msqfz7o7J3QMLhbE"),
+    "https://x.ai/bot/cGcG0msqfz7o7J3QMLhbE"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/OR72i4SNc0_F1IzbCfg-D"),
+    "https://x.ai/bot/OR72i4SNc0_F1IzbCfg-D"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/VMwfgQlHkYfFkbPYDWzAA"),
+    "https://x.ai/bot/VMwfgQlHkYfFkbPYDWzAA"
+  );
 });
 
 test("rejects unofficial or unsafe install targets", () => {
