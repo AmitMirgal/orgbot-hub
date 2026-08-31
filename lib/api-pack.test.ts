@@ -226,7 +226,7 @@ test("catalog chat uses shadcn Message, Bubble, and Streamdown", () => {
   assert.match(src, /<Bubble variant="default"/);
   assert.match(src, /variant="secondary"/);
   assert.match(src, /AuthorProfileCard/);
-  assert.match(src, /authorsFromSeats/);
+  assert.match(src, /catalogThreadRender/);
   assert.match(src, /CatalogThreadMessage/);
   assert.match(src, /Nothing matched in the catalog/);
   assert.match(src, /The mix did not go through/);
@@ -257,7 +257,7 @@ test("catalog chat lets MessageScroller own overflow", () => {
   assert.match(chat, /pageChatShellClassName/);
   assert.match(layout, /h-dvh/);
   assert.match(layout, /overflow-y-auto/);
-  assert.match(chat, /scrollAnchor=\{isUser\}/);
+  assert.match(chat, /scrollAnchor/);
   assert.doesNotMatch(chat, /from "@\/components\/ui\/scroll-area"/);
   assert.doesNotMatch(chat, /<ScrollArea/);
   assert.doesNotMatch(chat, /overflow-visible/);
@@ -417,9 +417,12 @@ test("team mixer requires auth and consumes daily quota before the model", () =>
   assert.match(teamChat, /consumeTeamChatTurn/);
   assert.match(teamChat, /refundTeamChatTurn/);
   assert.match(teamChat, /deskStreamParams/);
-  assert.match(teamChat, /mastraPostgresUrl/);
+  assert.match(teamChat, /orgbotsStorage/);
+  assert.match(teamChat, /teamDeskConsumeGate/);
+  assert.match(teamChat, /catalog_unreachable/);
   assert.match(teamChat, /TEAM_CHAT_QUOTA_HEADER/);
   assert.doesNotMatch(teamChat, /quota_unavailable/);
+  assert.doesNotMatch(teamChat, /if \(consumed && !consumed\.allowed\)/);
   assert.doesNotMatch(teamChat, /\.rpc\(/);
   assert.match(store, /prisma\.teamChatUsage/);
   assert.doesNotMatch(store, /\$transaction/);
@@ -485,6 +488,7 @@ test("dev chat thread preview is hidden in production", () => {
   assert.match(src, /notFound/);
   assert.match(src, /ChatThreadPreview/);
   assert.match(src, /tool-searchSeats/);
+  assert.match(src, /agent-empty/);
 });
 
 test("dev account menu preview is hidden in production", () => {

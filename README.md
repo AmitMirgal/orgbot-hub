@@ -31,3 +31,24 @@ A pack is one author’s published roster.
 ## Submit
 
 Submit is coming soon. When it opens, a pack still has to use official `https://x.ai/bot/…` URLs. We will not accept other hosts or invent unpublished bots.
+
+## Catalog database
+
+Table CRUD goes through Prisma. Auth stays on Supabase Auth.
+
+Set both URLs on Vercel preview and production:
+
+- `DATABASE_URL=postgresql://…` is the pooler, used by Prisma.
+- `DIRECT_URL=postgresql://…` is session Postgres on port 5432, used by Mastra memory and Prisma direct.
+
+`NEXT_PUBLIC_SUPABASE_URL` is an https origin. It is not a database URL. Never pass it to Prisma or Mastra.
+
+`prisma generate` may use the local placeholder in `prisma.config.ts`. That is build-only. Runtime CRUD still needs a real `postgres://` URL.
+
+Apply schema with:
+
+```bash
+pnpm prisma:migrate:deploy
+```
+
+That runs `prisma migrate deploy`. Missing `pack_visits` or `team_chat_usage` is a migrate-deploy miss, not a UI bug.

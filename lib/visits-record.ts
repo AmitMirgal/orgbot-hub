@@ -28,7 +28,7 @@ export function useRecordVisit() {
       source,
       input.seatName
     ).then((result) => {
-      router.refresh();
+      if (!result.error) router.refresh();
       return result;
     });
   };

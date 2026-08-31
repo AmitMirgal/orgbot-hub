@@ -68,6 +68,19 @@ export function emptyTeamChatQuota(): TeamChatQuota {
   return quotaFromUsage(null);
 }
 
+export type TeamDeskConsumeGate =
+  | { kind: "unreachable" }
+  | { kind: "exhausted"; quota: TeamChatQuota }
+  | { kind: "ok"; quota: TeamChatQuota };
+
+export function teamDeskConsumeGate(
+  consumed: TeamChatQuota | null
+): TeamDeskConsumeGate {
+  if (!consumed) return { kind: "unreachable" };
+  if (!consumed.allowed) return { kind: "exhausted", quota: consumed };
+  return { kind: "ok", quota: consumed };
+}
+
 export function parseTeamChatQuota(raw: unknown): TeamChatQuota | null {
   if (!raw || typeof raw !== "object") return null;
   const row = raw as Record<string, unknown>;

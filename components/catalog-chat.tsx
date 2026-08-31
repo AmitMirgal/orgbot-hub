@@ -37,12 +37,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { parseCatalogSeat, publicXHandle, type CatalogSeat } from "@/lib/api-pack";
-import {
-  authorsFromSeats,
-  hasToolActivity,
-  messageText,
-  seatsFromChatParts,
-} from "@/lib/chat-seats";
+import { catalogThreadRender } from "@/lib/chat-seats";
 import { parseGrokTemplateUrl } from "@/lib/grok-url";
 import type { TopAuthor } from "@/lib/top-authors";
 import {
@@ -426,63 +421,68 @@ export function CatalogThreadMessage({
   waiting: boolean;
   onAddToDraft?: (seat: CatalogSeat) => void;
 }) {
-  const isUser = message.role === "user";
-  const parts = message.parts ?? [];
-  const text = messageText(parts);
-  const seats = mix ? seatsFromChatParts(parts) : [];
-  const authors = authorsFromSeats(seats);
-  const searching = !isUser && last && hasToolActivity(parts);
-  const emptyReply =
-    !isUser && last && !waiting && !searching && !text && seats.length === 0;
-
-  if (isUser && !text) return null;
-  if (!isUser && !text && seats.length === 0 && !searching && !emptyReply) {
-    return null;
+  const view = catalogThreadRender({
+    role: message.role,
+    parts: message.parts ?? [],
+    last,
+    mix,
+    waiting,
+  });
+  switch (view.kind) {
+    case "omit":
+      return null;
+    case "user":
+      return (
+        <MessageScrollerItem messageId={message.id} scrollAnchor>
+          <Message align="end">
+            <MessageContent>
+              <MessageHeader>You</MessageHeader>
+              <Bubble variant="default">
+                <BubbleContent className="whitespace-pre-wrap">{view.text}</BubbleContent>
+              </Bubble>
+            </MessageContent>
+          </Message>
+        </MessageScrollerItem>
+      );
+    case "assistant":
+      return (
+        <MessageScrollerItem messageId={message.id}>
+          <Message align="start">
+            <MessageContent>
+              <MessageHeader>Agent</MessageHeader>
+              {view.text ? (
+                <Bubble
+                  variant="secondary"
+                  className="min-w-0 *:data-[slot=bubble-content]:border-border dark:*:data-[slot=bubble-content]:border-white/20"
+                >
+                  <BubbleContent className="overflow-x-auto">
+                    <ChatMarkdown streaming={last && waiting}>{view.text}</ChatMarkdown>
+                  </BubbleContent>
+                </Bubble>
+              ) : null}
+              {view.authors.map((author) => (
+                <AuthorProfileCard key={author.githubLogin} author={author} />
+              ))}
+              {view.seats.map((seat) => (
+                <SeatBubble key={seat.id} seat={seat} onAddToDraft={onAddToDraft} />
+              ))}
+              {view.emptyReply ? (
+                <Bubble
+                  variant="secondary"
+                  className="*:data-[slot=bubble-content]:border-border dark:*:data-[slot=bubble-content]:border-white/20"
+                >
+                  <BubbleContent>Nothing matched in the catalog.</BubbleContent>
+                </Bubble>
+              ) : null}
+            </MessageContent>
+          </Message>
+        </MessageScrollerItem>
+      );
+    default: {
+      const _exhaustive: never = view;
+      return _exhaustive;
+    }
   }
-
-  return (
-    <MessageScrollerItem messageId={message.id} scrollAnchor={isUser}>
-      <Message align={isUser ? "end" : "start"}>
-        <MessageContent>
-          <MessageHeader>{isUser ? "You" : "Agent"}</MessageHeader>
-          {isUser && text ? (
-            <Bubble variant="default">
-              <BubbleContent className="whitespace-pre-wrap">{text}</BubbleContent>
-            </Bubble>
-          ) : null}
-          {!isUser && text ? (
-            <Bubble
-              variant="secondary"
-              className="min-w-0 *:data-[slot=bubble-content]:border-border dark:*:data-[slot=bubble-content]:border-white/20"
-            >
-              <BubbleContent className="overflow-x-auto">
-                <ChatMarkdown streaming={last && waiting}>{text}</ChatMarkdown>
-              </BubbleContent>
-            </Bubble>
-          ) : null}
-          {authors.map((author) => (
-            <AuthorProfileCard key={author.githubLogin} author={author} />
-          ))}
-          {seats.map((seat) => (
-            <SeatBubble key={seat.id} seat={seat} onAddToDraft={onAddToDraft} />
-          ))}
-          {searching ? (
-            <Marker>
-              <MarkerContent className="animate-pulse">Searching the catalog…</MarkerContent>
-            </Marker>
-          ) : null}
-          {emptyReply ? (
-            <Bubble
-              variant="secondary"
-              className="*:data-[slot=bubble-content]:border-border dark:*:data-[slot=bubble-content]:border-white/20"
-            >
-              <BubbleContent>Nothing matched in the catalog.</BubbleContent>
-            </Bubble>
-          ) : null}
-        </MessageContent>
-      </Message>
-    </MessageScrollerItem>
-  );
 }
 
 function SeatBubble({

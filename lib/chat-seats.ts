@@ -48,6 +48,49 @@ export function messageText(parts: unknown[]): string {
     .join("");
 }
 
+export type CatalogThreadRender =
+  | { kind: "omit" }
+  | { kind: "user"; text: string }
+  | {
+      kind: "assistant";
+      text: string | null;
+      seats: CatalogSeat[];
+      authors: CatalogAuthor[];
+      emptyReply: boolean;
+    };
+
+export function catalogThreadRender(input: {
+  role: string;
+  parts: unknown[];
+  last: boolean;
+  mix: boolean;
+  waiting: boolean;
+}): CatalogThreadRender {
+  const text = messageText(input.parts).trim();
+  if (input.role === "user") {
+    return text ? { kind: "user", text } : { kind: "omit" };
+  }
+  const seats = input.mix ? seatsFromChatParts(input.parts) : [];
+  const authors = authorsFromSeats(seats);
+  const searching = input.last && hasToolActivity(input.parts);
+  const emptyReply =
+    input.last &&
+    !input.waiting &&
+    !searching &&
+    text.length === 0 &&
+    seats.length === 0;
+  if (text.length === 0 && seats.length === 0 && authors.length === 0 && !emptyReply) {
+    return { kind: "omit" };
+  }
+  return {
+    kind: "assistant",
+    text: text.length > 0 ? text : null,
+    seats,
+    authors,
+    emptyReply,
+  };
+}
+
 export function hasToolActivity(parts: unknown[]): boolean {
   return parts.some((part) => {
     if (!isRecord(part)) return false;

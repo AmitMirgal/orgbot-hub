@@ -19,7 +19,8 @@ export async function readTeamDeskMessages(userId: string): Promise<UIMessage[]>
       perPage: false,
     });
     return toAISdkMessages(messages, { version: "v7" });
-  } catch {
+  } catch (error) {
+    console.error("[mastra] readTeamDeskMessages failed", error);
     return [];
   }
 }

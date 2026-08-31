@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { logPrismaFailure, prisma } from "@/lib/prisma";
 import {
   TEAM_CHAT_MESSAGE_LIMIT,
   TEAM_CHAT_TOKEN_LIMIT,
@@ -22,7 +22,8 @@ export async function readTeamChatQuotaForUser(userId: string): Promise<TeamChat
       where: usageKey(userId),
     });
     return quotaFromUsage(row);
-  } catch {
+  } catch (error) {
+    logPrismaFailure("readTeamChatQuotaForUser", error);
     return emptyTeamChatQuota();
   }
 }
@@ -56,7 +57,8 @@ export async function consumeTeamChatTurn(
       where: usageKey(userId),
     });
     return quotaFromUsage(row, allowed.count > 0);
-  } catch {
+  } catch (error) {
+    logPrismaFailure("consumeTeamChatTurn", error);
     return null;
   }
 }
@@ -80,7 +82,8 @@ export async function refundTeamChatTurn(
       },
     });
     return quotaFromUsage(next);
-  } catch {
+  } catch (error) {
+    logPrismaFailure("refundTeamChatTurn", error);
     return emptyTeamChatQuota();
   }
 }
