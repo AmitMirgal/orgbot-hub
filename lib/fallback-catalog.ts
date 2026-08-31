@@ -1,5 +1,6 @@
 import { parseGrokTemplateUrl } from "@/lib/grok-url";
 import { type Pack, type PackCard, type Profile, type Seat } from "@/lib/pack";
+import { sortPacksByVisits } from "@/lib/visits-count";
 import { matchesSeatBand, type SeatBand } from "@/lib/topics";
 
 export type FallbackQuery = {
@@ -444,11 +445,7 @@ function matchesQuery(pack: Pack, query: FallbackQuery): boolean {
 }
 
 function sortPacks(packs: Pack[]): Pack[] {
-  return packs.slice().sort((a, b) => {
-    if (a.featured !== b.featured) return Number(b.featured) - Number(a.featured);
-    if (a.installsCount !== b.installsCount) return b.installsCount - a.installsCount;
-    return a.name.localeCompare(b.name);
-  });
+  return sortPacksByVisits(packs);
 }
 
 export function listFallbackPacks(query: FallbackQuery = {}): PackCard[] {

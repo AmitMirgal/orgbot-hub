@@ -18,6 +18,7 @@ import { prisma } from "@/lib/prisma";
 import { getSessionUserId } from "@/lib/supabase/server";
 import { matchesSeatBand, type SeatBand } from "@/lib/topics";
 import { withVisitCounts } from "@/lib/visits-store";
+import { sortPacksByVisits } from "@/lib/visits-count";
 
 type ProfileRow = {
   id: string;
@@ -141,11 +142,7 @@ function applySeatBand(packs: Pack[], seatBand?: SeatBand): Pack[] {
 }
 
 function sortPacks(packs: Pack[]): Pack[] {
-  return packs.slice().sort((a, b) => {
-    if (a.featured !== b.featured) return Number(b.featured) - Number(a.featured);
-    if (a.installsCount !== b.installsCount) return b.installsCount - a.installsCount;
-    return a.name.localeCompare(b.name);
-  });
+  return sortPacksByVisits(packs);
 }
 
 async function fromPrismaOrFallback<T>(
@@ -182,12 +179,12 @@ export async function listPacks(query: CatalogQuery = {}): Promise<PackCard[]> {
       include: packInclude,
     });
     const packs = applySeatBand(
-      sortPacks(rows.map(mapPack).filter((pack): pack is Pack => pack !== null)),
+      rows.map(mapPack).filter((pack): pack is Pack => pack !== null),
       query.seatBand
     );
     return packs.map(toCard);
-  }, () => listFallbackPacks(query)).then((packs) =>
-    withVisitCounts(packs.length > 0 ? packs : listFallbackPacks(query))
+  }, () => listFallbackPacks(query)).then(async (packs) =>
+    sortPacks(await withVisitCounts(packs.length > 0 ? packs : listFallbackPacks(query)))
   );
 }
 
@@ -228,11 +225,12 @@ export async function listPacksByOwner(login: string): Promise<PackCard[]> {
       where: { owner: { githubLogin: login } },
       include: packInclude,
     });
-    return sortPacks(
-      rows.map(mapPack).filter((pack): pack is Pack => pack !== null)
-    ).map(toCard);
-  }, () => listFallbackPacksByOwner(login)).then((packs) =>
-    withVisitCounts(packs.length > 0 ? packs : listFallbackPacksByOwner(login))
+    return rows
+      .map(mapPack)
+      .filter((pack): pack is Pack => pack !== null)
+      .map(toCard);
+  }, () => listFallbackPacksByOwner(login)).then(async (packs) =>
+    sortPacks(await withVisitCounts(packs.length > 0 ? packs : listFallbackPacksByOwner(login)))
   );
 }
 

@@ -112,6 +112,7 @@ test("local catalog start points Prisma at Postgres", () => {
   assert.match(start, /DATABASE_URL=postgresql:\/\/postgres:postgres@127\.0\.0\.1:5432\/orgbots/);
   assert.match(start, /pack_visits\.sql/);
   assert.match(start, /team_chat_usage\.sql/);
+  assert.match(start, /pack_visits_server_owned\.sql/);
   assert.match(start, /team_chat_usage_server_owned\.sql/);
   assert.match(example, /DATABASE_URL=/);
   assert.match(example, /Schema changes go through prisma migrate, not supabase/);
@@ -133,6 +134,67 @@ test("prisma reads seeded packs when DATABASE_URL is set", async () => {
     );
     assert.equal(rows.length, 1, "seeded poteto/lauren must exist in the Prisma tables");
   } finally {
+    await client.end();
+  }
+});
+
+test("pack_visits is server-owned so Prisma can count visits", () => {
+  const sql = read("supabase/migrations/20260831192000_pack_visits_server_owned.sql");
+  const prismaSql = read(
+    "prisma/migrations/20260831192000_pack_visits_server_owned/migration.sql"
+  );
+  assert.match(sql, /disable row level security/i);
+  assert.match(sql, /no force row level security/i);
+  assert.match(prismaSql, /DISABLE ROW LEVEL SECURITY/);
+  assert.match(prismaSql, /NO FORCE ROW LEVEL SECURITY/);
+});
+
+test("pack visits stay on a second read", async () => {
+  const url = process.env.DATABASE_URL?.trim();
+  if (!url) return;
+  const { withVisitCounts } = await import("./visits-store.ts");
+  const pg = await import("pg");
+  const Client = pg.Client ?? pg.default.Client;
+  const client = new Client({ connectionString: url });
+  await client.connect();
+  const packId = "10000000-0000-0000-0000-000000000010";
+  try {
+    const rls = await client.query(
+      `select c.relforcerowsecurity
+       from pg_class c
+       join pg_namespace n on n.oid = c.relnamespace
+       where n.nspname = 'public' and c.relname = 'pack_visits'`
+    );
+    assert.equal(rls.rows[0]?.relforcerowsecurity, false);
+    await client.query(
+      `delete from pack_visits where pack_owner = 'poteto' and pack_slug = 'lauren'`
+    );
+    await client.query(
+      `insert into pack_visits (id, pack_id, pack_owner, pack_slug, source)
+       values ($1, $2, 'poteto', 'lauren', 'add_to_grok'),
+              ($3, $2, 'poteto', 'lauren', 'desk_mix'),
+              ($4, $2, 'poteto', 'lauren', 'add_to_grok')`,
+      [`visit-persist-a`, packId, `visit-persist-b`, `visit-persist-c`]
+    );
+    const first = await client.query(
+      `select count(*)::int as n from pack_visits where pack_owner = 'poteto' and pack_slug = 'lauren'`
+    );
+    const second = await client.query(
+      `select count(*)::int as n from pack_visits where pack_owner = 'poteto' and pack_slug = 'lauren'`
+    );
+    assert.equal(first.rows[0].n, 3);
+    assert.equal(second.rows[0].n, 3);
+    const [overlaid] = await withVisitCounts([
+      {
+        id: packId,
+        owner: { githubLogin: "poteto" },
+        slug: "lauren",
+        visitsCount: 99,
+      },
+    ]);
+    assert.equal(overlaid.visitsCount, 3);
+  } finally {
+    await client.query(`delete from pack_visits where id like 'visit-persist-%'`);
     await client.end();
   }
 });

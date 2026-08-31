@@ -2,20 +2,9 @@
 
 import { PlusIcon, XIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { recordVisit } from "@/lib/actions";
 import type { CatalogSeat } from "@/lib/api-pack";
 import { parseGrokTemplateUrl } from "@/lib/grok-url";
-import { captureVisit } from "@/lib/visits-client";
-
-function trackMixAdd(seat: CatalogSeat) {
-  void recordVisit(seat.packId, seat.pack.owner, seat.pack.slug, "desk_mix", seat.name);
-  captureVisit({
-    packId: seat.packId,
-    identity: { owner: seat.pack.owner, slug: seat.pack.slug },
-    source: "desk_mix",
-    seatName: seat.name,
-  });
-}
+import { useRecordVisit } from "@/lib/visits-record";
 
 export function TeamMix({
   draft,
@@ -26,6 +15,7 @@ export function TeamMix({
   onRemove: (url: string) => void;
   heading?: boolean;
 }) {
+  const record = useRecordVisit();
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-3 px-4 py-4">
       {heading ? (
@@ -63,7 +53,15 @@ export function TeamMix({
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Add ${seat.name} to Grok`}
-                        onClick={() => trackMixAdd(seat)}
+                        onClick={() => {
+                          void record({
+                            packId: seat.packId,
+                            owner: seat.pack.owner,
+                            slug: seat.pack.slug,
+                            source: "desk_mix",
+                            seatName: seat.name,
+                          });
+                        }}
                       >
                         <PlusIcon className="size-3.5" />
                       </a>

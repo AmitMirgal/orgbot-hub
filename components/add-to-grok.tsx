@@ -3,10 +3,9 @@
 import { useState } from "react";
 import { CheckIcon, CopyIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { recordVisit } from "@/lib/actions";
 import { parseGrokTemplateUrl } from "@/lib/grok-url";
+import { useRecordVisit } from "@/lib/visits-record";
 import type { VisitSource } from "@/lib/visits";
-import { captureVisit } from "@/lib/visits-client";
 
 export function AddToGrok({
   url,
@@ -16,6 +15,7 @@ export function AddToGrok({
   slug,
   seatName,
   source = "add_to_grok",
+  onRecorded,
 }: {
   url: string | null;
   label: string;
@@ -24,9 +24,11 @@ export function AddToGrok({
   slug: string;
   seatName?: string;
   source?: VisitSource;
+  onRecorded?: (visitsCount: number) => void;
 }) {
   const href = parseGrokTemplateUrl(url);
   const [copied, setCopied] = useState(false);
+  const record = useRecordVisit();
 
   if (!href) {
     return (
@@ -42,12 +44,8 @@ export function AddToGrok({
   }
 
   function onAdd() {
-    void recordVisit(packId, owner, slug, source, seatName);
-    captureVisit({
-      packId,
-      identity: { owner, slug },
-      source,
-      seatName,
+    void record({ packId, owner, slug, source, seatName }).then((result) => {
+      if (typeof result.visitsCount === "number") onRecorded?.(result.visitsCount);
     });
   }
 

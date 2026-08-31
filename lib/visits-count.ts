@@ -48,8 +48,20 @@ export function applyVisitCounts<T extends PackVisits>(
     const raw =
       counts.byOwnerSlug.get(ownerSlugKey(pack.owner.githubLogin, pack.slug)) ??
       counts.byId.get(pack.id) ??
-      pack.visitsCount;
+      0;
     const visitsCount = Number.isFinite(raw) ? raw : 0;
     return { ...pack, visitsCount };
+  });
+}
+
+export function sortPacksByVisits<
+  T extends { featured?: boolean; visitsCount: number; name: string },
+>(packs: T[]): T[] {
+  return packs.slice().sort((a, b) => {
+    if (Boolean(a.featured) !== Boolean(b.featured)) {
+      return Number(Boolean(b.featured)) - Number(Boolean(a.featured));
+    }
+    if (a.visitsCount !== b.visitsCount) return b.visitsCount - a.visitsCount;
+    return a.name.localeCompare(b.name);
   });
 }

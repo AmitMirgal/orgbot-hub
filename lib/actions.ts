@@ -232,6 +232,7 @@ export async function recordVisit(
   seatName?: string
 ) {
   if (!prisma) return { error: "Catalog is not reachable." };
+  let visitsCount: number;
   try {
     await prisma.packVisit.create({
       data: {
@@ -241,6 +242,9 @@ export async function recordVisit(
         source,
         seatName: seatName ?? null,
       },
+    });
+    visitsCount = await prisma.packVisit.count({
+      where: { packOwner: owner, packSlug: slug },
     });
   } catch {
     return { error: "Catalog is not reachable." };
@@ -256,7 +260,10 @@ export async function recordVisit(
   }
 
   revalidatePath("/");
+  revalidatePath("/marketplace");
+  revalidatePath("/search");
+  revalidatePath("/team");
   revalidatePath(`/${owner}`);
   revalidatePath(`/${owner}/${slug}`);
-  return { error: null };
+  return { error: null, visitsCount };
 }

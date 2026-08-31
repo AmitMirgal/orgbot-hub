@@ -36,7 +36,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { recordVisit } from "@/lib/actions";
 import { parseCatalogSeat, publicXHandle, type CatalogSeat } from "@/lib/api-pack";
 import {
   authorsFromSeats,
@@ -53,7 +52,7 @@ import {
   type TeamChatQuota,
 } from "@/lib/team-quota";
 import { cn } from "@/lib/utils";
-import { captureVisit } from "@/lib/visits-client";
+import { useRecordVisit } from "@/lib/visits-record";
 
 const pageChatShellClassName =
   "flex h-full min-h-0 min-w-0 flex-1 overflow-hidden";
@@ -494,6 +493,7 @@ function SeatBubble({
   onAddToDraft?: (seat: CatalogSeat) => void;
 }) {
   const href = parseGrokTemplateUrl(seat.grokTemplateUrl);
+  const record = useRecordVisit();
   return (
     <Bubble variant="outline" className="max-w-full min-w-0">
       <BubbleContent className="flex w-full max-w-full min-w-0 flex-col gap-2">
@@ -510,16 +510,10 @@ function SeatBubble({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
-                  void recordVisit(
-                    seat.packId,
-                    seat.pack.owner,
-                    seat.pack.slug,
-                    "desk_mix",
-                    seat.name
-                  );
-                  captureVisit({
+                  void record({
                     packId: seat.packId,
-                    identity: { owner: seat.pack.owner, slug: seat.pack.slug },
+                    owner: seat.pack.owner,
+                    slug: seat.pack.slug,
                     source: "desk_mix",
                     seatName: seat.name,
                   });
@@ -568,6 +562,7 @@ function DraftRoster({
   draft: CatalogSeat[];
   onRemove: (url: string) => void;
 }) {
+  const record = useRecordVisit();
   return (
     <aside className="flex flex-col gap-3 rounded-lg border border-border bg-card px-4 py-3">
       <div>
@@ -597,16 +592,10 @@ function DraftRoster({
                         rel="noopener noreferrer"
                         aria-label={`Add ${seat.name} to Grok`}
                         onClick={() => {
-                          void recordVisit(
-                            seat.packId,
-                            seat.pack.owner,
-                            seat.pack.slug,
-                            "desk_mix",
-                            seat.name
-                          );
-                          captureVisit({
+                          void record({
                             packId: seat.packId,
-                            identity: { owner: seat.pack.owner, slug: seat.pack.slug },
+                            owner: seat.pack.owner,
+                            slug: seat.pack.slug,
                             source: "desk_mix",
                             seatName: seat.name,
                           });

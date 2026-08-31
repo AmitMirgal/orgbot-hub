@@ -13,6 +13,7 @@ import {
   addVisitCount,
   applyVisitCounts,
   emptyVisitCounts,
+  sortPacksByVisits,
 } from "./visits-count.ts";
 
 test("serializer exposes visitsCount and never installsCount", () => {
@@ -70,6 +71,28 @@ test("card visits come from pack_visits owner/slug counts", () => {
   assert.equal(overlaid.visitsCount, 3);
 });
 
+test("live overlay zeros stale installsCount when pack_visits has no rows", () => {
+  const lauren = getFallbackPack("poteto", "lauren");
+  assert.ok(lauren);
+  const [overlaid] = applyVisitCounts(
+    [{ ...lauren, visitsCount: 99 }],
+    emptyVisitCounts()
+  );
+  assert.equal(overlaid.visitsCount, 0);
+});
+
+test("sortPacksByVisits ranks live visit totals, not installsCount", () => {
+  const ranked = sortPacksByVisits([
+    { name: "B", featured: false, visitsCount: 1, installsCount: 99 },
+    { name: "A", featured: false, visitsCount: 8, installsCount: 0 },
+    { name: "C", featured: true, visitsCount: 0, installsCount: 0 },
+  ]);
+  assert.deepEqual(
+    ranked.map((pack) => pack.name),
+    ["C", "A", "B"]
+  );
+});
+
 test("prisma pack_visits uses enum, timestamptz, and named indexes", () => {
   const schema = readFileSync(
     fileURLToPath(new URL("../prisma/schema.prisma", import.meta.url)),
@@ -125,9 +148,27 @@ test("Add to Grok increments visits and does not count Copy", () => {
     fileURLToPath(new URL("../components/add-to-grok.tsx", import.meta.url)),
     "utf8"
   );
+  const record = readFileSync(
+    fileURLToPath(new URL("./visits-record.ts", import.meta.url)),
+    "utf8"
+  );
+  const pack = readFileSync(
+    fileURLToPath(new URL("../app/[owner]/[slug]/page.tsx", import.meta.url)),
+    "utf8"
+  );
+  const install = readFileSync(
+    fileURLToPath(new URL("../components/pack-install.tsx", import.meta.url)),
+    "utf8"
+  );
   assert.match(src, /source = "add_to_grok"/);
-  assert.match(src, /recordVisit\(packId, owner, slug, source/);
-  assert.doesNotMatch(src, /onCopy[\s\S]*recordVisit/);
+  assert.match(src, /useRecordVisit/);
+  assert.match(record, /recordVisit/);
+  assert.match(record, /router.refresh/);
+  assert.doesNotMatch(src, /onCopy[\s\S]*record\(/);
+  assert.match(pack, /PackInstall/);
+  assert.match(install, /visitsLabel/);
+  assert.match(install, /onRecorded/);
+  assert.match(install, /setVisits\(visitsCount\)/);
 });
 
 test("pack filters are one row, not two All groups", () => {
@@ -404,6 +445,9 @@ test("team mixer requires auth and consumes daily quota before the model", () =>
   assert.doesNotMatch(catalog, /\.from\(/);
   assert.doesNotMatch(catalog, /\.rpc\(/);
   assert.match(actions, /prisma\.packVisit\.create/);
+  assert.match(actions, /packVisit\.count/);
+  assert.match(catalog, /sortPacksByVisits/);
+  assert.match(catalog, /sortPacks\(await withVisitCounts/);
   assert.doesNotMatch(actions, /createClient/);
   assert.doesNotMatch(actions, /\.rpc\(/);
   assert.doesNotMatch(actions, /\.from\(/);
