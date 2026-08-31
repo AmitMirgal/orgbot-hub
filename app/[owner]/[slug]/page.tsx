@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AddEveryBot } from "@/components/add-every-bot";
 import { AddToGrok } from "@/components/add-to-grok";
 import { CatalogOffline } from "@/components/catalog-offline";
 import { MarkdownCard } from "@/components/markdown-card";
@@ -102,13 +101,6 @@ export default async function PackPage({
               </p>
             </div>
           </header>
-
-          <AddEveryBot
-            seats={pack.seats}
-            packId={pack.id}
-            owner={pack.owner.githubLogin}
-            slug={pack.slug}
-          />
 
           <Alert>
             <AlertTitle>Before you install</AlertTitle>

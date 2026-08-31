@@ -93,6 +93,8 @@ test("prisma pack_visits uses enum, timestamptz, and named indexes", () => {
 test("visitsLabel formats visits, never installs", () => {
   assert.equal(visitsLabel(0), "0 visits");
   assert.equal(visitsLabel(12), "12 visits");
+  assert.equal(visitsLabel(Number.NaN), "0 visits");
+  assert.doesNotMatch(visitsLabel(Number.NaN), /NaN/);
   assert.match(visitsLabel(0), /visits/);
   assert.doesNotMatch(visitsLabel(0), /installs/);
 });
@@ -137,9 +139,11 @@ test("home lists packs and does not embed chat", () => {
     fileURLToPath(new URL("../app/page.tsx", import.meta.url)),
     "utf8"
   );
-  assert.match(src, /SearchHero/);
+  assert.match(src, /HeroBanner/);
   assert.doesNotMatch(src, /CatalogChat/);
   assert.doesNotMatch(src, /HomeCatalogChat/);
+  assert.doesNotMatch(src, /getSessionUserId/);
+  assert.doesNotMatch(src, /redirect\("\/login/);
 });
 
 test("catalog chat uses shadcn Message, Bubble, and Streamdown", () => {
@@ -196,6 +200,22 @@ test("home keyword search links to Describe a team", () => {
   assert.doesNotMatch(src, /href="\/search"/);
 });
 
+test("home hero uses particle text instead of the halftone banner", () => {
+  const page = readFileSync(fileURLToPath(new URL("../app/page.tsx", import.meta.url)), "utf8");
+  const hero = readFileSync(
+    fileURLToPath(new URL("../components/hero-banner.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(page, /HeroBanner/);
+  assert.doesNotMatch(page, /HeroCopy/);
+  assert.doesNotMatch(page, /SearchHero/);
+  assert.match(hero, /ParticleText/);
+  assert.match(hero, /SearchHero/);
+  assert.match(hero, /AuthorMarquee/);
+  assert.match(page, /topAuthors/);
+  assert.doesNotMatch(hero, /HalftoneReveal/);
+});
+
 test("search is catalog browse and team is the chat builder", () => {
   const search = readFileSync(
     fileURLToPath(new URL("../app/search/page.tsx", import.meta.url)),
@@ -223,6 +243,13 @@ test("search is catalog browse and team is the chat builder", () => {
   assert.doesNotMatch(team, /PackGrid/);
   assert.doesNotMatch(team, /HeroBanner/);
   assert.match(header, /href: "\/team", label: "Team"/);
+  assert.match(header, /AuthNav/);
+  assert.doesNotMatch(team, /redirect\("\/login\?next=\/team"\)/);
+  assert.match(team, /signedIn=\{signedIn\}/);
+  assert.match(team, /readTeamChatQuota/);
+  assert.match(chat, /Sign in to mix a team/);
+  assert.match(chat, /login\?next=\/team/);
+  assert.match(chat, /quotaMeterText/);
   assert.match(chat, /Mix \(/);
   assert.match(chat, /Your mix/);
   assert.match(chat, /from "@\/components\/ui\/sheet"/);
@@ -233,6 +260,53 @@ test("search is catalog browse and team is the chat builder", () => {
   );
   assert.match(marquee, /from "@\/components\/ui\/marquee"/);
   assert.match(marquee, /sm:max-w-lg md:max-w-xl/);
+});
+
+test("team mixer requires auth and consumes daily quota before the model", () => {
+  const login = readFileSync(
+    fileURLToPath(new URL("../components/login-form.tsx", import.meta.url)),
+    "utf8"
+  );
+  const callback = readFileSync(
+    fileURLToPath(new URL("../app/auth/callback/route.ts", import.meta.url)),
+    "utf8"
+  );
+  const proxy = readFileSync(
+    fileURLToPath(new URL("../proxy.ts", import.meta.url)),
+    "utf8"
+  );
+  const search = readFileSync(
+    fileURLToPath(new URL("../app/api/v1/agent/search/route.ts", import.meta.url)),
+    "utf8"
+  );
+  const teamChat = readFileSync(
+    fileURLToPath(new URL("./team-chat.ts", import.meta.url)),
+    "utf8"
+  );
+  const schema = readFileSync(
+    fileURLToPath(new URL("../prisma/schema.prisma", import.meta.url)),
+    "utf8"
+  );
+  const store = readFileSync(
+    fileURLToPath(new URL("./team-quota-store.ts", import.meta.url)),
+    "utf8"
+  );
+  assert.match(login, /oauth\("github"\)/);
+  assert.match(login, /oauth\("x"\)/);
+  assert.match(login, /signInWithOAuth/);
+  assert.match(login, /signInWithOtp/);
+  assert.doesNotMatch(login, /password|forgot/i);
+  assert.match(callback, /\/login/);
+  assert.match(callback, /error/);
+  assert.doesNotMatch(callback, /\/\?auth=error/);
+  assert.doesNotMatch(proxy, /path === "\/team"/);
+  assert.match(search, /streamTeamDesk/);
+  assert.match(teamChat, /getSessionUserId/);
+  assert.match(teamChat, /consumeTeamChatTurn/);
+  assert.match(teamChat, /refundTeamChatTurn/);
+  assert.doesNotMatch(teamChat, /\.rpc\(/);
+  assert.match(store, /prisma\.teamChatUsage/);
+  assert.match(schema, /model TeamChatUsage/);
 });
 
 test("submit page keeps the agent chat and marks it coming soon", () => {
@@ -256,13 +330,24 @@ test("submit page keeps the agent chat and marks it coming soon", () => {
   assert.match(route, /Submit is coming soon/);
 });
 
-test("Add every bot increments once per CTA, not per seat link", () => {
-  const src = readFileSync(
-    fileURLToPath(new URL("../components/add-every-bot.tsx", import.meta.url)),
+test("pack page and mix add one bot at a time", () => {
+  const pack = readFileSync(
+    fileURLToPath(new URL("../app/[owner]/[slug]/page.tsx", import.meta.url)),
     "utf8"
   );
-  assert.match(src, /recordVisit\(packId, owner, slug, "add_every_bot"\)/);
-  assert.match(src, /source: "add_every_bot"/);
-  assert.match(src, /onClick=\{trackEvery\}/);
-  assert.match(src, /trackEvery\(\)/);
+  const mix = readFileSync(
+    fileURLToPath(new URL("../components/team-mix.tsx", import.meta.url)),
+    "utf8"
+  );
+  const chat = readFileSync(
+    fileURLToPath(new URL("../components/catalog-chat.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.doesNotMatch(pack, /AddEveryBot/);
+  assert.doesNotMatch(pack, /Add every bot/);
+  assert.doesNotMatch(mix, /Add to Grok/);
+  assert.doesNotMatch(mix, /Add all/);
+  assert.match(mix, /PlusIcon/);
+  assert.match(mix, /Add \$\{seat\.name\} to Grok/);
+  assert.doesNotMatch(chat, /Add all/);
 });

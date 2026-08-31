@@ -1,5 +1,5 @@
-import { streamAgent } from "@/lib/agent-http";
+import { streamTeamDesk } from "@/lib/team-chat";
 
 export async function POST(request: Request) {
-  return streamAgent("orgbotsDesk", request);
+  return streamTeamDesk(request);
 }

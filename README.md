@@ -1,50 +1,33 @@
-# orgbot-hub
+# orgbots
 
-A pack is a tiny company of named chats. Front desk plus seats with one job each. Random questions stay at the desk. Install is official Grok only.
+orgbots is a public directory of Grok Bot teams. Authors publish a pack — a front desk plus named seats, each with one job. You browse those packs, then mix seats from different authors into a team of your own.
 
-This app is the catalog. It does not run bots, re-export them, or invent `https://x.ai/bot/…` IDs.
+The site does not run bots, invent bot IDs, or install anything for you. Add happens in the official Grok app, from an `https://x.ai/bot/…` link the author already published.
 
-## Install
+**[orgbots.dev](https://orgbots.dev)**
 
-A public template is `https://x.ai/bot/<id>`. Preview it on x.ai. Add it in the Grok app. We never POST to Grok for you.
+## Browse packs
 
-## Run locally
+Home and Search are open to everyone. Each pack page shows who shared it, what the seats do, and a button to add that one bot in Grok. You add bots one at a time. There is no “add the whole pack” shortcut.
 
-Needs pnpm 10 and Node 22. Docker is preferred for auth. Native Postgres is enough to browse the catalog.
+## Mix your own team
 
-```bash
-pnpm install
-```
+Open **Team** and describe the jobs you need, in plain language — for example, “front desk plus billing plus QA.”
 
-### Catalog with Docker
+The chat looks through packs that already exist. It does not invent a new bot. It suggests seats from authors in the catalog. You pick the ones you want. That draft is your mix: a Lauren desk, a Brad reviewer, a Corey watcher — whoever fits the work.
 
-```bash
-export SUPABASE_AUTH_GITHUB_CLIENT_ID="${SUPABASE_AUTH_GITHUB_CLIENT_ID:-disabled}"
-export SUPABASE_AUTH_GITHUB_SECRET="${SUPABASE_AUTH_GITHUB_SECRET:-disabled}"
-pnpm exec supabase start
-pnpm exec supabase status -o env
-```
+Your mix lives in this session. It is not a listed pack. Next to each seat is a plus to add that bot in Grok, and an x to drop it from the mix.
 
-Copy `API_URL` into `NEXT_PUBLIC_SUPABASE_URL` and `ANON_KEY` into `NEXT_PUBLIC_SUPABASE_ANON_KEY`. Put them in `.env.local`. `SUPABASE_SERVICE_ROLE_KEY` is server-only.
+You can see the Team screen without signing in. Sending a mix requires a sign-in (GitHub, X, or an email magic link). Signed-in people get a daily message budget so the mixer stays usable.
 
-### Catalog without Docker
+## What a pack is
 
-```bash
-bash scripts/start-local-catalog.sh
-```
+A pack is one author’s published roster.
 
-That writes `.env.local` and serves the catalog at `http://127.0.0.1:54321`. GitHub sign-in returns 501 until you switch to `supabase start` with OAuth secrets.
-
-```bash
-pnpm dev
-```
-
-The app listens on `http://127.0.0.1:43147`. If those env vars are unset, the bundled seed still renders Lauren, Krista, Eric, Nao, George, Hiten, Brad, Farzad, and Corey.
+- The **desk** handles random questions.
+- A **seat** has one repeating job.
+- Install is always the author’s official Grok template — never a copy we host.
 
 ## Submit
 
-Sign in if GitHub auth is wired. Paste official `https://x.ai/bot/…` URLs plus pack metadata. Other hosts are rejected. Secrets and internal URLs are rejected.
-
-## Seed
-
-The featured pack is Lauren (`/poteto/lauren`). Desk is Dr Eggbot at `https://x.ai/bot/93gOz3op1UQdBdbekQFLK`. `official` is false. Krista (`/kristaletz/krista`), Eric (`/ericzakariasson/eric`), Nao (`/naoufalelh/nao`), George (`/gnurio/george`), Hiten (`/hnshah/hiten`), Brad (`/BradShannon/brad`), Farzad (`/farzyness/farzad`), and Corey (`/cjblev/corey`) are also seeded, all `official` false and `featured` false. `examples/stencil/` stays in git as a blank roster example and is not in the public catalog.
+Submit is coming soon. When it opens, a pack still has to use official `https://x.ai/bot/…` URLs. We will not accept other hosts or invent unpublished bots.

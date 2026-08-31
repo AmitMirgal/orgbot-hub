@@ -32,3 +32,15 @@ model PackVisit {
   @@index([createdAt], map: "pack_visits_created_at_idx")
   @@map("pack_visits")
 }
+
+/// Daily mixer quota. No Auth User relation — `auth.users` stays in Supabase Auth.
+/// Enforced in the Next server via Prisma, not PostgREST RPCs.
+model TeamChatUsage {
+  userId   String   @map("user_id") @db.Uuid
+  day      DateTime @map("day") @db.Date
+  messages Int      @default(0)
+  tokens   Int      @default(0)
+
+  @@id([userId, day])
+  @@map("team_chat_usage")
+}

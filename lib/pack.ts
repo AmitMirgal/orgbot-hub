@@ -76,10 +76,11 @@ export function installableUrl(raw: string | null | undefined): string | null {
 }
 
 export function formatCount(n: number): string {
-  if (n < 1000) return String(n);
-  if (n < 10_000) return `${(n / 1000).toFixed(1).replace(/\.0$/, "")}k`;
-  if (n < 1_000_000) return `${Math.round(n / 1000)}k`;
-  return `${(n / 1_000_000).toFixed(1).replace(/\.0$/, "")}m`;
+  const count = Number.isFinite(n) && n > 0 ? n : 0;
+  if (count < 1000) return String(count);
+  if (count < 10_000) return `${(count / 1000).toFixed(1).replace(/\.0$/, "")}k`;
+  if (count < 1_000_000) return `${Math.round(count / 1000)}k`;
+  return `${(count / 1_000_000).toFixed(1).replace(/\.0$/, "")}m`;
 }
 
 export function slugify(value: string): string {

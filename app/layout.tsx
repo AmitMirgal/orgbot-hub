@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Providers } from "@/app/providers";
 import { listPacks } from "@/lib/catalog";
+import { getSessionUser } from "@/lib/supabase/server";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const packs = await listPacks().catch(() => []);
+  const { user } = await getSessionUser();
 
   const options = packs.map((pack) => ({
     owner: pack.owner.githubLogin,
@@ -34,7 +36,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-dvh flex-col font-sans">
         <Providers>
-          <SiteHeader packs={options} />
+          <SiteHeader packs={options} user={user} />
           <div className="flex min-h-0 flex-1 flex-col">{children}</div>
           <SiteFooter />
         </Providers>

@@ -1,5 +1,7 @@
 import { CatalogChat } from "@/components/catalog-chat";
 import { listPacks, readCatalog } from "@/lib/catalog";
+import { getSessionUserId } from "@/lib/supabase/server";
+import { readTeamChatQuota } from "@/lib/team-chat";
 import { topAuthors } from "@/lib/top-authors";
 import { agentRuntimeStatus } from "@/src/mastra/model";
 
@@ -10,14 +12,20 @@ export const metadata = {
 };
 
 export default async function TeamPage() {
+  const { userId } = await getSessionUserId();
+  const signedIn = Boolean(userId);
+
   const { modelReady } = agentRuntimeStatus();
   const catalog = await readCatalog(() => listPacks());
   const authors = catalog.status === "ok" ? topAuthors(catalog.data) : [];
+  const quota = signedIn ? await readTeamChatQuota() : undefined;
   return (
     <CatalogChat
       surface="page"
       mix
       authors={authors}
+      quota={quota}
+      signedIn={signedIn}
       api="/api/v1/agent/search"
       title="Team"
       description="Describe the jobs you need. The desk mixes seats that already exist. This is your draft, not a listed pack."

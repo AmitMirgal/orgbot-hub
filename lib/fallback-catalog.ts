@@ -284,6 +284,7 @@ const HITEN: Pack = {
   topics: ["founder"],
   likesCount: 0,
   installsCount: 0,
+  visitsCount: 0,
   routingRule:
     "Random pitch questions stay at Pitch Deck Coach. Use It's Britney only for Britney dance clips. Named seats only when that job is already in this pack.",
   readmeMd:
@@ -323,6 +324,7 @@ const BRAD: Pack = {
   topics: ["developer"],
   likesCount: 0,
   installsCount: 0,
+  visitsCount: 0,
   routingRule:
     "Random questions stay at Bouncer. Use a named seat only when that job is already in this pack.",
   readmeMd:
@@ -353,6 +355,7 @@ const FARZAD: Pack = {
   topics: ["developer"],
   likesCount: 0,
   installsCount: 0,
+  visitsCount: 0,
   routingRule:
     "Random questions stay at Claudey. Use a named seat only when that job is already in this pack.",
   readmeMd:
@@ -383,6 +386,7 @@ const COREY: Pack = {
   topics: ["developer"],
   likesCount: 0,
   installsCount: 0,
+  visitsCount: 0,
   routingRule:
     "Random questions stay at Steward. Use a named seat only when that job is already in this pack.",
   readmeMd:

@@ -1,6 +1,8 @@
 "use client";
 
-import { useLayoutEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useLayoutEffect, useRef, useState, type FormEvent } from "react";
 import { DefaultChatTransport } from "ai";
 import { useChat } from "@ai-sdk/react";
 import { ArrowUpIcon, CheckIcon, CopyIcon, MessageCircleIcon, PlusIcon, XIcon } from "lucide-react";
@@ -34,6 +36,11 @@ import { parseCatalogSeat, type CatalogSeat } from "@/lib/api-pack";
 import { hasToolActivity, messageText, seatsFromChatParts } from "@/lib/chat-seats";
 import { parseGrokTemplateUrl } from "@/lib/grok-url";
 import type { TopAuthor } from "@/lib/top-authors";
+import {
+  emptyTeamChatQuota,
+  quotaMeterText,
+  type TeamChatQuota,
+} from "@/lib/team-quota";
 import { cn } from "@/lib/utils";
 import { captureVisit } from "@/lib/visits-client";
 
@@ -50,6 +57,8 @@ export function CatalogChat({
   mix = false,
   surface = "card",
   authors = [],
+  quota: initialQuota,
+  signedIn = true,
 }: {
   api: "/api/v1/agent/search" | "/api/v1/agent/submit";
   placeholder: string;
@@ -63,16 +72,67 @@ export function CatalogChat({
   mix?: boolean;
   surface?: "card" | "page";
   authors?: TopAuthor[];
+  quota?: TeamChatQuota;
+  signedIn?: boolean;
 }) {
+  const router = useRouter();
   const [input, setInput] = useState("");
   const [draft, setDraft] = useState<CatalogSeat[]>([]);
+  const [quota, setQuota] = useState<TeamChatQuota>(
+    initialQuota ?? emptyTeamChatQuota()
+  );
   const endRef = useRef<HTMLDivElement>(null);
+  const needsLogin = surface === "page" && !signedIn;
+  const loginHref = "/login?next=/team";
+  const quotaLocked =
+    surface === "page" &&
+    signedIn &&
+    (!quota.allowed || quota.remaining_messages <= 0);
   const { messages, sendMessage, status } = useChat({
-    transport: new DefaultChatTransport({ api }),
+    transport: new DefaultChatTransport({
+      api,
+      fetch: async (input, init) => {
+        const response = await fetch(input, init);
+        if (surface === "page" && response.status === 429) {
+          const body = (await response
+            .clone()
+            .json()
+            .catch(() => null)) as {
+            error?: string;
+            reset_at?: string;
+            token_blocked?: boolean;
+          } | null;
+          if (body?.error === "quota") {
+            setQuota((current) => ({
+              ...current,
+              allowed: false,
+              remaining_messages: 0,
+              reset_at: body.reset_at ?? current.reset_at,
+              token_blocked: Boolean(body.token_blocked),
+            }));
+          }
+        }
+        if (surface === "page" && response.status === 401) {
+          router.push(loginHref);
+        }
+        if (surface === "page" && response.ok) {
+          setQuota((current) => {
+            const remaining = Math.max(current.remaining_messages - 1, 0);
+            return {
+              ...current,
+              messages: current.messages + 1,
+              remaining_messages: remaining,
+              allowed: remaining > 0 && !current.token_blocked,
+            };
+          });
+        }
+        return response;
+      },
+    }),
   });
 
   const waiting = status === "submitted" || status === "streaming";
-  const busy = disabled || waiting;
+  const busy = disabled || waiting || quotaLocked;
 
   useLayoutEffect(() => {
     endRef.current?.scrollIntoView({ block: "end" });
@@ -81,6 +141,10 @@ export function CatalogChat({
   function send(text: string) {
     const next = text.trim();
     if (!next || busy) return;
+    if (needsLogin) {
+      router.push(loginHref);
+      return;
+    }
     sendMessage({ text: next });
     setInput("");
   }
@@ -138,6 +202,11 @@ export function CatalogChat({
                           : "Messages show up here. Ask a question to start the conversation."}
                     </p>
                     {surface === "page" ? <AuthorMarquee authors={authors} /> : null}
+                    {needsLogin ? (
+                      <Button asChild>
+                        <Link href={loginHref}>Sign in to mix a team</Link>
+                      </Button>
+                    ) : null}
                     {prompts && prompts.length > 0 ? (
                       <div
                         className={cn(
@@ -191,33 +260,46 @@ export function CatalogChat({
   );
 
   const composer = (
-    <form
-      onSubmit={onSubmit}
+    <div
       className={cn(
-        "flex gap-2 border-t border-border px-4 pt-3",
+        "border-t border-border px-4 pt-3",
         surface === "page"
           ? "pb-[max(0.75rem,env(safe-area-inset-bottom))]"
           : "py-3"
       )}
     >
-      <Input
-        value={input}
-        onChange={(event) => setInput(event.target.value)}
-        placeholder={placeholder}
-        disabled={busy}
-        aria-label="Message"
-        className="h-11"
-      />
-      <Button
-        type="submit"
-        disabled={busy || !input.trim()}
-        className="min-h-11 px-3"
-        aria-label="Send message"
-      >
-        <ArrowUpIcon className="size-4" />
-        Send
-      </Button>
-    </form>
+      {surface === "page" && signedIn ? (
+        <p className="pb-2 text-[12px] text-muted-foreground">{quotaMeterText(quota)}</p>
+      ) : null}
+      {needsLogin ? (
+        <p className="pb-2 text-[12px] text-muted-foreground">Sign in to send a mix.</p>
+      ) : null}
+      <form onSubmit={onSubmit} className="flex gap-2">
+        <Input
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+          placeholder={placeholder}
+          disabled={busy || needsLogin}
+          aria-label="Message"
+          className="h-11"
+        />
+        {needsLogin ? (
+          <Button asChild className="min-h-11 px-3">
+            <Link href={loginHref}>Sign in</Link>
+          </Button>
+        ) : (
+          <Button
+            type="submit"
+            disabled={busy || !input.trim()}
+            className="min-h-11 px-3"
+            aria-label="Send message"
+          >
+            <ArrowUpIcon className="size-4" />
+            Send
+          </Button>
+        )}
+      </form>
+    </div>
   );
 
   if (surface === "page") {
@@ -424,38 +506,6 @@ function DraftRoster({
   draft: CatalogSeat[];
   onRemove: (url: string) => void;
 }) {
-  const [blocked, setBlocked] = useState(false);
-
-  const installable = useMemo(
-    () =>
-      draft
-        .map((seat) => ({ seat, href: parseGrokTemplateUrl(seat.grokTemplateUrl) }))
-        .filter((item): item is { seat: CatalogSeat; href: string } => Boolean(item.href)),
-    [draft]
-  );
-
-  function addAll() {
-    let hitBlock = false;
-    for (const item of installable) {
-      const popup = window.open(item.href, "_blank", "noopener,noreferrer");
-      if (!popup) hitBlock = true;
-      void recordVisit(
-        item.seat.packId,
-        item.seat.pack.owner,
-        item.seat.pack.slug,
-        "desk_mix",
-        item.seat.name
-      );
-      captureVisit({
-        packId: item.seat.packId,
-        identity: { owner: item.seat.pack.owner, slug: item.seat.pack.slug },
-        source: "desk_mix",
-        seatName: item.seat.name,
-      });
-    }
-    setBlocked(hitBlock);
-  }
-
   return (
     <aside className="flex flex-col gap-3 rounded-lg border border-border bg-card px-4 py-3">
       <div>
@@ -468,33 +518,57 @@ function DraftRoster({
         <p className="text-[13px] text-muted-foreground">Add seats from the thread.</p>
       ) : (
         <ul className="flex flex-col gap-2">
-          {draft.map((seat) => (
-            <li key={seat.id} className="flex items-start justify-between gap-2 text-[13px]">
-              <div className="min-w-0">
-                <p className="truncate font-medium">{seat.name}</p>
-                <p className="truncate text-muted-foreground">@{seat.pack.owner}</p>
-              </div>
-              <Button
-                type="button"
-                size="icon-sm"
-                variant="ghost"
-                aria-label={`Remove ${seat.name}`}
-                onClick={() => onRemove(seat.grokTemplateUrl)}
-              >
-                <XIcon className="size-3.5" />
-              </Button>
-            </li>
-          ))}
+          {draft.map((seat) => {
+            const href = parseGrokTemplateUrl(seat.grokTemplateUrl);
+            return (
+              <li key={seat.id} className="flex items-start justify-between gap-2 text-[13px]">
+                <div className="min-w-0">
+                  <p className="truncate font-medium">{seat.name}</p>
+                  <p className="truncate text-muted-foreground">@{seat.pack.owner}</p>
+                </div>
+                <div className="flex shrink-0 items-center">
+                  {href ? (
+                    <Button asChild size="icon-sm" variant="ghost">
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Add ${seat.name} to Grok`}
+                        onClick={() => {
+                          void recordVisit(
+                            seat.packId,
+                            seat.pack.owner,
+                            seat.pack.slug,
+                            "desk_mix",
+                            seat.name
+                          );
+                          captureVisit({
+                            packId: seat.packId,
+                            identity: { owner: seat.pack.owner, slug: seat.pack.slug },
+                            source: "desk_mix",
+                            seatName: seat.name,
+                          });
+                        }}
+                      >
+                        <PlusIcon className="size-3.5" />
+                      </a>
+                    </Button>
+                  ) : null}
+                  <Button
+                    type="button"
+                    size="icon-sm"
+                    variant="ghost"
+                    aria-label={`Remove ${seat.name}`}
+                    onClick={() => onRemove(seat.grokTemplateUrl)}
+                  >
+                    <XIcon className="size-3.5" />
+                  </Button>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       )}
-      <Button type="button" disabled={installable.length === 0} onClick={addAll}>
-        Add all
-      </Button>
-      {blocked ? (
-        <p className="text-[12px] text-muted-foreground">
-          The browser blocked extra tabs. Open the remaining official links from the list.
-        </p>
-      ) : null}
     </aside>
   );
 }

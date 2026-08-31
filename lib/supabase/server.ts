@@ -1,6 +1,9 @@
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
+import type { SessionUser } from "@/lib/session-user";
 import { supabaseAnonKey, supabaseUrl } from "@/lib/supabase/env";
+
+export type { SessionUser };
 
 function hasAuthCookie(
   cookieStore: { getAll: () => { name: string }[] }
@@ -33,6 +36,27 @@ export async function createClient() {
   });
 }
 
+function sessionUserFromClaims(claims: Record<string, unknown>): SessionUser | null {
+  const userId = typeof claims.sub === "string" ? claims.sub : null;
+  if (!userId) return null;
+  const meta =
+    claims.user_metadata && typeof claims.user_metadata === "object"
+      ? (claims.user_metadata as Record<string, unknown>)
+      : {};
+  const stringField = (...values: unknown[]) => {
+    for (const value of values) {
+      if (typeof value === "string" && value.trim()) return value;
+    }
+    return null;
+  };
+  return {
+    userId,
+    email: stringField(claims.email),
+    name: stringField(meta.full_name, meta.name, meta.user_name, meta.preferred_username),
+    avatarUrl: stringField(meta.avatar_url, meta.picture),
+  };
+}
+
 export async function getSessionUserId() {
   const supabase = await createClient();
   if (!supabase) return { supabase: null, userId: null as string | null };
@@ -41,9 +65,25 @@ export async function getSessionUserId() {
   }
   try {
     const { data } = await supabase.auth.getClaims();
-    const userId = typeof data?.claims?.sub === "string" ? data.claims.sub : null;
+    const claims = data?.claims as Record<string, unknown> | undefined;
+    const userId = typeof claims?.sub === "string" ? claims.sub : null;
     return { supabase, userId };
   } catch {
     return { supabase, userId: null as string | null };
+  }
+}
+
+export async function getSessionUser() {
+  const supabase = await createClient();
+  if (!supabase) return { supabase: null, user: null as SessionUser | null };
+  if (!hasAuthCookie(await cookies())) {
+    return { supabase, user: null as SessionUser | null };
+  }
+  try {
+    const { data } = await supabase.auth.getClaims();
+    const claims = data?.claims as Record<string, unknown> | undefined;
+    return { supabase, user: claims ? sessionUserFromClaims(claims) : null };
+  } catch {
+    return { supabase, user: null as SessionUser | null };
   }
 }

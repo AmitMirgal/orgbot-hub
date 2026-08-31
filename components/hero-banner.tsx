@@ -1,75 +1,63 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { useTheme } from "next-themes";
-import HalftoneReveal from "@/components/HalftoneReveal";
+import { AuthorMarquee } from "@/components/author-marquee";
+import { SearchHero } from "@/components/search-hero";
+import { ParticleText } from "@/components/ui/particle-text";
+import type { TopAuthor } from "@/lib/top-authors";
 
-const HERO_SRC = "/hero-halftone.png";
+const HERO_TEXT = "orgbots";
+const SUBHEADING = "orgbots is a directory of Grok Bot teams you can install.";
 
 const PALETTE = {
-  light: { inkColor: "#18181b", paperColor: "#fafafa" },
-  dark: { inkColor: "#f4f4f5", paperColor: "#18181b" },
+  light: { color: "#18181b", highlightColor: "#71717a" },
+  dark: { color: "#fafafa", highlightColor: "#a1a1aa" },
 } as const;
 
-function usePrefersReducedMotion() {
-  const [reduce, setReduce] = useState(true);
+function useMdUp() {
+  const [mdUp, setMdUp] = useState(false);
 
   useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const apply = () => setReduce(media.matches);
+    const media = window.matchMedia("(min-width: 768px)");
+    const apply = () => setMdUp(media.matches);
     apply();
     media.addEventListener("change", apply);
     return () => media.removeEventListener("change", apply);
   }, []);
 
-  return reduce;
+  return mdUp;
 }
 
-export function HeroBanner() {
+export function HeroBanner({ authors = [] }: { authors?: TopAuthor[] }) {
   const { resolvedTheme } = useTheme();
-  const reduceMotion = usePrefersReducedMotion();
+  const mdUp = useMdUp();
   const palette = resolvedTheme === "dark" ? PALETTE.dark : PALETTE.light;
 
   return (
-    <section className="relative w-full min-h-[280px] overflow-hidden md:min-h-[420px]">
-      <div className="absolute inset-0" aria-hidden="true">
-        {reduceMotion ? (
-          <Image
-            src={HERO_SRC}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover dark:invert"
+    <section className="border-b border-border bg-background">
+      <div className="mx-auto grid min-h-[280px] w-full max-w-6xl grid-cols-1 gap-8 px-4 py-8 md:min-h-[420px] md:grid-cols-[minmax(0,1fr)_minmax(18rem,26rem)] md:items-stretch md:gap-10 md:py-10">
+        <div className="min-h-[200px] md:min-h-0">
+          <h1 className="sr-only">The open Grok Bot pack directory</h1>
+          <ParticleText
+            text={HERO_TEXT}
+            color={palette.color}
+            highlightColor={palette.highlightColor}
+            fontSize="clamp(3rem, 11vw, 7rem)"
+            fontWeight={800}
+            glow={resolvedTheme === "dark"}
+            align={mdUp ? "left" : "center"}
+            className="min-h-[200px] md:min-h-full"
           />
-        ) : (
-          <HalftoneReveal
-            src={HERO_SRC}
-            mode="mono"
-            shape="circle"
-            trigger="hover"
-            idleReveal={0.16}
-            inkColor={palette.inkColor}
-            paperColor={palette.paperColor}
-            borderRadius="0px"
-            className="h-full w-full"
-          />
-        )}
+        </div>
+        <div className="flex flex-col items-center justify-end gap-4 text-center md:items-stretch md:text-left md:pb-1">
+          <h2 className="max-w-md text-xl font-semibold tracking-tight text-foreground sm:text-2xl sm:leading-snug">
+            {SUBHEADING}
+          </h2>
+          <SearchHero className="w-full items-center md:items-stretch" />
+          <AuthorMarquee authors={authors} className="md:mx-0 md:max-w-none" />
+        </div>
       </div>
     </section>
-  );
-}
-
-export function HeroCopy() {
-  return (
-    <div className="flex flex-col gap-4">
-      <p className="text-[17px] font-bold tracking-tight sm:text-xl">
-        The open Grok Bot pack directory
-      </p>
-      <p className="max-w-xl text-[15px] leading-6 text-muted-foreground">
-        orgbots is a directory of Grok Bot teams you can install.
-      </p>
-    </div>
   );
 }

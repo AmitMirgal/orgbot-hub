@@ -6,8 +6,15 @@ import { FormEvent, useState } from "react";
 import { SearchIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 
-export function SearchHero({ defaultQuery = "" }: { defaultQuery?: string }) {
+export function SearchHero({
+  defaultQuery = "",
+  className,
+}: {
+  defaultQuery?: string;
+  className?: string;
+}) {
   const router = useRouter();
   const [value, setValue] = useState(defaultQuery);
 
@@ -18,8 +25,8 @@ export function SearchHero({ defaultQuery = "" }: { defaultQuery?: string }) {
   }
 
   return (
-    <div className="flex flex-col gap-3">
-      <form onSubmit={onSubmit} className="relative">
+    <div className={cn("flex w-full flex-col gap-3", className)}>
+      <form onSubmit={onSubmit} className="relative w-full">
         <SearchIcon className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
         <Input
           value={value}

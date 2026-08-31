@@ -32,12 +32,13 @@ export function rateLimitAgent(request: Request): Response | null {
 
 export async function streamAgent(
   agentId: "orgbotsDesk" | "orgbotsSubmit",
-  request: Request
+  request: Request,
+  options?: { params?: unknown; skipRateLimit?: boolean }
 ): Promise<Response> {
   if (request.method !== "POST") {
     return Response.json({ error: "method_not_allowed" }, { status: 405 });
   }
-  const limited = rateLimitAgent(request);
+  const limited = options?.skipRateLimit ? null : rateLimitAgent(request);
   if (limited) return limited;
   const status = agentRuntimeStatus();
   if (!status.modelReady) {
@@ -46,7 +47,7 @@ export async function streamAgent(
       { status: 503 }
     );
   }
-  const params = await request.json();
+  const params = options?.params ?? (await request.json());
   const stream = await handleChatStream({
     mastra,
     agentId,

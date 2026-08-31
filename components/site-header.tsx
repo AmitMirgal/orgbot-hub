@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MenuIcon } from "lucide-react";
+import { AuthNav } from "@/components/auth-nav";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,6 +23,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import type { SessionUser } from "@/lib/session-user";
 
 export type PackOption = {
   owner: string;
@@ -58,7 +60,13 @@ function Wordmark() {
   );
 }
 
-export function SiteHeader({ packs }: { packs: PackOption[] }) {
+export function SiteHeader({
+  packs,
+  user,
+}: {
+  packs: PackOption[];
+  user: SessionUser | null;
+}) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -105,6 +113,7 @@ export function SiteHeader({ packs }: { packs: PackOption[] }) {
         <Wordmark />
         <div className="ml-auto hidden items-center gap-5 md:flex">
           <nav className="flex items-center gap-5">{nav}</nav>
+          <AuthNav user={user} />
           <ModeToggle />
         </div>
         <div className="ml-auto md:hidden">
@@ -129,6 +138,7 @@ export function SiteHeader({ packs }: { packs: PackOption[] }) {
               <div className="flex flex-col gap-1 px-4">
                 <nav className="flex flex-col gap-1">{nav}</nav>
                 <Separator className="my-2" />
+                <AuthNav user={user} className="flex items-center gap-2 py-1" />
                 <div className="flex items-center justify-between">
                   <span className="text-[12px] text-muted-foreground">Mode</span>
                   <ModeToggle />

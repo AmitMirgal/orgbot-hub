@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { CatalogOffline } from "@/components/catalog-offline";
-import { HeroBanner, HeroCopy } from "@/components/hero-banner";
+import { HeroBanner } from "@/components/hero-banner";
 import { Leaderboard } from "@/components/leaderboard";
 import { PackCardView } from "@/components/pack-card";
 import { PackGrid } from "@/components/pack-grid";
-import { SearchHero } from "@/components/search-hero";
 import { catalogStats, listPacks, readCatalog } from "@/lib/catalog";
 import { formatCount } from "@/lib/pack";
+import { topAuthors } from "@/lib/top-authors";
 
 export const dynamic = "force-dynamic";
 
@@ -22,10 +22,6 @@ export default async function Home() {
       <>
         <HeroBanner />
         <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
-          <section className="flex flex-col gap-6">
-            <HeroCopy />
-            <SearchHero />
-          </section>
           <CatalogOffline message={packsResult.message} />
         </main>
       </>
@@ -36,15 +32,12 @@ export default async function Home() {
   const featured = packs.find((pack) => pack.featured) ?? packs[0];
   const rest = packs.filter((pack) => pack.id !== featured?.id);
   const stats = statsResult.status === "ok" ? statsResult.data : { packs: packs.length };
+  const authors = topAuthors(packs);
 
   return (
     <>
-      <HeroBanner />
+      <HeroBanner authors={authors} />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
-        <section className="flex flex-col gap-6">
-          <HeroCopy />
-          <SearchHero />
-        </section>
         <section className="flex flex-wrap gap-6 text-base text-muted-foreground">
           <p>
             <span className="font-mono text-foreground">{formatCount(stats.packs)}</span> packs

@@ -45,10 +45,11 @@ export function applyVisitCounts<T extends PackVisits>(
   counts: VisitCounts
 ): T[] {
   return packs.map((pack) => {
-    const visitsCount =
+    const raw =
       counts.byOwnerSlug.get(ownerSlugKey(pack.owner.githubLogin, pack.slug)) ??
       counts.byId.get(pack.id) ??
       pack.visitsCount;
+    const visitsCount = Number.isFinite(raw) ? raw : 0;
     return { ...pack, visitsCount };
   });
 }
