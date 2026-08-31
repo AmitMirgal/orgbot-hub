@@ -20,6 +20,11 @@ const HNSHAH_OWNER_ID = "00000000-0000-0000-0000-000000000007";
 const BRADSHANNON_OWNER_ID = "00000000-0000-0000-0000-000000000008";
 const FARZYNESS_OWNER_ID = "00000000-0000-0000-0000-000000000009";
 const CJBLEV_OWNER_ID = "00000000-0000-0000-0000-000000000010";
+const TALSIACH_OWNER_ID = "00000000-0000-0000-0000-000000000011";
+const THESMITPATEL_OWNER_ID = "00000000-0000-0000-0000-000000000012";
+const DANNYLIMANSETA_OWNER_ID = "00000000-0000-0000-0000-000000000013";
+const MASSIMODELUISA_OWNER_ID = "00000000-0000-0000-0000-000000000014";
+const MAIYANGAI_OWNER_ID = "00000000-0000-0000-0000-000000000015";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -99,6 +104,46 @@ const CJBLEV_OWNER: Profile = {
   name: "Corey",
   avatarUrl: null,
   xHandle: "cjblev",
+};
+
+const TALSIACH_OWNER: Profile = {
+  id: TALSIACH_OWNER_ID,
+  githubLogin: "talsiach",
+  name: "Tal Siach",
+  avatarUrl: null,
+  xHandle: "Talsiach",
+};
+
+const THESMITPATEL_OWNER: Profile = {
+  id: THESMITPATEL_OWNER_ID,
+  githubLogin: "thesmitpatel",
+  name: "Smit Patel",
+  avatarUrl: null,
+  xHandle: "thesmitpatel",
+};
+
+const DANNYLIMANSETA_OWNER: Profile = {
+  id: DANNYLIMANSETA_OWNER_ID,
+  githubLogin: "dannylimanseta",
+  name: "Danny Limanseta",
+  avatarUrl: null,
+  xHandle: "DannyLimanseta",
+};
+
+const MASSIMODELUISA_OWNER: Profile = {
+  id: MASSIMODELUISA_OWNER_ID,
+  githubLogin: "massimodeluisa",
+  name: "Massimo De Luisa",
+  avatarUrl: null,
+  xHandle: "massimodeluisa",
+};
+
+const MAIYANGAI_OWNER: Profile = {
+  id: MAIYANGAI_OWNER_ID,
+  githubLogin: "MaiYangAI",
+  name: "Mai Yang",
+  avatarUrl: null,
+  xHandle: "MaiYangAI",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -287,7 +332,7 @@ const HITEN: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random pitch questions stay at Pitch Deck Coach. Use It's Britney only for Britney dance clips. Named seats only when that job is already in this pack.",
+    "Random pitch questions stay at Pitch Deck Coach. Use It's Britney only for Britney dance clips. Use Product Idea Stress Test only for idea and assumption testing. Use The Page only for public-page change watches. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Do not add Box Inspector; that template is by SuddenlyJon.",
   seats: [
@@ -308,6 +353,24 @@ const HITEN: Pack = {
       isDesk: false,
       sortOrder: 1,
       grokTemplateUrl: "https://x.ai/bot/pNLwpHs8rmtMzAkUi-Zu2",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000012",
+      name: "Product Idea Stress Test",
+      job: "Investigates a product or startup idea for founders. Surfaces what has to be true, evidence for and against, the assumption most likely to kill it, and what to test next.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/JeFTvcDX-7QT2evKGIb52",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000013",
+      name: "The Page",
+      job: "Watches 3–5 public pages once each morning and messages only when the thing you care about actually changed. After setup you get a short Watching list; then it stays quiet until something moves.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 3,
+      grokTemplateUrl: "https://x.ai/bot/uFRK1GoAsiopBLPY19QCe",
     }),
   ],
 };
@@ -405,7 +468,177 @@ const COREY: Pack = {
   ],
 };
 
-const ALL_PACKS: Pack[] = [LAUREN, KRISTA, ERIC, NAO, GEORGE, HITEN, BRAD, FARZAD, COREY];
+const TAL: Pack = {
+  id: "10000000-0000-0000-0000-000000000019",
+  owner: TALSIACH_OWNER,
+  slug: "tal",
+  name: "Tal",
+  description:
+    "Public Grok Bot templates Tal Siach (@Talsiach) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Blunt. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000014",
+      name: "Blunt",
+      job: "Send a landing page URL and get a senior product-marketer memo: what works, what does not, the one thing to fix first, and a score out of 10.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/N0J32FbnVRuetJi1oJggh",
+    }),
+  ],
+};
+
+const SMIT: Pack = {
+  id: "10000000-0000-0000-0000-000000000020",
+  owner: THESMITPATEL_OWNER,
+  slug: "smit",
+  name: "Smit",
+  description:
+    "Public Grok Bot templates Smit Patel (@thesmitpatel) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Commercial Taste. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000015",
+      name: "Commercial Taste",
+      job: "Business thought partner for technical founders and execs. Helps with positioning, distribution, and commercialization before the data is complete.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/vekulzIMXM8hDjkp-mDkX",
+    }),
+  ],
+};
+
+const DANNY: Pack = {
+  id: "10000000-0000-0000-0000-000000000021",
+  owner: DANNYLIMANSETA_OWNER,
+  slug: "danny",
+  name: "Danny",
+  description:
+    "Public Grok Bot templates Danny Limanseta (@DannyLimanseta) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["developer"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Sable: Game Art. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000016",
+      name: "Sable: Game Art",
+      job: "Helps game developers ideate and visualize: suggests styles from real games, mocks the same idea in those looks, then produces 2D art or sprite sheets and slices them into game-ready PNGs. For 3D, asks before using Tripo3D or Meshy3D.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/oSvAMKX_ahD56ZmgwtRys",
+    }),
+  ],
+};
+
+const MASSIMO: Pack = {
+  id: "10000000-0000-0000-0000-000000000022",
+  owner: MASSIMODELUISA_OWNER,
+  slug: "massimo",
+  name: "Massimo",
+  description:
+    "Public Grok Bot templates Massimo De Luisa (@massimodeluisa) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["developer"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Human Copywriter. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000017",
+      name: "Human Copywriter",
+      job: "A human-voice rewrite desk for email, posts, blogs, DMs, landing-page bodies, and PR. American English by default. Draft-only: you get a draft, you publish.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/JZAccYtlRFvDSU2CnMnkZ",
+    }),
+  ],
+};
+
+const MAI: Pack = {
+  id: "10000000-0000-0000-0000-000000000023",
+  owner: MAIYANGAI_OWNER,
+  slug: "mai",
+  name: "Mai",
+  description:
+    "Public Grok Bot templates Mai Yang (@MaiYangAI) has shared. One pack, her roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["developer"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Grok Deck. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots she published as https://x.ai/bot/… belong here. When she publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000018",
+      name: "Grok Deck",
+      job: "Makes HTML slide decks in the Grok Bot look: paper canvas, blob faces, morphing page turns. Swap in your talk copy and present in a browser, no build.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/Ja9NzNTRz2ozzQLNfrJwI",
+    }),
+  ],
+};
+
+const ALL_PACKS: Pack[] = [
+  LAUREN,
+  KRISTA,
+  ERIC,
+  NAO,
+  GEORGE,
+  HITEN,
+  BRAD,
+  FARZAD,
+  COREY,
+  TAL,
+  SMIT,
+  DANNY,
+  MASSIMO,
+  MAI,
+];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
   EXAMPLES_OWNER,
@@ -417,6 +650,11 @@ const ALL_PROFILES: Profile[] = [
   BRADSHANNON_OWNER,
   FARZYNESS_OWNER,
   CJBLEV_OWNER,
+  TALSIACH_OWNER,
+  THESMITPATEL_OWNER,
+  DANNYLIMANSETA_OWNER,
+  MASSIMODELUISA_OWNER,
+  MAIYANGAI_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {

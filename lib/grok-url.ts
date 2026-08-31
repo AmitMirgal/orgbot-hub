@@ -1,5 +1,5 @@
 const ALLOWED_HOSTS = new Set(["x.ai", "www.x.ai"]);
-const BOT_PATH = /^\/bot\/(?:s\/)?[A-Za-z0-9_-]{6,}\/?$/;
+const BOT_PATH = /^\/bot\/(s\/)?([A-Za-z0-9_-]{6,})(?:\/[A-Za-z0-9_-]+)?\/?$/;
 const SECRET_HINT =
   /(?:sk-|api[_-]?key|bearer\s+|-----BEGIN|xai-[A-Za-z0-9]{10,}|secret=|token=)/i;
 
@@ -24,10 +24,13 @@ export function parseGrokTemplateUrl(raw: unknown): string | null {
   if (url.port) return null;
   if (url.username || url.password) return null;
   if (url.search || url.hash) return null;
-  if (!BOT_PATH.test(url.pathname)) return null;
 
-  const path = url.pathname.replace(/\/$/, "");
-  return `https://x.ai${path}`;
+  const match = url.pathname.match(BOT_PATH);
+  if (!match) return null;
+
+  const share = match[1] ?? "";
+  const id = match[2];
+  return `https://x.ai/bot/${share}${id}`;
 }
 
 export function isOfficialGrokTemplateUrl(raw: unknown): raw is string {
