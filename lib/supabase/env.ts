@@ -1,5 +1,7 @@
+import { httpUrl } from "@/lib/env-url";
+
 export function supabaseUrl(): string | undefined {
-  return process.env.NEXT_PUBLIC_SUPABASE_URL;
+  return httpUrl(process.env.NEXT_PUBLIC_SUPABASE_URL);
 }
 
 export function supabaseAnonKey(): string | undefined {
