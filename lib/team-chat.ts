@@ -1,4 +1,5 @@
 import { rateLimitAgent, streamAgent } from "@/lib/agent-http";
+import { mastraPostgresUrl } from "@/lib/env-url";
 import { getSessionUserId } from "@/lib/supabase/server";
 import { deskStreamParams } from "@/lib/team-desk-thread";
 import {
@@ -47,7 +48,11 @@ export async function streamTeamDesk(request: Request): Promise<Response> {
     );
   }
 
-  const params = deskStreamParams(userId, await request.json());
+  const params = deskStreamParams(
+    userId,
+    await request.json(),
+    Boolean(mastraPostgresUrl())
+  );
   const tokens = estimatePromptTokens(params);
   const consumed = await consumeTeamChatTurn(userId, tokens);
   if (consumed && !consumed.allowed) {

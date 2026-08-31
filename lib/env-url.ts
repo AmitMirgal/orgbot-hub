@@ -19,6 +19,15 @@ export function httpUrl(raw: string | undefined): string | undefined {
   }
 }
 
+export function isPostgresConnectionString(
+  value: string | undefined
+): value is string {
+  return Boolean(
+    value &&
+      (value.startsWith("postgresql://") || value.startsWith("postgres://"))
+  );
+}
+
 export function postgresUrl(raw: string | undefined): string | undefined {
   const value = unwrapMarkdownUrl(raw);
   if (!value) return undefined;
@@ -45,4 +54,26 @@ export function postgresUrl(raw: string | undefined): string | undefined {
     ? password
     : encodeURIComponent(password);
   return `${scheme}${encodedUser}:${encodedPassword}@${host}${path}`;
+}
+
+export function postgresConnectionString(
+  raw: string | undefined
+): string | undefined {
+  const value = postgresUrl(raw);
+  return isPostgresConnectionString(value) ? value : undefined;
+}
+
+export function prismaPostgresUrl(): string | undefined {
+  return (
+    postgresConnectionString(process.env.DATABASE_URL) ??
+    postgresConnectionString(process.env.DIRECT_URL)
+  );
+}
+
+export function mastraPostgresUrl(raw?: string): string | undefined {
+  if (raw !== undefined) return postgresConnectionString(raw);
+  return (
+    postgresConnectionString(process.env.DIRECT_URL) ??
+    postgresConnectionString(process.env.DATABASE_URL)
+  );
 }
