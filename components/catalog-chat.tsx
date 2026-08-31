@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useLayoutEffect, useRef, useState, type FormEvent } from "react";
+import { useState, type FormEvent, type KeyboardEvent, type ReactNode } from "react";
 import { DefaultChatTransport } from "ai";
 import { useChat } from "@ai-sdk/react";
 import { ArrowUpIcon, CheckIcon, CopyIcon, MessageCircleIcon, PlusIcon, XIcon } from "lucide-react";
@@ -13,8 +13,12 @@ import { TeamMix } from "@/components/team-mix";
 import { Badge } from "@/components/ui/badge";
 import { Bubble, BubbleContent } from "@/components/ui/bubble";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupTextarea,
+} from "@/components/ui/input-group";
 import { Marker, MarkerContent } from "@/components/ui/marker";
 import { Message, MessageContent, MessageHeader } from "@/components/ui/message";
 import {
@@ -49,6 +53,35 @@ import {
 } from "@/lib/team-quota";
 import { cn } from "@/lib/utils";
 import { captureVisit } from "@/lib/visits-client";
+
+const pageChatShellClassName =
+  "flex h-[calc(100dvh-3.5rem)] min-h-0 min-w-0 flex-1 overflow-hidden";
+
+export function ChatTranscript({
+  children,
+  contentClassName,
+}: {
+  children: ReactNode;
+  contentClassName?: string;
+}) {
+  return (
+    <MessageScrollerProvider autoScroll defaultScrollPosition="end">
+      <MessageScroller className="min-h-0 flex-1">
+        <MessageScrollerViewport
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions"
+          className="overflow-x-hidden"
+        >
+          <MessageScrollerContent className={cn("gap-4 px-4 py-4", contentClassName)}>
+            {children}
+          </MessageScrollerContent>
+        </MessageScrollerViewport>
+        <MessageScrollerButton />
+      </MessageScroller>
+    </MessageScrollerProvider>
+  );
+}
 
 export function CatalogChat({
   api,
@@ -87,7 +120,6 @@ export function CatalogChat({
   const [quota, setQuota] = useState<TeamChatQuota>(
     initialQuota ?? emptyTeamChatQuota()
   );
-  const endRef = useRef<HTMLDivElement>(null);
   const needsLogin = surface === "page" && !signedIn;
   const loginHref = "/login?next=/team";
   const quotaLocked =
@@ -140,10 +172,6 @@ export function CatalogChat({
   const waiting = status === "submitted" || status === "streaming";
   const busy = disabled || waiting || quotaLocked;
 
-  useLayoutEffect(() => {
-    endRef.current?.scrollIntoView({ block: "end" });
-  }, [messages, waiting]);
-
   function send(text: string) {
     const next = text.trim();
     if (!next || busy) return;
@@ -156,6 +184,12 @@ export function CatalogChat({
   }
 
   function onSubmit(event: FormEvent) {
+    event.preventDefault();
+    send(input);
+  }
+
+  function onComposerKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key !== "Enter" || event.shiftKey) return;
     event.preventDefault();
     send(input);
   }
@@ -176,113 +210,97 @@ export function CatalogChat({
   }
 
   const thread = (
-    <ScrollArea type="always" className="h-full">
-      <MessageScrollerProvider autoScroll defaultScrollPosition="end">
-        <MessageScroller className="h-auto min-h-full overflow-visible">
-          <MessageScrollerViewport
-            role="log"
-            aria-live="polite"
-            aria-relevant="additions"
-            className="h-auto max-h-none overflow-visible"
+    <ChatTranscript
+      contentClassName={
+        surface === "page" && messages.length === 0 ? "justify-center" : undefined
+      }
+    >
+      {messages.length === 0 ? (
+        <MessageScrollerItem>
+          <div
+            className={
+              surface === "page"
+                ? "mx-auto flex w-full max-w-[22rem] min-w-0 flex-col items-center gap-4 text-center sm:max-w-lg md:max-w-xl"
+                : undefined
+            }
           >
-            <MessageScrollerContent
-              className={cn(
-                "gap-4 px-4 py-4",
-                surface === "page" && messages.length === 0 && "justify-center"
-              )}
-            >
-              {messages.length === 0 ? (
-                <MessageScrollerItem>
-                  <div
-                    className={
-                      surface === "page"
-                        ? "mx-auto flex w-full max-w-[22rem] flex-col items-center gap-4 text-center sm:max-w-lg md:max-w-xl"
-                        : undefined
-                    }
+            <p className="text-[13px] text-muted-foreground">
+              {surface === "page"
+                ? "What should this team do?"
+                : mix
+                  ? "Describe the jobs you need. The desk mixes seats that already exist."
+                  : "Messages show up here. Ask a question to start the conversation."}
+            </p>
+            {surface === "page" ? <AuthorMarquee authors={authors} /> : null}
+            {needsLogin ? (
+              <Button asChild>
+                <Link href={loginHref}>Sign in to mix a team</Link>
+              </Button>
+            ) : null}
+            {prompts && prompts.length > 0 ? (
+              <div
+                className={cn(
+                  "flex flex-wrap gap-2",
+                  surface === "page" && "justify-center"
+                )}
+              >
+                {prompts.map((prompt) => (
+                  <Button
+                    key={prompt}
+                    type="button"
+                    variant="outline"
+                    disabled={busy}
+                    className="h-auto min-h-9 max-w-full whitespace-normal px-3 py-1.5 text-left text-[13px] font-normal"
+                    onClick={() => send(prompt)}
                   >
-                    <p className="text-[13px] text-muted-foreground">
-                      {surface === "page"
-                        ? "What should this team do?"
-                        : mix
-                          ? "Describe the jobs you need. The desk mixes seats that already exist."
-                          : "Messages show up here. Ask a question to start the conversation."}
-                    </p>
-                    {surface === "page" ? <AuthorMarquee authors={authors} /> : null}
-                    {needsLogin ? (
-                      <Button asChild>
-                        <Link href={loginHref}>Sign in to mix a team</Link>
-                      </Button>
-                    ) : null}
-                    {prompts && prompts.length > 0 ? (
-                      <div
-                        className={cn(
-                          "flex flex-wrap gap-2",
-                          surface === "page" && "justify-center"
-                        )}
-                      >
-                        {prompts.map((prompt) => (
-                          <Button
-                            key={prompt}
-                            type="button"
-                            variant="outline"
-                            disabled={busy}
-                            className="h-auto min-h-9 max-w-full whitespace-normal px-3 py-1.5 text-left text-[13px] font-normal"
-                            onClick={() => send(prompt)}
-                          >
-                            {prompt}
-                          </Button>
-                        ))}
-                      </div>
-                    ) : null}
-                  </div>
-                </MessageScrollerItem>
-              ) : null}
-              {messages.map((message, index) => (
-                <CatalogThreadMessage
-                  key={message.id}
-                  message={message}
-                  last={index === messages.length - 1}
-                  mix={mix}
-                  waiting={waiting}
-                  onAddToDraft={mix ? addToDraft : undefined}
-                />
-              ))}
-              {waiting ? (
-                <MessageScrollerItem>
-                  <Marker>
-                    <MarkerContent className="animate-pulse bg-gradient-to-r from-muted-foreground/50 via-foreground to-muted-foreground/50 bg-[length:200%_100%] bg-clip-text text-transparent">
-                      Searching the catalog…
-                    </MarkerContent>
-                  </Marker>
-                </MessageScrollerItem>
-              ) : null}
-              {status === "error" ? (
-                <MessageScrollerItem>
-                  <Message align="start">
-                    <MessageContent>
-                      <MessageHeader>Agent</MessageHeader>
-                      <Bubble variant="destructive">
-                        <BubbleContent>
-                          The mix did not go through. Try again.
-                        </BubbleContent>
-                      </Bubble>
-                    </MessageContent>
-                  </Message>
-                </MessageScrollerItem>
-              ) : null}
-              <div ref={endRef} aria-hidden className="h-px w-px" />
-            </MessageScrollerContent>
-          </MessageScrollerViewport>
-          <MessageScrollerButton />
-        </MessageScroller>
-      </MessageScrollerProvider>
-    </ScrollArea>
+                    {prompt}
+                  </Button>
+                ))}
+              </div>
+            ) : null}
+          </div>
+        </MessageScrollerItem>
+      ) : null}
+      {messages.map((message, index) => (
+        <CatalogThreadMessage
+          key={message.id}
+          message={message}
+          last={index === messages.length - 1}
+          mix={mix}
+          waiting={waiting}
+          onAddToDraft={mix ? addToDraft : undefined}
+        />
+      ))}
+      {waiting ? (
+        <MessageScrollerItem>
+          <Marker>
+            <MarkerContent className="animate-pulse bg-gradient-to-r from-muted-foreground/50 via-foreground to-muted-foreground/50 bg-[length:200%_100%] bg-clip-text text-transparent">
+              Searching the catalog…
+            </MarkerContent>
+          </Marker>
+        </MessageScrollerItem>
+      ) : null}
+      {status === "error" ? (
+        <MessageScrollerItem>
+          <Message align="start">
+            <MessageContent>
+              <MessageHeader>Agent</MessageHeader>
+              <Bubble variant="destructive">
+                <BubbleContent>
+                  The mix did not go through. Try again.
+                </BubbleContent>
+              </Bubble>
+            </MessageContent>
+          </Message>
+        </MessageScrollerItem>
+      ) : null}
+    </ChatTranscript>
   );
 
   const composer = (
     <div
       className={cn(
-        "border-t border-border px-4 pt-3",
+        "shrink-0 border-t border-border bg-background px-4 pt-3",
         surface === "page"
           ? "pb-[max(0.75rem,env(safe-area-inset-bottom))]"
           : "py-3"
@@ -294,39 +312,46 @@ export function CatalogChat({
       {needsLogin ? (
         <p className="pb-2 text-[12px] text-muted-foreground">Sign in to send a mix.</p>
       ) : null}
-      <form onSubmit={onSubmit} className="flex gap-2">
-        <Input
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-          placeholder={placeholder}
-          disabled={busy || needsLogin}
-          aria-label="Message"
-          className="h-11"
-        />
-        {needsLogin ? (
-          <Button asChild className="min-h-11 px-3">
-            <Link href={loginHref}>Sign in</Link>
-          </Button>
-        ) : (
-          <Button
-            type="submit"
-            disabled={busy || !input.trim()}
-            className="min-h-11 px-3"
-            aria-label="Send message"
-          >
-            <ArrowUpIcon className="size-4" />
-            Send
-          </Button>
-        )}
+      <form onSubmit={onSubmit} className="min-w-0">
+        <InputGroup className="h-auto min-h-11 w-full min-w-0">
+          <InputGroupTextarea
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+            onKeyDown={onComposerKeyDown}
+            placeholder={placeholder}
+            disabled={busy || needsLogin}
+            aria-label="Message"
+            rows={1}
+            className="min-h-11 max-h-36 py-2.5"
+          />
+          <InputGroupAddon align="inline-end" className="self-end pr-1.5">
+            {needsLogin ? (
+              <InputGroupButton asChild size="sm" variant="default">
+                <Link href={loginHref}>Sign in</Link>
+              </InputGroupButton>
+            ) : (
+              <InputGroupButton
+                type="submit"
+                size="sm"
+                variant="default"
+                disabled={busy || !input.trim()}
+                aria-label="Send message"
+              >
+                <ArrowUpIcon />
+                Send
+              </InputGroupButton>
+            )}
+          </InputGroupAddon>
+        </InputGroup>
       </form>
     </div>
   );
 
   if (surface === "page") {
     return (
-      <section aria-label={title} className="flex min-h-0 flex-1">
-        <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-background">
-          <div className="flex items-center justify-between border-b border-border px-4 py-2 md:hidden">
+      <section aria-label={title} className={pageChatShellClassName}>
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden bg-background">
+          <div className="flex shrink-0 items-center justify-between border-b border-border px-4 py-2 md:hidden">
             <p className="text-sm font-medium">{title}</p>
             <Sheet>
               <SheetTrigger asChild>
@@ -343,15 +368,15 @@ export function CatalogChat({
             </Sheet>
           </div>
           {disabled ? (
-            <p className="px-4 py-3 text-[13px] text-muted-foreground">
+            <p className="shrink-0 px-4 py-3 text-[13px] text-muted-foreground">
               {disabledReason ?? "Chat is not configured."}
             </p>
           ) : null}
-          <div className="min-h-0 flex-1">{thread}</div>
+          <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">{thread}</div>
           {composer}
         </div>
         {draft.length > 0 ? (
-          <aside className="hidden min-h-0 w-72 shrink-0 border-l border-border md:flex md:w-80">
+          <aside className="hidden min-h-0 min-w-0 w-72 shrink-0 overflow-hidden border-l border-border md:flex md:w-80">
             <TeamMix draft={draft} onRemove={removeFromDraft} />
           </aside>
         ) : null}
@@ -378,7 +403,9 @@ export function CatalogChat({
             {disabledReason ?? "Chat is not configured."}
           </p>
         ) : null}
-        <div className={cn("min-h-0", compact ? "h-56" : "h-80")}>{thread}</div>
+        <div className={cn("flex min-h-0 min-w-0 flex-col overflow-hidden", compact ? "h-56" : "h-80")}>
+          {thread}
+        </div>
         {composer}
       </div>
       {mix ? <DraftRoster draft={draft} onRemove={removeFromDraft} /> : null}
@@ -414,21 +441,21 @@ export function CatalogThreadMessage({
   }
 
   return (
-    <MessageScrollerItem messageId={message.id} scrollAnchor={last}>
+    <MessageScrollerItem messageId={message.id} scrollAnchor={isUser}>
       <Message align={isUser ? "end" : "start"}>
         <MessageContent>
           <MessageHeader>{isUser ? "You" : "Agent"}</MessageHeader>
           {isUser && text ? (
-            <Bubble variant="ghost">
+            <Bubble variant="default">
               <BubbleContent className="whitespace-pre-wrap">{text}</BubbleContent>
             </Bubble>
           ) : null}
           {!isUser && text ? (
             <Bubble
               variant="secondary"
-              className="*:data-[slot=bubble-content]:border-border dark:*:data-[slot=bubble-content]:border-white/20"
+              className="min-w-0 *:data-[slot=bubble-content]:border-border dark:*:data-[slot=bubble-content]:border-white/20"
             >
-              <BubbleContent>
+              <BubbleContent className="overflow-x-auto">
                 <ChatMarkdown streaming={last && waiting}>{text}</ChatMarkdown>
               </BubbleContent>
             </Bubble>
@@ -467,8 +494,8 @@ function SeatBubble({
 }) {
   const href = parseGrokTemplateUrl(seat.grokTemplateUrl);
   return (
-    <Bubble variant="outline" className="max-w-full">
-      <BubbleContent className="flex w-full max-w-full flex-col gap-2">
+    <Bubble variant="outline" className="max-w-full min-w-0">
+      <BubbleContent className="flex w-full max-w-full min-w-0 flex-col gap-2">
         <p className="font-medium">{seat.name}</p>
         <p className="text-[13px] text-muted-foreground">{seat.job}</p>
         <p className="text-[12px] text-muted-foreground">
