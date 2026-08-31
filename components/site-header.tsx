@@ -31,6 +31,7 @@ export type PackOption = {
 };
 
 const NAV = [
+  { href: "/team", label: "Team" },
   { href: "/about", label: "About" },
   { href: "/submit", label: "Submit" },
 ] as const;

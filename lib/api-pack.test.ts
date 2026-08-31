@@ -5,9 +5,15 @@ import { fileURLToPath } from "node:url";
 import { getFallbackPack } from "./fallback-catalog.ts";
 import {
   assertNoInstallsCount,
+  seatsFromPacks,
   toPublicPack,
   visitsLabel,
 } from "./api-pack.ts";
+import {
+  addVisitCount,
+  applyVisitCounts,
+  emptyVisitCounts,
+} from "./visits-count.ts";
 
 test("serializer exposes visitsCount and never installsCount", () => {
   const lauren = getFallbackPack("poteto", "lauren");
@@ -20,6 +26,68 @@ test("serializer exposes visitsCount and never installsCount", () => {
   assert.equal("installsCount" in publicPack, false);
   assert.doesNotThrow(() => assertNoInstallsCount(publicPack));
   assert.throws(() => assertNoInstallsCount({ ...publicPack, installsCount: 3 }));
+});
+
+test("seats serializer omits invalid grokTemplateUrl", () => {
+  const lauren = getFallbackPack("poteto", "lauren");
+  const krista = getFallbackPack("kristaletz", "krista");
+  assert.ok(lauren);
+  assert.ok(krista);
+  const broken = {
+    ...lauren,
+    seats: [
+      ...lauren.seats,
+      {
+        id: "seat-invalid",
+        name: "Ghost",
+        job: "Should be omitted",
+        repeatsWhen: null,
+        isDesk: false,
+        sortOrder: 9,
+        grokTemplateUrl: "https://example.com/bot/nope",
+      },
+    ],
+  };
+  const seats = seatsFromPacks([broken, krista]);
+  assert.ok(seats.every((seat) => seat.grokTemplateUrl.startsWith("https://x.ai/bot/")));
+  assert.ok(seats.every((seat) => seat.grokTemplateUrl !== null));
+  assert.equal(
+    seats.some((seat) => seat.id === "seat-invalid"),
+    false
+  );
+  assert.ok(seats.some((seat) => seat.pack.owner === "poteto"));
+  assert.ok(seats.some((seat) => seat.pack.owner === "kristaletz"));
+});
+
+test("card visits come from pack_visits owner/slug counts", () => {
+  const lauren = getFallbackPack("poteto", "lauren");
+  assert.ok(lauren);
+  const counts = emptyVisitCounts();
+  addVisitCount(counts, lauren.id, "poteto", "lauren", 3);
+  const [overlaid] = applyVisitCounts([{ ...lauren, visitsCount: 0 }], counts);
+  assert.equal(overlaid.visitsCount, 3);
+});
+
+test("prisma pack_visits uses enum, timestamptz, and named indexes", () => {
+  const schema = readFileSync(
+    fileURLToPath(new URL("../prisma/schema.prisma", import.meta.url)),
+    "utf8"
+  );
+  const store = readFileSync(
+    fileURLToPath(new URL("./visits-store.ts", import.meta.url)),
+    "utf8"
+  );
+  const visits = readFileSync(
+    fileURLToPath(new URL("./visits.ts", import.meta.url)),
+    "utf8"
+  );
+  assert.match(schema, /enum VisitSource/);
+  assert.match(schema, /@db\.Timestamptz/);
+  assert.match(schema, /pack_visits_pack_id_idx/);
+  assert.match(schema, /pack_visits_owner_slug_idx/);
+  assert.match(schema, /@@map\("visit_source"\)/);
+  assert.match(store, /packVisit\.groupBy/);
+  assert.match(visits, /from "@\/generated\/prisma\/enums"/);
 });
 
 test("visitsLabel formats visits, never installs", () => {
@@ -47,9 +115,145 @@ test("Add to Grok increments visits and does not count Copy", () => {
     fileURLToPath(new URL("../components/add-to-grok.tsx", import.meta.url)),
     "utf8"
   );
-  assert.match(src, /recordVisit\(packId, owner, slug\)/);
-  assert.match(src, /source: "add_to_grok"/);
+  assert.match(src, /source = "add_to_grok"/);
+  assert.match(src, /recordVisit\(packId, owner, slug, source/);
   assert.doesNotMatch(src, /onCopy[\s\S]*recordVisit/);
+});
+
+test("pack filters are one row, not two All groups", () => {
+  const src = readFileSync(
+    fileURLToPath(new URL("../components/filter-chips.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(src, /aria-label="Filter packs"/);
+  assert.match(src, /label="All"/);
+  assert.match(src, /label="Featured"/);
+  assert.doesNotMatch(src, /All topics/);
+  assert.doesNotMatch(src, /All packs/);
+});
+
+test("home lists packs and does not embed chat", () => {
+  const src = readFileSync(
+    fileURLToPath(new URL("../app/page.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(src, /SearchHero/);
+  assert.doesNotMatch(src, /CatalogChat/);
+  assert.doesNotMatch(src, /HomeCatalogChat/);
+});
+
+test("catalog chat uses shadcn Message, Bubble, and Streamdown", () => {
+  const src = readFileSync(
+    fileURLToPath(new URL("../components/catalog-chat.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(src, /title = "Chat"/);
+  assert.match(src, /role="log"/);
+  assert.match(src, /Send message/);
+  assert.match(src, /from "@\/components\/ui\/message"/);
+  assert.match(src, /from "@\/components\/ui\/bubble"/);
+  assert.match(src, /MessageScroller/);
+  assert.match(src, /from "@\/components\/ui\/scroll-area"/);
+  assert.match(src, /<ScrollArea/);
+  assert.match(src, /surface = "card"/);
+  assert.match(src, /desk_mix/);
+  assert.match(src, /ChatMarkdown/);
+  assert.match(src, /variant=\{isUser \? "default" : "secondary"\}/);
+  assert.doesNotMatch(src, /Ask the catalog/);
+});
+
+test("chat scroller hides the native bar and uses shadcn ScrollBar", () => {
+  const scroller = readFileSync(
+    fileURLToPath(new URL("../components/ui/message-scroller.tsx", import.meta.url)),
+    "utf8"
+  );
+  const chat = readFileSync(
+    fileURLToPath(new URL("../components/catalog-chat.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(scroller, /\[&::-webkit-scrollbar\]:hidden/);
+  assert.doesNotMatch(scroller, /scrollbar-thin/);
+  assert.match(chat, /from "@\/components\/ui\/scroll-area"/);
+  assert.match(chat, /<ScrollArea type="always"/);
+});
+
+test("dark theme lifts agent bubble off the card", () => {
+  const src = readFileSync(
+    fileURLToPath(new URL("../app/globals.css", import.meta.url)),
+    "utf8"
+  );
+  assert.match(src, /--secondary: oklch\(0\.38/);
+  assert.match(src, /streamdown\/dist\/\*\.js/);
+});
+
+test("home keyword search links to Describe a team", () => {
+  const src = readFileSync(
+    fileURLToPath(new URL("../components/search-hero.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(src, /Describe a team/);
+  assert.match(src, /href="\/team"/);
+  assert.doesNotMatch(src, /href="\/search"/);
+});
+
+test("search is catalog browse and team is the chat builder", () => {
+  const search = readFileSync(
+    fileURLToPath(new URL("../app/search/page.tsx", import.meta.url)),
+    "utf8"
+  );
+  const team = readFileSync(
+    fileURLToPath(new URL("../app/team/page.tsx", import.meta.url)),
+    "utf8"
+  );
+  const header = readFileSync(
+    fileURLToPath(new URL("../components/site-header.tsx", import.meta.url)),
+    "utf8"
+  );
+  const chat = readFileSync(
+    fileURLToPath(new URL("../components/catalog-chat.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(search, /CatalogBrowse/);
+  assert.doesNotMatch(search, /CatalogChat/);
+  assert.match(team, /surface="page"/);
+  assert.match(team, /authors=\{authors\}/);
+  assert.match(team, /topAuthors/);
+  assert.match(team, /api="\/api\/v1\/agent\/search"/);
+  assert.doesNotMatch(team, /CatalogBrowse/);
+  assert.doesNotMatch(team, /PackGrid/);
+  assert.doesNotMatch(team, /HeroBanner/);
+  assert.match(header, /href: "\/team", label: "Team"/);
+  assert.match(chat, /Mix \(/);
+  assert.match(chat, /Your mix/);
+  assert.match(chat, /from "@\/components\/ui\/sheet"/);
+  assert.match(chat, /AuthorMarquee/);
+  const marquee = readFileSync(
+    fileURLToPath(new URL("../components/author-marquee.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(marquee, /from "@\/components\/ui\/marquee"/);
+  assert.match(marquee, /sm:max-w-lg md:max-w-xl/);
+});
+
+test("submit page keeps the agent chat and marks it coming soon", () => {
+  const page = readFileSync(
+    fileURLToPath(new URL("../app/submit/page.tsx", import.meta.url)),
+    "utf8"
+  );
+  const panel = readFileSync(
+    fileURLToPath(new URL("../components/submit-agent-panel.tsx", import.meta.url)),
+    "utf8"
+  );
+  const route = readFileSync(
+    fileURLToPath(new URL("../app/api/v1/agent/submit/route.ts", import.meta.url)),
+    "utf8"
+  );
+  assert.match(page, /SubmitAgentPanel/);
+  assert.match(page, /Coming soon/);
+  assert.doesNotMatch(page, /SubmitForm/);
+  assert.match(panel, /api="\/api\/v1\/agent\/submit"/);
+  assert.match(panel, /comingSoon/);
+  assert.match(route, /Submit is coming soon/);
 });
 
 test("Add every bot increments once per CTA, not per seat link", () => {
@@ -57,7 +261,7 @@ test("Add every bot increments once per CTA, not per seat link", () => {
     fileURLToPath(new URL("../components/add-every-bot.tsx", import.meta.url)),
     "utf8"
   );
-  assert.match(src, /recordVisit\(packId, owner, slug\)/);
+  assert.match(src, /recordVisit\(packId, owner, slug, "add_every_bot"\)/);
   assert.match(src, /source: "add_every_bot"/);
   assert.match(src, /onClick=\{trackEvery\}/);
   assert.match(src, /trackEvery\(\)/);

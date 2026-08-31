@@ -17,6 +17,7 @@ import {
 import { matchesSeatBand, type SeatBand } from "@/lib/topics";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { createClient, getSessionUserId } from "@/lib/supabase/server";
+import { withVisitCounts } from "@/lib/visits-store";
 
 type ProfileRow = {
   id: string;
@@ -213,7 +214,7 @@ export async function listPacks(query: CatalogQuery = {}): Promise<PackCard[]> {
   );
   return packs.map(toCard);
   }, () => listFallbackPacks(query)).then((packs) =>
-    packs.length > 0 ? packs : listFallbackPacks(query)
+    withVisitCounts(packs.length > 0 ? packs : listFallbackPacks(query))
   );
 }
 
@@ -239,9 +240,12 @@ export async function getPack(owner: string, slug: string): Promise<Pack | null>
   if (error) throw new CatalogUnavailableError(error.message);
   if (!data) return null;
   return mapPack(data as PackRow);
-  }, () => getFallbackPack(owner, slug)).then(
-    (pack) => pack ?? getFallbackPack(owner, slug)
-  );
+  }, () => getFallbackPack(owner, slug)).then(async (pack) => {
+    const resolved = pack ?? getFallbackPack(owner, slug);
+    if (!resolved) return null;
+    const [overlaid] = await withVisitCounts([resolved]);
+    return overlaid;
+  });
 }
 
 export async function getProfile(login: string): Promise<Profile | null> {
@@ -278,7 +282,7 @@ export async function listPacksByOwner(login: string): Promise<PackCard[]> {
       .filter((pack): pack is Pack => pack !== null)
   ).map(toCard);
   }, () => listFallbackPacksByOwner(login)).then((packs) =>
-    packs.length > 0 ? packs : listFallbackPacksByOwner(login)
+    withVisitCounts(packs.length > 0 ? packs : listFallbackPacksByOwner(login))
   );
 }
 

@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  serverExternalPackages: ["@mastra/core", "@mastra/ai-sdk"],
+  serverExternalPackages: [
+    "@mastra/core",
+    "@mastra/ai-sdk",
+    "@prisma/client",
+    "@prisma/adapter-pg",
+    "pg",
+  ],
   images: {
     remotePatterns: [
       {

@@ -5,6 +5,7 @@ export function GET() {
     name: "orgbots",
     docs: "/api/v1/openapi.json",
     packs: "/api/v1/packs",
+    seats: "/api/v1/seats",
     pack: "/api/v1/packs/{owner}/{slug}",
   });
 }

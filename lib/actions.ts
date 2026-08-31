@@ -5,8 +5,10 @@ import { redirect } from "next/navigation";
 import { looksLikeSecret, parseGrokTemplateUrl } from "@/lib/grok-url";
 import { DEFAULT_ROUTING_RULE, slugify } from "@/lib/pack";
 import { isTopic } from "@/lib/topics";
+import { prisma } from "@/lib/prisma";
 import { createClient, getSessionUserId } from "@/lib/supabase/server";
 import { SUBMIT_STATUS } from "@/lib/submit-status";
+import type { VisitSource } from "@/lib/visits";
 
 async function requireUser() {
   const { supabase, userId } = await getSessionUserId();
@@ -229,14 +231,52 @@ export async function toggleLike(packId: string, owner: string, slug: string) {
   return { error: null };
 }
 
-export async function recordVisit(packId: string, owner: string, slug: string) {
-  const supabase = await createClient();
-  if (!supabase) return { error: "Catalog is not reachable." };
-  const { error } = await supabase.rpc("increment_installs", { p_pack_id: packId });
-  if (error) {
-    const fallback = await supabase.rpc("increment_clones", { p_pack_id: packId });
-    if (fallback.error) return { error: error.message };
+export async function recordVisit(
+  packId: string,
+  owner: string,
+  slug: string,
+  source: VisitSource = "add_to_grok",
+  seatName?: string
+) {
+  let wroteVisit = false;
+  if (prisma) {
+    try {
+      await prisma.packVisit.create({
+        data: {
+          packId,
+          packOwner: owner,
+          packSlug: slug,
+          source,
+          seatName: seatName ?? null,
+        },
+      });
+      wroteVisit = true;
+    } catch {
+      wroteVisit = false;
+    }
   }
+
+  const supabase = await createClient();
+  if (!wroteVisit && supabase) {
+    const inserted = await supabase.from("pack_visits").insert({
+      id: crypto.randomUUID(),
+      pack_id: packId,
+      pack_owner: owner,
+      pack_slug: slug,
+      source,
+      seat_name: seatName ?? null,
+    });
+    wroteVisit = !inserted.error;
+  }
+  if (supabase) {
+    const { error } = await supabase.rpc("increment_installs", { p_pack_id: packId });
+    if (error) {
+      await supabase.rpc("increment_clones", { p_pack_id: packId });
+    }
+  } else if (!wroteVisit) {
+    return { error: "Catalog is not reachable." };
+  }
+
   revalidatePath("/");
   revalidatePath(`/${owner}`);
   revalidatePath(`/${owner}/${slug}`);

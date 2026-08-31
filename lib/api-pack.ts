@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { parseGrokTemplateUrl } from "@/lib/grok-url";
 import {
   formatCount,
   installableUrl,
@@ -13,6 +14,23 @@ export type PublicSeat = {
   isDesk: boolean;
   sortOrder: number;
   grokTemplateUrl: string | null;
+};
+
+export type CatalogSeatPack = {
+  owner: string;
+  slug: string;
+  name: string;
+  href: string;
+};
+
+export type CatalogSeat = {
+  id: string;
+  name: string;
+  job: string;
+  isDesk: boolean;
+  grokTemplateUrl: string;
+  packId: string;
+  pack: CatalogSeatPack;
 };
 
 export type PublicPack = {
@@ -51,6 +69,21 @@ export const publicPackSchema = z.object({
   seats: z.array(publicSeatSchema),
 });
 
+export const catalogSeatSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  job: z.string(),
+  isDesk: z.boolean(),
+  grokTemplateUrl: z.string(),
+  packId: z.string(),
+  pack: z.object({
+    owner: z.string(),
+    slug: z.string(),
+    name: z.string(),
+    href: z.string(),
+  }),
+});
+
 export function toPublicPack(pack: Pack | PackCard): PublicPack {
   return {
     owner: pack.owner.githubLogin,
@@ -71,6 +104,47 @@ export function toPublicPack(pack: Pack | PackCard): PublicPack {
       grokTemplateUrl: installableUrl(seat.grokTemplateUrl),
     })),
   };
+}
+
+export function toCatalogSeat(
+  pack: Pack | PackCard,
+  seat: Pack["seats"][number]
+): CatalogSeat | null {
+  const grokTemplateUrl = parseGrokTemplateUrl(seat.grokTemplateUrl);
+  if (!grokTemplateUrl) return null;
+  return {
+    id: seat.id,
+    name: seat.name,
+    job: seat.job,
+    isDesk: seat.isDesk,
+    grokTemplateUrl,
+    packId: pack.id,
+    pack: {
+      owner: pack.owner.githubLogin,
+      slug: pack.slug,
+      name: pack.name,
+      href: packHref(pack),
+    },
+  };
+}
+
+export function parseCatalogSeat(value: unknown): CatalogSeat | null {
+  const parsed = catalogSeatSchema.safeParse(value);
+  if (!parsed.success) return null;
+  const grokTemplateUrl = parseGrokTemplateUrl(parsed.data.grokTemplateUrl);
+  if (!grokTemplateUrl) return null;
+  return { ...parsed.data, grokTemplateUrl };
+}
+
+export function seatsFromPacks(packs: Array<Pack | PackCard>): CatalogSeat[] {
+  const seats: CatalogSeat[] = [];
+  for (const pack of packs) {
+    for (const seat of pack.seats) {
+      const catalogSeat = toCatalogSeat(pack, seat);
+      if (catalogSeat) seats.push(catalogSeat);
+    }
+  }
+  return seats;
 }
 
 export function visitsLabel(visitsCount: number): string {

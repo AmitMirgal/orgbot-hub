@@ -46,7 +46,7 @@ export function AddEveryBot({
   }
 
   function trackEvery() {
-    void recordVisit(packId, owner, slug);
+    void recordVisit(packId, owner, slug, "add_every_bot");
     captureVisit({
       packId,
       identity: { owner, slug },

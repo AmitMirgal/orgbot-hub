@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum VisitSource {
+  add_to_grok
+  add_every_bot
+  desk_mix
+
+  @@map("visit_source")
+}
+
+/// One row per Add-bot click. No Pack relation — catalog tables are not owned by this schema.
+/// Card totals are counted from this table, not packs.installs_count.
+model PackVisit {
+  id        String      @id @default(cuid())
+  packId    String      @map("pack_id") @db.Uuid
+  packOwner String      @map("pack_owner")
+  packSlug  String      @map("pack_slug")
+  source    VisitSource
+  seatName  String?     @map("seat_name")
+  createdAt DateTime    @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime    @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([packId], map: "pack_visits_pack_id_idx")
+  @@index([packOwner, packSlug], map: "pack_visits_owner_slug_idx")
+  @@index([createdAt], map: "pack_visits_created_at_idx")
+  @@map("pack_visits")
+}

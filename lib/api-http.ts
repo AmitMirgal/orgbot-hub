@@ -1,4 +1,4 @@
-import type { PublicPackQuery } from "@/lib/public-catalog";
+import type { PublicPackQuery, PublicSeatQuery } from "@/lib/public-catalog";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -17,6 +17,11 @@ export function parsePacksQuery(params: URLSearchParams): PublicPackQuery {
     ...(owner ? { owner } : {}),
     ...(featured ? { featured: true as const } : {}),
   };
+}
+
+export function parseSeatsQuery(params: URLSearchParams): PublicSeatQuery {
+  const q = params.get("q")?.trim() || undefined;
+  return q ? { q } : {};
 }
 
 export function publicJson(body: unknown, init?: ResponseInit): Response {

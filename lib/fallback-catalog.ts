@@ -253,6 +253,7 @@ const GEORGE: Pack = {
   topics: ["founder"],
   likesCount: 0,
   installsCount: 0,
+  visitsCount: 0,
   routingRule:
     "Random questions stay at AI PM OS. Use a named seat only when that job is already in this pack.",
   readmeMd:

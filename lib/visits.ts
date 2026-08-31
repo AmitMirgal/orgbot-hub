@@ -1,4 +1,6 @@
-export type VisitSource = "add_to_grok" | "add_every_bot";
+import type { VisitSource } from "@/generated/prisma/enums";
+
+export type { VisitSource };
 
 export type PackIdentity = {
   owner: string;

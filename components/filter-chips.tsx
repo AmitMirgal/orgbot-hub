@@ -35,38 +35,27 @@ function hrefFor(filters: Filters, next: Partial<Filters>): string {
 }
 
 export function FilterChips(filters: Filters) {
+  const allActive = !filters.topic && !filters.featured;
+
   return (
-    <div className="flex flex-col gap-3">
-      <div className="flex flex-wrap gap-1.5">
+    <nav aria-label="Filter packs" className="flex flex-wrap gap-1.5">
+      <Chip href={hrefFor(filters, { topic: "", featured: false })} active={allActive} label="All" />
+      <Chip
+        href={hrefFor(filters, { topic: "", featured: true })}
+        active={Boolean(filters.featured) && !filters.topic}
+        label="Featured"
+        accent
+      />
+      {TOPICS.map((topic) => (
         <Chip
-          href={hrefFor(filters, { topic: "" })}
-          active={!filters.topic}
-          label="All topics"
-        />
-        {TOPICS.map((topic) => (
-          <Chip
-            key={topic}
-            href={hrefFor(filters, { topic })}
-            active={filters.topic === topic}
-            label={topic}
-            accent
-          />
-        ))}
-      </div>
-      <div className="flex flex-wrap gap-1.5">
-        <Chip
-          href={hrefFor(filters, { featured: false })}
-          active={!filters.featured}
-          label="All packs"
-        />
-        <Chip
-          href={hrefFor(filters, { featured: true })}
-          active={Boolean(filters.featured)}
-          label="Featured"
+          key={topic}
+          href={hrefFor(filters, { topic, featured: false })}
+          active={filters.topic === topic && !filters.featured}
+          label={topic}
           accent
         />
-      </div>
-    </div>
+      ))}
+    </nav>
   );
 }
 

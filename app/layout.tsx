@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { GeistPixelSquare } from "geist/font/pixel";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Providers } from "@/app/providers";
 import { listPacks } from "@/lib/catalog";
@@ -31,23 +32,11 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} h-full`}
     >
-      <body className="flex min-h-full flex-col font-sans">
+      <body className="flex min-h-dvh flex-col font-sans">
         <Providers>
           <SiteHeader packs={options} />
-          <div className="flex-1">{children}</div>
-          <footer className="border-t border-border">
-            <p className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-4 text-[12px] text-muted-foreground">
-              <span>orgbots is a directory of Grok Bot teams you can install.</span>
-              <a
-                href="https://github.com/AmitMirgal/orgbot-hub"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-foreground"
-              >
-                GitHub
-              </a>
-            </p>
-          </footer>
+          <div className="flex min-h-0 flex-1 flex-col">{children}</div>
+          <SiteFooter />
         </Providers>
       </body>
     </html>

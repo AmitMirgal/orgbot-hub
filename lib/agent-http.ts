@@ -42,7 +42,7 @@ export async function streamAgent(
   const status = agentRuntimeStatus();
   if (!status.modelReady) {
     return Response.json(
-      { error: "Agent model env is missing. Set MASTRA_MODEL or a provider key." },
+      { error: "Agent model env is missing. Set SARVAM_API_KEY." },
       { status: 503 }
     );
   }

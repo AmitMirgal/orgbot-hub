@@ -24,6 +24,15 @@ export function openApiDocument() {
           responses: { "200": { description: "{ packs: PublicPack[] }" } },
         },
       },
+      "/api/v1/seats": {
+        get: {
+          summary: "List installable seats",
+          description:
+            "Flattened seats with official https://x.ai/bot URLs. Seats whose grokTemplateUrl does not parse are omitted.",
+          parameters: [{ name: "q", in: "query", schema: { type: "string" } }],
+          responses: { "200": { description: "{ seats: CatalogSeat[] }" } },
+        },
+      },
       "/api/v1/packs/{owner}/{slug}": {
         get: {
           summary: "Get one pack",

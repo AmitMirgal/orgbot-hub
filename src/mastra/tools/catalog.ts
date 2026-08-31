@@ -1,6 +1,40 @@
 import { createTool } from "@mastra/core/tools";
 import { z } from "zod";
-import { getPublicPack, listPublicPacks } from "@/lib/public-catalog";
+import { catalogSeatSchema } from "@/lib/api-pack";
+import { getPublicPack, listPublicPacks, listPublicSeats } from "@/lib/public-catalog";
+import { parseRequirementJobs, selectMix } from "@/lib/seat-mix";
+
+export const searchSeats = createTool({
+  id: "searchSeats",
+  description:
+    "Search installable catalog seats by job. Uses the same list as GET /api/v1/seats. Never invent a seat or URL.",
+  inputSchema: z.object({
+    q: z.string().optional().describe("Job or keyword, e.g. front desk, billing, QA"),
+    jobs: z.array(z.string()).optional().describe("Named jobs to mix across authors"),
+  }),
+  outputSchema: z.object({
+    empty: z.boolean(),
+    seats: z.array(catalogSeatSchema),
+  }),
+  execute: async ({ q, jobs }) => {
+    const catalog = await listPublicSeats();
+    const requirement = jobs?.length ? jobs : q ? parseRequirementJobs(q) : [];
+    if (requirement.length > 0) {
+      const mixed = selectMix(catalog, requirement);
+      if (mixed.length > 0) return { empty: false, seats: mixed };
+    }
+    const needle = q?.trim().toLowerCase();
+    const matched = needle
+      ? catalog.filter((seat) =>
+          [seat.name, seat.job, seat.pack.name, seat.pack.owner]
+            .join(" ")
+            .toLowerCase()
+            .includes(needle)
+        )
+      : [];
+    return { empty: matched.length === 0, seats: matched.slice(0, 6) };
+  },
+});
 
 export const searchPacks = createTool({
   id: "searchPacks",

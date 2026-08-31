@@ -1,4 +1,4 @@
-import { toPublicPack, type PublicPack } from "@/lib/api-pack";
+import { seatsFromPacks, toPublicPack, type CatalogSeat, type PublicPack } from "@/lib/api-pack";
 import {
   getPack,
   listPacks,
@@ -40,4 +40,23 @@ export async function getPublicPack(owner: string, slug: string): Promise<Public
   const pack = await getPack(owner, slug);
   if (!pack) return null;
   return toPublicPack(pack);
+}
+
+export type PublicSeatQuery = {
+  q?: string;
+};
+
+function seatMatchesQuery(seat: CatalogSeat, q: string): boolean {
+  const haystack = [seat.name, seat.job, seat.pack.name, seat.pack.owner]
+    .join(" ")
+    .toLowerCase();
+  return haystack.includes(q);
+}
+
+export async function listPublicSeats(query: PublicSeatQuery = {}): Promise<CatalogSeat[]> {
+  const packs = await listPacks();
+  const seats = seatsFromPacks(packs);
+  const q = query.q?.trim().toLowerCase();
+  if (!q) return seats;
+  return seats.filter((seat) => seatMatchesQuery(seat, q));
 }
