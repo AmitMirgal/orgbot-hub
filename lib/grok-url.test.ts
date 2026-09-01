@@ -79,6 +79,58 @@ test("accepts official x.ai bot URLs", () => {
     parseGrokTemplateUrl("https://x.ai/bot/Ja9NzNTRz2ozzQLNfrJwI"),
     "https://x.ai/bot/Ja9NzNTRz2ozzQLNfrJwI"
   );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/lFDR77qKaT3Iglzv9pUac"),
+    "https://x.ai/bot/lFDR77qKaT3Iglzv9pUac"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/suKVjDAR-hSr_PTBxgdRw"),
+    "https://x.ai/bot/suKVjDAR-hSr_PTBxgdRw"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/BsExflSUXpW0hs21OTBzu"),
+    "https://x.ai/bot/BsExflSUXpW0hs21OTBzu"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/HtClSXO_AmiQoyYH9aXV9"),
+    "https://x.ai/bot/HtClSXO_AmiQoyYH9aXV9"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/eiVFbd0nIdH2gzSwHOs0D"),
+    "https://x.ai/bot/eiVFbd0nIdH2gzSwHOs0D"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/c4fYduVVic2YtbcjXquD0"),
+    "https://x.ai/bot/c4fYduVVic2YtbcjXquD0"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/IciOb-9jMtlkc1RJj6MQe"),
+    "https://x.ai/bot/IciOb-9jMtlkc1RJj6MQe"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/RuCu3IpKAvrx00H0MDI0t"),
+    "https://x.ai/bot/RuCu3IpKAvrx00H0MDI0t"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/2PSNlIROOJPj9qZlfRy0w"),
+    "https://x.ai/bot/2PSNlIROOJPj9qZlfRy0w"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/Nx4wpKeM_NYx577xlJFMD"),
+    "https://x.ai/bot/Nx4wpKeM_NYx577xlJFMD"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/SwTxLoOaIwDqTSvhTIhrK"),
+    "https://x.ai/bot/SwTxLoOaIwDqTSvhTIhrK"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/NU02qQ9iahZtAM0i0x1KT"),
+    "https://x.ai/bot/NU02qQ9iahZtAM0i0x1KT"
+  );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/eydijdzrfgtnmlnUyPSI-"),
+    "https://x.ai/bot/eydijdzrfgtnmlnUyPSI-"
+  );
 });
 
 test("strips username suffixes from official bot URLs", () => {
