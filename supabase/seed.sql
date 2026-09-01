@@ -1289,7 +1289,108 @@ insert into auth.users (
   '',
   '',
   ''
-)
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000084',
+  'authenticated',
+  'authenticated',
+  'tpgoebel@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"tpgoebel","preferred_username":"tpgoebel","full_name":"Tobias Goebel"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000085',
+  'authenticated',
+  'authenticated',
+  'imshiv6t9@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"imshiv6t9","preferred_username":"imshiv6t9","full_name":"Shiv"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000086',
+  'authenticated',
+  'authenticated',
+  'data_nexus@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"data_nexus","preferred_username":"data_nexus","full_name":"Data Nexus"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000087',
+  'authenticated',
+  'authenticated',
+  'darylbleach@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"darylbleach","preferred_username":"darylbleach","full_name":"Daryl"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000088',
+  'authenticated',
+  'authenticated',
+  'johnbai@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"johnbai","preferred_username":"johnbai","full_name":"John"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000089',
+  'authenticated',
+  'authenticated',
+  'ZenSched@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"ZenSched","preferred_username":"ZenSched","full_name":"ZenSched"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 on conflict (id) do nothing;
 
@@ -2276,7 +2377,84 @@ insert into auth.identities (
   now(),
   now(),
   now()
-)
+),
+(
+  '00000000-0000-0000-0000-000000000084',
+  '00000000-0000-0000-0000-000000000084',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000084',
+    'email', 'tpgoebel@orgbots.dev',
+    'user_name', 'tpgoebel'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000085',
+  '00000000-0000-0000-0000-000000000085',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000085',
+    'email', 'imshiv6t9@orgbots.dev',
+    'user_name', 'imshiv6t9'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000086',
+  '00000000-0000-0000-0000-000000000086',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000086',
+    'email', 'data_nexus@orgbots.dev',
+    'user_name', 'data_nexus'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000087',
+  '00000000-0000-0000-0000-000000000087',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000087',
+    'email', 'darylbleach@orgbots.dev',
+    'user_name', 'darylbleach'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000088',
+  '00000000-0000-0000-0000-000000000088',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000088',
+    'email', 'johnbai@orgbots.dev',
+    'user_name', 'johnbai'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000089',
+  '00000000-0000-0000-0000-000000000089',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000089',
+    'email', 'ZenSched@orgbots.dev',
+    'user_name', 'ZenSched'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 on conflict (provider_id, provider) do nothing;
 
@@ -2794,8 +2972,49 @@ values
     'Wayne Sutton',
     'waynesutton',
     'https://avatars.githubusercontent.com/u/720186?v=4'
+  ),
+  (
+    '00000000-0000-0000-0000-000000000084',
+    'tpgoebel',
+    'Tobias Goebel',
+    'tpgoebel',
+    'https://avatars.githubusercontent.com/u/425826?v=4'
+  ),
+  (
+    '00000000-0000-0000-0000-000000000085',
+    'imshiv6t9',
+    'Shiv',
+    'imshiv6t9',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000086',
+    'data_nexus',
+    'Data Nexus',
+    'data_nexus',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000087',
+    'darylbleach',
+    'Daryl',
+    'darylbleach',
+    'https://avatars.githubusercontent.com/u/4758191?v=4'
+  ),
+  (
+    '00000000-0000-0000-0000-000000000088',
+    'johnbai',
+    'John',
+    'johnbai',
+    'https://avatars.githubusercontent.com/u/9279966?v=4'
+  ),
+  (
+    '00000000-0000-0000-0000-000000000089',
+    'ZenSched',
+    'ZenSched',
+    'zensched',
+    'https://avatars.githubusercontent.com/u/288568580?v=4'
   )
-)
 on conflict (id) do update
   set github_login = excluded.github_login,
       name = excluded.name,
@@ -2886,7 +3105,13 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000088',
   '10000000-0000-0000-0000-000000000089',
   '10000000-0000-0000-0000-000000000090',
-  '10000000-0000-0000-0000-000000000091'
+  '10000000-0000-0000-0000-000000000091',
+  '10000000-0000-0000-0000-000000000092',
+  '10000000-0000-0000-0000-000000000093',
+  '10000000-0000-0000-0000-000000000094',
+  '10000000-0000-0000-0000-000000000095',
+  '10000000-0000-0000-0000-000000000096',
+  '10000000-0000-0000-0000-000000000097'
 )
    or id in (
   '20000000-0000-0000-0000-000000000012',
@@ -2969,7 +3194,15 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000099',
   '20000000-0000-0000-0000-000000000100',
   '20000000-0000-0000-0000-000000000101',
-  '20000000-0000-0000-0000-000000000102'
+  '20000000-0000-0000-0000-000000000102',
+  '20000000-0000-0000-0000-000000000103',
+  '20000000-0000-0000-0000-000000000104',
+  '20000000-0000-0000-0000-000000000105',
+  '20000000-0000-0000-0000-000000000106',
+  '20000000-0000-0000-0000-000000000107',
+  '20000000-0000-0000-0000-000000000108',
+  '20000000-0000-0000-0000-000000000109',
+  '20000000-0000-0000-0000-000000000110'
 );
 delete from public.packs
 where id in (
@@ -3277,7 +3510,7 @@ insert into public.packs (
   array['developer'],
   0,
   0,
-  'Random questions stay at Claudey. Use Shorty only for YouTube Shorts clipping. Named seats only when that job is already in this pack.',
+  'Random questions stay at Claudey. Use Shorty only for YouTube Shorts clipping. Use Researchy only for Grok Build CLI at max thinking. Named seats only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 ),
 (
@@ -3378,6 +3611,16 @@ insert into public.seats (
     false,
     1,
     'https://x.ai/bot/32fHIBw9Yz-s_o35KycGX'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000103',
+    '10000000-0000-0000-0000-000000000017',
+    'Researchy',
+    'Runs exclusively on Grok Build CLI with the latest Grok model at the highest thinking level.',
+    null,
+    false,
+    2,
+    'https://x.ai/bot/rQt4W2zO2Gx9lfcBjd1lj'
   ),
   (
     '20000000-0000-0000-0000-000000000011',
@@ -5214,6 +5457,193 @@ insert into public.seats (
     false,
     1,
     'https://x.ai/bot/RHSd-aq6KC84xxUnvBXSl'
+  )
+on conflict (id) do update
+  set pack_id = excluded.pack_id,
+      name = excluded.name,
+      job = excluded.job,
+      repeats_when = excluded.repeats_when,
+      is_desk = excluded.is_desk,
+      sort_order = excluded.sort_order,
+      grok_template_url = excluded.grok_template_url;
+
+insert into public.packs (
+  id, owner_id, slug, name, description, github_url, official, featured,
+  topics, likes_count, installs_count, routing_rule, readme_md
+) values
+(
+  '10000000-0000-0000-0000-000000000092',
+  '00000000-0000-0000-0000-000000000084',
+  'tobias-goebel',
+  'Tobias Goebel',
+  'Public Grok Bot templates Tobias Goebel (@tpgoebel) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Melissa. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000093',
+  '00000000-0000-0000-0000-000000000085',
+  'shiv',
+  'Shiv',
+  'Public Grok Bot templates Shiv (@imshiv6t9) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Learning Assistant. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000094',
+  '00000000-0000-0000-0000-000000000086',
+  'data-nexus',
+  'Data Nexus',
+  'Public Grok Bot templates Data Nexus (@data_nexus) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['developer'],
+  0,
+  0,
+  'Random questions stay at Blockchain Data Expert. Use Blockchain Data Expert 2 only for the second blockchain-data desk. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000095',
+  '00000000-0000-0000-0000-000000000087',
+  'daryl',
+  'Daryl',
+  'Public Grok Bot templates Daryl (@darylbleach) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['developer'],
+  0,
+  0,
+  'Random questions stay at Porter. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000096',
+  '00000000-0000-0000-0000-000000000088',
+  'john',
+  'John',
+  'Public Grok Bot templates John (@johnbai) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['developer'],
+  0,
+  0,
+  'Random questions stay at figma bro. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Do not add SEO/GEO Specialist; that listing does not match this author's tweet.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000097',
+  '00000000-0000-0000-0000-000000000089',
+  'zensched',
+  'ZenSched',
+  'Public Grok Bot templates ZenSched (@zensched) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['developer'],
+  0,
+  0,
+  'Random questions stay at ZenSched. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots.$readme$
+)
+on conflict (id) do update
+  set owner_id = excluded.owner_id,
+      slug = excluded.slug,
+      name = excluded.name,
+      description = excluded.description,
+      official = excluded.official,
+      featured = excluded.featured,
+      topics = excluded.topics,
+      routing_rule = excluded.routing_rule,
+      readme_md = excluded.readme_md;
+
+insert into public.seats (
+  id, pack_id, name, job, repeats_when, is_desk, sort_order, grok_template_url
+) values
+  (
+    '20000000-0000-0000-0000-000000000104',
+    '10000000-0000-0000-0000-000000000092',
+    'Melissa',
+    'Fitness and nutrition coach with a balance between pulling for updates and waiting for you to tell her.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/3foGoeh6ksDhD4jTxYjyE'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000105',
+    '10000000-0000-0000-0000-000000000093',
+    'Learning Assistant',
+    'Learning assistant.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/yE46R6j5vNPhd92fGxZRu'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000106',
+    '10000000-0000-0000-0000-000000000094',
+    'Blockchain Data Expert',
+    'Blockchain data expert desk.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/xqZS2HUq3XEoQ8oaH0LnA'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000107',
+    '10000000-0000-0000-0000-000000000094',
+    'Blockchain Data Expert 2',
+    'Second blockchain data expert seat.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/eyFr_G8h9UmrQHNpZpNfx'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000108',
+    '10000000-0000-0000-0000-000000000095',
+    'Porter',
+    'Porter desk.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/cl7kIRbcIuP6jj2Zt8z5K'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000109',
+    '10000000-0000-0000-0000-000000000096',
+    'figma bro',
+    'Figma bro for repetitive Figma tasks.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/VHMdjIGjGpgDSJR7dW6Gz'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000110',
+    '10000000-0000-0000-0000-000000000097',
+    'ZenSched',
+    'ZenSched desk.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/LK0rEXJnnD1qpEISXd7Ix'
   )
 on conflict (id) do update
   set pack_id = excluded.pack_id,

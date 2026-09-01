@@ -17,8 +17,8 @@ const seedSql = readFileSync(
 
 test("catalog includes existing packs plus the new verified shares", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 74);
-  assert.equal(stats.seats, 92);
+  assert.equal(stats.packs, 80);
+  assert.equal(stats.seats, 100);
   assert.ok(getFallbackPack("poteto", "lauren"));
   assert.ok(getFallbackPack("cjblev", "corey"));
   assert.ok(getFallbackPack("MaiYangAI", "mai"));
@@ -147,7 +147,7 @@ test("new packs are unofficial, unfeatured, and use canonical x.ai/bot URLs", ()
   assert.ok(!lauren?.seats.some((item) => /peddler/i.test(item.name)));
 });
 
-test("Farzad keeps Claudey as desk and adds Shorty", () => {
+test("Farzad keeps Claudey as desk and adds Shorty and Researchy", () => {
   const farzad = getFallbackPack("farzyness", "farzad");
   assert.ok(farzad);
   assert.equal(farzad.seats[0]?.name, "Claudey");
@@ -173,11 +173,19 @@ test("Farzad keeps Claudey as desk and adds Shorty", () => {
         sortOrder: 1,
         grokTemplateUrl: "https://x.ai/bot/32fHIBw9Yz-s_o35KycGX",
       },
+      {
+        name: "Researchy",
+        isDesk: false,
+        sortOrder: 2,
+        grokTemplateUrl: "https://x.ai/bot/rQt4W2zO2Gx9lfcBjd1lj",
+      },
     ]
   );
   assert.match(farzad.routingRule, /Claudey/);
   assert.match(farzad.routingRule, /Shorty only for YouTube Shorts clipping/);
+  assert.match(farzad.routingRule, /Researchy only for Grok Build CLI at max thinking/);
   assert.match(seedSql, /https:\/\/x\.ai\/bot\/32fHIBw9Yz-s_o35KycGX/);
+  assert.match(seedSql, /https:\/\/x\.ai\/bot\/rQt4W2zO2Gx9lfcBjd1lj/);
 });
 
 test("Nao keeps Rutin as desk and adds Chieeeeefy", () => {
@@ -482,6 +490,8 @@ test("seed.sql dual-write covers Hiten seats and new owners", () => {
     "20000000-0000-0000-0000-000000000043",
     "20000000-0000-0000-0000-000000000044",
     "20000000-0000-0000-0000-000000000102",
+    "20000000-0000-0000-0000-000000000103",
+    "20000000-0000-0000-0000-000000000110",
   ]) {
     assert.match(seedSql, new RegExp(id));
   }
@@ -507,6 +517,10 @@ test("seed.sql dual-write covers Hiten seats and new owners", () => {
   assert.match(seedSql, /10000000-0000-0000-0000-000000000033/);
   assert.match(seedSql, /10000000-0000-0000-0000-000000000042/);
   assert.match(seedSql, /10000000-0000-0000-0000-000000000091/);
+  assert.match(seedSql, /10000000-0000-0000-0000-000000000097/);
+  assert.match(seedSql, /tpgoebel@orgbots\.dev/);
+  assert.match(seedSql, /johnbai@orgbots\.dev/);
+  assert.match(seedSql, /ZenSched@orgbots\.dev/);
   assert.match(seedSql, /'eric-ren'/);
   assert.match(seedSql, /'teslaconomics'/);
   assert.match(seedSql, /'daniel-farinax'/);
@@ -575,6 +589,54 @@ test("grokbots.best gap-fill packs are unofficial with one desk and dual-written
       seats: 2,
     },
     {
+      owner: "tpgoebel",
+      slug: "tobias-goebel",
+      name: "Tobias Goebel",
+      desk: "Melissa",
+      url: "https://x.ai/bot/3foGoeh6ksDhD4jTxYjyE",
+      seats: 1,
+    },
+    {
+      owner: "imshiv6t9",
+      slug: "shiv",
+      name: "Shiv",
+      desk: "Learning Assistant",
+      url: "https://x.ai/bot/yE46R6j5vNPhd92fGxZRu",
+      seats: 1,
+    },
+    {
+      owner: "data_nexus",
+      slug: "data-nexus",
+      name: "Data Nexus",
+      desk: "Blockchain Data Expert",
+      url: "https://x.ai/bot/xqZS2HUq3XEoQ8oaH0LnA",
+      seats: 2,
+    },
+    {
+      owner: "darylbleach",
+      slug: "daryl",
+      name: "Daryl",
+      desk: "Porter",
+      url: "https://x.ai/bot/cl7kIRbcIuP6jj2Zt8z5K",
+      seats: 1,
+    },
+    {
+      owner: "johnbai",
+      slug: "john",
+      name: "John",
+      desk: "figma bro",
+      url: "https://x.ai/bot/VHMdjIGjGpgDSJR7dW6Gz",
+      seats: 1,
+    },
+    {
+      owner: "ZenSched",
+      slug: "zensched",
+      name: "ZenSched",
+      desk: "ZenSched",
+      url: "https://x.ai/bot/LK0rEXJnnD1qpEISXd7Ix",
+      seats: 1,
+    },
+    {
       owner: "Daniel_Farinax",
       slug: "daniel-farinax",
       name: "Daniel Farinax",
@@ -628,6 +690,28 @@ test("grokbots.best gap-fill packs are unofficial with one desk and dual-written
     av1d.seats.map((item) => item.name),
     ["loops", "Master", "Chief of Staff", "Growth Desk", "Grok Bot Coach"]
   );
+
+  const dataNexus = getFallbackPack("data_nexus", "data-nexus");
+  assert.ok(dataNexus);
+  assert.deepEqual(
+    dataNexus.seats.map((item) => item.name),
+    ["Blockchain Data Expert", "Blockchain Data Expert 2"]
+  );
+  assert.equal(dataNexus.seats[1]?.grokTemplateUrl, "https://x.ai/bot/eyFr_G8h9UmrQHNpZpNfx");
+
+  const john = getFallbackPack("johnbai", "john");
+  assert.ok(john);
+  assert.equal(john.seats.length, 1);
+  assert.equal(john.seats[0]?.name, "figma bro");
+  assert.match(john.readmeMd ?? "", /Do not add SEO\/GEO Specialist/);
+  assert.ok(!john.seats.some((item) => item.grokTemplateUrl === "https://x.ai/bot/pImOOCvE7uB1SXENOI9Ng"));
+
+  const tobias = getFallbackPack("tobias_pfuetze", "tobias");
+  const tobiasGoebel = getFallbackPack("tpgoebel", "tobias-goebel");
+  assert.ok(tobias);
+  assert.ok(tobiasGoebel);
+  assert.notEqual(tobias.id, tobiasGoebel.id);
+  assert.equal(tobiasGoebel.seats[0]?.name, "Melissa");
 
   const fallbackUrls = new Set(
     listFallbackPacks()
