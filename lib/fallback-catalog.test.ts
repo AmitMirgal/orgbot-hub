@@ -17,8 +17,8 @@ const seedSql = readFileSync(
 
 test("catalog includes existing packs plus the new verified shares", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 80);
-  assert.equal(stats.seats, 100);
+  assert.equal(stats.packs, 88);
+  assert.equal(stats.seats, 110);
   assert.ok(getFallbackPack("poteto", "lauren"));
   assert.ok(getFallbackPack("cjblev", "corey"));
   assert.ok(getFallbackPack("MaiYangAI", "mai"));
@@ -26,6 +26,14 @@ test("catalog includes existing packs plus the new verified shares", () => {
   assert.ok(getFallbackPack("naoufalelh", "nao"));
   assert.ok(getFallbackPack("Teslaconomics", "teslaconomics"));
   assert.ok(getFallbackPack("kentcdodds", "kent"));
+  assert.ok(getFallbackPack("abdshomad", "abd"));
+  assert.ok(getFallbackPack("brstorrie", "ben"));
+  assert.ok(getFallbackPack("beaudenison", "beau"));
+  assert.ok(getFallbackPack("jennananpei", "jenna"));
+  assert.ok(getFallbackPack("funkii", "funkii"));
+  assert.ok(getFallbackPack("SumoSign", "keith"));
+  assert.ok(getFallbackPack("bfrench", "bill-french"));
+  assert.ok(getFallbackPack("herdrdev", "can"));
   assert.ok(getFallbackProfile("examples"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
   assert.ok(!listFallbackPacks().some((pack) => pack.owner.githubLogin === "examples"));
@@ -220,6 +228,49 @@ test("Nao keeps Rutin as desk and adds Chieeeeefy", () => {
   assert.match(seedSql, /https:\/\/x\.ai\/bot\/GiBPBQR2WrHNul4k9Tz6Q/);
 });
 
+test("Jenna keeps Trendspotter as desk and adds Bing Bong and Event Producer", () => {
+  const jenna = getFallbackPack("jennananpei", "jenna");
+  assert.ok(jenna);
+  assert.equal(jenna.official, false);
+  assert.equal(jenna.featured, false);
+  assert.equal(jenna.owner.avatarUrl, null);
+  assert.deepEqual(
+    jenna.seats.map((item) => ({
+      id: item.id,
+      name: item.name,
+      isDesk: item.isDesk,
+      sortOrder: item.sortOrder,
+      grokTemplateUrl: item.grokTemplateUrl,
+    })),
+    [
+      {
+        id: "20000000-0000-0000-0000-000000000035",
+        name: "Trendspotter",
+        isDesk: true,
+        sortOrder: 0,
+        grokTemplateUrl: "https://x.ai/bot/nnDL-hclNLB8SkJvcVtwr",
+      },
+      {
+        id: "20000000-0000-0000-0000-000000000036",
+        name: "Bing Bong",
+        isDesk: false,
+        sortOrder: 1,
+        grokTemplateUrl: "https://x.ai/bot/BjzK0lRsgxuLSsQIsnI3E",
+      },
+      {
+        id: "20000000-0000-0000-0000-000000000037",
+        name: "Event Producer",
+        isDesk: false,
+        sortOrder: 2,
+        grokTemplateUrl: "https://x.ai/bot/5gyGG-rnVsQVTLWAfki1u",
+      },
+    ]
+  );
+  assert.match(jenna.routingRule, /Trendspotter/);
+  assert.match(jenna.routingRule, /Bing Bong only for sports marketing partnership ops/);
+  assert.match(jenna.routingRule, /Event Producer only for VIP and field event production/);
+});
+
 test("Mai keeps Grok Deck as desk and adds the Chinese tweet-scanner seat", () => {
   const mai = getFallbackPack("MaiYangAI", "mai");
   assert.ok(mai);
@@ -368,6 +419,94 @@ test("new packs are unofficial, unfeatured, and keep one desk per author", () =>
       seats: 1,
       topic: "developer",
     },
+    {
+      owner: "abdshomad",
+      slug: "abd",
+      name: "Abd",
+      desk: "Bot Father",
+      url: "https://x.ai/bot/dVQjvC6c-sMhtgVskciBH",
+      seatId: "20000000-0000-0000-0000-000000000032",
+      packId: "10000000-0000-0000-0000-000000000034",
+      seats: 1,
+      topic: "developer",
+    },
+    {
+      owner: "brstorrie",
+      slug: "ben",
+      name: "Ben",
+      desk: "The Accountant",
+      url: "https://x.ai/bot/Y_R1Ya9SIzQZguGTV5NCX",
+      seatId: "20000000-0000-0000-0000-000000000033",
+      packId: "10000000-0000-0000-0000-000000000035",
+      seats: 1,
+      topic: "developer",
+    },
+    {
+      owner: "beaudenison",
+      slug: "beau",
+      name: "Beau",
+      desk: "Grok Build",
+      url: "https://x.ai/bot/iwa3WaHZn385jfZrsQngL",
+      seatId: "20000000-0000-0000-0000-000000000034",
+      packId: "10000000-0000-0000-0000-000000000036",
+      seats: 1,
+      topic: "developer",
+    },
+    {
+      owner: "jennananpei",
+      slug: "jenna",
+      name: "Jenna",
+      desk: "Trendspotter",
+      url: "https://x.ai/bot/nnDL-hclNLB8SkJvcVtwr",
+      seatId: "20000000-0000-0000-0000-000000000035",
+      packId: "10000000-0000-0000-0000-000000000037",
+      seats: 3,
+      topic: "founder",
+    },
+    {
+      owner: "funkii",
+      slug: "funkii",
+      name: "funkii",
+      desk: "t2000",
+      url: "https://x.ai/bot/eXQt5VUovcU0HMj_b-CDY",
+      seatId: "20000000-0000-0000-0000-000000000038",
+      packId: "10000000-0000-0000-0000-000000000038",
+      seats: 1,
+      topic: "developer",
+    },
+    {
+      owner: "SumoSign",
+      slug: "keith",
+      name: "Keith",
+      desk: "SumoSign",
+      url: "https://x.ai/bot/Uicr9Dc3FKOmsMfbN_NHB",
+      seatId: "20000000-0000-0000-0000-000000000039",
+      packId: "10000000-0000-0000-0000-000000000039",
+      seats: 1,
+      topic: "developer",
+    },
+    {
+      owner: "bfrench",
+      slug: "bill-french",
+      name: "Bill French",
+      desk: "STEER",
+      url: "https://x.ai/bot/mhzjt-Pa01Ds8EJ0zJrcz",
+      seatId: "20000000-0000-0000-0000-000000000040",
+      packId: "10000000-0000-0000-0000-000000000040",
+      seats: 1,
+      topic: "founder",
+    },
+    {
+      owner: "herdrdev",
+      slug: "can",
+      name: "Can",
+      desk: "Shepherd",
+      url: "https://x.ai/bot/i5YF8f-zdcR76uKPrqg3J",
+      seatId: "20000000-0000-0000-0000-000000000041",
+      packId: "10000000-0000-0000-0000-000000000041",
+      seats: 1,
+      topic: "developer",
+    },
   ] as const;
 
   for (const item of expected) {
@@ -443,6 +582,7 @@ test("new packs are unofficial, unfeatured, and keep one desk per author", () =>
   assert.ok(bill);
   assert.ok(!bill.seats.some((item) => /steer/i.test(item.name)));
   assert.match(bill.readmeMd ?? "", /Do not add STEER/);
+  assert.match(bill.readmeMd ?? "", /Do not add Beau's Grok Build/);
   assert.equal(bill.seats[0]?.grokTemplateUrl, "https://x.ai/bot/eydijdzrfgtnmlnUyPSI-");
 
   const teslaconomics = getFallbackPack("Teslaconomics", "teslaconomics");
@@ -456,6 +596,26 @@ test("new packs are unofficial, unfeatured, and keep one desk per author", () =>
   assert.match(teslaconomics.readmeMd ?? "", /not Beau's Grok Build/);
   assert.ok(!bill.seats.some((item) => item.grokTemplateUrl === "https://x.ai/bot/ZRxm1O9tmizOhriV7GiWL"));
   assert.ok(!bill.seats.some((item) => item.grokTemplateUrl === "https://x.ai/bot/iwa3WaHZn385jfZrsQngL"));
+
+  const beau = getFallbackPack("beaudenison", "beau");
+  assert.ok(beau);
+  assert.equal(beau.seats[0]?.grokTemplateUrl, "https://x.ai/bot/iwa3WaHZn385jfZrsQngL");
+  assert.notEqual(beau.seats[0]?.grokTemplateUrl, bill.seats[0]?.grokTemplateUrl);
+  assert.notEqual(beau.seats[0]?.grokTemplateUrl, teslaconomics.seats[0]?.grokTemplateUrl);
+  assert.match(beau.readmeMd ?? "", /not Bill Zanetti's Grok Build/);
+  assert.match(beau.readmeMd ?? "", /not Teslaconomics' Grok Build/);
+
+  const billFrench = getFallbackPack("bfrench", "bill-french");
+  assert.ok(billFrench);
+  assert.equal(billFrench.seats[0]?.name, "STEER");
+  assert.equal(billFrench.seats[0]?.grokTemplateUrl, "https://x.ai/bot/mhzjt-Pa01Ds8EJ0zJrcz");
+  assert.equal(getFallbackPack("bfrench", "bill"), null);
+  assert.equal(getFallbackPack("billzanetti", "bill-french"), null);
+
+  assert.ok(!aaron.seats.some((item) => /accountant/i.test(item.name)));
+  const ben = getFallbackPack("brstorrie", "ben");
+  assert.ok(ben);
+  assert.match(ben.readmeMd ?? "", /do not add it to Aaron/);
 
   const lauren = getFallbackPack("poteto", "lauren");
   assert.equal(lauren?.seats.length, 1);
@@ -486,6 +646,16 @@ test("seed.sql dual-write covers Hiten seats and new owners", () => {
     "20000000-0000-0000-0000-000000000029",
     "20000000-0000-0000-0000-000000000030",
     "20000000-0000-0000-0000-000000000031",
+    "20000000-0000-0000-0000-000000000032",
+    "20000000-0000-0000-0000-000000000033",
+    "20000000-0000-0000-0000-000000000034",
+    "20000000-0000-0000-0000-000000000035",
+    "20000000-0000-0000-0000-000000000036",
+    "20000000-0000-0000-0000-000000000037",
+    "20000000-0000-0000-0000-000000000038",
+    "20000000-0000-0000-0000-000000000039",
+    "20000000-0000-0000-0000-000000000040",
+    "20000000-0000-0000-0000-000000000041",
     "20000000-0000-0000-0000-000000000042",
     "20000000-0000-0000-0000-000000000043",
     "20000000-0000-0000-0000-000000000044",
@@ -510,17 +680,28 @@ test("seed.sql dual-write covers Hiten seats and new owners", () => {
   assert.match(seedSql, /mdafanulh@orgbots\.dev/);
   assert.match(seedSql, /rrrkren@orgbots\.dev/);
   assert.match(seedSql, /billzanetti@orgbots\.dev/);
+  assert.match(seedSql, /abdshomad@orgbots\.dev/);
+  assert.match(seedSql, /brstorrie@orgbots\.dev/);
+  assert.match(seedSql, /beaudenison@orgbots\.dev/);
+  assert.match(seedSql, /jennananpei@orgbots\.dev/);
+  assert.match(seedSql, /funkii@orgbots\.dev/);
+  assert.match(seedSql, /SumoSign@orgbots\.dev/);
+  assert.match(seedSql, /bfrench@orgbots\.dev/);
+  assert.match(seedSql, /herdrdev@orgbots\.dev/);
   assert.match(seedSql, /arthurmacwaters@orgbots\.dev/);
   assert.match(seedSql, /kentcdodds@orgbots\.dev/);
   assert.match(seedSql, /Teslaconomics@orgbots\.dev/);
   assert.match(seedSql, /10000000-0000-0000-0000-000000000023/);
   assert.match(seedSql, /10000000-0000-0000-0000-000000000033/);
+  assert.match(seedSql, /10000000-0000-0000-0000-000000000034/);
+  assert.match(seedSql, /10000000-0000-0000-0000-000000000041/);
   assert.match(seedSql, /10000000-0000-0000-0000-000000000042/);
   assert.match(seedSql, /10000000-0000-0000-0000-000000000091/);
   assert.match(seedSql, /10000000-0000-0000-0000-000000000097/);
   assert.match(seedSql, /tpgoebel@orgbots\.dev/);
   assert.match(seedSql, /johnbai@orgbots\.dev/);
   assert.match(seedSql, /ZenSched@orgbots\.dev/);
+  assert.match(seedSql, /'bill-french'/);
   assert.match(seedSql, /'eric-ren'/);
   assert.match(seedSql, /'teslaconomics'/);
   assert.match(seedSql, /'daniel-farinax'/);
@@ -529,13 +710,13 @@ test("seed.sql dual-write covers Hiten seats and new owners", () => {
   assert.doesNotMatch(seedSql, /'Box Inspector'/);
   assert.doesNotMatch(seedSql, /https:\/\/github\.com\/maiyang[^-A-Z]/i);
   assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/plugin\//);
-  assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/mhzjt-Pa01Ds8EJ0zJrcz/);
+  assert.match(seedSql, /https:\/\/x\.ai\/bot\/mhzjt-Pa01Ds8EJ0zJrcz/);
   assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/AY2y4oPL_VgcttCt8OFqm/);
   assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/PFD95widaEeqjkYLLUZmD/);
   assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/Yf3pOvZQ0B_9DDcCzuhDG/);
   assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/pImOOCvE7uB1SXENOI9Ng/);
-  assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/i5YF8f-zdcR76uKPrqg3J/);
-  assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/iwa3WaHZn385jfZrsQngL/);
+  assert.match(seedSql, /https:\/\/x\.ai\/bot\/i5YF8f-zdcR76uKPrqg3J/);
+  assert.match(seedSql, /https:\/\/x\.ai\/bot\/iwa3WaHZn385jfZrsQngL/);
 });
 
 test("grokbots.best gap-fill packs are unofficial with one desk and dual-written URLs", () => {
