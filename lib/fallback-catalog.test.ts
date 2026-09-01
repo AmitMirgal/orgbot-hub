@@ -18,8 +18,8 @@ const seedSql = readFileSync(
 
 test("catalog includes existing packs plus the new verified shares", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 94);
-  assert.equal(stats.seats, 119);
+  assert.equal(stats.packs, 99);
+  assert.equal(stats.seats, 124);
   assert.ok(getFallbackPack("poteto", "lauren"));
   assert.ok(getFallbackPack("cjblev", "corey"));
   assert.ok(getFallbackPack("MaiYangAI", "mai"));
@@ -682,6 +682,11 @@ test("seed.sql dual-write covers Hiten seats and new owners", () => {
     "20000000-0000-0000-0000-000000000117",
     "20000000-0000-0000-0000-000000000118",
     "20000000-0000-0000-0000-000000000119",
+    "20000000-0000-0000-0000-000000000120",
+    "20000000-0000-0000-0000-000000000121",
+    "20000000-0000-0000-0000-000000000122",
+    "20000000-0000-0000-0000-000000000123",
+    "20000000-0000-0000-0000-000000000124",
   ]) {
     assert.match(seedSql, new RegExp(id));
   }
@@ -727,8 +732,14 @@ test("seed.sql dual-write covers Hiten seats and new owners", () => {
   assert.match(seedSql, /OTNworld@orgbots\.dev/);
   assert.match(seedSql, /HenryLeeBauta@orgbots\.dev/);
   assert.match(seedSql, /inqusit@orgbots\.dev/);
+  assert.match(seedSql, /adgapar@orgbots\.dev/);
+  assert.match(seedSql, /minebotcoin@orgbots\.dev/);
+  assert.match(seedSql, /dennisonbertram@orgbots\.dev/);
+  assert.match(seedSql, /adamlowisz@orgbots\.dev/);
+  assert.match(seedSql, /chasemc67@orgbots\.dev/);
   assert.match(seedSql, /10000000-0000-0000-0000-000000000098/);
   assert.match(seedSql, /10000000-0000-0000-0000-000000000103/);
+  assert.match(seedSql, /10000000-0000-0000-0000-000000000108/);
   assert.match(seedSql, /'bill-french'/);
   assert.match(seedSql, /'eric-ren'/);
   assert.match(seedSql, /'teslaconomics'/);
@@ -1112,5 +1123,134 @@ test("catalog watch adds six unofficial one-desk packs with live x.ai URLs", () 
   assert.ok(getFallbackProfile("OTNworld"));
   assert.ok(getFallbackProfile("HenryLeeBauta"));
   assert.ok(getFallbackProfile("inqusit"));
+});
+
+test("catalog watch adds five unofficial one-desk packs with live x.ai URLs", () => {
+  const expected = [
+    {
+      owner: "adgapar",
+      slug: "adi",
+      name: "Adi",
+      desk: "Token Ops",
+      url: "https://x.ai/bot/4mCuSlW34n6l3aYxYJCdj",
+      seatId: "20000000-0000-0000-0000-000000000120",
+      packId: "10000000-0000-0000-0000-000000000104",
+      topic: "developer",
+      avatar: "https://avatars.githubusercontent.com/u/3167828?v=4" as string | null,
+      job: /live routine/i,
+    },
+    {
+      owner: "minebotcoin",
+      slug: "botcoin",
+      name: "BOTCOIN",
+      desk: "BOTOSHI",
+      url: "https://x.ai/bot/29XazZFrrsJyI8LUnExDD",
+      seatId: "20000000-0000-0000-0000-000000000121",
+      packId: "10000000-0000-0000-0000-000000000105",
+      topic: "founder",
+      avatar: null,
+      job: /Zero ETH BOTCOIN mining-rig onboarding miner/,
+    },
+    {
+      owner: "dennisonbertram",
+      slug: "dennison",
+      name: "Dennison",
+      desk: "NYC Parent",
+      url: "https://x.ai/bot/DiNI489Qte5ryNvZjOROb",
+      seatId: "20000000-0000-0000-0000-000000000122",
+      packId: "10000000-0000-0000-0000-000000000106",
+      topic: "founder",
+      avatar: "https://avatars.githubusercontent.com/u/228482372?v=4",
+      job: /family chief of staff for New York City parents/i,
+    },
+    {
+      owner: "adamlowisz",
+      slug: "adam",
+      name: "Adam",
+      desk: "X Top 100 Fans Weekly",
+      url: "https://x.ai/bot/HU7XArfGhUgLnzVcr7neB",
+      seatId: "20000000-0000-0000-0000-000000000123",
+      packId: "10000000-0000-0000-0000-000000000107",
+      topic: "media",
+      avatar: null,
+      job: /top 100 X fans each week/i,
+    },
+    {
+      owner: "chasemc67",
+      slug: "chase",
+      name: "Chase",
+      desk: "Situation monitor",
+      url: "https://x.ai/bot/lkHayxdQjNzVVJIDh7qaF",
+      seatId: "20000000-0000-0000-0000-000000000124",
+      packId: "10000000-0000-0000-0000-000000000108",
+      topic: "media",
+      avatar: "https://avatars.githubusercontent.com/u/6922982?v=4",
+      job: /never posts until they say so/i,
+    },
+  ] as const;
+
+  for (const item of expected) {
+    const pack = getFallbackPack(item.owner, item.slug);
+    assert.ok(pack, `${item.owner}/${item.slug}`);
+    assert.equal(pack.id, item.packId);
+    assert.equal(pack.name, item.name);
+    assert.equal(pack.official, false);
+    assert.equal(pack.featured, false);
+    assert.equal(pack.githubUrl, null);
+    assert.deepEqual(pack.topics, [item.topic]);
+    assert.equal(pack.likesCount, 0);
+    assert.equal(pack.installsCount, 0);
+    assert.equal(pack.visitsCount, 0);
+    assert.equal(pack.seats.length, 1);
+    assert.equal(pack.seats[0]?.name, item.desk);
+    assert.equal(pack.seats[0]?.isDesk, true);
+    assert.equal(pack.seats[0]?.sortOrder, 0);
+    assert.equal(pack.seats[0]?.id, item.seatId);
+    assert.equal(pack.seats[0]?.grokTemplateUrl, item.url);
+    assert.equal(parseGrokTemplateUrl(pack.seats[0]?.grokTemplateUrl), item.url);
+    assert.match(pack.seats[0]?.job ?? "", item.job);
+    assert.equal(pack.owner.avatarUrl, item.avatar);
+    assert.match(seedSql, new RegExp(item.url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.match(seedSql, new RegExp(item.packId));
+    assert.match(seedSql, new RegExp(item.seatId));
+    assert.equal(listFallbackPacksByOwner(item.owner).length, 1);
+  }
+
+  assert.ok(getFallbackProfile("adgapar"));
+  assert.ok(getFallbackProfile("minebotcoin"));
+  assert.ok(getFallbackProfile("dennisonbertram"));
+  assert.ok(getFallbackProfile("adamlowisz"));
+  assert.ok(getFallbackProfile("chasemc67"));
+  assert.equal(getFallbackProfile("MineBotcoin"), null);
+  assert.equal(getFallbackProfile("AdamLowisz"), null);
+  assert.equal(getFallbackPack("examples", "stencil"), null);
+
+  const fallbackUrls = listFallbackPacks()
+    .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
+    .map((seat) => seat.grokTemplateUrl)
+    .filter((url): url is string => Boolean(url));
+  const uniqueFallbackUrls = new Set(fallbackUrls);
+  assert.equal(fallbackUrls.length, 124);
+  assert.equal(uniqueFallbackUrls.size, 124);
+
+  const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
+    (match) => match[0]
+  );
+  const seedUrls = new Set(seedUrlMatches);
+  for (const url of uniqueFallbackUrls) {
+    assert.ok(seedUrls.has(url), `seed missing ${url}`);
+  }
+  for (const url of expected.map((item) => item.url)) {
+    assert.equal(
+      fallbackUrls.filter((item) => item === url).length,
+      1,
+      `catalog should include ${url} exactly once`
+    );
+    assert.equal(
+      seedUrlMatches.filter((item) => item === url).length,
+      1,
+      `seed should include ${url} exactly once`
+    );
+  }
 });
 
