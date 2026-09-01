@@ -105,6 +105,11 @@ const BENNGARNISH_OWNER_ID = "00000000-0000-0000-0000-000000000092";
 const OTNWORLD_OWNER_ID = "00000000-0000-0000-0000-000000000093";
 const HENRYLEEBAUTA_OWNER_ID = "00000000-0000-0000-0000-000000000094";
 const INQUSIT_OWNER_ID = "00000000-0000-0000-0000-000000000095";
+const ADGAPAR_OWNER_ID = "00000000-0000-0000-0000-000000000096";
+const MINEBOTCOIN_OWNER_ID = "00000000-0000-0000-0000-000000000097";
+const DENNISONBERTRAM_OWNER_ID = "00000000-0000-0000-0000-000000000098";
+const ADAMLOWISZ_OWNER_ID = "00000000-0000-0000-0000-000000000099";
+const CHASEMC67_OWNER_ID = "00000000-0000-0000-0000-000000000100";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -864,6 +869,46 @@ const INQUSIT_OWNER: Profile = {
   name: "Ashish",
   avatarUrl: null,
   xHandle: "inqusit",
+};
+
+const ADGAPAR_OWNER: Profile = {
+  id: ADGAPAR_OWNER_ID,
+  githubLogin: "adgapar",
+  name: "Adi",
+  avatarUrl: "https://avatars.githubusercontent.com/u/3167828?v=4",
+  xHandle: "adgapar",
+};
+
+const MINEBOTCOIN_OWNER: Profile = {
+  id: MINEBOTCOIN_OWNER_ID,
+  githubLogin: "minebotcoin",
+  name: "BOTCOIN",
+  avatarUrl: null,
+  xHandle: "MineBotcoin",
+};
+
+const DENNISONBERTRAM_OWNER: Profile = {
+  id: DENNISONBERTRAM_OWNER_ID,
+  githubLogin: "dennisonbertram",
+  name: "Dennison",
+  avatarUrl: "https://avatars.githubusercontent.com/u/228482372?v=4",
+  xHandle: "DennisonBertram",
+};
+
+const ADAMLOWISZ_OWNER: Profile = {
+  id: ADAMLOWISZ_OWNER_ID,
+  githubLogin: "adamlowisz",
+  name: "Adam",
+  avatarUrl: null,
+  xHandle: "AdamLowisz",
+};
+
+const CHASEMC67_OWNER: Profile = {
+  id: CHASEMC67_OWNER_ID,
+  githubLogin: "chasemc67",
+  name: "Chase",
+  avatarUrl: "https://avatars.githubusercontent.com/u/6922982?v=4",
+  xHandle: "ChaseMc67",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -4012,6 +4057,161 @@ const ASHISH: Pack = {
   ],
 };
 
+const ADI: Pack = {
+  id: "10000000-0000-0000-0000-000000000104",
+  owner: ADGAPAR_OWNER,
+  slug: "adi",
+  name: "Adi",
+  description:
+    "Public Grok Bot templates Adi (@adgapar) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["developer"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Token Ops. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000120",
+      name: "Token Ops",
+      job: "Knows every live routine across your Grok Bots, how often each fires, and whether it is worth the tokens. Flags waste and applies obvious weekday-bound fixes.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/4mCuSlW34n6l3aYxYJCdj",
+    }),
+  ],
+};
+
+const BOTCOIN: Pack = {
+  id: "10000000-0000-0000-0000-000000000105",
+  owner: MINEBOTCOIN_OWNER,
+  slug: "botcoin",
+  name: "BOTCOIN",
+  description:
+    "Public Grok Bot templates BOTCOIN (@MineBotcoin) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at BOTOSHI. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000121",
+      name: "BOTOSHI",
+      job: "Zero ETH BOTCOIN mining-rig onboarding miner.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/29XazZFrrsJyI8LUnExDD",
+    }),
+  ],
+};
+
+const DENNISON: Pack = {
+  id: "10000000-0000-0000-0000-000000000106",
+  owner: DENNISONBERTRAM_OWNER,
+  slug: "dennison",
+  name: "Dennison",
+  description:
+    "Public Grok Bot templates Dennison (@DennisonBertram) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at NYC Parent. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000122",
+      name: "NYC Parent",
+      job: "A family chief of staff for New York City parents. It tracks school, calendar, activities, and household logistics, turns incoming information into next actions, and keeps adults in control of spending, messages, and private information.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/DiNI489Qte5ryNvZjOROb",
+    }),
+  ],
+};
+
+const ADAM: Pack = {
+  id: "10000000-0000-0000-0000-000000000107",
+  owner: ADAMLOWISZ_OWNER,
+  slug: "adam",
+  name: "Adam",
+  description:
+    "Public Grok Bot templates Adam (@AdamLowisz) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["media"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at X Top 100 Fans Weekly. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000123",
+      name: "X Top 100 Fans Weekly",
+      job: "Ranks your top 100 X fans each week by how they engaged with your posts, then sends you the digest.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/HU7XArfGhUgLnzVcr7neB",
+    }),
+  ],
+};
+
+const CHASE: Pack = {
+  id: "10000000-0000-0000-0000-000000000108",
+  owner: CHASEMC67_OWNER,
+  slug: "chase",
+  name: "Chase",
+  description:
+    "Public Grok Bot templates Chase (@ChaseMc67) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["media"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Situation monitor. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000124",
+      name: "Situation monitor",
+      job: "Watches what you save on X and drafts a weekly thread of the week's real stories, in your voice. For anyone who wants a Saturday roundup that never posts until they say so.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/lkHayxdQjNzVVJIDh7qaF",
+    }),
+  ],
+};
+
 const ALL_PACKS: Pack[] = [
   LAUREN,
   KRISTA,
@@ -4107,6 +4307,11 @@ const ALL_PACKS: Pack[] = [
   PAUL,
   HENRY,
   ASHISH,
+  ADI,
+  BOTCOIN,
+  DENNISON,
+  ADAM,
+  CHASE,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -4204,6 +4409,11 @@ const ALL_PROFILES: Profile[] = [
   OTNWORLD_OWNER,
   HENRYLEEBAUTA_OWNER,
   INQUSIT_OWNER,
+  ADGAPAR_OWNER,
+  MINEBOTCOIN_OWNER,
+  DENNISONBERTRAM_OWNER,
+  ADAMLOWISZ_OWNER,
+  CHASEMC67_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {
