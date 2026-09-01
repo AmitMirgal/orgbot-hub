@@ -17,11 +17,15 @@ const seedSql = readFileSync(
 
 test("catalog includes existing packs plus the new verified shares", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 24);
-  assert.equal(stats.seats, 31);
+  assert.equal(stats.packs, 74);
+  assert.equal(stats.seats, 92);
   assert.ok(getFallbackPack("poteto", "lauren"));
   assert.ok(getFallbackPack("cjblev", "corey"));
   assert.ok(getFallbackPack("MaiYangAI", "mai"));
+  assert.ok(getFallbackPack("farzyness", "farzad"));
+  assert.ok(getFallbackPack("naoufalelh", "nao"));
+  assert.ok(getFallbackPack("Teslaconomics", "teslaconomics"));
+  assert.ok(getFallbackPack("kentcdodds", "kent"));
   assert.ok(getFallbackProfile("examples"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
   assert.ok(!listFallbackPacks().some((pack) => pack.owner.githubLogin === "examples"));
@@ -141,6 +145,71 @@ test("new packs are unofficial, unfeatured, and use canonical x.ai/bot URLs", ()
   assert.ok(getFallbackProfile("MaiYangAI"));
   const lauren = getFallbackPack("poteto", "lauren");
   assert.ok(!lauren?.seats.some((item) => /peddler/i.test(item.name)));
+});
+
+test("Farzad keeps Claudey as desk and adds Shorty", () => {
+  const farzad = getFallbackPack("farzyness", "farzad");
+  assert.ok(farzad);
+  assert.equal(farzad.seats[0]?.name, "Claudey");
+  assert.equal(farzad.seats[0]?.isDesk, true);
+  assert.equal(farzad.seats[0]?.grokTemplateUrl, "https://x.ai/bot/OR72i4SNc0_F1IzbCfg-D");
+  assert.deepEqual(
+    farzad.seats.map((item) => ({
+      name: item.name,
+      isDesk: item.isDesk,
+      sortOrder: item.sortOrder,
+      grokTemplateUrl: item.grokTemplateUrl,
+    })),
+    [
+      {
+        name: "Claudey",
+        isDesk: true,
+        sortOrder: 0,
+        grokTemplateUrl: "https://x.ai/bot/OR72i4SNc0_F1IzbCfg-D",
+      },
+      {
+        name: "Shorty",
+        isDesk: false,
+        sortOrder: 1,
+        grokTemplateUrl: "https://x.ai/bot/32fHIBw9Yz-s_o35KycGX",
+      },
+    ]
+  );
+  assert.match(farzad.routingRule, /Claudey/);
+  assert.match(farzad.routingRule, /Shorty only for YouTube Shorts clipping/);
+  assert.match(seedSql, /https:\/\/x\.ai\/bot\/32fHIBw9Yz-s_o35KycGX/);
+});
+
+test("Nao keeps Rutin as desk and adds Chieeeeefy", () => {
+  const nao = getFallbackPack("naoufalelh", "nao");
+  assert.ok(nao);
+  assert.equal(nao.seats[0]?.name, "Rutin");
+  assert.equal(nao.seats[0]?.isDesk, true);
+  assert.deepEqual(
+    nao.seats.map((item) => ({
+      name: item.name,
+      isDesk: item.isDesk,
+      sortOrder: item.sortOrder,
+      grokTemplateUrl: item.grokTemplateUrl,
+    })),
+    [
+      {
+        name: "Rutin",
+        isDesk: true,
+        sortOrder: 0,
+        grokTemplateUrl: "https://x.ai/bot/o4gWkNGmffEaVtOhaEsA7",
+      },
+      {
+        name: "Chieeeeefy",
+        isDesk: false,
+        sortOrder: 1,
+        grokTemplateUrl: "https://x.ai/bot/GiBPBQR2WrHNul4k9Tz6Q",
+      },
+    ]
+  );
+  assert.match(nao.routingRule, /Rutin/);
+  assert.match(nao.routingRule, /Chieeeeefy only for chief-of-staff work/);
+  assert.match(seedSql, /https:\/\/x\.ai\/bot\/GiBPBQR2WrHNul4k9Tz6Q/);
 });
 
 test("Mai keeps Grok Deck as desk and adds the Chinese tweet-scanner seat", () => {
@@ -366,10 +435,25 @@ test("new packs are unofficial, unfeatured, and keep one desk per author", () =>
   assert.ok(bill);
   assert.ok(!bill.seats.some((item) => /steer/i.test(item.name)));
   assert.match(bill.readmeMd ?? "", /Do not add STEER/);
+  assert.equal(bill.seats[0]?.grokTemplateUrl, "https://x.ai/bot/eydijdzrfgtnmlnUyPSI-");
+
+  const teslaconomics = getFallbackPack("Teslaconomics", "teslaconomics");
+  assert.ok(teslaconomics);
+  assert.equal(teslaconomics.name, "Teslaconomics");
+  assert.equal(teslaconomics.slug, "teslaconomics");
+  assert.equal(teslaconomics.seats[0]?.name, "Grok Build");
+  assert.equal(teslaconomics.seats[0]?.grokTemplateUrl, "https://x.ai/bot/ZRxm1O9tmizOhriV7GiWL");
+  assert.notEqual(bill.seats[0]?.grokTemplateUrl, teslaconomics.seats[0]?.grokTemplateUrl);
+  assert.match(teslaconomics.readmeMd ?? "", /not Bill Zanetti's Grok Build/);
+  assert.match(teslaconomics.readmeMd ?? "", /not Beau's Grok Build/);
+  assert.ok(!bill.seats.some((item) => item.grokTemplateUrl === "https://x.ai/bot/ZRxm1O9tmizOhriV7GiWL"));
+  assert.ok(!bill.seats.some((item) => item.grokTemplateUrl === "https://x.ai/bot/iwa3WaHZn385jfZrsQngL"));
 
   const lauren = getFallbackPack("poteto", "lauren");
   assert.equal(lauren?.seats.length, 1);
   assert.equal(lauren?.seats[0]?.name, "Dr Eggbot");
+  assert.equal(lauren?.seats[0]?.grokTemplateUrl, "https://x.ai/bot/93gOz3op1UQdBdbekQFLK");
+  assert.ok(!lauren?.seats.some((item) => /peddler/i.test(item.name)));
 });
 
 test("seed.sql dual-write covers Hiten seats and new owners", () => {
@@ -394,6 +478,10 @@ test("seed.sql dual-write covers Hiten seats and new owners", () => {
     "20000000-0000-0000-0000-000000000029",
     "20000000-0000-0000-0000-000000000030",
     "20000000-0000-0000-0000-000000000031",
+    "20000000-0000-0000-0000-000000000042",
+    "20000000-0000-0000-0000-000000000043",
+    "20000000-0000-0000-0000-000000000044",
+    "20000000-0000-0000-0000-000000000102",
   ]) {
     assert.match(seedSql, new RegExp(id));
   }
@@ -412,12 +500,145 @@ test("seed.sql dual-write covers Hiten seats and new owners", () => {
   assert.match(seedSql, /mdafanulh@orgbots\.dev/);
   assert.match(seedSql, /rrrkren@orgbots\.dev/);
   assert.match(seedSql, /billzanetti@orgbots\.dev/);
+  assert.match(seedSql, /arthurmacwaters@orgbots\.dev/);
+  assert.match(seedSql, /kentcdodds@orgbots\.dev/);
+  assert.match(seedSql, /Teslaconomics@orgbots\.dev/);
   assert.match(seedSql, /10000000-0000-0000-0000-000000000023/);
   assert.match(seedSql, /10000000-0000-0000-0000-000000000033/);
+  assert.match(seedSql, /10000000-0000-0000-0000-000000000042/);
+  assert.match(seedSql, /10000000-0000-0000-0000-000000000091/);
   assert.match(seedSql, /'eric-ren'/);
+  assert.match(seedSql, /'teslaconomics'/);
+  assert.match(seedSql, /'daniel-farinax'/);
+  assert.match(seedSql, /'daniel-mac'/);
+  assert.match(seedSql, /'daniel-zambrini'/);
   assert.doesNotMatch(seedSql, /'Box Inspector'/);
   assert.doesNotMatch(seedSql, /https:\/\/github\.com\/maiyang[^-A-Z]/i);
   assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/plugin\//);
   assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/mhzjt-Pa01Ds8EJ0zJrcz/);
   assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/AY2y4oPL_VgcttCt8OFqm/);
+  assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/PFD95widaEeqjkYLLUZmD/);
+  assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/Yf3pOvZQ0B_9DDcCzuhDG/);
+  assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/pImOOCvE7uB1SXENOI9Ng/);
+  assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/i5YF8f-zdcR76uKPrqg3J/);
+  assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/iwa3WaHZn385jfZrsQngL/);
+});
+
+test("grokbots.best gap-fill packs are unofficial with one desk and dual-written URLs", () => {
+  const expected = [
+    {
+      owner: "arthurmacwaters",
+      slug: "arthur",
+      name: "Arthur",
+      desk: "Research Bot",
+      url: "https://x.ai/bot/Nn0ykGa3vJ6YS7ib7F6yH",
+      seats: 1,
+    },
+    {
+      owner: "Av1dlive",
+      slug: "av1d",
+      name: "Av1d",
+      desk: "loops",
+      url: "https://x.ai/bot/Ub3T7usX-c6yRQibQq83P",
+      seats: 5,
+    },
+    {
+      owner: "kentcdodds",
+      slug: "kent",
+      name: "Kent",
+      desk: "Kody",
+      url: "https://x.ai/bot/yTSGElYcIjFW_5IXu2I-e",
+      seats: 2,
+    },
+    {
+      owner: "lennysan",
+      slug: "lenny",
+      name: "Lenny",
+      desk: "Be Happier",
+      url: "https://x.ai/bot/0VC1XzREXRFGe0hVo-JEG",
+      seats: 3,
+    },
+    {
+      owner: "lingxi",
+      slug: "lingxi",
+      name: "Lingxi",
+      desk: "Lingxi's Engineer Bot",
+      url: "https://x.ai/bot/fY1xWwCLzDDGVe3GwH78j",
+      seats: 2,
+    },
+    {
+      owner: "waynesutton",
+      slug: "wayne",
+      name: "Wayne",
+      desk: "Apps",
+      url: "https://x.ai/bot/OPLop__-mqSsyQheR5JYv",
+      seats: 2,
+    },
+    {
+      owner: "Daniel_Farinax",
+      slug: "daniel-farinax",
+      name: "Daniel Farinax",
+      desk: "freebots.lol",
+      url: "https://x.ai/bot/ndOGeXyjkQLdceRlk7JP4",
+      seats: 1,
+    },
+    {
+      owner: "daniel_mac8",
+      slug: "daniel-mac",
+      name: "Daniel Mac",
+      desk: "X Brief",
+      url: "https://x.ai/bot/GkX6X536UK2MlbkfGLQnb",
+      seats: 1,
+    },
+    {
+      owner: "DanielZambrini",
+      slug: "daniel-zambrini",
+      name: "Daniel Zambrini",
+      desk: "Claude Code",
+      url: "https://x.ai/bot/71PSQ4KBs-hNYBsH05X_n",
+      seats: 1,
+    },
+  ] as const;
+
+  for (const item of expected) {
+    const pack = getFallbackPack(item.owner, item.slug);
+    assert.ok(pack, `${item.owner}/${item.slug}`);
+    assert.equal(pack.name, item.name);
+    assert.equal(pack.official, false);
+    assert.equal(pack.featured, false);
+    assert.equal(pack.seats.length, item.seats);
+    assert.equal(pack.seats[0]?.name, item.desk);
+    assert.equal(pack.seats[0]?.isDesk, true);
+    assert.equal(pack.seats[0]?.grokTemplateUrl, item.url);
+    assert.equal(parseGrokTemplateUrl(pack.seats[0]?.grokTemplateUrl), item.url);
+    assert.match(seedSql, new RegExp(item.url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  const kent = getFallbackPack("kentcdodds", "kent");
+  assert.ok(kent);
+  assert.equal(kent.seats[1]?.name, "Imogen");
+  assert.equal(kent.seats[1]?.grokTemplateUrl, "https://x.ai/bot/9y2GcFkKMAUhYlMxRUS0X");
+  assert.equal(kent.owner.githubLogin, "kentcdodds");
+  assert.ok(kent.owner.avatarUrl);
+
+  const av1d = getFallbackPack("Av1dlive", "av1d");
+  assert.ok(av1d);
+  assert.equal(av1d.owner.avatarUrl, null);
+  assert.deepEqual(
+    av1d.seats.map((item) => item.name),
+    ["loops", "Master", "Chief of Staff", "Growth Desk", "Grok Bot Coach"]
+  );
+
+  const fallbackUrls = new Set(
+    listFallbackPacks()
+      .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
+      .map((seat) => seat.grokTemplateUrl)
+      .filter((url): url is string => Boolean(url))
+  );
+  const seedUrls = new Set(
+    [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map((match) => match[0])
+  );
+  for (const url of fallbackUrls) {
+    assert.ok(seedUrls.has(url), `seed missing ${url}`);
+  }
 });
