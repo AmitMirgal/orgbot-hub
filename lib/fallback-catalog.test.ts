@@ -18,8 +18,8 @@ const seedSql = readFileSync(
 
 test("catalog includes existing packs plus the new verified shares", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 124);
-  assert.equal(stats.seats, 160);
+  assert.equal(stats.packs, 127);
+  assert.equal(stats.seats, 165);
   assert.ok(getFallbackPack("poteto", "lauren"));
   assert.ok(getFallbackPack("cjblev", "corey"));
   assert.ok(getFallbackPack("MaiYangAI", "mai"));
@@ -35,6 +35,9 @@ test("catalog includes existing packs plus the new verified shares", () => {
   assert.ok(getFallbackPack("SumoSign", "keith"));
   assert.ok(getFallbackPack("bfrench", "bill-french"));
   assert.ok(getFallbackPack("herdrdev", "can"));
+  assert.ok(getFallbackPack("andreleibovici", "andre"));
+  assert.ok(getFallbackPack("randywhitepdx", "randy"));
+  assert.ok(getFallbackPack("pohlipit", "pete"));
   assert.ok(getFallbackProfile("examples"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
   assert.ok(!listFallbackPacks().some((pack) => pack.owner.githubLogin === "examples"));
@@ -762,6 +765,11 @@ test("seed.sql dual-write covers Hiten seats and new owners", () => {
   assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/pImOOCvE7uB1SXENOI9Ng/);
   assert.match(seedSql, /https:\/\/x\.ai\/bot\/i5YF8f-zdcR76uKPrqg3J/);
   assert.match(seedSql, /https:\/\/x\.ai\/bot\/iwa3WaHZn385jfZrsQngL/);
+  assert.match(seedSql, /andreleibovici@orgbots\.dev/);
+  assert.match(seedSql, /randywhitepdx@orgbots\.dev/);
+  assert.match(seedSql, /pohlipit@orgbots\.dev/);
+  assert.match(seedSql, /'Dead Man''s Bot'/);
+  assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/NuFI0dF9FgvO8FfMPHKzx/);
 });
 
 test("grokbots.best gap-fill packs are unofficial with one desk and dual-written URLs", () => {
@@ -1249,8 +1257,8 @@ test("catalog watch adds five unofficial one-desk packs with live x.ai URLs", ()
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 160);
-  assert.equal(uniqueFallbackUrls.size, 160);
+  assert.equal(fallbackUrls.length, 165);
+  assert.equal(uniqueFallbackUrls.size, 165);
 
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
@@ -1549,8 +1557,8 @@ test("catalog watch adds Andrew AvatarMaker, Scott Cookie Monster, and 14 more p
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 160);
-  assert.equal(uniqueFallbackUrls.size, 160);
+  assert.equal(fallbackUrls.length, 165);
+  assert.equal(uniqueFallbackUrls.size, 165);
 
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
@@ -1619,7 +1627,7 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
       topic: "founder",
       avatar: null,
       job: /Cursor spending dashboard/i,
-      seats: 2,
+      seats: 4,
     },
     {
       owner: "joepro",
@@ -1712,6 +1720,45 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
       job: /Kleros V2 juror/i,
       seats: 1,
     },
+    {
+      owner: "andreleibovici",
+      slug: "andre",
+      name: "Andre",
+      desk: "Engineering QA",
+      url: "https://x.ai/bot/b2tS8BNj8BhoQNDcB081S",
+      seatId: "20000000-0000-0000-0000-000000000161",
+      packId: "10000000-0000-0000-0000-000000000134",
+      topic: "developer",
+      avatar: null,
+      job: /pull-request quality gates/i,
+      seats: 1,
+    },
+    {
+      owner: "randywhitepdx",
+      slug: "randy",
+      name: "Randall",
+      desk: "Lite Intel Fetch",
+      url: "https://x.ai/bot/FQRA5tERWsasaQGIZmBl_",
+      seatId: "20000000-0000-0000-0000-000000000162",
+      packId: "10000000-0000-0000-0000-000000000135",
+      topic: "founder",
+      avatar: null,
+      job: /buy_intel_pack \$5 HTTP 402/i,
+      seats: 1,
+    },
+    {
+      owner: "pohlipit",
+      slug: "pete",
+      name: "Pete",
+      desk: "Zettelkasten",
+      url: "https://x.ai/bot/35ZO_vGqk_ch51C9qPX1c",
+      seatId: "20000000-0000-0000-0000-000000000163",
+      packId: "10000000-0000-0000-0000-000000000136",
+      topic: "founder",
+      avatar: "https://avatars.githubusercontent.com/u/1668364?v=4",
+      job: /Obsidian vault/i,
+      seats: 1,
+    },
   ] as const;
 
   for (const item of expected) {
@@ -1766,12 +1813,30 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
         sortOrder: 1,
         grokTemplateUrl: "https://x.ai/bot/4y3jlvwxFNqcP76eJgpuD",
       },
+      {
+        id: "20000000-0000-0000-0000-000000000164",
+        name: "Likeness",
+        isDesk: false,
+        sortOrder: 2,
+        grokTemplateUrl: "https://x.ai/bot/-h0DhS9ty87dr0UGXLjDD",
+      },
+      {
+        id: "20000000-0000-0000-0000-000000000165",
+        name: "Dead Man's Bot",
+        isDesk: false,
+        sortOrder: 3,
+        grokTemplateUrl: "https://x.ai/bot/XCaz2bKzsJ4J1DmkaYyc4",
+      },
     ]
   );
   assert.match(knock.routingRule, /Token Accountant/);
   assert.match(knock.routingRule, /Code Red only for the kill-switch/);
+  assert.match(knock.routingRule, /Likeness only for named-person or animal stills and clips/);
+  assert.match(knock.routingRule, /Dead Man's Bot only for the dead-man's switch/);
   assert.match(knock.readmeMd ?? "", /Box Inspector/);
   assert.match(knock.readmeMd ?? "", /4 Panez/);
+  assert.match(knock.seats[2]?.job ?? "", /Imagine stills and clips keep looking like them/);
+  assert.match(knock.seats[3]?.job ?? "", /does not start armed/);
 
   const haseeb = getFallbackPack("haseebmir91", "haseeb");
   assert.ok(haseeb);
@@ -1901,6 +1966,10 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
   assert.ok(getFallbackProfile("ryangbsystems"));
   assert.ok(getFallbackProfile("MaheshtheDev"));
   assert.ok(getFallbackProfile("jaybuidl"));
+  assert.ok(getFallbackProfile("andreleibovici"));
+  assert.ok(getFallbackProfile("randywhitepdx"));
+  assert.ok(getFallbackProfile("pohlipit"));
+  assert.equal(getFallbackProfile("RandyWhitePDX"), null);
   assert.equal(getFallbackProfile("rustamatuev"), null);
   assert.equal(getFallbackProfile("mahesh"), null);
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -1916,14 +1985,15 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
     "https://x.ai/bot/5hqR_5PVUy7WMbNaXPJ8s",
     "https://x.ai/bot/dep-tU0gmIPgiqNsvS4N4",
     "https://x.ai/bot/M9c2tC_-mwY8XNTmSbkUY",
+    "https://x.ai/bot/NuFI0dF9FgvO8FfMPHKzx",
   ];
   const fallbackUrls = listFallbackPacks()
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 160);
-  assert.equal(uniqueFallbackUrls.size, 160);
+  assert.equal(fallbackUrls.length, 165);
+  assert.equal(uniqueFallbackUrls.size, 165);
   for (const url of skipped) {
     assert.ok(!uniqueFallbackUrls.has(url), `catalog should skip ${url}`);
     assert.ok(!seedSql.includes(url), `seed should skip ${url}`);
@@ -1939,6 +2009,8 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
     "https://x.ai/bot/yE1-m0X2okSxFsvjScxy0",
     "https://x.ai/bot/wxFNc5b_yBkJraLqZXvI7",
     "https://x.ai/bot/WdQtoljjNUJ_-mX6B6SRL",
+    "https://x.ai/bot/-h0DhS9ty87dr0UGXLjDD",
+    "https://x.ai/bot/XCaz2bKzsJ4J1DmkaYyc4",
   ];
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
