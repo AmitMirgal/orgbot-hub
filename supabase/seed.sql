@@ -4931,7 +4931,10 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000154',
   '20000000-0000-0000-0000-000000000155',
   '20000000-0000-0000-0000-000000000156',
-  '20000000-0000-0000-0000-000000000157'
+  '20000000-0000-0000-0000-000000000157',
+  '20000000-0000-0000-0000-000000000158',
+  '20000000-0000-0000-0000-000000000159',
+  '20000000-0000-0000-0000-000000000160'
 );
 delete from public.packs
 where id in (
@@ -7696,7 +7699,7 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Copay Compass. Use Medical Bill Review only for itemized bills and charity-care disputes. Named seats only when that job is already in this pack.',
+  'Random questions stay at Copay Compass. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 ),
 (
@@ -8146,7 +8149,7 @@ insert into public.packs (
   array['media'],
   0,
   0,
-  'Random questions stay at Scout. Use a named seat only when that job is already in this pack.',
+  'Random questions stay at Scout. Use Writer only for studio copy. Use Art only for on-brand visuals. Use Editor only for the quality gate. Use Desk only for calendar, client pack, and weekly report. Named seats only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 ),
 (
@@ -8579,6 +8582,46 @@ insert into public.seats (
     'https://x.ai/bot/ywADCWWZP0Bcq6bOeQpGt'
   ),
   (
+    '20000000-0000-0000-0000-000000000156',
+    '10000000-0000-0000-0000-000000000128',
+    'Writer',
+    'Writes studio copy to a client''s voice, goal, and platform format. Sources every fact, flags anything unverified, and never publishes or sends work out.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/38UdPemBuZb9USs_0HAES'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000158',
+    '10000000-0000-0000-0000-000000000128',
+    'Art',
+    'Turns approved posts into on-brand visuals: a short brief, the asset on the client''s palette and type rules, and alt text. Flags anything that doesn''t match the brand file instead of guessing.',
+    null,
+    false,
+    2,
+    'https://x.ai/bot/yE1-m0X2okSxFsvjScxy0'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000159',
+    '10000000-0000-0000-0000-000000000128',
+    'Editor',
+    'A quality gate for drafts before they ship. Checks each piece against the client''s voice and banned list, verifies every factual claim has a source, and sends back what fails with the reason and the line to fix.',
+    null,
+    false,
+    3,
+    'https://x.ai/bot/wxFNc5b_yBkJraLqZXvI7'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000160',
+    '10000000-0000-0000-0000-000000000128',
+    'Desk',
+    'Ops desk for a content studio. Builds the weekly calendar from approved posts, assembles the client pack with every asset and source line, and writes the week''s report. Stops before anything leaves the workspace.',
+    null,
+    false,
+    4,
+    'https://x.ai/bot/WdQtoljjNUJ_-mX6B6SRL'
+  ),
+  (
     '20000000-0000-0000-0000-000000000149',
     '10000000-0000-0000-0000-000000000129',
     'Private Desk',
@@ -8647,16 +8690,6 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/vsCDaIn2Od_BkfWp0Vehm'
-  ),
-  (
-    '20000000-0000-0000-0000-000000000156',
-    '10000000-0000-0000-0000-000000000098',
-    'Medical Bill Review',
-    'Gets you the itemized bill, screens published protections, reads that hospital''s charity care policy, and drafts the dispute letter. You send it.',
-    null,
-    false,
-    1,
-    'https://x.ai/bot/M9c2tC_-mwY8XNTmSbkUY'
   )
 on conflict (id) do update
   set pack_id = excluded.pack_id,
