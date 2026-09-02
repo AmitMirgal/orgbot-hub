@@ -139,6 +139,8 @@ const ANDRELEIBOVICI_OWNER_ID = "00000000-0000-0000-0000-000000000126";
 const RANDYWHITEPDX_OWNER_ID = "00000000-0000-0000-0000-000000000127";
 const POHLIPIT_OWNER_ID = "00000000-0000-0000-0000-000000000128";
 const AKSHAYBHOPANI_OWNER_ID = "00000000-0000-0000-0000-000000000129";
+const FRANKFINDOUT_OWNER_ID = "00000000-0000-0000-0000-000000000130";
+const LUDIOFELIX_OWNER_ID = "00000000-0000-0000-0000-000000000131";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -1170,6 +1172,22 @@ const AKSHAYBHOPANI_OWNER: Profile = {
   name: "Akshay",
   avatarUrl: "https://avatars.githubusercontent.com/u/28391021?v=4",
   xHandle: "AKSHAYBHOPANI",
+};
+
+const FRANKFINDOUT_OWNER: Profile = {
+  id: FRANKFINDOUT_OWNER_ID,
+  githubLogin: "frankfindsout",
+  name: "Frank",
+  avatarUrl: null,
+  xHandle: "FrankFindsOut",
+};
+
+const LUDIOFELIX_OWNER: Profile = {
+  id: LUDIOFELIX_OWNER_ID,
+  githubLogin: "ludiofelix",
+  name: "Rob",
+  avatarUrl: null,
+  xHandle: "ludiofelix",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -5489,6 +5507,68 @@ const AKSHAY: Pack = {
   ],
 };
 
+const FRANK: Pack = {
+  id: "10000000-0000-0000-0000-000000000138",
+  owner: FRANKFINDOUT_OWNER,
+  slug: "frank",
+  name: "Frank",
+  description:
+    "Public Grok Bot templates Frank (@FrankFindsOut) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["media"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Meta Grok. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000167",
+      name: "Meta Grok",
+      job: "Finds the five most popular Grok bots on X each weekday and sends a short digest you can skim in under a minute.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/HAhgshU4r50gS81LCcpmk",
+    }),
+  ],
+};
+
+const ROB: Pack = {
+  id: "10000000-0000-0000-0000-000000000139",
+  owner: LUDIOFELIX_OWNER,
+  slug: "rob",
+  name: "Rob",
+  description:
+    "Public Grok Bot templates Rob (@ludiofelix) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Convert X Money to Karma. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000168",
+      name: "Convert X Money to Karma",
+      job: "Converts money, tokens, and engagement into karmic accounting. Ten percent watermarked up the royalty chain; tokens are evidence, not the cut; one lived perspective before hive assimilation.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/iCn7r691OdtaB_o8MtHx_",
+    }),
+  ],
+};
+
 const ALL_PACKS: Pack[] = [
   LAUREN,
   KRISTA,
@@ -5618,6 +5698,8 @@ const ALL_PACKS: Pack[] = [
   RANDALL,
   PETE,
   AKSHAY,
+  FRANK,
+  ROB,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -5749,6 +5831,8 @@ const ALL_PROFILES: Profile[] = [
   RANDYWHITEPDX_OWNER,
   POHLIPIT_OWNER,
   AKSHAYBHOPANI_OWNER,
+  FRANKFINDOUT_OWNER,
+  LUDIOFELIX_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {

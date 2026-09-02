@@ -2207,6 +2207,40 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000130',
+  'authenticated',
+  'authenticated',
+  'frankfindsout@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"frankfindsout","preferred_username":"frankfindsout","full_name":"Frank"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000131',
+  'authenticated',
+  'authenticated',
+  'ludiofelix@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"ludiofelix","preferred_username":"ludiofelix","full_name":"Rob"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 on conflict (id) do nothing;
 
@@ -3895,6 +3929,32 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000130',
+  '00000000-0000-0000-0000-000000000130',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000130',
+    'email', 'frankfindsout@orgbots.dev',
+    'user_name', 'frankfindsout'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000131',
+  '00000000-0000-0000-0000-000000000131',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000131',
+    'email', 'ludiofelix@orgbots.dev',
+    'user_name', 'ludiofelix'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 on conflict (provider_id, provider) do nothing;
 
@@ -4790,6 +4850,20 @@ values
     'Akshay',
     'AKSHAYBHOPANI',
     'https://avatars.githubusercontent.com/u/28391021?v=4'
+  ),
+  (
+    '00000000-0000-0000-0000-000000000130',
+    'frankfindsout',
+    'Frank',
+    'FrankFindsOut',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000131',
+    'ludiofelix',
+    'Rob',
+    'ludiofelix',
+    null
   )
 on conflict (id) do update
   set github_login = excluded.github_login,
@@ -4935,7 +5009,9 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000134',
   '10000000-0000-0000-0000-000000000135',
   '10000000-0000-0000-0000-000000000136',
-  '10000000-0000-0000-0000-000000000137'
+  '10000000-0000-0000-0000-000000000137',
+  '10000000-0000-0000-0000-000000000138',
+  '10000000-0000-0000-0000-000000000139'
 )
    or id in (
   '20000000-0000-0000-0000-000000000012',
@@ -5092,7 +5168,9 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000163',
   '20000000-0000-0000-0000-000000000164',
   '20000000-0000-0000-0000-000000000165',
-  '20000000-0000-0000-0000-000000000166'
+  '20000000-0000-0000-0000-000000000166',
+  '20000000-0000-0000-0000-000000000167',
+  '20000000-0000-0000-0000-000000000168'
 );
 delete from public.packs
 where id in (
@@ -8444,6 +8522,36 @@ insert into public.packs (
   0,
   'Random questions stay at My Krishna. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000138',
+  '00000000-0000-0000-0000-000000000130',
+  'frank',
+  'Frank',
+  'Public Grok Bot templates Frank (@FrankFindsOut) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['media'],
+  0,
+  0,
+  'Random questions stay at Meta Grok. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000139',
+  '00000000-0000-0000-0000-000000000131',
+  'rob',
+  'Rob',
+  'Public Grok Bot templates Rob (@ludiofelix) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Convert X Money to Karma. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 )
 on conflict (id) do update
   set owner_id = excluded.owner_id,
@@ -8968,6 +9076,26 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/Mf2MLqJRCmz8sSjFmYedG'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000167',
+    '10000000-0000-0000-0000-000000000138',
+    'Meta Grok',
+    'Finds the five most popular Grok bots on X each weekday and sends a short digest you can skim in under a minute.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/HAhgshU4r50gS81LCcpmk'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000168',
+    '10000000-0000-0000-0000-000000000139',
+    'Convert X Money to Karma',
+    'Converts money, tokens, and engagement into karmic accounting. Ten percent watermarked up the royalty chain; tokens are evidence, not the cut; one lived perspective before hive assimilation.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/iCn7r691OdtaB_o8MtHx_'
   )
 on conflict (id) do update
   set pack_id = excluded.pack_id,
