@@ -54,3 +54,7 @@ pnpm prisma:migrate:deploy
 ```
 
 That runs `prisma migrate deploy`. Missing `pack_visits` or `team_chat_usage` is a migrate-deploy miss, not a UI bug.
+
+## Analytics
+
+The browser sends PostHog events through `/ogb-ph` on this origin so ad blockers are less likely to drop them. Visit counts on pack cards still come from Prisma.
