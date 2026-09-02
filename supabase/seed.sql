@@ -4930,7 +4930,8 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000153',
   '20000000-0000-0000-0000-000000000154',
   '20000000-0000-0000-0000-000000000155',
-  '20000000-0000-0000-0000-000000000156'
+  '20000000-0000-0000-0000-000000000156',
+  '20000000-0000-0000-0000-000000000157'
 );
 delete from public.packs
 where id in (
@@ -4955,8 +4956,8 @@ insert into public.packs (
   array['founder', 'developer'],
   0,
   0,
-  'Random and “make me a bot” stay at Dr Eggbot. Use a named seat only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots she published as https://x.ai/bot/… belong here. When she publishes another official link, add a seat. Do not invent unpublished Eng/PM/recruiter bots.$readme$
+  'Random and “make me a bot” stay at Dr Eggbot. Use tinkabot only for wrapping an API into a Cursor/Agent Plugin. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots she published as https://x.ai/bot/… belong here. When she publishes another official link, add a seat. Do not invent unpublished Eng/PM/recruiter bots. Do not add Box Inspector or Point peddler. tinkabot is her official share, not a quote of someone else's post.$readme$
 )
 on conflict (id) do update
   set owner_id = excluded.owner_id,
@@ -4981,6 +4982,16 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/93gOz3op1UQdBdbekQFLK'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000157',
+    '10000000-0000-0000-0000-000000000010',
+    'tinkabot',
+    'Wraps an API into a Cursor/Agent Plugin (MCP + skills). Data shape first, smallest scaffold that works, prove locally, then ask once for affiliation.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/br5f3C4mc75QCMEHaszXd'
   )
 on conflict (id) do update
   set pack_id = excluded.pack_id,

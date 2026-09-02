@@ -19,7 +19,7 @@ const seedSql = readFileSync(
 test("catalog includes existing packs plus the new verified shares", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 124);
-  assert.equal(stats.seats, 156);
+  assert.equal(stats.seats, 157);
   assert.ok(getFallbackPack("poteto", "lauren"));
   assert.ok(getFallbackPack("cjblev", "corey"));
   assert.ok(getFallbackPack("MaiYangAI", "mai"));
@@ -629,10 +629,16 @@ test("new packs are unofficial, unfeatured, and keep one desk per author", () =>
   assert.match(ben.readmeMd ?? "", /do not add it to Aaron/);
 
   const lauren = getFallbackPack("poteto", "lauren");
-  assert.equal(lauren?.seats.length, 1);
+  assert.equal(lauren?.seats.length, 2);
   assert.equal(lauren?.seats[0]?.name, "Dr Eggbot");
+  assert.equal(lauren?.seats[0]?.isDesk, true);
   assert.equal(lauren?.seats[0]?.grokTemplateUrl, "https://x.ai/bot/93gOz3op1UQdBdbekQFLK");
+  assert.equal(lauren?.seats[1]?.name, "tinkabot");
+  assert.equal(lauren?.seats[1]?.isDesk, false);
+  assert.equal(lauren?.seats[1]?.id, "20000000-0000-0000-0000-000000000157");
+  assert.equal(lauren?.seats[1]?.grokTemplateUrl, "https://x.ai/bot/br5f3C4mc75QCMEHaszXd");
   assert.ok(!lauren?.seats.some((item) => /peddler/i.test(item.name)));
+  assert.ok(!lauren?.seats.some((item) => /box inspector/i.test(item.name)));
 });
 
 test("seed.sql dual-write covers Hiten seats and new owners", () => {
@@ -1246,8 +1252,8 @@ test("catalog watch adds five unofficial one-desk packs with live x.ai URLs", ()
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 156);
-  assert.equal(uniqueFallbackUrls.size, 156);
+  assert.equal(fallbackUrls.length, 157);
+  assert.equal(uniqueFallbackUrls.size, 157);
 
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
@@ -1546,8 +1552,8 @@ test("catalog watch adds Andrew AvatarMaker, Scott Cookie Monster, and 14 more p
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 156);
-  assert.equal(uniqueFallbackUrls.size, 156);
+  assert.equal(fallbackUrls.length, 157);
+  assert.equal(uniqueFallbackUrls.size, 157);
 
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
@@ -1822,9 +1828,16 @@ test("catalog adds ten unofficial packs plus Marc Medical Bill Review", () => {
 
   const lauren = getFallbackPack("poteto", "lauren");
   assert.ok(lauren);
-  assert.equal(lauren.seats.length, 1);
+  assert.equal(lauren.seats.length, 2);
   assert.equal(lauren.seats[0]?.name, "Dr Eggbot");
-  assert.ok(!lauren.seats.some((item) => /tinkabot/i.test(item.name)));
+  assert.equal(lauren.seats[0]?.isDesk, true);
+  assert.equal(lauren.seats[1]?.name, "tinkabot");
+  assert.equal(lauren.seats[1]?.isDesk, false);
+  assert.equal(lauren.seats[1]?.grokTemplateUrl, "https://x.ai/bot/br5f3C4mc75QCMEHaszXd");
+  assert.match(lauren.routingRule, /tinkabot only for wrapping an API/);
+  assert.match(lauren.readmeMd ?? "", /Do not add Box Inspector or Point peddler/);
+  assert.ok(!lauren.seats.some((item) => /peddler/i.test(item.name)));
+  assert.ok(!lauren.seats.some((item) => /box inspector/i.test(item.name)));
 
   assert.ok(getFallbackProfile("RustamAtuev"));
   assert.ok(getFallbackProfile("dankillenberger"));
@@ -1847,7 +1860,6 @@ test("catalog adds ten unofficial packs plus Marc Medical Bill Review", () => {
     "https://x.ai/bot/UWNGpcghM9H79JCb4of5Q",
     "https://x.ai/bot/Z0Faxo9DTX0KL7j7OHTWJ",
     "https://x.ai/bot/3n26nkAkMjk5EZcKJlo9w",
-    "https://x.ai/bot/br5f3C4mc75QCMEHaszXd",
     "https://x.ai/bot/Abz5txK3unOkm5ZxCGGX-",
     "https://x.ai/bot/5hqR_5PVUy7WMbNaXPJ8s",
     "https://x.ai/bot/dep-tU0gmIPgiqNsvS4N4",
@@ -1857,8 +1869,8 @@ test("catalog adds ten unofficial packs plus Marc Medical Bill Review", () => {
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 156);
-  assert.equal(uniqueFallbackUrls.size, 156);
+  assert.equal(fallbackUrls.length, 157);
+  assert.equal(uniqueFallbackUrls.size, 157);
   for (const url of skipped) {
     assert.ok(!uniqueFallbackUrls.has(url), `catalog should skip ${url}`);
     assert.ok(!seedSql.includes(url), `seed should skip ${url}`);
@@ -1870,6 +1882,7 @@ test("catalog adds ten unofficial packs plus Marc Medical Bill Review", () => {
     "https://x.ai/bot/uVNOsoe-iWf4ZOUdfgo5R",
     "https://x.ai/bot/5RXN9P3CxnIIwgcmvVWEp",
     "https://x.ai/bot/M9c2tC_-mwY8XNTmSbkUY",
+    "https://x.ai/bot/br5f3C4mc75QCMEHaszXd",
   ];
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
