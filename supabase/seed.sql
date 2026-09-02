@@ -2241,6 +2241,74 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000132',
+  'authenticated',
+  'authenticated',
+  'bossriceshark@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"bossriceshark","preferred_username":"bossriceshark","full_name":"Matt"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000133',
+  'authenticated',
+  'authenticated',
+  'saasocalypse@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"saasocalypse","preferred_username":"saasocalypse","full_name":"Ankur"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000134',
+  'authenticated',
+  'authenticated',
+  'mpieras@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"mpieras","preferred_username":"mpieras","full_name":"Miguel"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000135',
+  'authenticated',
+  'authenticated',
+  'emrecolakoglu@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"emrecolakoglu","preferred_username":"emrecolakoglu","full_name":"Emre"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 on conflict (id) do nothing;
 
@@ -3955,6 +4023,58 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000132',
+  '00000000-0000-0000-0000-000000000132',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000132',
+    'email', 'bossriceshark@orgbots.dev',
+    'user_name', 'bossriceshark'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000133',
+  '00000000-0000-0000-0000-000000000133',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000133',
+    'email', 'saasocalypse@orgbots.dev',
+    'user_name', 'saasocalypse'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000134',
+  '00000000-0000-0000-0000-000000000134',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000134',
+    'email', 'mpieras@orgbots.dev',
+    'user_name', 'mpieras'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000135',
+  '00000000-0000-0000-0000-000000000135',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000135',
+    'email', 'emrecolakoglu@orgbots.dev',
+    'user_name', 'emrecolakoglu'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 on conflict (provider_id, provider) do nothing;
 
@@ -4864,6 +4984,34 @@ values
     'Rob',
     'ludiofelix',
     null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000132',
+    'bossriceshark',
+    'Matt',
+    'bossriceshark',
+    'https://avatars.githubusercontent.com/u/194162663?v=4'
+  ),
+  (
+    '00000000-0000-0000-0000-000000000133',
+    'saasocalypse',
+    'Ankur',
+    'SaaSocalypse',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000134',
+    'mpieras',
+    'Miguel',
+    'mpieras',
+    'https://avatars.githubusercontent.com/u/9534587?v=4'
+  ),
+  (
+    '00000000-0000-0000-0000-000000000135',
+    'emrecolakoglu',
+    'Emre',
+    'emrecolakoglu',
+    'https://avatars.githubusercontent.com/u/919056?v=4'
   )
 on conflict (id) do update
   set github_login = excluded.github_login,
@@ -5011,7 +5159,11 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000136',
   '10000000-0000-0000-0000-000000000137',
   '10000000-0000-0000-0000-000000000138',
-  '10000000-0000-0000-0000-000000000139'
+  '10000000-0000-0000-0000-000000000139',
+  '10000000-0000-0000-0000-000000000140',
+  '10000000-0000-0000-0000-000000000141',
+  '10000000-0000-0000-0000-000000000142',
+  '10000000-0000-0000-0000-000000000143'
 )
    or id in (
   '20000000-0000-0000-0000-000000000012',
@@ -5170,7 +5322,13 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000165',
   '20000000-0000-0000-0000-000000000166',
   '20000000-0000-0000-0000-000000000167',
-  '20000000-0000-0000-0000-000000000168'
+  '20000000-0000-0000-0000-000000000168',
+  '20000000-0000-0000-0000-000000000169',
+  '20000000-0000-0000-0000-000000000170',
+  '20000000-0000-0000-0000-000000000171',
+  '20000000-0000-0000-0000-000000000172',
+  '20000000-0000-0000-0000-000000000173',
+  '20000000-0000-0000-0000-000000000174'
 );
 delete from public.packs
 where id in (
@@ -8235,8 +8393,8 @@ insert into public.packs (
   array['developer'],
   0,
   0,
-  'Random questions stay at Grok VM maintenance. Use a named seat only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+  'Random questions stay at Grok VM maintenance. Use Dr Web LP only for implementing a page from a supplied reference image. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Do not mix with Can (@herdrdev) Shepherd.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000119',
@@ -8551,6 +8709,66 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at Convert X Money to Karma. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000140',
+  '00000000-0000-0000-0000-000000000132',
+  'matt',
+  'Matt',
+  'Public Grok Bot templates Matt (@bossriceshark) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['developer'],
+  0,
+  0,
+  'Random questions stay at Fable 5.1 Oracle. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000141',
+  '00000000-0000-0000-0000-000000000133',
+  'ankur',
+  'Ankur',
+  'Public Grok Bot templates Ankur (@SaaSocalypse) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Know Yourself. Use Know Enemy only for scheduled competitive intelligence. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000142',
+  '00000000-0000-0000-0000-000000000134',
+  'miguel',
+  'Miguel',
+  'Public Grok Bot templates Miguel (@mpieras) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['developer'],
+  0,
+  0,
+  'Random questions stay at Farm. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000143',
+  '00000000-0000-0000-0000-000000000135',
+  'emre',
+  'Emre',
+  'Public Grok Bot templates Emre (@emrecolakoglu) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['media'],
+  0,
+  0,
+  'Random questions stay at aoty. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 )
 on conflict (id) do update
@@ -9096,6 +9314,66 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/iCn7r691OdtaB_o8MtHx_'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000169',
+    '10000000-0000-0000-0000-000000000118',
+    'Dr Web LP',
+    'Implements a page from a supplied reference image: skeleton, spacing, and cell model first. Loops compare, fix, and verify until layout, sizes, and balance match. Does not invent a template or copy brand, photos, or copy unless you supply them.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/xM153pKfXPLWagLi_O1vR'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000170',
+    '10000000-0000-0000-0000-000000000140',
+    'Fable 5.1 Oracle',
+    'Fable 5.1 planning and review seat, not the implementer. Runs Claude Code CLI as Fable 5.1 on the Grok Bot computer to plan, review a plan, and verify an implement result. Does not implement or merge.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/tLSg4HxepSclMqbZUTRnX'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000171',
+    '10000000-0000-0000-0000-000000000141',
+    'Know Yourself',
+    'Internal intelligence bot for any company. Set up against your systems of record, then get snapshots, canonical answers, us-deltas for competitive pulses, and meeting prep — without inventing.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/mD27QOhXb_plMRSbsvMOv'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000172',
+    '10000000-0000-0000-0000-000000000141',
+    'Know Enemy',
+    'Scheduled competitive intelligence for GTM teams — Mu-style pulse digests plus on-demand rival cards. You define the competitors; public OSINT only.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/LREkas8UxVGvPJ5NiO7bz'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000173',
+    '10000000-0000-0000-0000-000000000142',
+    'Farm',
+    'Sets up isolated Claude Code and optional Codex seats on this bot''s computer and routes fat jobs so the chat only sees compact results. For anyone who wants extra model capacity without running the work in this thread.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/x3Iv-2J4mfxJY6JFlgwNa'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000174',
+    '10000000-0000-0000-0000-000000000143',
+    'aoty',
+    'Picks the week''s 3 best new albums from Album of the Year using critic and user scores, then shares Apple Music links. For anyone who wants a short Friday new-music list without scrolling the charts.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/Wt4IQj3R1eePOyOOnox7H'
   )
 on conflict (id) do update
   set pack_id = excluded.pack_id,
