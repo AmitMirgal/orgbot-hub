@@ -1024,6 +1024,7 @@ test("catalog watch adds six unofficial one-desk packs with live x.ai URLs", () 
       packId: "10000000-0000-0000-0000-000000000098",
       topic: "founder",
       avatar: null as string | null,
+      seats: 2,
     },
     {
       owner: "NikolaFYI",
@@ -1094,7 +1095,7 @@ test("catalog watch adds six unofficial one-desk packs with live x.ai URLs", () 
     assert.equal(pack.likesCount, 0);
     assert.equal(pack.installsCount, 0);
     assert.equal(pack.visitsCount, 0);
-    assert.equal(pack.seats.length, 1);
+    assert.equal(pack.seats.length, "seats" in item ? item.seats : 1);
     assert.equal(pack.seats[0]?.name, item.desk);
     assert.equal(pack.seats[0]?.isDesk, true);
     assert.equal(pack.seats[0]?.sortOrder, 0);
