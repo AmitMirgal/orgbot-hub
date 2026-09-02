@@ -138,6 +138,7 @@ const JAYBUIDL_OWNER_ID = "00000000-0000-0000-0000-000000000125";
 const ANDRELEIBOVICI_OWNER_ID = "00000000-0000-0000-0000-000000000126";
 const RANDYWHITEPDX_OWNER_ID = "00000000-0000-0000-0000-000000000127";
 const POHLIPIT_OWNER_ID = "00000000-0000-0000-0000-000000000128";
+const AKSHAYBHOPANI_OWNER_ID = "00000000-0000-0000-0000-000000000129";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -1161,6 +1162,14 @@ const POHLIPIT_OWNER: Profile = {
   name: "Pete",
   avatarUrl: "https://avatars.githubusercontent.com/u/1668364?v=4",
   xHandle: "pohlipit",
+};
+
+const AKSHAYBHOPANI_OWNER: Profile = {
+  id: AKSHAYBHOPANI_OWNER_ID,
+  githubLogin: "akshaybhopani",
+  name: "Akshay",
+  avatarUrl: "https://avatars.githubusercontent.com/u/28391021?v=4",
+  xHandle: "AKSHAYBHOPANI",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -5449,6 +5458,37 @@ const PETE: Pack = {
   ],
 };
 
+const AKSHAY: Pack = {
+  id: "10000000-0000-0000-0000-000000000137",
+  owner: AKSHAYBHOPANI_OWNER,
+  slug: "akshay",
+  name: "Akshay",
+  description:
+    "Public Grok Bot templates Akshay (@AKSHAYBHOPANI) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["media"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at My Krishna. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000166",
+      name: "My Krishna",
+      job: "A Krishna you can talk to. Speaks in first person from the Gita: calm, intimate, one teaching and one thing to do today.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/Mf2MLqJRCmz8sSjFmYedG",
+    }),
+  ],
+};
+
 const ALL_PACKS: Pack[] = [
   LAUREN,
   KRISTA,
@@ -5577,6 +5617,7 @@ const ALL_PACKS: Pack[] = [
   ANDRE,
   RANDALL,
   PETE,
+  AKSHAY,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -5707,6 +5748,7 @@ const ALL_PROFILES: Profile[] = [
   ANDRELEIBOVICI_OWNER,
   RANDYWHITEPDX_OWNER,
   POHLIPIT_OWNER,
+  AKSHAYBHOPANI_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {
