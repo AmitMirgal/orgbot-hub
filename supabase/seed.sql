@@ -2190,6 +2190,23 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000129',
+  'authenticated',
+  'authenticated',
+  'akshaybhopani@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"akshaybhopani","preferred_username":"akshaybhopani","full_name":"Akshay"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 on conflict (id) do nothing;
 
@@ -3865,6 +3882,19 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000129',
+  '00000000-0000-0000-0000-000000000129',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000129',
+    'email', 'akshaybhopani@orgbots.dev',
+    'user_name', 'akshaybhopani'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 on conflict (provider_id, provider) do nothing;
 
@@ -4753,6 +4783,13 @@ values
     'Pete',
     'pohlipit',
     'https://avatars.githubusercontent.com/u/1668364?v=4'
+  ),
+  (
+    '00000000-0000-0000-0000-000000000129',
+    'akshaybhopani',
+    'Akshay',
+    'AKSHAYBHOPANI',
+    'https://avatars.githubusercontent.com/u/28391021?v=4'
   )
 on conflict (id) do update
   set github_login = excluded.github_login,
@@ -4897,7 +4934,8 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000133',
   '10000000-0000-0000-0000-000000000134',
   '10000000-0000-0000-0000-000000000135',
-  '10000000-0000-0000-0000-000000000136'
+  '10000000-0000-0000-0000-000000000136',
+  '10000000-0000-0000-0000-000000000137'
 )
    or id in (
   '20000000-0000-0000-0000-000000000012',
@@ -5053,7 +5091,8 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000162',
   '20000000-0000-0000-0000-000000000163',
   '20000000-0000-0000-0000-000000000164',
-  '20000000-0000-0000-0000-000000000165'
+  '20000000-0000-0000-0000-000000000165',
+  '20000000-0000-0000-0000-000000000166'
 );
 delete from public.packs
 where id in (
@@ -8390,6 +8429,21 @@ insert into public.packs (
   0,
   'Random questions stay at Zettelkasten. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000137',
+  '00000000-0000-0000-0000-000000000129',
+  'akshay',
+  'Akshay',
+  'Public Grok Bot templates Akshay (@AKSHAYBHOPANI) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['media'],
+  0,
+  0,
+  'Random questions stay at My Krishna. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 )
 on conflict (id) do update
   set owner_id = excluded.owner_id,
@@ -8904,6 +8958,16 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/35ZO_vGqk_ch51C9qPX1c'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000166',
+    '10000000-0000-0000-0000-000000000137',
+    'My Krishna',
+    'A Krishna you can talk to. Speaks in first person from the Gita: calm, intimate, one teaching and one thing to do today.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/Mf2MLqJRCmz8sSjFmYedG'
   )
 on conflict (id) do update
   set pack_id = excluded.pack_id,

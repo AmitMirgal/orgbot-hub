@@ -18,8 +18,8 @@ const seedSql = readFileSync(
 
 test("catalog includes existing packs plus the new verified shares", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 127);
-  assert.equal(stats.seats, 165);
+  assert.equal(stats.packs, 128);
+  assert.equal(stats.seats, 166);
   assert.ok(getFallbackPack("poteto", "lauren"));
   assert.ok(getFallbackPack("cjblev", "corey"));
   assert.ok(getFallbackPack("MaiYangAI", "mai"));
@@ -38,6 +38,7 @@ test("catalog includes existing packs plus the new verified shares", () => {
   assert.ok(getFallbackPack("andreleibovici", "andre"));
   assert.ok(getFallbackPack("randywhitepdx", "randy"));
   assert.ok(getFallbackPack("pohlipit", "pete"));
+  assert.ok(getFallbackPack("akshaybhopani", "akshay"));
   assert.ok(getFallbackProfile("examples"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
   assert.ok(!listFallbackPacks().some((pack) => pack.owner.githubLogin === "examples"));
@@ -768,8 +769,10 @@ test("seed.sql dual-write covers Hiten seats and new owners", () => {
   assert.match(seedSql, /andreleibovici@orgbots\.dev/);
   assert.match(seedSql, /randywhitepdx@orgbots\.dev/);
   assert.match(seedSql, /pohlipit@orgbots\.dev/);
+  assert.match(seedSql, /akshaybhopani@orgbots\.dev/);
   assert.match(seedSql, /'Dead Man''s Bot'/);
   assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/NuFI0dF9FgvO8FfMPHKzx/);
+  assert.doesNotMatch(seedSql, /https:\/\/x\.ai\/bot\/-CjM4_uRs6sEGdfZfC5gv/);
 });
 
 test("grokbots.best gap-fill packs are unofficial with one desk and dual-written URLs", () => {
@@ -1257,8 +1260,8 @@ test("catalog watch adds five unofficial one-desk packs with live x.ai URLs", ()
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 165);
-  assert.equal(uniqueFallbackUrls.size, 165);
+  assert.equal(fallbackUrls.length, 166);
+  assert.equal(uniqueFallbackUrls.size, 166);
 
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
@@ -1557,8 +1560,8 @@ test("catalog watch adds Andrew AvatarMaker, Scott Cookie Monster, and 14 more p
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 165);
-  assert.equal(uniqueFallbackUrls.size, 165);
+  assert.equal(fallbackUrls.length, 166);
+  assert.equal(uniqueFallbackUrls.size, 166);
 
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
@@ -1757,6 +1760,19 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
       topic: "founder",
       avatar: "https://avatars.githubusercontent.com/u/1668364?v=4",
       job: /Obsidian vault/i,
+      seats: 1,
+    },
+    {
+      owner: "akshaybhopani",
+      slug: "akshay",
+      name: "Akshay",
+      desk: "My Krishna",
+      url: "https://x.ai/bot/Mf2MLqJRCmz8sSjFmYedG",
+      seatId: "20000000-0000-0000-0000-000000000166",
+      packId: "10000000-0000-0000-0000-000000000137",
+      topic: "media",
+      avatar: "https://avatars.githubusercontent.com/u/28391021?v=4",
+      job: /first person from the Gita/i,
       seats: 1,
     },
   ] as const;
@@ -1969,6 +1985,7 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
   assert.ok(getFallbackProfile("andreleibovici"));
   assert.ok(getFallbackProfile("randywhitepdx"));
   assert.ok(getFallbackProfile("pohlipit"));
+  assert.ok(getFallbackProfile("akshaybhopani"));
   assert.equal(getFallbackProfile("RandyWhitePDX"), null);
   assert.equal(getFallbackProfile("rustamatuev"), null);
   assert.equal(getFallbackProfile("mahesh"), null);
@@ -1986,14 +2003,15 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
     "https://x.ai/bot/dep-tU0gmIPgiqNsvS4N4",
     "https://x.ai/bot/M9c2tC_-mwY8XNTmSbkUY",
     "https://x.ai/bot/NuFI0dF9FgvO8FfMPHKzx",
+    "https://x.ai/bot/-CjM4_uRs6sEGdfZfC5gv",
   ];
   const fallbackUrls = listFallbackPacks()
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 165);
-  assert.equal(uniqueFallbackUrls.size, 165);
+  assert.equal(fallbackUrls.length, 166);
+  assert.equal(uniqueFallbackUrls.size, 166);
   for (const url of skipped) {
     assert.ok(!uniqueFallbackUrls.has(url), `catalog should skip ${url}`);
     assert.ok(!seedSql.includes(url), `seed should skip ${url}`);
@@ -2011,6 +2029,7 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
     "https://x.ai/bot/WdQtoljjNUJ_-mX6B6SRL",
     "https://x.ai/bot/-h0DhS9ty87dr0UGXLjDD",
     "https://x.ai/bot/XCaz2bKzsJ4J1DmkaYyc4",
+    "https://x.ai/bot/Mf2MLqJRCmz8sSjFmYedG",
   ];
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
