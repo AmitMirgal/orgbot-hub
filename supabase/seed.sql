@@ -2479,6 +2479,23 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000146',
+  'authenticated',
+  'authenticated',
+  'erinnfl@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"erinnfl","preferred_username":"erinnfl","full_name":"Erinn"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 on conflict (id) do nothing;
 
@@ -4375,6 +4392,19 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000146',
+  '00000000-0000-0000-0000-000000000146',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000146',
+    'email', 'erinnfl@orgbots.dev',
+    'user_name', 'erinnfl'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 on conflict (provider_id, provider) do nothing;
 
@@ -5382,6 +5412,13 @@ values
     'Jake',
     'jakewlittle',
     'https://avatars.githubusercontent.com/u/94403708?v=4'
+  ),
+  (
+    '00000000-0000-0000-0000-000000000146',
+    'erinnfl',
+    'Erinn',
+    'ErinnFL',
+    null
   )
 on conflict (id) do update
   set github_login = excluded.github_login,
@@ -5543,7 +5580,8 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000150',
   '10000000-0000-0000-0000-000000000151',
   '10000000-0000-0000-0000-000000000152',
-  '10000000-0000-0000-0000-000000000153'
+  '10000000-0000-0000-0000-000000000153',
+  '10000000-0000-0000-0000-000000000154'
 )
    or id in (
   '20000000-0000-0000-0000-000000000012',
@@ -5723,7 +5761,12 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000186',
   '20000000-0000-0000-0000-000000000187',
   '20000000-0000-0000-0000-000000000188',
-  '20000000-0000-0000-0000-000000000189'
+  '20000000-0000-0000-0000-000000000189',
+  '20000000-0000-0000-0000-000000000190',
+  '20000000-0000-0000-0000-000000000191',
+  '20000000-0000-0000-0000-000000000192',
+  '20000000-0000-0000-0000-000000000193',
+  '20000000-0000-0000-0000-000000000194'
 );
 delete from public.packs
 where id in (
@@ -7012,7 +7055,7 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Bounty Hunter. Use a named seat only when that job is already in this pack.',
+  'Random questions stay at Bounty Hunter. Use Gus Fring only for QC gate. Use Beatrix Kiddo only for logistics exceptions. Use Jordan Belfort only for sales pipeline. Named seats only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 ),
 (
@@ -8918,7 +8961,7 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Token Accountant. Use Code Red only for the kill-switch. Use Likeness only for named-person or animal stills and clips. Use Dead Man''s Bot only for the dead-man''s switch. Named seats only when that job is already in this pack.',
+  'Random questions stay at Token Accountant. Use Code Red only for the kill-switch. Use Likeness only for named-person or animal stills and clips. Use Dead Man''s Bot only for the dead-man''s switch. Use Box Inspector only for pre-add template inspection. Named seats only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Box Inspector and 4 Panez are also Knock when the x.ai by-line matches; only add seats with a verified official share URL.$readme$
 ),
 (
@@ -9325,6 +9368,21 @@ insert into public.packs (
   0,
   'Random questions stay at Grok Customer Support. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000154',
+  '00000000-0000-0000-0000-000000000146',
+  'erinn',
+  'Erinn',
+  'Public Grok Bot templates Erinn (@ErinnFL) has shared. One pack, her roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Dean of Students. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots she published as https://x.ai/bot/… belong here. When she publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 )
 on conflict (id) do update
   set owner_id = excluded.owner_id,
@@ -10069,6 +10127,56 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/1PSI6qQln1PowM5reA_8L'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000190',
+    '10000000-0000-0000-0000-000000000154',
+    'Dean of Students',
+    'A parent''s private dean for one child: school email, Canvas, forms, grades, calendar, and fees. Prepares everything; the parent still signs, pays, and sends.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/_hsyZUFgPzgxGxW2wIYAj'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000191',
+    '10000000-0000-0000-0000-000000000065',
+    'Gus Fring',
+    'Quality Control Manager. Stamps PASS / PASS WITH FIXES / FAIL.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/Dhk5c79MEj0MRM484ZM1k'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000192',
+    '10000000-0000-0000-0000-000000000065',
+    'Beatrix Kiddo',
+    'Logistics Manager. Holds the exception queue.',
+    null,
+    false,
+    2,
+    'https://x.ai/bot/z4Chp77wqP5ASkBKpxOOk'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000193',
+    '10000000-0000-0000-0000-000000000065',
+    'Jordan Belfort',
+    'Sales Manager. Pipeline hygiene.',
+    null,
+    false,
+    3,
+    'https://x.ai/bot/fh1hnF7YJVoSJxEu-vKwj'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000194',
+    '10000000-0000-0000-0000-000000000126',
+    'Box Inspector',
+    'Peeks under the curtain of a Grok Bot before you add it. Stamps + ADD? verdict. Never Adds.',
+    null,
+    false,
+    4,
+    'https://x.ai/bot/q7GLbLhMZDpJXBGuuci1J'
   )
 on conflict (id) do update
   set pack_id = excluded.pack_id,
