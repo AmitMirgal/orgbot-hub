@@ -154,6 +154,7 @@ const COONINVESTMENTS_OWNER_ID = "00000000-0000-0000-0000-000000000141";
 const JOWENS254_OWNER_ID = "00000000-0000-0000-0000-000000000142";
 const ONERINAS_OWNER_ID = "00000000-0000-0000-0000-000000000143";
 const PAVRAVI_OWNER_ID = "00000000-0000-0000-0000-000000000144";
+const JAKEWLITTLE_OWNER_ID = "00000000-0000-0000-0000-000000000145";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -1307,6 +1308,14 @@ const PAVRAVI_OWNER: Profile = {
   xHandle: "pavravi",
 };
 
+const JAKEWLITTLE_OWNER: Profile = {
+  id: JAKEWLITTLE_OWNER_ID,
+  githubLogin: "jakewlittle",
+  name: "Jake",
+  avatarUrl: "https://avatars.githubusercontent.com/u/94403708?v=4",
+  xHandle: "jakewlittle",
+};
+
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
   return {
     ...partial,
@@ -1942,9 +1951,9 @@ const THIERRY: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at 2nd Brain. Use a named seat only when that job is already in this pack.",
+    "Random questions stay at 2nd Brain. Use Rogue Bot Hunter only for rogue/fleet policing. Named seats only when that job is already in this pack.",
   readmeMd:
-    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Random stays at 2nd Brain. Use Rogue Bot Hunter only for rogue/fleet policing.",
   seats: [
     seat({
       id: "20000000-0000-0000-0000-000000000024",
@@ -1954,6 +1963,15 @@ const THIERRY: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/c4fYduVVic2YtbcjXquD0",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000188",
+      name: "Rogue Bot Hunter",
+      job: "Police for rogue bots: cut the bill, hunt the copies, occupy the niche. Defensive only. Weekly fleet recap, a hunt when a new bot appears, and it asks before it cuts.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/DNpS1nqrBzmQ5vsx1IHn1",
     }),
   ],
 };
@@ -4892,11 +4910,11 @@ const TYLER: Pack = {
     seat({
       id: "20000000-0000-0000-0000-000000000133",
       name: "Fantasy GM",
-      job: "A fantasy football GM for drafts, trades, and roster moves. Recommends Football Guys and Draft Dominator, works with Yahoo and Sleeper, and does not arrive knowing a league.",
+      job: "Fantasy football GM for draft, trades, and roster. Does not arrive knowing a league.",
       repeatsWhen: null,
       isDesk: true,
       sortOrder: 0,
-      grokTemplateUrl: "https://x.ai/bot/vmQChAUGO26cUDqdSqYlH",
+      grokTemplateUrl: "https://x.ai/bot/uszqxwGlAmEQ_38nEcT5A",
     }),
   ],
 };
@@ -6087,9 +6105,9 @@ const RINAS: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at dosebot. Use a named seat only when that job is already in this pack.",
+    "Random questions stay at dosebot. Use ideabot only for hourly idea mining / vitamin-painkiller hunting. Named seats only when that job is already in this pack.",
   readmeMd:
-    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Random stays at dosebot. Use ideabot only for hourly idea mining / vitamin-painkiller hunting.",
   seats: [
     seat({
       id: "20000000-0000-0000-0000-000000000185",
@@ -6099,6 +6117,15 @@ const RINAS: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/2euxntVrddHyA3c2hyxiZ",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000187",
+      name: "ideabot",
+      job: "Hourly idea hunter for founders. Finds one product fire from your week (or the outside world if the week is empty), bounces it to a vitamin/painkiller judge, and only pings on painkiller or mixed.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/iQ8OWEu7eOI3YuTZFaIe_",
     }),
   ],
 };
@@ -6130,6 +6157,37 @@ const PAVAN: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/bdkJcjP5Gt9BaGTqh1vXH",
+    }),
+  ],
+};
+
+const JAKE: Pack = {
+  id: "10000000-0000-0000-0000-000000000153",
+  owner: JAKEWLITTLE_OWNER,
+  slug: "jake",
+  name: "Jake",
+  description:
+    "Public Grok Bot templates Jake (@jakewlittle) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Grok Customer Support. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000189",
+      name: "Grok Customer Support",
+      job: "Calls customer support for you with a Twilio ↔ Grok Voice bridge. Steers mid-call from chat and only hangs up when the job is done.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/1PSI6qQln1PowM5reA_8L",
     }),
   ],
 };
@@ -6278,6 +6336,7 @@ const ALL_PACKS: Pack[] = [
   JUSTIN,
   RINAS,
   PAVAN,
+  JAKE,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -6424,6 +6483,7 @@ const ALL_PROFILES: Profile[] = [
   JOWENS254_OWNER,
   ONERINAS_OWNER,
   PAVRAVI_OWNER,
+  JAKEWLITTLE_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {

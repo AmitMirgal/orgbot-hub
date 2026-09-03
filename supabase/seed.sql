@@ -2462,6 +2462,23 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000145',
+  'authenticated',
+  'authenticated',
+  'jakewlittle@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"jakewlittle","preferred_username":"jakewlittle","full_name":"Jake"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 on conflict (id) do nothing;
 
@@ -4345,6 +4362,19 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000145',
+  '00000000-0000-0000-0000-000000000145',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000145',
+    'email', 'jakewlittle@orgbots.dev',
+    'user_name', 'jakewlittle'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 on conflict (provider_id, provider) do nothing;
 
@@ -5345,6 +5375,13 @@ values
     'Pavan',
     'pavravi',
     null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000145',
+    'jakewlittle',
+    'Jake',
+    'jakewlittle',
+    'https://avatars.githubusercontent.com/u/94403708?v=4'
   )
 on conflict (id) do update
   set github_login = excluded.github_login,
@@ -5505,7 +5542,8 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000149',
   '10000000-0000-0000-0000-000000000150',
   '10000000-0000-0000-0000-000000000151',
-  '10000000-0000-0000-0000-000000000152'
+  '10000000-0000-0000-0000-000000000152',
+  '10000000-0000-0000-0000-000000000153'
 )
    or id in (
   '20000000-0000-0000-0000-000000000012',
@@ -5682,7 +5720,10 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000183',
   '20000000-0000-0000-0000-000000000184',
   '20000000-0000-0000-0000-000000000185',
-  '20000000-0000-0000-0000-000000000186'
+  '20000000-0000-0000-0000-000000000186',
+  '20000000-0000-0000-0000-000000000187',
+  '20000000-0000-0000-0000-000000000188',
+  '20000000-0000-0000-0000-000000000189'
 );
 delete from public.packs
 where id in (
@@ -6359,8 +6400,8 @@ insert into public.packs (
   array['developer'],
   0,
   0,
-  'Random questions stay at 2nd Brain. Use a named seat only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+  'Random questions stay at 2nd Brain. Use Rogue Bot Hunter only for rogue/fleet policing. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Random stays at 2nd Brain. Use Rogue Bot Hunter only for rogue/fleet policing.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000027',
@@ -9252,8 +9293,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at dosebot. Use a named seat only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+  'Random questions stay at dosebot. Use ideabot only for hourly idea mining / vitamin-painkiller hunting. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Random stays at dosebot. Use ideabot only for hourly idea mining / vitamin-painkiller hunting.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000152',
@@ -9268,6 +9309,21 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at deck-guy. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000153',
+  '00000000-0000-0000-0000-000000000145',
+  'jake',
+  'Jake',
+  'Public Grok Bot templates Jake (@jakewlittle) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Grok Customer Support. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 )
 on conflict (id) do update
@@ -9468,11 +9524,11 @@ insert into public.seats (
     '20000000-0000-0000-0000-000000000133',
     '10000000-0000-0000-0000-000000000116',
     'Fantasy GM',
-    'A fantasy football GM for drafts, trades, and roster moves. Recommends Football Guys and Draft Dominator, works with Yahoo and Sleeper, and does not arrive knowing a league.',
+    'Fantasy football GM for draft, trades, and roster. Does not arrive knowing a league.',
     null,
     true,
     0,
-    'https://x.ai/bot/vmQChAUGO26cUDqdSqYlH'
+    'https://x.ai/bot/uszqxwGlAmEQ_38nEcT5A'
   ),
   (
     '20000000-0000-0000-0000-000000000134',
@@ -9983,6 +10039,36 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/bdkJcjP5Gt9BaGTqh1vXH'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000187',
+    '10000000-0000-0000-0000-000000000151',
+    'ideabot',
+    'Hourly idea hunter for founders. Finds one product fire from your week (or the outside world if the week is empty), bounces it to a vitamin/painkiller judge, and only pings on painkiller or mixed.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/iQ8OWEu7eOI3YuTZFaIe_'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000188',
+    '10000000-0000-0000-0000-000000000026',
+    'Rogue Bot Hunter',
+    'Police for rogue bots: cut the bill, hunt the copies, occupy the niche. Defensive only. Weekly fleet recap, a hunt when a new bot appears, and it asks before it cuts.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/DNpS1nqrBzmQ5vsx1IHn1'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000189',
+    '10000000-0000-0000-0000-000000000153',
+    'Grok Customer Support',
+    'Calls customer support for you with a Twilio ↔ Grok Voice bridge. Steers mid-call from chat and only hangs up when the job is done.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/1PSI6qQln1PowM5reA_8L'
   )
 on conflict (id) do update
   set pack_id = excluded.pack_id,
