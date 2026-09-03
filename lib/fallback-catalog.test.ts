@@ -1348,7 +1348,7 @@ test("catalog watch adds Andrew AvatarMaker, Scott Cookie Monster, and 14 more p
       topic: "media",
       avatar: null as string | null,
       job: /matching square avatars/i,
-      seats: 2,
+      seats: 3,
     },
     {
       owner: "SEOAgent_",
@@ -1681,7 +1681,7 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
       topic: "founder",
       avatar: null,
       job: /Cursor spending dashboard/i,
-      seats: 5,
+      seats: 12,
     },
     {
       owner: "joepro",
