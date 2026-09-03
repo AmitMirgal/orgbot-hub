@@ -3268,7 +3268,7 @@ const LIAM: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Bounty Hunter. Use Gus Fring only for QC gate. Use Beatrix Kiddo only for logistics exceptions. Use Jordan Belfort only for sales pipeline. Named seats only when that job is already in this pack.",
+    "Random questions stay at Bounty Hunter. Use Gus Fring only for QC gate. Use Beatrix Kiddo only for logistics exceptions. Use Jordan Belfort only for sales pipeline. Use Sarah Connor only for risk. Use Tony Montana only for procurement. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
   seats: [
@@ -3307,6 +3307,24 @@ const LIAM: Pack = {
       isDesk: false,
       sortOrder: 3,
       grokTemplateUrl: "https://x.ai/bot/fh1hnF7YJVoSJxEu-vKwj",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000195",
+      name: "Sarah Connor",
+      job: "Risk Manager. Operational and business risk: supplier risk, missing backups, expiring contracts, single points of failure, important dependencies, no plan B. Not a movie apocalypse novelty.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 4,
+      grokTemplateUrl: "https://x.ai/bot/Bw-JDTu5BhTFki1GhAy9k",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000196",
+      name: "Tony Montana",
+      job: "Procurement Manager. Checks terms, finds suppliers, compares quotes, finds cheaper options, and prepares negotiation. Does not spend without approval.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 5,
+      grokTemplateUrl: "https://x.ai/bot/tbuow4aHucVEAgNbF7qzU",
     }),
   ],
 };

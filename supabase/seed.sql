@@ -5766,7 +5766,9 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000191',
   '20000000-0000-0000-0000-000000000192',
   '20000000-0000-0000-0000-000000000193',
-  '20000000-0000-0000-0000-000000000194'
+  '20000000-0000-0000-0000-000000000194',
+  '20000000-0000-0000-0000-000000000195',
+  '20000000-0000-0000-0000-000000000196'
 );
 delete from public.packs
 where id in (
@@ -7055,7 +7057,7 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Bounty Hunter. Use Gus Fring only for QC gate. Use Beatrix Kiddo only for logistics exceptions. Use Jordan Belfort only for sales pipeline. Named seats only when that job is already in this pack.',
+  'Random questions stay at Bounty Hunter. Use Gus Fring only for QC gate. Use Beatrix Kiddo only for logistics exceptions. Use Jordan Belfort only for sales pipeline. Use Sarah Connor only for risk. Use Tony Montana only for procurement. Named seats only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 ),
 (
@@ -10177,6 +10179,26 @@ insert into public.seats (
     false,
     4,
     'https://x.ai/bot/q7GLbLhMZDpJXBGuuci1J'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000195',
+    '10000000-0000-0000-0000-000000000065',
+    'Sarah Connor',
+    'Risk Manager. Operational and business risk: supplier risk, missing backups, expiring contracts, single points of failure, important dependencies, no plan B. Not a movie apocalypse novelty.',
+    null,
+    false,
+    4,
+    'https://x.ai/bot/Bw-JDTu5BhTFki1GhAy9k'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000196',
+    '10000000-0000-0000-0000-000000000065',
+    'Tony Montana',
+    'Procurement Manager. Checks terms, finds suppliers, compares quotes, finds cheaper options, and prepares negotiation. Does not spend without approval.',
+    null,
+    false,
+    5,
+    'https://x.ai/bot/tbuow4aHucVEAgNbF7qzU'
   )
 on conflict (id) do update
   set pack_id = excluded.pack_id,
