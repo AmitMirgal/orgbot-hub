@@ -1109,6 +1109,7 @@ test("catalog watch adds six unofficial one-desk packs with live x.ai URLs", () 
       packId: "10000000-0000-0000-0000-000000000098",
       topic: "founder",
       avatar: null as string | null,
+      seats: 3,
     },
     {
       owner: "NikolaFYI",
@@ -1698,7 +1699,7 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
       topic: "founder",
       avatar: null,
       job: /Cursor spending dashboard/i,
-      seats: 12,
+      seats: 13,
     },
     {
       owner: "joepro",
@@ -1992,6 +1993,13 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
         isDesk: false,
         sortOrder: 11,
         grokTemplateUrl: "https://x.ai/bot/6XwjJ_W0mX_ybK4ts_Ngb",
+      },
+      {
+        id: "20000000-0000-0000-0000-000000000215",
+        name: "Tab Janitor",
+        isDesk: false,
+        sortOrder: 12,
+        grokTemplateUrl: "https://x.ai/bot/XOYBYmHQrUT_Ux88SS409",
       },
     ]
   );
@@ -3162,7 +3170,7 @@ test("catalog adds Knock SEAL Team 7, Andrew Denial Desk, and six unofficial des
   assert.equal(knock.seats[0]?.isDesk, true);
   assert.equal(knock.seats.length, 13);
   assert.deepEqual(
-    knock.seats.slice(5).map((item) => ({
+    knock.seats.slice(5, 12).map((item) => ({
       id: item.id,
       name: item.name,
       isDesk: item.isDesk,
