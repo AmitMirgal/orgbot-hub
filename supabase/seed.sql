@@ -10152,7 +10152,7 @@ insert into public.packs (
 (
   '10000000-0000-0000-0000-000000000166',
   '00000000-0000-0000-0000-000000000158',
-  'justin',
+  'justin-chen',
   'Justin Chen',
   'Public Grok Bot templates Justin Chen (@TwoBitJustin) has shared. One pack, his roster, official Grok install per seat.',
   null,

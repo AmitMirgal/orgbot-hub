@@ -6882,7 +6882,7 @@ const THOMAS: Pack = {
 const JUSTIN_CHEN: Pack = {
   id: "10000000-0000-0000-0000-000000000166",
   owner: TWOBITJUSTIN_OWNER,
-  slug: "justin",
+  slug: "justin-chen",
   name: "Justin Chen",
   description:
     "Public Grok Bot templates Justin Chen (@TwoBitJustin) has shared. One pack, his roster, official Grok install per seat.",

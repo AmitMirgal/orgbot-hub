@@ -68,7 +68,7 @@ test("catalog includes existing packs plus the new verified shares", () => {
   assert.ok(getFallbackPack("russbroomell", "russ"));
   assert.ok(getFallbackPack("ericosiu", "eric-osiu"));
   assert.ok(getFallbackPack("tferriere", "thomas"));
-  assert.ok(getFallbackPack("TwoBitJustin", "justin"));
+  assert.ok(getFallbackPack("TwoBitJustin", "justin-chen"));
   assert.ok(getFallbackPack("ferminrp", "fermin"));
   assert.ok(getFallbackPack("4SimonSays", "simon"));
   assert.ok(getFallbackPack("voeliz", "liz"));
@@ -3502,17 +3502,23 @@ test("catalog adds extra seats for Marc Uzi Scott Knock and nine unofficial desk
   assert.ok(eric);
   assert.ok(ericOsiu);
   assert.notEqual(eric.id, ericOsiu.id);
+  assert.equal(eric.slug, "eric");
+  assert.equal(ericOsiu.slug, "eric-osiu");
   assert.equal(getFallbackPack("ericosiu", "eric"), null);
   assert.equal(getFallbackPack("ericzakariasson", "eric-osiu"), null);
   assert.match(ericOsiu.readmeMd ?? "", /not Eric Zakariasson's pack/);
 
   const justinOwens = getFallbackPack("JOwens254", "justin");
-  const justinChen = getFallbackPack("TwoBitJustin", "justin");
+  const justinChen = getFallbackPack("TwoBitJustin", "justin-chen");
   assert.ok(justinOwens);
   assert.ok(justinChen);
   assert.notEqual(justinOwens.id, justinChen.id);
+  assert.equal(justinOwens.slug, "justin");
+  assert.equal(justinChen.slug, "justin-chen");
   assert.equal(justinOwens.seats[0]?.name, "Charge Maestro");
   assert.equal(justinChen.seats[0]?.name, "PickFu Insights");
+  assert.equal(getFallbackPack("TwoBitJustin", "justin"), null);
+  assert.equal(getFallbackPack("JOwens254", "justin-chen"), null);
 
   const expected = [
     {
@@ -3587,7 +3593,7 @@ test("catalog adds extra seats for Marc Uzi Scott Knock and nine unofficial desk
     },
     {
       owner: "TwoBitJustin",
-      slug: "justin",
+      slug: "justin-chen",
       name: "Justin Chen",
       desk: "PickFu Insights",
       url: "https://x.ai/bot/9EFVmFgQhjYKjMHAhpCWn",
