@@ -214,6 +214,9 @@ const AETANEORIZAL_OWNER_ID = "00000000-0000-0000-0000-000000000201";
 const MAPACHESALEXIS_OWNER_ID = "00000000-0000-0000-0000-000000000202";
 const FERMION_BOSON17_OWNER_ID = "00000000-0000-0000-0000-000000000203";
 const X_STONE_ISLAND_OWNER_ID = "00000000-0000-0000-0000-000000000204";
+const JEFFREYLIND_OWNER_ID = "00000000-0000-0000-0000-000000000205";
+const SKYLER_MILLER56_OWNER_ID = "00000000-0000-0000-0000-000000000206";
+const TOATSPACE_OWNER_ID = "00000000-0000-0000-0000-000000000207";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -1845,6 +1848,30 @@ const X_STONE_ISLAND_OWNER: Profile = {
   name: "翔",
   avatarUrl: null,
   xHandle: "x_stone_island",
+};
+
+const JEFFREYLIND_OWNER: Profile = {
+  id: JEFFREYLIND_OWNER_ID,
+  githubLogin: "JeffreyLind",
+  name: "Jeffrey Lind",
+  avatarUrl: "https://avatars.githubusercontent.com/u/64284423?v=4",
+  xHandle: "JeffreyLind",
+};
+
+const SKYLER_MILLER56_OWNER: Profile = {
+  id: SKYLER_MILLER56_OWNER_ID,
+  githubLogin: "Skyler_Miller56",
+  name: "Skyler",
+  avatarUrl: null,
+  xHandle: "Skyler_Miller56",
+};
+
+const TOATSPACE_OWNER: Profile = {
+  id: TOATSPACE_OWNER_ID,
+  githubLogin: "TOATspace",
+  name: "TOATspace",
+  avatarUrl: null,
+  xHandle: "TOATspace",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -8967,6 +8994,99 @@ const X_STONE_ISLAND: Pack = {
   ],
 };
 
+const JEFFREYLIND: Pack = {
+  id: "10000000-0000-0000-0000-000000000213",
+  owner: JEFFREYLIND_OWNER,
+  slug: "jeffrey",
+  name: "Jeffrey",
+  description:
+    "Public Grok Bot templates Jeffrey Lind (@JeffreyLind) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Billionairebot. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000295",
+      name: "Billionairebot",
+      job: "Solves annoyances the billionaire way: find the paid outsourced path (mobile notary, concierge, courier, VA, specialist) with concrete vendors, rough pricing, and next steps.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/jq-BFHkNoiJEtieswOYTc",
+    }),
+  ],
+};
+
+const SKYLER_MILLER56: Pack = {
+  id: "10000000-0000-0000-0000-000000000214",
+  owner: SKYLER_MILLER56_OWNER,
+  slug: "skyler",
+  name: "Skyler",
+  description:
+    "Public Grok Bot templates Skyler (@Skyler_Miller56) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Albert. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000296",
+      name: "Albert",
+      job: "Analyzes municipal police collective bargaining agreements (CBAs), extracts wages, benefits, and related terms, and builds comparable Excel summaries.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/jtFHKaEKzEZ0zSDVCl6BP",
+    }),
+  ],
+};
+
+const TOATSPACE: Pack = {
+  id: "10000000-0000-0000-0000-000000000215",
+  owner: TOATSPACE_OWNER,
+  slug: "toatspace",
+  name: "TOATspace",
+  description:
+    "Public Grok Bot templates TOATspace (@TOATspace) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["developer"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Optima. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Optima page also says by gemini; owner remains @TOATspace.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000297",
+      name: "Optima",
+      job: "Cleans leftover old rules out of a bot’s docs and memory so it stops following jobs you already killed. Shows you the cut list and waits for your yes.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/ppARM1W-tWcae_wryLH1z",
+    }),
+  ],
+};
+
 const ALL_PACKS: Pack[] = [
   LAUREN,
   KRISTA,
@@ -9171,6 +9291,9 @@ const ALL_PACKS: Pack[] = [
   MAPACHESALEXIS,
   FERMION_BOSON17,
   X_STONE_ISLAND,
+  JEFFREYLIND,
+  SKYLER_MILLER56,
+  TOATSPACE,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -9377,6 +9500,9 @@ const ALL_PROFILES: Profile[] = [
   MAPACHESALEXIS_OWNER,
   FERMION_BOSON17_OWNER,
   X_STONE_ISLAND_OWNER,
+  JEFFREYLIND_OWNER,
+  SKYLER_MILLER56_OWNER,
+  TOATSPACE_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {

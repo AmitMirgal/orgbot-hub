@@ -3482,6 +3482,57 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000205',
+  'authenticated',
+  'authenticated',
+  'JeffreyLind@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "JeffreyLind", "preferred_username": "JeffreyLind", "full_name": "Jeffrey Lind"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000206',
+  'authenticated',
+  'authenticated',
+  'Skyler_Miller56@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "Skyler_Miller56", "preferred_username": "Skyler_Miller56", "full_name": "Skyler"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000207',
+  'authenticated',
+  'authenticated',
+  'TOATspace@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "TOATspace", "preferred_username": "TOATspace", "full_name": "TOATspace"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 )
 on conflict (id) do nothing;
@@ -6146,6 +6197,45 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000205',
+  '00000000-0000-0000-0000-000000000205',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000205',
+    'email', 'JeffreyLind@orgbots.dev',
+    'user_name', 'JeffreyLind'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000206',
+  '00000000-0000-0000-0000-000000000206',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000206',
+    'email', 'Skyler_Miller56@orgbots.dev',
+    'user_name', 'Skyler_Miller56'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000207',
+  '00000000-0000-0000-0000-000000000207',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000207',
+    'email', 'TOATspace@orgbots.dev',
+    'user_name', 'TOATspace'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 )
 on conflict (provider_id, provider) do nothing;
@@ -7567,6 +7657,27 @@ values
     '翔',
     'x_stone_island',
     null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000205',
+    'JeffreyLind',
+    'Jeffrey Lind',
+    'JeffreyLind',
+    'https://avatars.githubusercontent.com/u/64284423?v=4'
+  ),
+  (
+    '00000000-0000-0000-0000-000000000206',
+    'Skyler_Miller56',
+    'Skyler',
+    'Skyler_Miller56',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000207',
+    'TOATspace',
+    'TOATspace',
+    'TOATspace',
+    null
   )
 )
 on conflict (id) do update
@@ -7788,7 +7899,10 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000209',
   '10000000-0000-0000-0000-000000000210',
   '10000000-0000-0000-0000-000000000211',
-  '10000000-0000-0000-0000-000000000212'
+  '10000000-0000-0000-0000-000000000212',
+  '10000000-0000-0000-0000-000000000213',
+  '10000000-0000-0000-0000-000000000214',
+  '10000000-0000-0000-0000-000000000215'
 )
    or id in (
   '20000000-0000-0000-0000-000000000012',
@@ -8073,7 +8187,10 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000291',
   '20000000-0000-0000-0000-000000000292',
   '20000000-0000-0000-0000-000000000293',
-  '20000000-0000-0000-0000-000000000294'
+  '20000000-0000-0000-0000-000000000294',
+  '20000000-0000-0000-0000-000000000295',
+  '20000000-0000-0000-0000-000000000296',
+  '20000000-0000-0000-0000-000000000297'
 );
 delete from public.packs
 where id in (
@@ -12560,6 +12677,51 @@ insert into public.packs (
   0,
   'Random questions stay at ボット整備. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000213',
+  '00000000-0000-0000-0000-000000000205',
+  'jeffrey',
+  'Jeffrey',
+  'Public Grok Bot templates Jeffrey Lind (@JeffreyLind) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Billionairebot. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000214',
+  '00000000-0000-0000-0000-000000000206',
+  'skyler',
+  'Skyler',
+  'Public Grok Bot templates Skyler (@Skyler_Miller56) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Albert. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000215',
+  '00000000-0000-0000-0000-000000000207',
+  'toatspace',
+  'TOATspace',
+  'Public Grok Bot templates TOATspace (@TOATspace) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['developer'],
+  0,
+  0,
+  'Random questions stay at Optima. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Optima page also says by gemini; owner remains @TOATspace.$readme$
 )
 )
 on conflict (id) do update
@@ -14355,6 +14517,36 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/BlTqnV5o9E35Dwo2sodyD'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000295',
+    '10000000-0000-0000-0000-000000000213',
+    'Billionairebot',
+    'Solves annoyances the billionaire way: find the paid outsourced path (mobile notary, concierge, courier, VA, specialist) with concrete vendors, rough pricing, and next steps.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/jq-BFHkNoiJEtieswOYTc'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000296',
+    '10000000-0000-0000-0000-000000000214',
+    'Albert',
+    'Analyzes municipal police collective bargaining agreements (CBAs), extracts wages, benefits, and related terms, and builds comparable Excel summaries.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/jtFHKaEKzEZ0zSDVCl6BP'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000297',
+    '10000000-0000-0000-0000-000000000215',
+    'Optima',
+    'Cleans leftover old rules out of a bot’s docs and memory so it stops following jobs you already killed. Shows you the cut list and waits for your yes.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/ppARM1W-tWcae_wryLH1z'
   )
 )
 on conflict (id) do update
