@@ -217,6 +217,7 @@ const X_STONE_ISLAND_OWNER_ID = "00000000-0000-0000-0000-000000000204";
 const JEFFREYLIND_OWNER_ID = "00000000-0000-0000-0000-000000000205";
 const SKYLER_MILLER56_OWNER_ID = "00000000-0000-0000-0000-000000000206";
 const TOATSPACE_OWNER_ID = "00000000-0000-0000-0000-000000000207";
+const OXASHRK_OWNER_ID = "00000000-0000-0000-0000-000000000208";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -1872,6 +1873,14 @@ const TOATSPACE_OWNER: Profile = {
   name: "TOATspace",
   avatarUrl: null,
   xHandle: "TOATspace",
+};
+
+const OXASHRK_OWNER: Profile = {
+  id: OXASHRK_OWNER_ID,
+  githubLogin: "0xashrk",
+  name: "Ash",
+  avatarUrl: "https://avatars.githubusercontent.com/u/119333123?v=4",
+  xHandle: "0xashrk",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -9073,7 +9082,7 @@ const TOATSPACE: Pack = {
   routingRule:
     "Random questions stay at Optima. Use a named seat only when that job is already in this pack.",
   readmeMd:
-    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Optima page also says by gemini; owner remains @TOATspace.",
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Optima page also says by gemini; owner remains @TOATspace. Earlier Optima share was ppARM1W-tWcae_wryLH1z.",
   seats: [
     seat({
       id: "20000000-0000-0000-0000-000000000297",
@@ -9082,7 +9091,38 @@ const TOATSPACE: Pack = {
       repeatsWhen: null,
       isDesk: true,
       sortOrder: 0,
-      grokTemplateUrl: "https://x.ai/bot/ppARM1W-tWcae_wryLH1z",
+      grokTemplateUrl: "https://x.ai/bot/-E8sQr0Yrd_oSQlTaAzWy",
+    }),
+  ],
+};
+
+const ASH: Pack = {
+  id: "10000000-0000-0000-0000-000000000216",
+  owner: OXASHRK_OWNER,
+  slug: "ash",
+  name: "Ash",
+  description:
+    "Public Grok Bot templates Ash (@0xashrk) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Fed + X Brief. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000298",
+      name: "Fed + X Brief",
+      job: "Helps X posters decide when to quote, ship a new post, or wait — and runs a weekday Fed/markets morning brief from X news plus Polymarket FOMC odds.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/ojDgaVLzjbxpPV74VzQrM",
     }),
   ],
 };
@@ -9294,6 +9334,7 @@ const ALL_PACKS: Pack[] = [
   JEFFREYLIND,
   SKYLER_MILLER56,
   TOATSPACE,
+  ASH,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -9503,6 +9544,7 @@ const ALL_PROFILES: Profile[] = [
   JEFFREYLIND_OWNER,
   SKYLER_MILLER56_OWNER,
   TOATSPACE_OWNER,
+  OXASHRK_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {
