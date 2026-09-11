@@ -3533,6 +3533,23 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000208',
+  'authenticated',
+  'authenticated',
+  '0xashrk@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "0xashrk", "preferred_username": "0xashrk", "full_name": "Ash"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 )
 on conflict (id) do nothing;
@@ -6236,6 +6253,19 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000208',
+  '00000000-0000-0000-0000-000000000208',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000208',
+    'email', '0xashrk@orgbots.dev',
+    'user_name', '0xashrk'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 )
 on conflict (provider_id, provider) do nothing;
@@ -7678,6 +7708,13 @@ values
     'TOATspace',
     'TOATspace',
     null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000208',
+    '0xashrk',
+    'Ash',
+    '0xashrk',
+    'https://avatars.githubusercontent.com/u/119333123?v=4'
   )
 )
 on conflict (id) do update
@@ -12721,7 +12758,22 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at Optima. Use a named seat only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Optima page also says by gemini; owner remains @TOATspace.$readme$
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Optima page also says by gemini; owner remains @TOATspace. Earlier Optima share was ppARM1W-tWcae_wryLH1z.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000216',
+  '00000000-0000-0000-0000-000000000208',
+  'ash',
+  'Ash',
+  'Public Grok Bot templates Ash (@0xashrk) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Fed + X Brief. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 )
 )
 on conflict (id) do update
@@ -14546,7 +14598,17 @@ insert into public.seats (
     null,
     true,
     0,
-    'https://x.ai/bot/ppARM1W-tWcae_wryLH1z'
+    'https://x.ai/bot/-E8sQr0Yrd_oSQlTaAzWy'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000298',
+    '10000000-0000-0000-0000-000000000216',
+    'Fed + X Brief',
+    'Helps X posters decide when to quote, ship a new post, or wait — and runs a weekday Fed/markets morning brief from X news plus Polymarket FOMC odds.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/ojDgaVLzjbxpPV74VzQrM'
   )
 )
 on conflict (id) do update
