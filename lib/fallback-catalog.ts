@@ -233,6 +233,8 @@ const AARONINFINITEA_OWNER_ID = "00000000-0000-0000-0000-000000000220";
 const TEXASBASEDGPA_OWNER_ID = "00000000-0000-0000-0000-000000000221";
 const MRFLMNLNFT_OWNER_ID = "00000000-0000-0000-0000-000000000222";
 const BKASHJOSI_OWNER_ID = "00000000-0000-0000-0000-000000000223";
+const VOIDVEXA_OWNER_ID = "00000000-0000-0000-0000-000000000224";
+const CGNOT996_OWNER_ID = "00000000-0000-0000-0000-000000000225";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -2016,6 +2018,22 @@ const BKASHJOSI_OWNER: Profile = {
   name: "B",
   avatarUrl: null,
   xHandle: "BkashJosi",
+};
+
+const VOIDVEXA_OWNER: Profile = {
+  id: VOIDVEXA_OWNER_ID,
+  githubLogin: "voidvexa",
+  name: "George",
+  avatarUrl: null,
+  xHandle: "voidvexa",
+};
+
+const CGNOT996_OWNER: Profile = {
+  id: CGNOT996_OWNER_ID,
+  githubLogin: "cgnot996",
+  name: "铁柱AGI",
+  avatarUrl: null,
+  xHandle: "cgnot996",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -9799,6 +9817,68 @@ const BKASH: Pack = {
   ],
 };
 
+const VOIDVEXA: Pack = {
+  id: "10000000-0000-0000-0000-000000000232",
+  owner: VOIDVEXA_OWNER,
+  slug: "george",
+  name: "George",
+  description:
+    "Public Grok Bot templates George (@voidvexa) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Skroutz. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Not the George (@gnurio) pack.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000322",
+      name: "Skroutz",
+      job: "Finds the best prices and prepares carts on Skroutz.gr — Greece’s price-comparison marketplace. Soon delivery only; you handle checkout.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/yQH3AFCs-90xjVmW9LICV",
+    }),
+  ],
+};
+
+const CGNOT996: Pack = {
+  id: "10000000-0000-0000-0000-000000000233",
+  owner: CGNOT996_OWNER,
+  slug: "cgnot996",
+  name: "铁柱AGI",
+  description:
+    "Public Grok Bot templates 铁柱AGI (@cgnot996) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["developer"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at X调度员. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000323",
+      name: "X调度员",
+      job: "A Grok Bot that routes X (Twitter) work to save developer credits. Search runs Grok Build on the bot's own computer (sign in through the bot's browser).",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/isfPwoTeQTBqA-gk9CZN5",
+    }),
+  ],
+};
+
 const ALL_PACKS: Pack[] = [
   LAUREN,
   KRISTA,
@@ -10022,6 +10102,8 @@ const ALL_PACKS: Pack[] = [
   TEXAS,
   MRFLMNL,
   BKASH,
+  VOIDVEXA,
+  CGNOT996,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -10247,6 +10329,8 @@ const ALL_PROFILES: Profile[] = [
   TEXASBASEDGPA_OWNER,
   MRFLMNLNFT_OWNER,
   BKASHJOSI_OWNER,
+  VOIDVEXA_OWNER,
+  CGNOT996_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {
