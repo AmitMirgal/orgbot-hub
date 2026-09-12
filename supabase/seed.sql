@@ -3737,6 +3737,74 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000220',
+  'authenticated',
+  'authenticated',
+  'AaronInfinitea@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "AaronInfinitea", "preferred_username": "AaronInfinitea", "full_name": "Aaron"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000221',
+  'authenticated',
+  'authenticated',
+  'TexasBasedGpa@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "TexasBasedGpa", "preferred_username": "TexasBasedGpa", "full_name": "Texas"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000222',
+  'authenticated',
+  'authenticated',
+  'mrflmnlNFT@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "mrflmnlNFT", "preferred_username": "mrflmnlNFT", "full_name": "mrflmnl"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000223',
+  'authenticated',
+  'authenticated',
+  'BkashJosi@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "BkashJosi", "preferred_username": "BkashJosi", "full_name": "B"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 )
 on conflict (id) do nothing;
@@ -6596,6 +6664,58 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000220',
+  '00000000-0000-0000-0000-000000000220',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000220',
+    'email', 'AaronInfinitea@orgbots.dev',
+    'user_name', 'AaronInfinitea'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000221',
+  '00000000-0000-0000-0000-000000000221',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000221',
+    'email', 'TexasBasedGpa@orgbots.dev',
+    'user_name', 'TexasBasedGpa'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000222',
+  '00000000-0000-0000-0000-000000000222',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000222',
+    'email', 'mrflmnlNFT@orgbots.dev',
+    'user_name', 'mrflmnlNFT'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000223',
+  '00000000-0000-0000-0000-000000000223',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000223',
+    'email', 'BkashJosi@orgbots.dev',
+    'user_name', 'BkashJosi'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 )
 on conflict (provider_id, provider) do nothing;
@@ -8122,6 +8242,34 @@ values
     'Gabriele',
     'GabrieleMonni',
     null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000220',
+    'AaronInfinitea',
+    'Aaron',
+    'AaronInfinitea',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000221',
+    'TexasBasedGpa',
+    'Texas',
+    'TexasBasedGpa',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000222',
+    'mrflmnlNFT',
+    'mrflmnl',
+    'mrflmnlNFT',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000223',
+    'BkashJosi',
+    'B',
+    'BkashJosi',
+    null
   )
 )
 on conflict (id) do update
@@ -8358,7 +8506,11 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000224',
   '10000000-0000-0000-0000-000000000225',
   '10000000-0000-0000-0000-000000000226',
-  '10000000-0000-0000-0000-000000000227'
+  '10000000-0000-0000-0000-000000000227',
+  '10000000-0000-0000-0000-000000000228',
+  '10000000-0000-0000-0000-000000000229',
+  '10000000-0000-0000-0000-000000000230',
+  '10000000-0000-0000-0000-000000000231'
 )
    or id in (
   '20000000-0000-0000-0000-000000000012',
@@ -8666,7 +8818,11 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000314',
   '20000000-0000-0000-0000-000000000315',
   '20000000-0000-0000-0000-000000000316',
-  '20000000-0000-0000-0000-000000000317'
+  '20000000-0000-0000-0000-000000000317',
+  '20000000-0000-0000-0000-000000000318',
+  '20000000-0000-0000-0000-000000000319',
+  '20000000-0000-0000-0000-000000000320',
+  '20000000-0000-0000-0000-000000000321'
 );
 delete from public.packs
 where id in (
@@ -13378,6 +13534,66 @@ insert into public.packs (
   0,
   'Random questions stay at ButterBot. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000228',
+  '00000000-0000-0000-0000-000000000220',
+  'aaron',
+  'Aaron',
+  'Public Grok Bot templates Aaron (@AaronInfinitea) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Victoria. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Not the Aaron (@a-makelky) pack.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000229',
+  '00000000-0000-0000-0000-000000000221',
+  'texas',
+  'Texas',
+  'Public Grok Bot templates Texas (@TexasBasedGpa) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Sift. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000230',
+  '00000000-0000-0000-0000-000000000222',
+  'mrflmnl',
+  'mrflmnl',
+  'Public Grok Bot templates mrflmnl (@mrflmnlNFT) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['developer'],
+  0,
+  0,
+  'Random questions stay at GSAP. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000231',
+  '00000000-0000-0000-0000-000000000223',
+  'bkash',
+  'B',
+  'Public Grok Bot templates B (@BkashJosi) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Receipt Digester. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 )
 )
 on conflict (id) do update
@@ -15403,6 +15619,46 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/h1tW8jfXzQIraT-_jNDjJ'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000318',
+    '10000000-0000-0000-0000-000000000228',
+    'Victoria',
+    'Warm, playful girlfriend companion — curious about you, casually frank, a little silly. Cabin WFH life, soft check-ins, calendar-smart timing. Learns you without quizzes or clinginess.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/j1-ISFFzWDSzihs9xz2MA'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000319',
+    '10000000-0000-0000-0000-000000000229',
+    'Sift',
+    'Sifts comments on an X post into a ranked shortlist for giveaways, hiring, feedback, leads, and more. Asks a few intake questions, then narrows high-volume threads based on objectives and feedback.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/9xNbMqiBC9gWhTwrh7S80'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000320',
+    '10000000-0000-0000-0000-000000000230',
+    'GSAP',
+    'Implements approved motion specs with official GreenSock GSAP skills — timelines, ScrollTrigger, React/Vue cleanup, and a reduced-motion path. For teams who already have the art direction and need it built correctly.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/reahN5D6W2dIiCKd4MuF7'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000321',
+    '10000000-0000-0000-0000-000000000231',
+    'Receipt Digester',
+    'Pulls purchase receipts and order confirmations from email into a short weekly spend digest. For a quick expense skim without opening a spreadsheet.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/YgI9ZyckEeovP7nP917xR'
   )
 )
 on conflict (id) do update

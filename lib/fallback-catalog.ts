@@ -229,6 +229,10 @@ const CARBONTHECODER_OWNER_ID = "00000000-0000-0000-0000-000000000216";
 const IMOHITMAYANK_OWNER_ID = "00000000-0000-0000-0000-000000000217";
 const VALSTRY_OWNER_ID = "00000000-0000-0000-0000-000000000218";
 const GABRIELEMONNI_OWNER_ID = "00000000-0000-0000-0000-000000000219";
+const AARONINFINITEA_OWNER_ID = "00000000-0000-0000-0000-000000000220";
+const TEXASBASEDGPA_OWNER_ID = "00000000-0000-0000-0000-000000000221";
+const MRFLMNLNFT_OWNER_ID = "00000000-0000-0000-0000-000000000222";
+const BKASHJOSI_OWNER_ID = "00000000-0000-0000-0000-000000000223";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -1980,6 +1984,38 @@ const GABRIELEMONNI_OWNER: Profile = {
   name: "Gabriele",
   avatarUrl: null,
   xHandle: "GabrieleMonni",
+};
+
+const AARONINFINITEA_OWNER: Profile = {
+  id: AARONINFINITEA_OWNER_ID,
+  githubLogin: "AaronInfinitea",
+  name: "Aaron",
+  avatarUrl: null,
+  xHandle: "AaronInfinitea",
+};
+
+const TEXASBASEDGPA_OWNER: Profile = {
+  id: TEXASBASEDGPA_OWNER_ID,
+  githubLogin: "TexasBasedGpa",
+  name: "Texas",
+  avatarUrl: null,
+  xHandle: "TexasBasedGpa",
+};
+
+const MRFLMNLNFT_OWNER: Profile = {
+  id: MRFLMNLNFT_OWNER_ID,
+  githubLogin: "mrflmnlNFT",
+  name: "mrflmnl",
+  avatarUrl: null,
+  xHandle: "mrflmnlNFT",
+};
+
+const BKASHJOSI_OWNER: Profile = {
+  id: BKASHJOSI_OWNER_ID,
+  githubLogin: "BkashJosi",
+  name: "B",
+  avatarUrl: null,
+  xHandle: "BkashJosi",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -9639,6 +9675,130 @@ const GABRIELE: Pack = {
   ],
 };
 
+const AARONINFINITEA: Pack = {
+  id: "10000000-0000-0000-0000-000000000228",
+  owner: AARONINFINITEA_OWNER,
+  slug: "aaron",
+  name: "Aaron",
+  description:
+    "Public Grok Bot templates Aaron (@AaronInfinitea) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Victoria. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Not the Aaron (@a-makelky) pack.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000318",
+      name: "Victoria",
+      job: "Warm, playful girlfriend companion — curious about you, casually frank, a little silly. Cabin WFH life, soft check-ins, calendar-smart timing. Learns you without quizzes or clinginess.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/j1-ISFFzWDSzihs9xz2MA",
+    }),
+  ],
+};
+
+const TEXAS: Pack = {
+  id: "10000000-0000-0000-0000-000000000229",
+  owner: TEXASBASEDGPA_OWNER,
+  slug: "texas",
+  name: "Texas",
+  description:
+    "Public Grok Bot templates Texas (@TexasBasedGpa) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Sift. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000319",
+      name: "Sift",
+      job: "Sifts comments on an X post into a ranked shortlist for giveaways, hiring, feedback, leads, and more. Asks a few intake questions, then narrows high-volume threads based on objectives and feedback.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/9xNbMqiBC9gWhTwrh7S80",
+    }),
+  ],
+};
+
+const MRFLMNL: Pack = {
+  id: "10000000-0000-0000-0000-000000000230",
+  owner: MRFLMNLNFT_OWNER,
+  slug: "mrflmnl",
+  name: "mrflmnl",
+  description:
+    "Public Grok Bot templates mrflmnl (@mrflmnlNFT) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["developer"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at GSAP. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000320",
+      name: "GSAP",
+      job: "Implements approved motion specs with official GreenSock GSAP skills — timelines, ScrollTrigger, React/Vue cleanup, and a reduced-motion path. For teams who already have the art direction and need it built correctly.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/reahN5D6W2dIiCKd4MuF7",
+    }),
+  ],
+};
+
+const BKASH: Pack = {
+  id: "10000000-0000-0000-0000-000000000231",
+  owner: BKASHJOSI_OWNER,
+  slug: "bkash",
+  name: "B",
+  description:
+    "Public Grok Bot templates B (@BkashJosi) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Receipt Digester. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000321",
+      name: "Receipt Digester",
+      job: "Pulls purchase receipts and order confirmations from email into a short weekly spend digest. For a quick expense skim without opening a spreadsheet.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/YgI9ZyckEeovP7nP917xR",
+    }),
+  ],
+};
+
 const ALL_PACKS: Pack[] = [
   LAUREN,
   KRISTA,
@@ -9858,6 +10018,10 @@ const ALL_PACKS: Pack[] = [
   MOHIT,
   VALSTRY,
   GABRIELE,
+  AARONINFINITEA,
+  TEXAS,
+  MRFLMNL,
+  BKASH,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -10079,6 +10243,10 @@ const ALL_PROFILES: Profile[] = [
   IMOHITMAYANK_OWNER,
   VALSTRY_OWNER,
   GABRIELEMONNI_OWNER,
+  AARONINFINITEA_OWNER,
+  TEXASBASEDGPA_OWNER,
+  MRFLMNLNFT_OWNER,
+  BKASHJOSI_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {
