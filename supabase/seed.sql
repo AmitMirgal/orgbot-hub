@@ -3805,6 +3805,40 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000224',
+  'authenticated',
+  'authenticated',
+  'voidvexa@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "voidvexa", "preferred_username": "voidvexa", "full_name": "George"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000225',
+  'authenticated',
+  'authenticated',
+  'cgnot996@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "cgnot996", "preferred_username": "cgnot996", "full_name": "铁柱AGI"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 )
 on conflict (id) do nothing;
@@ -6716,6 +6750,32 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000224',
+  '00000000-0000-0000-0000-000000000224',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000224',
+    'email', 'voidvexa@orgbots.dev',
+    'user_name', 'voidvexa'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000225',
+  '00000000-0000-0000-0000-000000000225',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000225',
+    'email', 'cgnot996@orgbots.dev',
+    'user_name', 'cgnot996'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 )
 on conflict (provider_id, provider) do nothing;
@@ -8270,6 +8330,20 @@ values
     'B',
     'BkashJosi',
     null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000224',
+    'voidvexa',
+    'George',
+    'voidvexa',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000225',
+    'cgnot996',
+    '铁柱AGI',
+    'cgnot996',
+    null
   )
 )
 on conflict (id) do update
@@ -8510,7 +8584,9 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000228',
   '10000000-0000-0000-0000-000000000229',
   '10000000-0000-0000-0000-000000000230',
-  '10000000-0000-0000-0000-000000000231'
+  '10000000-0000-0000-0000-000000000231',
+  '10000000-0000-0000-0000-000000000232',
+  '10000000-0000-0000-0000-000000000233'
 )
    or id in (
   '20000000-0000-0000-0000-000000000012',
@@ -8822,7 +8898,9 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000318',
   '20000000-0000-0000-0000-000000000319',
   '20000000-0000-0000-0000-000000000320',
-  '20000000-0000-0000-0000-000000000321'
+  '20000000-0000-0000-0000-000000000321',
+  '20000000-0000-0000-0000-000000000322',
+  '20000000-0000-0000-0000-000000000323'
 );
 delete from public.packs
 where id in (
@@ -13594,6 +13672,36 @@ insert into public.packs (
   0,
   'Random questions stay at Receipt Digester. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000232',
+  '00000000-0000-0000-0000-000000000224',
+  'george',
+  'George',
+  'Public Grok Bot templates George (@voidvexa) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Skroutz. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Not the George (@gnurio) pack.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000233',
+  '00000000-0000-0000-0000-000000000225',
+  'cgnot996',
+  '铁柱AGI',
+  'Public Grok Bot templates 铁柱AGI (@cgnot996) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['developer'],
+  0,
+  0,
+  'Random questions stay at X调度员. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
 )
 )
 on conflict (id) do update
@@ -15659,6 +15767,26 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/YgI9ZyckEeovP7nP917xR'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000322',
+    '10000000-0000-0000-0000-000000000232',
+    'Skroutz',
+    'Finds the best prices and prepares carts on Skroutz.gr — Greece’s price-comparison marketplace. Soon delivery only; you handle checkout.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/yQH3AFCs-90xjVmW9LICV'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000323',
+    '10000000-0000-0000-0000-000000000233',
+    'X调度员',
+    'A Grok Bot that routes X (Twitter) work to save developer credits. Search runs Grok Build on the bot''s own computer (sign in through the bot''s browser).',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/isfPwoTeQTBqA-gk9CZN5'
   )
 )
 on conflict (id) do update
