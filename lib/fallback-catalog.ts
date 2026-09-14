@@ -4655,7 +4655,7 @@ const SCOTT: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Leader 1:1 Bot. Use SE call bot only for SE and sales-engineer call work. Use Cookie Monster only for Chrome cookie-sync work. Use Token Cop only for agent token spend and alerts. Use Gong Call Coach only for post-call Gong coaching. Use Meeting prep only for calendar briefs. Use Task Farming only for farming action items from notes/Slack into a task tracker. Named seats only when that job is already in this pack.",
+    "Random questions stay at Leader 1:1 Bot. Use SE call bot only for SE and sales-engineer call work. Use Cookie Monster only for Chrome cookie-sync work. Use Token Cop only for agent token spend and alerts. Use Gong Call Coach only for post-call Gong coaching. Use Meeting prep only for calendar briefs. Use Task Farming only for farming action items from notes/Slack into a task tracker. Use Travel Agent only for trip-planning and booking-draft work. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
   seats: [
@@ -4721,6 +4721,15 @@ const SCOTT: Pack = {
       isDesk: false,
       sortOrder: 6,
       grokTemplateUrl: "https://x.ai/bot/MmcPTdwYwr6ebmmZzswYe",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000352",
+      name: "Travel Agent",
+      job: "Plans trips and drafts bookings for approval; never pays or confirms without you.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 7,
+      grokTemplateUrl: "https://x.ai/bot/d8C0ufUatv_fgoCRbfXZ4",
     }),
   ],
 };
