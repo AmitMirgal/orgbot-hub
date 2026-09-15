@@ -256,6 +256,7 @@ const KUNCHENGUID_OWNER_ID = "00000000-0000-0000-0000-000000000243";
 const HUDCOS_OWNER_ID = "00000000-0000-0000-0000-000000000244";
 const ALEXHAWAT_OWNER_ID = "00000000-0000-0000-0000-000000000245";
 const TRUEVIS_OWNER_ID = "00000000-0000-0000-0000-000000000246";
+const SAM_BUILDS_AI_OWNER_ID = "00000000-0000-0000-0000-000000000247";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -2223,6 +2224,14 @@ const TRUEVIS_OWNER: Profile = {
   name: "Eric",
   avatarUrl: null,
   xHandle: "truevis",
+};
+
+const SAM_BUILDS_AI_OWNER: Profile = {
+  id: SAM_BUILDS_AI_OWNER_ID,
+  githubLogin: "sam_builds_ai",
+  name: "Sam",
+  avatarUrl: null,
+  xHandle: "sam_builds_ai",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -4772,9 +4781,9 @@ const SCOTT: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Leader 1:1 Bot. Use SE call bot only for SE and sales-engineer call work. Use Cookie Monster only for Chrome cookie-sync work. Use Token Cop only for agent token spend and alerts. Use Gong Call Coach only for post-call Gong coaching. Use Meeting prep only for calendar briefs. Use Task Farming only for farming action items from notes/Slack into a task tracker. Use Travel Agent only for trip-planning and booking-draft work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Leader 1:1 Bot. Use SE call bot only for SE and sales-engineer call work. Use Cookie Monster only for Chrome cookie-sync work. Use Token Cop only for agent token spend and alerts. Use Gong Call Coach only for post-call Gong coaching. Use Meeting prep only for calendar briefs. Use Task Farming only for farming action items from notes/Slack into a task tracker. Use Travel Agent only for trip-planning and booking-draft work. Use Ramp only for Ramp expense receipt matching. Use Todo only for task capture and due pulses. Use Forced Human Touches only for weekly human-touch coaching. Use Slacker only for VIP Slack triage digests. Use Mission Control only for the Chrome new-tab fleet dashboard. Use PG Bot only for AE territory pipeline-generation coverage. Use AE deal bot only for AE deal qualification and coaching. Use ADM account bot only for account growth and retention plans. Named seats only when that job is already in this pack.",
   readmeMd:
-    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. PG Bot is Scott's territory coverage bot, not Krista Letz's PG desk.",
   seats: [
     seat({
       id: "20000000-0000-0000-0000-000000000091",
@@ -4847,6 +4856,78 @@ const SCOTT: Pack = {
       isDesk: false,
       sortOrder: 7,
       grokTemplateUrl: "https://x.ai/bot/d8C0ufUatv_fgoCRbfXZ4",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000370",
+      name: "Ramp",
+      job: "Finds remote-meal receipts in work email and attaches them to matching expense transactions after you approve.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 8,
+      grokTemplateUrl: "https://x.ai/bot/zMMAByt3oW_t2ua1NZa9X",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000371",
+      name: "Todo",
+      job: "Captures a todo in your real task system, dedupes it, and closes it only when it is actually done. Weekday morning pulse of what's due or overdue; quiet if nothing is.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 9,
+      grokTemplateUrl: "https://x.ai/bot/wQHNsqt2KhOszyxMZ1xQ1",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000372",
+      name: "Forced Human Touches",
+      job: "Weekly anti-automation relationship coach. Proposes 3 named people and one concrete non-chat human move each so agent efficiency doesn't make you more distant. Never sends or books without your OK.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 10,
+      grokTemplateUrl: "https://x.ai/bot/zSiLsURBgkKHhx0V9Wok2",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000373",
+      name: "Slacker",
+      job: "VIP Slack triage for a GTM or enablement lead. Three daily digests surface only asks that need you, with paste-ready drafts. Quiet when nothing is waiting.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 11,
+      grokTemplateUrl: "https://x.ai/bot/R-TSImHItwbFHL8vYj9sc",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000374",
+      name: "Mission Control",
+      job: "Keeps a local Chrome new-tab dashboard current for your Grok Bot fleet — agenda, decisions, and bot status after a one-time Chrome Load unpacked step.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 12,
+      grokTemplateUrl: "https://x.ai/bot/GGnJOdH3hv321H2QES9UE",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000375",
+      name: "PG Bot",
+      job: "One-job AE territory pipeline-generation coverage: book-level outreach, meetings, contact depth, Potential ARR, untouched high-potential contacts, and 30-day dark accounts for a named AE. Confirm before Slack or email.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 13,
+      grokTemplateUrl: "https://x.ai/bot/zsxwic_IlmyavESnhLiWZ",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000376",
+      name: "AE deal bot",
+      job: "Helps AEs qualify, research, and move deals — MEDDPICC coaching, account research, EB/champion coverage, outbound, and follow-up. Does not send Slack/email unless you ask.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 14,
+      grokTemplateUrl: "https://x.ai/bot/yXsqmCaODNkTEwtIbiXxe",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000377",
+      name: "ADM account bot",
+      job: "Grow and retain accounts — weekly plan, expansion, stickiness, rollout, stories.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 15,
+      grokTemplateUrl: "https://x.ai/bot/4Gc1tZsJu7C8YH-EnTfaN",
     }),
   ],
 };
@@ -10926,6 +11007,46 @@ const TRUEVIS: Pack = {
   ],
 };
 
+const SAM_BUILDS: Pack = {
+  id: "10000000-0000-0000-0000-000000000255",
+  owner: SAM_BUILDS_AI_OWNER,
+  slug: "sam",
+  name: "Sam",
+  description:
+    "Public Grok Bot templates Sam (@sam_builds_ai) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Prospect Drafts. Use Named X Reply Radar only for niche hot-post reply drafts. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Not the Sam (@samlambert) Commitments pack.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000368",
+      name: "Prospect Drafts",
+      job: "Finds fit prospects from geography/industries/offer; drafts first-touch Gmail in your voice; you send.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/Ed8OwTpWaFfZdJHEAoT4t",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000369",
+      name: "Named X Reply Radar",
+      job: "Finds hot posts in niches and drafts short replies; you send (spend caps).",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/lJYaUExPBMZfLWfZEFVGc",
+    }),
+  ],
+};
+
 const ALL_PACKS: Pack[] = [
   LAUREN,
   KRISTA,
@@ -11172,6 +11293,7 @@ const ALL_PACKS: Pack[] = [
   HUDSON,
   ALEX,
   TRUEVIS,
+  SAM_BUILDS,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -11420,6 +11542,7 @@ const ALL_PROFILES: Profile[] = [
   HUDCOS_OWNER,
   ALEXHAWAT_OWNER,
   TRUEVIS_OWNER,
+  SAM_BUILDS_AI_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {
