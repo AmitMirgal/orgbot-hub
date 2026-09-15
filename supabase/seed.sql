@@ -4095,6 +4095,108 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000241',
+  'authenticated',
+  'authenticated',
+  'mrbeko_@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "mrbeko_", "preferred_username": "mrbeko_", "full_name": "Berkay"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000242',
+  'authenticated',
+  'authenticated',
+  'benxlab@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "benxlab", "preferred_username": "benxlab", "full_name": "Ben"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000243',
+  'authenticated',
+  'authenticated',
+  'kunchenguid@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "kunchenguid", "preferred_username": "kunchenguid", "full_name": "Kun"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000244',
+  'authenticated',
+  'authenticated',
+  'hudcos@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "hudcos", "preferred_username": "hudcos", "full_name": "Hudson"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000245',
+  'authenticated',
+  'authenticated',
+  'alexhawat@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "alexhawat", "preferred_username": "alexhawat", "full_name": "Alexandre"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000246',
+  'authenticated',
+  'authenticated',
+  'truevis@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "truevis", "preferred_username": "truevis", "full_name": "Eric"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 )
 )
@@ -7229,6 +7331,84 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000241',
+  '00000000-0000-0000-0000-000000000241',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000241',
+    'email', 'mrbeko_@orgbots.dev',
+    'user_name', 'mrbeko_'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000242',
+  '00000000-0000-0000-0000-000000000242',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000242',
+    'email', 'benxlab@orgbots.dev',
+    'user_name', 'benxlab'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000243',
+  '00000000-0000-0000-0000-000000000243',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000243',
+    'email', 'kunchenguid@orgbots.dev',
+    'user_name', 'kunchenguid'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000244',
+  '00000000-0000-0000-0000-000000000244',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000244',
+    'email', 'hudcos@orgbots.dev',
+    'user_name', 'hudcos'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000245',
+  '00000000-0000-0000-0000-000000000245',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000245',
+    'email', 'alexhawat@orgbots.dev',
+    'user_name', 'alexhawat'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000000246',
+  '00000000-0000-0000-0000-000000000246',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000246',
+    'email', 'truevis@orgbots.dev',
+    'user_name', 'truevis'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 )
 )
@@ -8904,6 +9084,48 @@ values
     'Bryan',
     'Bwilson',
     null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000241',
+    'mrbeko_',
+    'Berkay',
+    'mrbeko_',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000242',
+    'benxlab',
+    'Ben',
+    'BenXlab',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000243',
+    'kunchenguid',
+    'Kun',
+    'kunchenguid',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000244',
+    'hudcos',
+    'Hudson',
+    'hudcos',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000245',
+    'alexhawat',
+    'Alexandre',
+    'alexhawat',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000246',
+    'truevis',
+    'Eric',
+    'truevis',
+    null
   )
 )
 on conflict (id) do update
@@ -9161,7 +9383,13 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000245',
   '10000000-0000-0000-0000-000000000246',
   '10000000-0000-0000-0000-000000000247',
-  '10000000-0000-0000-0000-000000000248'
+  '10000000-0000-0000-0000-000000000248',
+  '10000000-0000-0000-0000-000000000249',
+  '10000000-0000-0000-0000-000000000250',
+  '10000000-0000-0000-0000-000000000251',
+  '10000000-0000-0000-0000-000000000252',
+  '10000000-0000-0000-0000-000000000253',
+  '10000000-0000-0000-0000-000000000254'
 )
    or id in (
   '20000000-0000-0000-0000-000000000012',
@@ -9512,7 +9740,14 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000357',
   '20000000-0000-0000-0000-000000000358',
   '20000000-0000-0000-0000-000000000359',
-  '20000000-0000-0000-0000-000000000360'
+  '20000000-0000-0000-0000-000000000360',
+  '20000000-0000-0000-0000-000000000361',
+  '20000000-0000-0000-0000-000000000362',
+  '20000000-0000-0000-0000-000000000363',
+  '20000000-0000-0000-0000-000000000364',
+  '20000000-0000-0000-0000-000000000365',
+  '20000000-0000-0000-0000-000000000366',
+  '20000000-0000-0000-0000-000000000367'
 );
 delete from public.packs
 where id in (
@@ -14539,6 +14774,96 @@ insert into public.packs (
   0,
   'Random questions stay at LG Laundry Specialist. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Not the Bryan (@Bryanofearth) pack.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000249',
+  '00000000-0000-0000-0000-000000000241',
+  'berkay',
+  'Berkay',
+  'Public Grok Bot templates Berkay (@mrbeko_) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Root Agent. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000250',
+  '00000000-0000-0000-0000-000000000242',
+  'ben',
+  'Ben',
+  'Public Grok Bot templates Ben (@BenXlab) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at 薅羊毛. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Not the Ben (@brstorrie) pack.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000251',
+  '00000000-0000-0000-0000-000000000243',
+  'kun',
+  'Kun',
+  'Public Grok Bot templates Kun (@kunchenguid) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Distill anyone. Use Firstmate only as the single orchestrator for your agent civilization. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Firstmate belongs here, not on compileinstyle.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000252',
+  '00000000-0000-0000-0000-000000000244',
+  'hudson',
+  'Hudson',
+  'Public Grok Bot templates Hudson (@hudcos) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Canonizer. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000253',
+  '00000000-0000-0000-0000-000000000245',
+  'alex',
+  'Alex',
+  'Public Grok Bot templates Alexandre (@alexhawat) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['developer'],
+  0,
+  0,
+  'Random questions stay at WhatsApp-Bot. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000254',
+  '00000000-0000-0000-0000-000000000246',
+  'eric',
+  'Eric',
+  'Public Grok Bot templates Eric (@truevis) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Flights. Use a named seat only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Not the Eric (@ericzakariasson) pack. Not Eric Ren (@rrrkren).$readme$
 )
 )
 on conflict (id) do update
@@ -16994,6 +17319,76 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/TNPSVnX4Dm-adBvHJbng7'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000361',
+    '10000000-0000-0000-0000-000000000249',
+    'Root Agent',
+    'Coordinates work across Grok Bots: clarifies outcomes, sizes the smallest useful team, hands day-to-day management to a Lead, and relays verified results. For anyone who wants a Root Agent-Staff coordinator instead of doing specialist work themselves.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/1pTKHkJIEgxD9MjlPYE4P'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000362',
+    '10000000-0000-0000-0000-000000000250',
+    '薅羊毛',
+    'Wool Radar / Savings Copilot — learns YOUR buy list and AI habits, then surfaces matching deals only (no generic flyer dumps). 千人千面三轨：超市半价匹配、AI额度重置提醒、结账优惠码；不代付、不刷号、没匹配就安静。',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/WFW6_5N596TQpWCRjRZ5w'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000363',
+    '10000000-0000-0000-0000-000000000251',
+    'Distill anyone',
+    'Distill anyone into a bot - yourself or anyone else. Analyze their public presence, turn that into a bot you can talk to, and keep it daily updated. Can optionally mirror it to a skill repo on GitHub as well.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/id4s2QYrPYZsiTqvzIhkt'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000364',
+    '10000000-0000-0000-0000-000000000251',
+    'Firstmate',
+    'The only agent you talk to. No more context switching. Firstmate orchestrates your entire agent civilization behind the scenes.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/__4FfrkUdvpdMk6-LKg5r'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000365',
+    '10000000-0000-0000-0000-000000000252',
+    'Canonizer',
+    'Canonizes leave-offs and deliverables across Grok chats, a local agent, and your file warehouse. One STATUS.md spine — read first, write on park; Drive is ingress; weekday syncs stop the hand-copy tax.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/pOcrH-Rc7SdPWiHsX9vHg'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000366',
+    '10000000-0000-0000-0000-000000000253',
+    'WhatsApp-Bot',
+    'Automates WhatsApp Web for a linked account: QR once in Grok Bot Chrome, export auth, then capture→script→replay per named task. Prefer HTTP replay; ship headless CDP Live while traffic is opaque WebSocket/protobuf.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/t-Axu4DmT9x2DEPa1eNW1'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000367',
+    '10000000-0000-0000-0000-000000000254',
+    'Flights',
+    'Finds and compares round-trip flights (especially from Bangkok), builds Skyscanner links, and watches routes for bag-included deal drops. Built for travelers who want USD tables, checked bags, and sensible layovers.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/xqinGTgeghdOyeYmzqO2m'
   )
 )
 on conflict (id) do update

@@ -250,6 +250,12 @@ const BCORNTEXAS_OWNER_ID = "00000000-0000-0000-0000-000000000237";
 const VALENGIULIMOR_OWNER_ID = "00000000-0000-0000-0000-000000000238";
 const IGGYNORE_OWNER_ID = "00000000-0000-0000-0000-000000000239";
 const BWILSON_OWNER_ID = "00000000-0000-0000-0000-000000000240";
+const MRBEKO__OWNER_ID = "00000000-0000-0000-0000-000000000241";
+const BENXLAB_OWNER_ID = "00000000-0000-0000-0000-000000000242";
+const KUNCHENGUID_OWNER_ID = "00000000-0000-0000-0000-000000000243";
+const HUDCOS_OWNER_ID = "00000000-0000-0000-0000-000000000244";
+const ALEXHAWAT_OWNER_ID = "00000000-0000-0000-0000-000000000245";
+const TRUEVIS_OWNER_ID = "00000000-0000-0000-0000-000000000246";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -2169,6 +2175,54 @@ const BWILSON_OWNER: Profile = {
   name: "Bryan",
   avatarUrl: null,
   xHandle: "Bwilson",
+};
+
+const MRBEKO__OWNER: Profile = {
+  id: MRBEKO__OWNER_ID,
+  githubLogin: "mrbeko_",
+  name: "Berkay",
+  avatarUrl: null,
+  xHandle: "mrbeko_",
+};
+
+const BENXLAB_OWNER: Profile = {
+  id: BENXLAB_OWNER_ID,
+  githubLogin: "benxlab",
+  name: "Ben",
+  avatarUrl: null,
+  xHandle: "BenXlab",
+};
+
+const KUNCHENGUID_OWNER: Profile = {
+  id: KUNCHENGUID_OWNER_ID,
+  githubLogin: "kunchenguid",
+  name: "Kun",
+  avatarUrl: null,
+  xHandle: "kunchenguid",
+};
+
+const HUDCOS_OWNER: Profile = {
+  id: HUDCOS_OWNER_ID,
+  githubLogin: "hudcos",
+  name: "Hudson",
+  avatarUrl: null,
+  xHandle: "hudcos",
+};
+
+const ALEXHAWAT_OWNER: Profile = {
+  id: ALEXHAWAT_OWNER_ID,
+  githubLogin: "alexhawat",
+  name: "Alexandre",
+  avatarUrl: null,
+  xHandle: "alexhawat",
+};
+
+const TRUEVIS_OWNER: Profile = {
+  id: TRUEVIS_OWNER_ID,
+  githubLogin: "truevis",
+  name: "Eric",
+  avatarUrl: null,
+  xHandle: "truevis",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -10677,6 +10731,201 @@ const BWILSON: Pack = {
   ],
 };
 
+const BERKAY: Pack = {
+  id: "10000000-0000-0000-0000-000000000249",
+  owner: MRBEKO__OWNER,
+  slug: "berkay",
+  name: "Berkay",
+  description:
+    "Public Grok Bot templates Berkay (@mrbeko_) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Root Agent. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000361",
+      name: "Root Agent",
+      job: "Coordinates work across Grok Bots: clarifies outcomes, sizes the smallest useful team, hands day-to-day management to a Lead, and relays verified results. For anyone who wants a Root Agent-Staff coordinator instead of doing specialist work themselves.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/1pTKHkJIEgxD9MjlPYE4P",
+    }),
+  ],
+};
+
+const BENXLAB: Pack = {
+  id: "10000000-0000-0000-0000-000000000250",
+  owner: BENXLAB_OWNER,
+  slug: "ben",
+  name: "Ben",
+  description:
+    "Public Grok Bot templates Ben (@BenXlab) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at 薅羊毛. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Not the Ben (@brstorrie) pack.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000362",
+      name: "薅羊毛",
+      job: "Wool Radar / Savings Copilot — learns YOUR buy list and AI habits, then surfaces matching deals only (no generic flyer dumps). 千人千面三轨：超市半价匹配、AI额度重置提醒、结账优惠码；不代付、不刷号、没匹配就安静。",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/WFW6_5N596TQpWCRjRZ5w",
+    }),
+  ],
+};
+
+const KUN: Pack = {
+  id: "10000000-0000-0000-0000-000000000251",
+  owner: KUNCHENGUID_OWNER,
+  slug: "kun",
+  name: "Kun",
+  description:
+    "Public Grok Bot templates Kun (@kunchenguid) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Distill anyone. Use Firstmate only as the single orchestrator for your agent civilization. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Firstmate belongs here, not on compileinstyle.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000363",
+      name: "Distill anyone",
+      job: "Distill anyone into a bot - yourself or anyone else. Analyze their public presence, turn that into a bot you can talk to, and keep it daily updated. Can optionally mirror it to a skill repo on GitHub as well.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/id4s2QYrPYZsiTqvzIhkt",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000000364",
+      name: "Firstmate",
+      job: "The only agent you talk to. No more context switching. Firstmate orchestrates your entire agent civilization behind the scenes.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/__4FfrkUdvpdMk6-LKg5r",
+    }),
+  ],
+};
+
+const HUDSON: Pack = {
+  id: "10000000-0000-0000-0000-000000000252",
+  owner: HUDCOS_OWNER,
+  slug: "hudson",
+  name: "Hudson",
+  description:
+    "Public Grok Bot templates Hudson (@hudcos) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Canonizer. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000365",
+      name: "Canonizer",
+      job: "Canonizes leave-offs and deliverables across Grok chats, a local agent, and your file warehouse. One STATUS.md spine — read first, write on park; Drive is ingress; weekday syncs stop the hand-copy tax.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/pOcrH-Rc7SdPWiHsX9vHg",
+    }),
+  ],
+};
+
+const ALEX: Pack = {
+  id: "10000000-0000-0000-0000-000000000253",
+  owner: ALEXHAWAT_OWNER,
+  slug: "alex",
+  name: "Alex",
+  description:
+    "Public Grok Bot templates Alexandre (@alexhawat) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["developer"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at WhatsApp-Bot. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000366",
+      name: "WhatsApp-Bot",
+      job: "Automates WhatsApp Web for a linked account: QR once in Grok Bot Chrome, export auth, then capture→script→replay per named task. Prefer HTTP replay; ship headless CDP Live while traffic is opaque WebSocket/protobuf.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/t-Axu4DmT9x2DEPa1eNW1",
+    }),
+  ],
+};
+
+const TRUEVIS: Pack = {
+  id: "10000000-0000-0000-0000-000000000254",
+  owner: TRUEVIS_OWNER,
+  slug: "eric",
+  name: "Eric",
+  description:
+    "Public Grok Bot templates Eric (@truevis) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Flights. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Not the Eric (@ericzakariasson) pack. Not Eric Ren (@rrrkren).",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000367",
+      name: "Flights",
+      job: "Finds and compares round-trip flights (especially from Bangkok), builds Skyscanner links, and watches routes for bag-included deal drops. Built for travelers who want USD tables, checked bags, and sensible layovers.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/xqinGTgeghdOyeYmzqO2m",
+    }),
+  ],
+};
+
 const ALL_PACKS: Pack[] = [
   LAUREN,
   KRISTA,
@@ -10917,6 +11166,12 @@ const ALL_PACKS: Pack[] = [
   VALENTIN,
   IGGYNORE,
   BWILSON,
+  BERKAY,
+  BENXLAB,
+  KUN,
+  HUDSON,
+  ALEX,
+  TRUEVIS,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -11159,6 +11414,12 @@ const ALL_PROFILES: Profile[] = [
   VALENGIULIMOR_OWNER,
   IGGYNORE_OWNER,
   BWILSON_OWNER,
+  MRBEKO__OWNER,
+  BENXLAB_OWNER,
+  KUNCHENGUID_OWNER,
+  HUDCOS_OWNER,
+  ALEXHAWAT_OWNER,
+  TRUEVIS_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {
