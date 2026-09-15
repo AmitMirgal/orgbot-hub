@@ -4197,6 +4197,23 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000247',
+  'authenticated',
+  'authenticated',
+  'sam_builds_ai@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "sam_builds_ai", "preferred_username": "sam_builds_ai", "full_name": "Sam"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 )
 )
@@ -7409,6 +7426,19 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000247',
+  '00000000-0000-0000-0000-000000000247',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000247',
+    'email', 'sam_builds_ai@orgbots.dev',
+    'user_name', 'sam_builds_ai'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 )
 )
@@ -9126,6 +9156,13 @@ values
     'Eric',
     'truevis',
     null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000247',
+    'sam_builds_ai',
+    'Sam',
+    'sam_builds_ai',
+    null
   )
 )
 on conflict (id) do update
@@ -9389,7 +9426,8 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000251',
   '10000000-0000-0000-0000-000000000252',
   '10000000-0000-0000-0000-000000000253',
-  '10000000-0000-0000-0000-000000000254'
+  '10000000-0000-0000-0000-000000000254',
+  '10000000-0000-0000-0000-000000000255'
 )
    or id in (
   '20000000-0000-0000-0000-000000000012',
@@ -9747,7 +9785,17 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000364',
   '20000000-0000-0000-0000-000000000365',
   '20000000-0000-0000-0000-000000000366',
-  '20000000-0000-0000-0000-000000000367'
+  '20000000-0000-0000-0000-000000000367',
+  '20000000-0000-0000-0000-000000000368',
+  '20000000-0000-0000-0000-000000000369',
+  '20000000-0000-0000-0000-000000000370',
+  '20000000-0000-0000-0000-000000000371',
+  '20000000-0000-0000-0000-000000000372',
+  '20000000-0000-0000-0000-000000000373',
+  '20000000-0000-0000-0000-000000000374',
+  '20000000-0000-0000-0000-000000000375',
+  '20000000-0000-0000-0000-000000000376',
+  '20000000-0000-0000-0000-000000000377'
 );
 delete from public.packs
 where id in (
@@ -11276,8 +11324,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Leader 1:1 Bot. Use SE call bot only for SE and sales-engineer call work. Use Cookie Monster only for Chrome cookie-sync work. Use Token Cop only for agent token spend and alerts. Use Gong Call Coach only for post-call Gong coaching. Use Meeting prep only for calendar briefs. Use Task Farming only for farming action items from notes/Slack into a task tracker. Use Travel Agent only for trip-planning and booking-draft work. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+  'Random questions stay at Leader 1:1 Bot. Use SE call bot only for SE and sales-engineer call work. Use Cookie Monster only for Chrome cookie-sync work. Use Token Cop only for agent token spend and alerts. Use Gong Call Coach only for post-call Gong coaching. Use Meeting prep only for calendar briefs. Use Task Farming only for farming action items from notes/Slack into a task tracker. Use Travel Agent only for trip-planning and booking-draft work. Use Ramp only for Ramp expense receipt matching. Use Todo only for task capture and due pulses. Use Forced Human Touches only for weekly human-touch coaching. Use Slacker only for VIP Slack triage digests. Use Mission Control only for the Chrome new-tab fleet dashboard. Use PG Bot only for AE territory pipeline-generation coverage. Use AE deal bot only for AE deal qualification and coaching. Use ADM account bot only for account growth and retention plans. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. PG Bot is Scott's territory coverage bot, not Krista Letz's PG desk.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000082',
@@ -14864,6 +14912,21 @@ insert into public.packs (
   0,
   'Random questions stay at Flights. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Not the Eric (@ericzakariasson) pack. Not Eric Ren (@rrrkren).$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000255',
+  '00000000-0000-0000-0000-000000000247',
+  'sam',
+  'Sam',
+  'Public Grok Bot templates Sam (@sam_builds_ai) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Prospect Drafts. Use Named X Reply Radar only for niche hot-post reply drafts. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Not the Sam (@samlambert) Commitments pack.$readme$
 )
 )
 on conflict (id) do update
@@ -17389,6 +17452,106 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/xqinGTgeghdOyeYmzqO2m'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000368',
+    '10000000-0000-0000-0000-000000000255',
+    'Prospect Drafts',
+    'Finds fit prospects from geography/industries/offer; drafts first-touch Gmail in your voice; you send.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/Ed8OwTpWaFfZdJHEAoT4t'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000369',
+    '10000000-0000-0000-0000-000000000255',
+    'Named X Reply Radar',
+    'Finds hot posts in niches and drafts short replies; you send (spend caps).',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/lJYaUExPBMZfLWfZEFVGc'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000370',
+    '10000000-0000-0000-0000-000000000081',
+    'Ramp',
+    'Finds remote-meal receipts in work email and attaches them to matching expense transactions after you approve.',
+    null,
+    false,
+    8,
+    'https://x.ai/bot/zMMAByt3oW_t2ua1NZa9X'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000371',
+    '10000000-0000-0000-0000-000000000081',
+    'Todo',
+    'Captures a todo in your real task system, dedupes it, and closes it only when it is actually done. Weekday morning pulse of what''s due or overdue; quiet if nothing is.',
+    null,
+    false,
+    9,
+    'https://x.ai/bot/wQHNsqt2KhOszyxMZ1xQ1'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000372',
+    '10000000-0000-0000-0000-000000000081',
+    'Forced Human Touches',
+    'Weekly anti-automation relationship coach. Proposes 3 named people and one concrete non-chat human move each so agent efficiency doesn''t make you more distant. Never sends or books without your OK.',
+    null,
+    false,
+    10,
+    'https://x.ai/bot/zSiLsURBgkKHhx0V9Wok2'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000373',
+    '10000000-0000-0000-0000-000000000081',
+    'Slacker',
+    'VIP Slack triage for a GTM or enablement lead. Three daily digests surface only asks that need you, with paste-ready drafts. Quiet when nothing is waiting.',
+    null,
+    false,
+    11,
+    'https://x.ai/bot/R-TSImHItwbFHL8vYj9sc'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000374',
+    '10000000-0000-0000-0000-000000000081',
+    'Mission Control',
+    'Keeps a local Chrome new-tab dashboard current for your Grok Bot fleet — agenda, decisions, and bot status after a one-time Chrome Load unpacked step.',
+    null,
+    false,
+    12,
+    'https://x.ai/bot/GGnJOdH3hv321H2QES9UE'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000375',
+    '10000000-0000-0000-0000-000000000081',
+    'PG Bot',
+    'One-job AE territory pipeline-generation coverage: book-level outreach, meetings, contact depth, Potential ARR, untouched high-potential contacts, and 30-day dark accounts for a named AE. Confirm before Slack or email.',
+    null,
+    false,
+    13,
+    'https://x.ai/bot/zsxwic_IlmyavESnhLiWZ'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000376',
+    '10000000-0000-0000-0000-000000000081',
+    'AE deal bot',
+    'Helps AEs qualify, research, and move deals — MEDDPICC coaching, account research, EB/champion coverage, outbound, and follow-up. Does not send Slack/email unless you ask.',
+    null,
+    false,
+    14,
+    'https://x.ai/bot/yXsqmCaODNkTEwtIbiXxe'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000377',
+    '10000000-0000-0000-0000-000000000081',
+    'ADM account bot',
+    'Grow and retain accounts — weekly plan, expansion, stickiness, rollout, stories.',
+    null,
+    false,
+    15,
+    'https://x.ai/bot/4Gc1tZsJu7C8YH-EnTfaN'
   )
 )
 on conflict (id) do update
