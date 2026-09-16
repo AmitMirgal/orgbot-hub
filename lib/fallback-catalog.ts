@@ -266,6 +266,11 @@ const GREGRAINBOLT_OWNER_ID = "00000000-0000-0000-0000-000000000253";
 const MERIRAND_OWNER_ID = "00000000-0000-0000-0000-000000000254";
 const MYKE86D_OWNER_ID = "00000000-0000-0000-0000-000000000255";
 const VAIBHAVHOME_OWNER_ID = "00000000-0000-0000-0000-000000000256";
+const SUPERTOST100_OWNER_ID = "00000000-0000-0000-0000-000000000257";
+const PRCSHXNT_OWNER_ID = "00000000-0000-0000-0000-000000000258";
+const LORENZKRINNER_OWNER_ID = "00000000-0000-0000-0000-000000000259";
+const DEADBOYEZRA_OWNER_ID = "00000000-0000-0000-0000-000000000260";
+const HOVINTHENORTH_OWNER_ID = "00000000-0000-0000-0000-000000000261";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -2313,6 +2318,46 @@ const VAIBHAVHOME_OWNER: Profile = {
   name: "Vaibhav Arora",
   avatarUrl: null,
   xHandle: "vaibhavhome",
+};
+
+const SUPERTOST100_OWNER: Profile = {
+  id: SUPERTOST100_OWNER_ID,
+  githubLogin: "SuperTost100",
+  name: "Tommaso Barbera",
+  avatarUrl: null,
+  xHandle: "SuperTost100",
+};
+
+const PRCSHXNT_OWNER: Profile = {
+  id: PRCSHXNT_OWNER_ID,
+  githubLogin: "prcshxnt",
+  name: "Prashant",
+  avatarUrl: null,
+  xHandle: "prcshxnt",
+};
+
+const LORENZKRINNER_OWNER: Profile = {
+  id: LORENZKRINNER_OWNER_ID,
+  githubLogin: "lorenzkrinner",
+  name: "Lorenz",
+  avatarUrl: null,
+  xHandle: "lorenzkrinner",
+};
+
+const DEADBOYEZRA_OWNER: Profile = {
+  id: DEADBOYEZRA_OWNER_ID,
+  githubLogin: "DeadboyEzra",
+  name: "DeadboyEzra",
+  avatarUrl: null,
+  xHandle: "DeadboyEzra",
+};
+
+const HOVINTHENORTH_OWNER: Profile = {
+  id: HOVINTHENORTH_OWNER_ID,
+  githubLogin: "hovinthenorth",
+  name: "Hovhannes Mkhitaryan",
+  avatarUrl: null,
+  xHandle: "hovinthenorth",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -11416,6 +11461,161 @@ const VAIBHAV: Pack = {
   ],
 };
 
+const TOMMASO: Pack = {
+  id: "10000000-0000-0000-0000-000000000265",
+  owner: SUPERTOST100_OWNER,
+  slug: "tommaso",
+  name: "Tommaso Barbera",
+  description:
+    "Public Grok Bot templates Tommaso Barbera (@SuperTost100) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Venduto. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/SuperTost100/status/2100149576388743291.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000388",
+      name: "Venduto",
+      job: "Closes secondhand sales on Vinted, Subito.it, and Facebook Marketplace: checks stock and floors, chats with buyers, negotiates, and closes deals.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/VH6hfT_aihtFVmOcSQTwp",
+    }),
+  ],
+};
+
+const PRASHANT: Pack = {
+  id: "10000000-0000-0000-0000-000000000266",
+  owner: PRCSHXNT_OWNER,
+  slug: "prashant",
+  name: "Prashant",
+  description:
+    "Public Grok Bot templates Prashant (@prcshxnt) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["media"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Clip Clip. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/prcshxnt/status/2100151839199228091. Never posts.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000389",
+      name: "Clip Clip",
+      job: "Quality sieve for livestream clips. After CLIP CLIP or a nightly check, extracts only scroll-stopping 60–90s beats with captions. Quiet if nothing new. Never posts.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/hL97Xhf7o84RTv8NlOl37",
+    }),
+  ],
+};
+
+const LORENZ: Pack = {
+  id: "10000000-0000-0000-0000-000000000267",
+  owner: LORENZKRINNER_OWNER,
+  slug: "lorenz",
+  name: "Lorenz",
+  description:
+    "Public Grok Bot templates Lorenz (@lorenzkrinner) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Sevvy. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/lorenzkrinner/status/2100146844735086828.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000390",
+      name: "Sevvy",
+      job: "Bookkeeping assistant for sevdesk. On setup it asks which receipt sources to connect, then matches bank transactions and keeps a clean weekly digest — built for freelancers and solo founders.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/iNwf-lMJ_yNe5kZLETztx",
+    }),
+  ],
+};
+
+const DEADBOY: Pack = {
+  id: "10000000-0000-0000-0000-000000000268",
+  owner: DEADBOYEZRA_OWNER,
+  slug: "deadboy",
+  name: "DeadboyEzra",
+  description:
+    "Public Grok Bot templates DeadboyEzra (@DeadboyEzra) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at MonsterBot. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/DeadboyEzra/status/2100096527448318211.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000391",
+      name: "MonsterBot",
+      job: "Hatch a loyal Tamagotchi-like familiar in Grok Bot. Feed and play to fill its XP bar, unlock abilities as it learns your day-to-day tactics, and optionally grow with you on X — no separate game app.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/JMLG1CF0xuj4Jm8KArqCI",
+    }),
+  ],
+};
+
+const HOVHANNES: Pack = {
+  id: "10000000-0000-0000-0000-000000000269",
+  owner: HOVINTHENORTH_OWNER,
+  slug: "hovhannes",
+  name: "Hovhannes Mkhitaryan",
+  description:
+    "Public Grok Bot templates Hovhannes Mkhitaryan (@hovinthenorth) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Personal Shopper. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/hovinthenorth/status/2099998794490536065 and https://x.com/hovinthenorth/status/2099997120304718316.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000392",
+      name: "Personal Shopper",
+      job: "Builds a household person book—sizes, apparel section, birthdays and other special dates—then shops live Shopify with visual shortlists in seconds and size-matched carts. You finish on the merchant checkout link.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/D0DOumUGpkN-fjE_acysw",
+    }),
+  ],
+};
+
 const ALL_PACKS: Pack[] = [
   LAUREN,
   KRISTA,
@@ -11672,6 +11872,11 @@ const ALL_PACKS: Pack[] = [
   RASMUS,
   MYKE,
   VAIBHAV,
+  TOMMASO,
+  PRASHANT,
+  LORENZ,
+  DEADBOY,
+  HOVHANNES,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -11930,6 +12135,11 @@ const ALL_PROFILES: Profile[] = [
   MERIRAND_OWNER,
   MYKE86D_OWNER,
   VAIBHAVHOME_OWNER,
+  SUPERTOST100_OWNER,
+  PRCSHXNT_OWNER,
+  LORENZKRINNER_OWNER,
+  DEADBOYEZRA_OWNER,
+  HOVINTHENORTH_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {
