@@ -271,6 +271,11 @@ const PRCSHXNT_OWNER_ID = "00000000-0000-0000-0000-000000000258";
 const LORENZKRINNER_OWNER_ID = "00000000-0000-0000-0000-000000000259";
 const DEADBOYEZRA_OWNER_ID = "00000000-0000-0000-0000-000000000260";
 const HOVINTHENORTH_OWNER_ID = "00000000-0000-0000-0000-000000000261";
+const ___TROOPR_OWNER_ID = "00000000-0000-0000-0000-000000000262";
+const JONCARDER_OWNER_ID = "00000000-0000-0000-0000-000000000263";
+const ABDOLLAHOFFLINE_OWNER_ID = "00000000-0000-0000-0000-000000000264";
+const RIMUSZ_OWNER_ID = "00000000-0000-0000-0000-000000000265";
+const ERICCHEZ_OWNER_ID = "00000000-0000-0000-0000-000000000266";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -2358,6 +2363,46 @@ const HOVINTHENORTH_OWNER: Profile = {
   name: "Hovhannes Mkhitaryan",
   avatarUrl: null,
   xHandle: "hovinthenorth",
+};
+
+const ___TROOPR_OWNER: Profile = {
+  id: ___TROOPR_OWNER_ID,
+  githubLogin: "___troopr",
+  name: "Varun Sapre",
+  avatarUrl: null,
+  xHandle: "___troopr",
+};
+
+const JONCARDER_OWNER: Profile = {
+  id: JONCARDER_OWNER_ID,
+  githubLogin: "joncarder",
+  name: "Jon Carder",
+  avatarUrl: null,
+  xHandle: "joncarder",
+};
+
+const ABDOLLAHOFFLINE_OWNER: Profile = {
+  id: ABDOLLAHOFFLINE_OWNER_ID,
+  githubLogin: "Abdollahoffline",
+  name: "Abdullah",
+  avatarUrl: null,
+  xHandle: "Abdollahoffline",
+};
+
+const RIMUSZ_OWNER: Profile = {
+  id: RIMUSZ_OWNER_ID,
+  githubLogin: "Rimusz",
+  name: "Rimantas Mocevicius",
+  avatarUrl: null,
+  xHandle: "Rimusz",
+};
+
+const ERICCHEZ_OWNER: Profile = {
+  id: ERICCHEZ_OWNER_ID,
+  githubLogin: "EricChez",
+  name: "Eric Chez",
+  avatarUrl: null,
+  xHandle: "EricChez",
 };
 
 function seat(partial: Omit<Seat, "grokTemplateUrl"> & { grokTemplateUrl?: string | null }): Seat {
@@ -11616,6 +11661,161 @@ const HOVHANNES: Pack = {
   ],
 };
 
+const VARUN: Pack = {
+  id: "10000000-0000-0000-0000-000000000270",
+  owner: ___TROOPR_OWNER,
+  slug: "varun",
+  name: "Varun",
+  description:
+    "Public Grok Bot templates Varun Sapre (@___troopr) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at fomo pilled. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/___troopr/status/2100141133561319554.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000393",
+      name: "fomo pilled",
+      job: "Events scout for a primary metro: scans Luma/Eventbrite/Meetup (+ other calendars), learns taste, drops a scannable ~7am digest; read-only. Never RSVP/register/buy.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/YOqFuamIFV3WdNNHYVt9L",
+    }),
+  ],
+};
+
+const JON: Pack = {
+  id: "10000000-0000-0000-0000-000000000271",
+  owner: JONCARDER_OWNER,
+  slug: "jon",
+  name: "Jon",
+  description:
+    "Public Grok Bot templates Jon Carder (@joncarder) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at AutoOutreach SDR. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/joncarder/status/2100144664234086441.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000394",
+      name: "AutoOutreach SDR",
+      job: "A Grok Bot that books meetings while you sleep.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/BFOjQ_Gg_sQi5pJ-Q05UW",
+    }),
+  ],
+};
+
+const ABDULLAH: Pack = {
+  id: "10000000-0000-0000-0000-000000000272",
+  owner: ABDOLLAHOFFLINE_OWNER,
+  slug: "abdullah",
+  name: "Abdullah",
+  description:
+    "Public Grok Bot templates Abdullah (@Abdollahoffline) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at SaaS Content Ranker. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Abdollahoffline/status/2100145991965872367.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000395",
+      name: "SaaS Content Ranker",
+      job: "SaaS affiliate content bot: keyword research, ranking-focused guides/reviews/comparisons, publish checklist, and distribution handoffs.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/JDYPl17DU2bU771WtX4we",
+    }),
+  ],
+};
+
+const RIMANTAS: Pack = {
+  id: "10000000-0000-0000-0000-000000000273",
+  owner: RIMUSZ_OWNER,
+  slug: "rimantas",
+  name: "Rimantas",
+  description:
+    "Public Grok Bot templates Rimantas Mocevicius (@Rimusz) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Ops. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Rimusz/status/2100159532349403632.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000396",
+      name: "Ops",
+      job: "Chief of Staff front door for a specialist swarm. Triages priorities, cuts boring admin, and routes work to the right teammate — stays outer loop, never the specialist.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/4sUQZA1UAXXDRf5bhYwPY",
+    }),
+  ],
+};
+
+const ERIC_CHEZ: Pack = {
+  id: "10000000-0000-0000-0000-000000000274",
+  owner: ERICCHEZ_OWNER,
+  slug: "eric",
+  name: "Eric Chez",
+  description:
+    "Public Grok Bot templates Eric Chez (@EricChez) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["media"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at YouTube Soft-PASS Ops. Use a named seat only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/EricChez/status/2100186088606503068. Not the Eric (@ericzakariasson) pack. Not Eric Ren (@rrrkren).",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000397",
+      name: "YouTube Soft-PASS Ops",
+      job: "Runs Private-first YouTube music publishing: Studio packaging, Ask-first Public flips, DistroKid prep, and one chorus Short per drop — with proof gates and clean public copy.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/hf0v7qdlZbACHYYPTVxQ8",
+    }),
+  ],
+};
+
 const ALL_PACKS: Pack[] = [
   LAUREN,
   KRISTA,
@@ -11877,6 +12077,11 @@ const ALL_PACKS: Pack[] = [
   LORENZ,
   DEADBOY,
   HOVHANNES,
+  VARUN,
+  JON,
+  ABDULLAH,
+  RIMANTAS,
+  ERIC_CHEZ,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -12140,6 +12345,11 @@ const ALL_PROFILES: Profile[] = [
   LORENZKRINNER_OWNER,
   DEADBOYEZRA_OWNER,
   HOVINTHENORTH_OWNER,
+  ___TROOPR_OWNER,
+  JONCARDER_OWNER,
+  ABDOLLAHOFFLINE_OWNER,
+  RIMUSZ_OWNER,
+  ERICCHEZ_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {
