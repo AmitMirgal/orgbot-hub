@@ -8,6 +8,10 @@ import { useChat } from "@ai-sdk/react";
 import { ArrowUpIcon, CheckIcon, CopyIcon, MessageCircleIcon, PlusIcon } from "lucide-react";
 import { AuthorMarquee } from "@/components/author-marquee";
 import { AuthorProfileCard } from "@/components/author-profile-card";
+import {
+  CatalogCardSlider,
+  CatalogCardSliderItem,
+} from "@/components/catalog-card-slider";
 import { ChatMarkdown } from "@/components/chat-markdown";
 import { MixSeatRow, TeamMix } from "@/components/team-mix";
 import { Badge } from "@/components/ui/badge";
@@ -460,12 +464,34 @@ export function CatalogThreadMessage({
                   </BubbleContent>
                 </Bubble>
               ) : null}
-              {view.authors.map((author) => (
-                <AuthorProfileCard key={author.githubLogin} author={author} />
-              ))}
-              {view.seats.map((seat) => (
-                <SeatBubble key={seat.id} seat={seat} onAddToDraft={onAddToDraft} />
-              ))}
+              {view.authors.length > 0 || view.seats.length > 0 ? (
+                <div className="flex w-full min-w-0 flex-col gap-2.5">
+                  {view.authors.length > 0 ? (
+                    <CatalogCardSlider label="People" count={view.authors.length}>
+                      {view.authors.map((author) => (
+                        <CatalogCardSliderItem
+                          key={author.githubLogin}
+                          className="w-[min(16rem,calc(100%-1.75rem))]"
+                        >
+                          <AuthorProfileCard author={author} />
+                        </CatalogCardSliderItem>
+                      ))}
+                    </CatalogCardSlider>
+                  ) : null}
+                  {view.seats.length > 0 ? (
+                    <CatalogCardSlider label="Seats" count={view.seats.length}>
+                      {view.seats.map((seat) => (
+                        <CatalogCardSliderItem
+                          key={seat.id}
+                          className="w-[min(24rem,calc(100%-1.75rem))]"
+                        >
+                          <SeatBubble seat={seat} onAddToDraft={onAddToDraft} />
+                        </CatalogCardSliderItem>
+                      ))}
+                    </CatalogCardSlider>
+                  ) : null}
+                </div>
+              ) : null}
               {view.emptyReply ? (
                 <Bubble
                   variant="secondary"
@@ -495,41 +521,48 @@ function SeatBubble({
   const href = parseGrokTemplateUrl(seat.grokTemplateUrl);
   const record = useRecordVisit();
   return (
-    <Bubble variant="outline" className="max-w-full min-w-0">
-      <BubbleContent className="flex w-full max-w-full min-w-0 flex-col gap-2">
+    <Bubble variant="outline" className="h-full w-full max-w-full min-w-0">
+      <BubbleContent className="flex h-full w-full max-w-full min-w-0 flex-col gap-2">
         <p className="font-medium">{seat.name}</p>
         <p className="text-[13px] text-muted-foreground">{seat.job}</p>
-        <p className="text-[12px] text-muted-foreground">
-          Shared by @{publicXHandle(seat.author.xHandle) ?? seat.pack.owner} · {seat.pack.href}
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {href ? (
-            <Button asChild size="sm">
-              <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
-                  void record({
-                    packId: seat.packId,
-                    owner: seat.pack.owner,
-                    slug: seat.pack.slug,
-                    source: "desk_mix",
-                    seatName: seat.name,
-                  });
-                }}
+        <div className="mt-auto flex flex-col gap-2">
+          <p className="text-[12px] text-muted-foreground wrap-break-word">
+            Shared by @{publicXHandle(seat.author.xHandle) ?? seat.pack.owner} · {seat.pack.href}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {href ? (
+              <Button asChild size="sm">
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    void record({
+                      packId: seat.packId,
+                      owner: seat.pack.owner,
+                      slug: seat.pack.slug,
+                      source: "desk_mix",
+                      seatName: seat.name,
+                    });
+                  }}
+                >
+                  Add to Grok
+                </a>
+              </Button>
+            ) : null}
+            {href ? <CopyUrlButton url={href} /> : null}
+            {onAddToDraft ? (
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                onClick={() => onAddToDraft(seat)}
               >
-                Add to Grok
-              </a>
-            </Button>
-          ) : null}
-          {href ? <CopyUrlButton url={href} /> : null}
-          {onAddToDraft ? (
-            <Button type="button" size="sm" variant="outline" onClick={() => onAddToDraft(seat)}>
-              <PlusIcon className="size-3.5" />
-              Add to mix
-            </Button>
-          ) : null}
+                <PlusIcon className="size-3.5" />
+                Add to mix
+              </Button>
+            ) : null}
+          </div>
         </div>
       </BubbleContent>
     </Bubble>

@@ -28,6 +28,7 @@ export function ChatThreadPreview({
               last={index === messages.length - 1}
               mix
               waiting={false}
+              onAddToDraft={() => undefined}
             />
           ))}
         </ChatTranscript>

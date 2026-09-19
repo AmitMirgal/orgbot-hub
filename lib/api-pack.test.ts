@@ -234,6 +234,39 @@ test("catalog chat uses shadcn Message, Bubble, and Streamdown", () => {
   assert.doesNotMatch(src, /Ask the catalog/);
 });
 
+test("catalog mix results slide people and seats instead of wrapping", () => {
+  const chat = readFileSync(
+    fileURLToPath(new URL("../components/catalog-chat.tsx", import.meta.url)),
+    "utf8"
+  );
+  const slider = readFileSync(
+    fileURLToPath(new URL("../components/catalog-card-slider.tsx", import.meta.url)),
+    "utf8"
+  );
+  const card = readFileSync(
+    fileURLToPath(new URL("../components/author-profile-card.tsx", import.meta.url)),
+    "utf8"
+  );
+  assert.match(chat, /CatalogCardSlider/);
+  assert.match(chat, /label="People"/);
+  assert.match(chat, /label="Seats"/);
+  assert.match(chat, /w-\[min\(16rem,calc\(100%-1\.75rem\)\)\]/);
+  assert.match(chat, /w-\[min\(24rem,calc\(100%-1\.75rem\)\)\]/);
+  assert.match(chat, /mt-auto flex flex-col gap-2/);
+  assert.match(slider, /snap-x snap-mandatory/);
+  assert.match(slider, /overflow-x-auto overflow-y-hidden overscroll-x-contain/);
+  assert.match(slider, /motion-reduce:snap-none/);
+  assert.match(slider, /ChevronLeftIcon/);
+  assert.match(slider, /ChevronRightIcon/);
+  assert.match(slider, /variant="secondary"/);
+  assert.match(slider, /grid-cols-\[1\.75rem_minmax\(0,1fr\)_1\.75rem\]/);
+  assert.doesNotMatch(slider, /bg-background\/90/);
+  assert.doesNotMatch(slider, /from "@\/components\/ui\/scroll-area"/);
+  assert.doesNotMatch(slider, /scrollIntoView/);
+  assert.match(card, /h-full min-w-0 w-full/);
+  assert.doesNotMatch(card, /max-w-sm/);
+});
+
 test("catalog chat lets MessageScroller own overflow", () => {
   const scroller = readFileSync(
     fileURLToPath(new URL("../components/ui/message-scroller.tsx", import.meta.url)),
