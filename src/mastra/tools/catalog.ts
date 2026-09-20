@@ -1,7 +1,8 @@
 import { createTool } from "@mastra/core/tools";
 import { z } from "zod";
 import { catalogSeatSchema } from "@/lib/api-pack";
-import { getPublicPack, listPublicPacks, listPublicSeats } from "@/lib/public-catalog";
+import { searchAndRerankPacks } from "@/lib/pack-search";
+import { getPublicPack, listPublicSeats } from "@/lib/public-catalog";
 import { parseRequirementJobs, selectMix } from "@/lib/seat-mix";
 
 export const searchSeats = createTool({
@@ -38,9 +39,10 @@ export const searchSeats = createTool({
 
 export const searchPacks = createTool({
   id: "searchPacks",
-  description: "Search the orgbots catalog. Returns packs from the catalog only. Never invent a pack or URL.",
+  description:
+    "Search published Grok Bot packs. Catalog keyword/token shortlist, then TypeSafe Jev re-rank. Returns catalog packs only. Never invent a pack or URL.",
   inputSchema: z.object({
-    q: z.string().optional().describe("Keyword query"),
+    q: z.string().optional().describe("Natural-language or keyword query"),
     owner: z.string().optional().describe("GitHub owner login"),
     featured: z.boolean().optional().describe("If true, only featured packs"),
   }),
@@ -48,13 +50,11 @@ export const searchPacks = createTool({
     empty: z.boolean(),
     packs: z.array(z.unknown()),
   }),
-  execute: async ({ q, owner, featured }) => {
-    const packs = await listPublicPacks({
-      q,
-      owner,
-      featured: featured ? true : undefined,
-    });
-    return { empty: packs.length === 0, packs };
+  execute: async ({ q, owner, featured }, context) => {
+    return searchAndRerankPacks(
+      { q, owner, featured: featured ? true : undefined },
+      { signal: context?.abortSignal }
+    );
   },
 });
 

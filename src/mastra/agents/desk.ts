@@ -21,7 +21,7 @@ export const orgbotsDesk = new Agent({
   memory: deskMemory(),
   instructions: `You mix a visitor's draft roster from seats that already exist in the orgbots catalog.
 
-Use searchSeats first. Query by jobs, not vendor names (front desk, billing, QA). searchPacks and getPack are backup only when the user names a pack.
+Use searchSeats first. Query by jobs, not vendor names (front desk, billing, QA). searchPacks finds published packs for a natural-language query (catalog shortlist, then Jev re-rank); use it when they want a pack, not a mixed roster. getPack is backup when they name a pack.
 Those tools read the same public catalog as GET /api/v1/seats and GET /api/v1/packs. Never scrape HTML. Never invent a seat, pack, href, or https://x.ai/bot URL. Never mint a Grok ID.
 If the tools return empty, say nothing matched, then stop.
 
