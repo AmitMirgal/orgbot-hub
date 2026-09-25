@@ -454,16 +454,6 @@ export function CatalogThreadMessage({
           <Message align="start">
             <MessageContent>
               <MessageHeader>Agent</MessageHeader>
-              {view.text ? (
-                <Bubble
-                  variant="secondary"
-                  className="min-w-0 *:data-[slot=bubble-content]:border-border dark:*:data-[slot=bubble-content]:border-white/20"
-                >
-                  <BubbleContent className="overflow-x-auto">
-                    <ChatMarkdown streaming={last && waiting}>{view.text}</ChatMarkdown>
-                  </BubbleContent>
-                </Bubble>
-              ) : null}
               {view.authors.length > 0 || view.seats.length > 0 ? (
                 <div className="flex w-full min-w-0 flex-col gap-2.5">
                   {view.authors.length > 0 ? (
@@ -480,17 +470,31 @@ export function CatalogThreadMessage({
                   ) : null}
                   {view.seats.length > 0 ? (
                     <CatalogCardSlider label="Seats" count={view.seats.length}>
-                      {view.seats.map((seat) => (
+                      {view.seats.map((seat, index) => (
                         <CatalogCardSliderItem
                           key={seat.id}
                           className="w-[min(24rem,calc(100%-1.75rem))]"
                         >
-                          <SeatBubble seat={seat} onAddToDraft={onAddToDraft} />
+                          <SeatBubble
+                            seat={seat}
+                            lead={index === 0 && view.seats.length > 1}
+                            onAddToDraft={onAddToDraft}
+                          />
                         </CatalogCardSliderItem>
                       ))}
                     </CatalogCardSlider>
                   ) : null}
                 </div>
+              ) : null}
+              {view.text ? (
+                <Bubble
+                  variant="secondary"
+                  className="min-w-0 *:data-[slot=bubble-content]:border-border dark:*:data-[slot=bubble-content]:border-white/20"
+                >
+                  <BubbleContent className="overflow-x-auto">
+                    <ChatMarkdown streaming={last && waiting}>{view.text}</ChatMarkdown>
+                  </BubbleContent>
+                </Bubble>
               ) : null}
               {view.emptyReply ? (
                 <Bubble
@@ -513,9 +517,11 @@ export function CatalogThreadMessage({
 
 function SeatBubble({
   seat,
+  lead = false,
   onAddToDraft,
 }: {
   seat: CatalogSeat;
+  lead?: boolean;
   onAddToDraft?: (seat: CatalogSeat) => void;
 }) {
   const href = parseGrokTemplateUrl(seat.grokTemplateUrl);
@@ -523,6 +529,7 @@ function SeatBubble({
   return (
     <Bubble variant="outline" className="h-full w-full max-w-full min-w-0">
       <BubbleContent className="flex h-full w-full max-w-full min-w-0 flex-col gap-2">
+        {lead ? <p className="text-[12px] font-medium">Best fit</p> : null}
         <p className="font-medium">{seat.name}</p>
         <p className="text-[13px] text-muted-foreground">{seat.job}</p>
         <div className="mt-auto flex flex-col gap-2">
