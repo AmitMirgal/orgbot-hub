@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
-import { rerankPacksWithJev, type RankablePack } from "./jev-rerank.ts";
+import { botRerankState, rerankBotsWithJev, rerankPacksWithJev, type RankableBot, type RankablePack } from "./jev-rerank.ts";
 
 function read(rel: string): string {
   return readFileSync(fileURLToPath(new URL(rel, import.meta.url)), "utf8");
@@ -87,6 +87,41 @@ test("a single pack is not sent to Jev", async () => {
     ranked.map((item) => item.slug),
     ["hiring"]
   );
+});
+
+test("Jev re-rank sorts bots by noul, highest first", async () => {
+  const echo: RankableBot = {
+    name: "Echo",
+    job: "Turns a customer call into slides",
+    isDesk: false,
+    pack: { name: "Krista" },
+  };
+  const egg: RankableBot = {
+    name: "Dr Eggbot",
+    job: "Builds other Grok bots",
+    isDesk: true,
+    pack: { name: "Lauren" },
+  };
+  const ranked = await rerankBotsWithJev("product manager", [egg, echo], {
+    scoreBot: async (_query, bot) => (bot.name === "Echo" ? 0.86 : 0.31),
+  });
+  assert.deepEqual(
+    ranked.map((bot) => bot.name),
+    ["Echo", "Dr Eggbot"]
+  );
+});
+
+test("bot rerank state scores the job and does not carry a bot URL", () => {
+  const state = botRerankState("product manager", {
+    name: "Echo",
+    job: "Turns a customer call into slides",
+    isDesk: false,
+    pack: { name: "Krista" },
+  });
+  assert.equal(state.query, "product manager");
+  assert.equal(state.bot.name, "Echo");
+  assert.equal(state.bot.pack, "Krista");
+  assert.equal(JSON.stringify(state).includes("x.ai"), false);
 });
 
 test("searchPacks re-ranks through Jev and agents do not use jev as a chat model", () => {

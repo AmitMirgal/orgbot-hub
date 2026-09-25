@@ -81,28 +81,19 @@ function catalogOnly(seats: CatalogSeat[]): CatalogSeat[] {
   return [...unique.values()];
 }
 
-function wantsMoreThanSix(jobs: string[]): boolean {
+export function wantsMoreThanSix(jobs: string[]): boolean {
   return jobs.some((job) => /\b(?:more than 6|more than six|all seats|as many)\b/i.test(job));
 }
 
-function wantsMultipleDesks(jobs: string[]): boolean {
+export function wantsMultipleDesks(jobs: string[]): boolean {
   return jobs.some((job) => /\b(?:two desks|multiple desks|both desks)\b/i.test(job));
 }
 
-export function selectMix(
-  seats: CatalogSeat[],
-  jobs: string[],
-  options: MixOptions = {}
-): CatalogSeat[] {
+function scoredSeats(seats: CatalogSeat[], jobs: string[]) {
   const catalog = catalogOnly(seats);
   const requirement = jobs.map((job) => job.trim()).filter(Boolean);
   if (requirement.length === 0) return [];
-
-  const defaultLimit = wantsMoreThanSix(requirement) ? 12 : 6;
-  const limit = Math.max(1, options.limit ?? defaultLimit);
-  const allowMultipleDesks = options.allowMultipleDesks ?? wantsMultipleDesks(requirement);
-
-  const scored = catalog
+  return catalog
     .map((seat) => ({ seat, score: scoreSeat(seat, requirement) }))
     .filter((item) => item.score > 0)
     .sort(
@@ -111,6 +102,31 @@ export function selectMix(
         a.seat.pack.owner.localeCompare(b.seat.pack.owner) ||
         a.seat.name.localeCompare(b.seat.name)
     );
+}
+
+export function shortlistByToken(
+  seats: CatalogSeat[],
+  jobs: string[],
+  limit: number
+): CatalogSeat[] {
+  if (limit < 1) return [];
+  return scoredSeats(seats, jobs)
+    .slice(0, limit)
+    .map((item) => item.seat);
+}
+
+export function selectMix(
+  seats: CatalogSeat[],
+  jobs: string[],
+  options: MixOptions = {}
+): CatalogSeat[] {
+  const requirement = jobs.map((job) => job.trim()).filter(Boolean);
+  if (requirement.length === 0) return [];
+
+  const defaultLimit = wantsMoreThanSix(requirement) ? 12 : 6;
+  const limit = Math.max(1, options.limit ?? defaultLimit);
+  const allowMultipleDesks = options.allowMultipleDesks ?? wantsMultipleDesks(requirement);
+  const scored = scoredSeats(seats, requirement);
 
   const picked: CatalogSeat[] = [];
   let desks = 0;
