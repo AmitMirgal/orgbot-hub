@@ -8,6 +8,11 @@ const PACK_MATCH = noul("This Grok Bot pack matches what the user is looking for
   false: "The pack is only loosely related, is about a different job, or would not help with the search query.",
 });
 
+const BOT_MATCH = noul("This Grok bot matches what the user is looking for", {
+  true: "The bot's name or job covers the role or problem in the search query. Synonyms and closely related work count as a match.",
+  false: "The bot is only loosely related, is about a different job, or would not help with the search query.",
+});
+
 export type RankablePack = {
   owner: string;
   slug: string;
@@ -17,14 +22,34 @@ export type RankablePack = {
   seats: Array<{ name: string; job: string; isDesk: boolean }>;
 };
 
+export type RankableBot = {
+  name: string;
+  job: string;
+  isDesk: boolean;
+  pack: { name: string };
+};
+
 export type ScorePackFn<T extends RankablePack> = (
   query: string,
   pack: T,
   signal?: AbortSignal
 ) => Promise<number | null>;
 
+export type ScoreBotFn<T extends RankableBot> = (
+  query: string,
+  bot: T,
+  signal?: AbortSignal
+) => Promise<number | null>;
+
 export type RerankOptions<T extends RankablePack> = {
   scorePack?: ScorePackFn<T>;
+  signal?: AbortSignal;
+  minTopNoul?: number;
+  concurrency?: number;
+};
+
+export type RerankBotOptions<T extends RankableBot> = {
+  scoreBot?: ScoreBotFn<T>;
   signal?: AbortSignal;
   minTopNoul?: number;
   concurrency?: number;
@@ -89,6 +114,22 @@ export function packRerankState(query: string, pack: RankablePack) {
   };
 }
 
+export function botRerankState(query: string, bot: RankableBot) {
+  return {
+    query,
+    bot: {
+      name: bot.name,
+      job: clip(bot.job, 180),
+      isDesk: bot.isDesk,
+      pack: bot.pack.name,
+    },
+  };
+}
+
+function finiteNoul(value: unknown): number | null {
+  return typeof value === "number" && Number.isFinite(value) ? value : null;
+}
+
 async function scorePackWithJev<T extends RankablePack>(
   query: string,
   pack: T,
@@ -105,8 +146,29 @@ async function scorePackWithJev<T extends RankablePack>(
       },
       { signal }
     );
-    const value = response.answers.relevant.noul;
-    return typeof value === "number" && Number.isFinite(value) ? value : null;
+    return finiteNoul(response.answers.relevant.noul);
+  } catch {
+    return null;
+  }
+}
+
+async function scoreBotWithJev<T extends RankableBot>(
+  query: string,
+  bot: T,
+  signal?: AbortSignal
+): Promise<number | null> {
+  const client = getClient();
+  if (!client) return null;
+  try {
+    const response = await client.systemOne(
+      {
+        model: jevModel(),
+        state: botRerankState(query, bot),
+        questions: { relevant: BOT_MATCH },
+      },
+      { signal }
+    );
+    return finiteNoul(response.answers.relevant.noul);
   } catch {
     return null;
   }
@@ -132,33 +194,54 @@ async function mapPool<T, R>(
   return results;
 }
 
-export async function rerankPacksWithJev<T extends RankablePack>(
-  query: string,
-  packs: T[],
-  options: RerankOptions<T> = {}
+async function rerankByNoul<T>(
+  items: T[],
+  scoreItem: (item: T, signal?: AbortSignal) => Promise<number | null>,
+  options: { signal?: AbortSignal; minTopNoul?: number; concurrency?: number } = {}
 ): Promise<T[]> {
-  if (packs.length < 2) return packs;
-  const scorePack = options.scorePack ?? scorePackWithJev;
+  if (items.length < 2) return items;
   const minTopNoul = options.minTopNoul ?? JEV_MIN_TOP_NOUL;
   const concurrency = options.concurrency ?? JEV_RERANK_CONCURRENCY;
   let scores: Array<number | null>;
   try {
     scores = await mapPool(
-      packs,
+      items,
       concurrency,
-      (pack) => scorePack(query, pack, options.signal),
+      (item) => scoreItem(item, options.signal),
       options.signal
     );
   } catch {
-    return packs;
+    return items;
   }
-  if (options.signal?.aborted) return packs;
+  if (options.signal?.aborted) return items;
   const valid = scores.filter((value): value is number => value != null);
-  if (valid.length * 2 < packs.length) return packs;
+  if (valid.length * 2 < items.length) return items;
   const top = Math.max(...valid);
-  if (top < minTopNoul) return packs;
-  return packs
-    .map((pack, index) => ({ pack, index, noul: scores[index] ?? -1 }))
+  if (top < minTopNoul) return items;
+  return items
+    .map((item, index) => ({ item, index, noul: scores[index] ?? -1 }))
     .sort((a, b) => b.noul - a.noul || a.index - b.index)
-    .map((item) => item.pack);
+    .map((entry) => entry.item);
+}
+
+export async function rerankPacksWithJev<T extends RankablePack>(
+  query: string,
+  packs: T[],
+  options: RerankOptions<T> = {}
+): Promise<T[]> {
+  const scorePack = options.scorePack ?? scorePackWithJev;
+  return rerankByNoul(
+    packs,
+    (pack, signal) => scorePack(query, pack, signal),
+    options
+  );
+}
+
+export async function rerankBotsWithJev<T extends RankableBot>(
+  query: string,
+  bots: T[],
+  options: RerankBotOptions<T> = {}
+): Promise<T[]> {
+  const scoreBot = options.scoreBot ?? scoreBotWithJev;
+  return rerankByNoul(bots, (bot, signal) => scoreBot(query, bot, signal), options);
 }
