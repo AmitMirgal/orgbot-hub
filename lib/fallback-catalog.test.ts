@@ -3605,6 +3605,13 @@ test("catalog adds Erinn Dean of Students, Liam QC/logistics/sales seats, and Kn
         sortOrder: 6,
         grokTemplateUrl: "https://x.ai/bot/C5EIiTZZL2pPpsb_po7Zs",
       },
+      {
+        id: "20000000-0000-0000-0000-000000000606",
+        name: "Everyone",
+        isDesk: false,
+        sortOrder: 7,
+        grokTemplateUrl: "https://x.ai/bot/ARBlLiKi4wbhc7o6SlnGu",
+      },
     ]
   );
   assert.match(liam.seats[1]?.job ?? "", /PASS WITH FIXES/);
@@ -4977,7 +4984,7 @@ test("catalog adds Sep 4-11 verified x.ai/bot shares with MitchTiler isolated fr
     assert.deepEqual(pack.topics, [item.topic]);
     assert.equal(
       pack.seats.length,
-      item.slug === "nathanglass" || item.slug === "ash" ? 2 : 1
+      item.slug === "nathanglass" || item.slug === "ash" || item.slug === "mattyp" ? 2 : 1
     );
     assert.equal(pack.seats[0]?.name, item.desk);
     assert.equal(pack.seats[0]?.isDesk, true);
@@ -5834,7 +5841,7 @@ test("catalog adds Sep 12 evening + Sep 13 backlog seats and packs", () => {
       ownerId: "00000000-0000-0000-0000-000000000232",
       topic: "founder",
       xHandle: "ColinMcDermott",
-      seats: 10,
+      seats: 11,
       avatarUrl: "https://avatars.githubusercontent.com/u/1297701?v=4",
     },
     {
@@ -8281,7 +8288,7 @@ test("catalog watch 3pm IST 2026-09-19 — 133 unfiled seats (Personal Shopper a
       desk: "The Morning Light (Newspaper)",
       seatId: "20000000-0000-0000-0000-000000000511",
       url: "https://x.ai/bot/O3Egi46yuoheU_7h1pSt-",
-      seats: 1,
+      seats: 2,
       topic: "media",
     },
     {
