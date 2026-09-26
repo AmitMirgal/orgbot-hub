@@ -16638,7 +16638,10 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000604',
   '20000000-0000-0000-0000-000000000605',
   '20000000-0000-0000-0000-000000000606',
-  '20000000-0000-0000-0000-000000000607'
+  '20000000-0000-0000-0000-000000000607',
+  '20000000-0000-0000-0000-000000000608',
+  '20000000-0000-0000-0000-000000000609',
+  '20000000-0000-0000-0000-000000000610'
 );
 delete from public.packs
 where id in (
@@ -18167,7 +18170,7 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Leader 1:1 Bot. Use SE call bot only for SE and sales-engineer call work. Use Cookie Monster only for Chrome cookie-sync work. Use Token Cop only for agent token spend and alerts. Use Gong Call Coach only for post-call Gong coaching. Use Meeting prep only for calendar briefs. Use Task Farming only for farming action items from notes/Slack into a task tracker. Use Travel Agent only for trip-planning and booking-draft work. Use Ramp only for Ramp expense receipt matching. Use Todo only for task capture and due pulses. Use Forced Human Touches only for weekly human-touch coaching. Use Slacker only for VIP Slack triage digests. Use Mission Control only for the Chrome new-tab fleet dashboard. Use PG Bot only for AE territory pipeline-generation coverage. Use AE deal bot only for AE deal qualification and coaching. Use ADM account bot only for account growth and retention plans. Use 2nd Brain only for shared-canon / org-memory. Use Notion only for Notion company-knowledge. Use Live Call Coach only for live meeting nudges. Use Open Loop Closer only for VIP hang follow-ups. Use Producer only for teleprompter-to-training episodes. Use DWTS Ezra Votes only for Dancing with the Stars vote windows. Use Email Bot Work only for work inbox triage. Use LinkedIn Agent only for LinkedIn profile rewrite / connection-invite batch work. Use X bot only for X growth / reply-follow packs / reach tracking. Use Pit Crew only for shared-computer / RAM-disk / marketplace-plugin-fetch health work. Named seats only when that job is already in this pack.',
+  'Random questions stay at Leader 1:1 Bot. Use SE call bot only for SE and sales-engineer call work. Use Cookie Monster only for Chrome cookie-sync work. Use Token Cop only for agent token spend and alerts. Use Gong Call Coach only for post-call Gong coaching. Use Meeting prep only for calendar briefs. Use Task Farming only for farming action items from notes/Slack into a task tracker. Use Travel Agent only for trip-planning and booking-draft work. Use Ramp only for Ramp expense receipt matching. Use Todo only for task capture and due pulses. Use Forced Human Touches only for weekly human-touch coaching. Use Slacker only for VIP Slack triage digests. Use Mission Control only for the Chrome new-tab fleet dashboard. Use PG Bot only for AE territory pipeline-generation coverage. Use AE deal bot only for AE deal qualification and coaching. Use ADM account bot only for account growth and retention plans. Use 2nd Brain only for shared-canon / org-memory. Use Notion only for Notion company-knowledge. Use Live Call Coach only for live meeting nudges. Use Open Loop Closer only for VIP hang follow-ups. Use Producer only for teleprompter-to-training episodes. Use DWTS Ezra Votes only for Dancing with the Stars vote windows. Use Email Bot Work only for work inbox triage. Use LinkedIn Agent only for LinkedIn profile rewrite / connection-invite batch work. Use X bot only for X growth / reply-follow packs / reach tracking. Use Pit Crew only for shared-computer / RAM-disk / marketplace-plugin-fetch health work. Use Doordash only for DoorDash cart / DashPass / live-track / work-meal receipt filing. Named seats only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. PG Bot is Scott's territory coverage bot, not Krista Letz's PG desk.$readme$
 ),
 (
@@ -23703,7 +23706,7 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Ad Aether. Use Ad Umbra only for night-shift / SECOPS / security noise. Named seats only when that job is already in this pack.',
+  'Random questions stay at Ad Aether. Use Ad Umbra only for night-shift / SECOPS / security noise. Use Sputnik 1 only for Everything Bots captain / crew intro / quest routing. Named seats only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/elizrdrake/status/2101260583156789389.$readme$
 ),
 (
@@ -24348,7 +24351,7 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Scroll. Use a named seat only when that job is already in this pack.',
+  'Random questions stay at Scroll. Use Fuel only for calorie tracking and meal-prep. Named seats only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/arouch_serg/status/2102409915373588554.$readme$
 ),
 (
@@ -29295,6 +29298,36 @@ insert into public.seats (
     false,
     25,
     'https://x.ai/bot/Sm0GZs7Hhf7kNV7tHCUN1'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000608',
+    '10000000-0000-0000-0000-000000000081',
+    'Doordash',
+    'Your DoorDash operator. Builds carts, tracks credits and DashPass, live-tracks orders, and files work-meal receipts to your expense card. Work and personal stay on separate ledgers.',
+    null,
+    false,
+    26,
+    'https://x.ai/bot/J7I56EwtEh0D3yMGhnwSZ'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000609',
+    '10000000-0000-0000-0000-000000000428',
+    'Fuel',
+    'A calorie tracking and meal-prep assistant. Text it what you ate and it logs calories and protein against your goal, grades each day, and plans tomorrow''s meals.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/Snd56ionW_F2lDtn_bhRf'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000610',
+    '10000000-0000-0000-0000-000000000385',
+    'Sputnik 1',
+    'Commander & Chief of The Everything Bots. A calm, dry-humored captain who introduces the crew, lets you pick a quest (inbox, briefings, builds, account work), and keeps the team handing work to each other.',
+    null,
+    false,
+    2,
+    'https://x.ai/bot/0eNrUiaGS_HCEBNBMtS-N'
   )
 )
 on conflict (id) do update
