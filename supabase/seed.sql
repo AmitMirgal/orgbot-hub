@@ -18170,7 +18170,7 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Leader 1:1 Bot. Use SE call bot only for SE and sales-engineer call work. Use Cookie Monster only for Chrome cookie-sync work. Use Token Cop only for agent token spend and alerts. Use Gong Call Coach only for post-call Gong coaching. Use Meeting prep only for calendar briefs. Use Task Farming only for farming action items from notes/Slack into a task tracker. Use Travel Agent only for trip-planning and booking-draft work. Use Ramp only for Ramp expense receipt matching. Use Todo only for task capture and due pulses. Use Forced Human Touches only for weekly human-touch coaching. Use Slacker only for VIP Slack triage digests. Use Mission Control only for the Chrome new-tab fleet dashboard. Use PG Bot only for AE territory pipeline-generation coverage. Use AE deal bot only for AE deal qualification and coaching. Use ADM account bot only for account growth and retention plans. Use 2nd Brain only for shared-canon / org-memory. Use Notion only for Notion company-knowledge. Use Live Call Coach only for live meeting nudges. Use Open Loop Closer only for VIP hang follow-ups. Use Producer only for teleprompter-to-training episodes. Use DWTS Ezra Votes only for Dancing with the Stars vote windows. Use Email Bot Work only for work inbox triage. Use LinkedIn Agent only for LinkedIn profile rewrite / connection-invite batch work. Use X bot only for X growth / reply-follow packs / reach tracking. Use Pit Crew only for shared-computer / RAM-disk / marketplace-plugin-fetch health work. Use Doordash only for DoorDash cart / DashPass / live-track / work-meal receipt filing. Named seats only when that job is already in this pack.',
+  'Random questions stay at Leader 1:1 Bot. Use SE call bot only for SE and sales-engineer call work. Use Cookie Monster only for Chrome cookie-sync work. Use Token Cop only for agent token spend and alerts. Use Gong Call Coach only for post-call Gong coaching. Use Meeting prep only for calendar briefs. Use Task Farming only for farming action items from notes/Slack into a task tracker. Use Travel Agent only for trip-planning and booking-draft work. Use Ramp only for Ramp expense receipt matching. Use Todo only for task capture and due pulses. Use Forced Human Touches only for weekly human-touch coaching. Use Slacker only for VIP Slack triage digests. Use Mission Control only for the Chrome new-tab fleet dashboard. Use PG Bot only for AE territory pipeline-generation coverage. Use AE deal bot only for AE deal qualification and coaching. Use ADM account bot only for account growth and retention plans. Use 2nd Brain only for shared-canon / org-memory. Use Notion only for Notion company-knowledge. Use Live Call Coach only for live meeting nudges. Use Open Loop Closer only for VIP hang follow-ups. Use Producer only for teleprompter-to-training episodes. Use DWTS Ezra Votes only for Dancing with the Stars vote windows. Use Email Bot Work only for work inbox triage. Use LinkedIn Agent only for LinkedIn profile rewrite / connection-invite batch work. Use X bot only for X growth / reply-follow packs / reach tracking. Use Pit Crew only for shared-computer / RAM-disk / marketplace-plugin-fetch health work. Use Doordash only for DoorDash cart / DashPass / live-track / work-meal receipt filing. Use Competitive Snake Alert only for competitor watch / pricing-launch-positioning snake alerts (human-in-the-loop before outbound). Named seats only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. PG Bot is Scott's territory coverage bot, not Krista Letz's PG desk.$readme$
 ),
 (
@@ -29328,6 +29328,16 @@ insert into public.seats (
     false,
     2,
     'https://x.ai/bot/0eNrUiaGS_HCEBNBMtS-N'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000611',
+    '10000000-0000-0000-0000-000000000081',
+    'Competitive Snake Alert',
+    'Watches a named competitor list and drafts short snake alerts when pricing, launches, or positioning move — human-in-the-loop before any outbound.',
+    null,
+    false,
+    27,
+    'https://x.ai/bot/NqCINqE9LDY9XTw2vP_XT'
   )
 )
 on conflict (id) do update
