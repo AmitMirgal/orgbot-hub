@@ -1,4 +1,5 @@
-import { rateLimitAgent, streamAgent } from "@/lib/agent-http";
+import { rateLimitAgent } from "@/lib/agent-http";
+import { streamDeskSearchResponse } from "@/lib/desk-turn";
 import { getSessionUserId } from "@/lib/supabase/server";
 import { deskStreamParams } from "@/lib/team-desk-thread";
 import {
@@ -95,13 +96,10 @@ async function mixDeskStream(
   }
 ): Promise<Response> {
   try {
-    const response = await streamAgent("orgbotsDesk", request, {
-      params,
-      skipRateLimit: true,
-    });
+    const response = streamDeskSearchResponse(params, request.signal);
     return options?.quota ? withQuotaHeader(response, options.quota) : response;
   } catch (error) {
-    console.error("[mix] streamAgent failed", error);
+    console.error("[mix] desk stream failed", error);
     if (options?.refund) {
       await refundTeamChatTurn(options.refund.userId, options.refund.tokens);
     }
