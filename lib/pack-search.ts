@@ -115,8 +115,8 @@ export function shortlistPacks(
 }
 
 async function defaultListPacks(query: PackSearchQuery): Promise<PublicPack[]> {
-  const { listPublicPacks } = await import("@/lib/public-catalog");
-  return listPublicPacks(query);
+  const { listMemoryPacks } = await import("@/lib/memory-catalog");
+  return listMemoryPacks({ owner: query.owner, featured: query.featured });
 }
 
 export async function searchAndRerankPacks(
@@ -128,16 +128,10 @@ export async function searchAndRerankPacks(
   const q = query.q?.trim();
   const filters = { owner: query.owner, featured: query.featured };
 
-  if (!q) {
-    const packs = await listPacks(filters);
-    return { empty: packs.length === 0, packs };
-  }
+  const catalog = await listPacks(filters);
+  if (!q) return { empty: catalog.length === 0, packs: catalog };
 
-  const [keywordHits, catalog] = await Promise.all([
-    listPacks({ ...filters, q }),
-    listPacks(filters),
-  ]);
-  const shortlist = shortlistPacks(keywordHits, catalog, q);
+  const shortlist = shortlistPacks([], catalog, q);
   if (shortlist.length === 0) return { empty: true, packs: [] };
 
   const ranked =

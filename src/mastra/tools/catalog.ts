@@ -1,10 +1,38 @@
 import { createTool } from "@mastra/core/tools";
 import { z } from "zod";
-import { catalogSeatSchema } from "@/lib/api-pack";
+import { catalogSeatSchema, type CatalogSeat } from "@/lib/api-pack";
 import { rankSeatsByFit } from "@/lib/bot-rank";
+import { listMemorySeats } from "@/lib/memory-catalog";
 import { searchAndRerankPacks } from "@/lib/pack-search";
-import { getPublicPack, listPublicSeats } from "@/lib/public-catalog";
 import { parseRequirementJobs } from "@/lib/seat-mix";
+
+const SEAT_RANK_REUSE_MS = 60_000;
+
+const seatRanks = new Map<string, { at: number; pending: Promise<CatalogSeat[]> }>();
+
+export function clearSeatRankReuseForTests(): void {
+  seatRanks.clear();
+}
+
+function seatRankKey(jobs: string[], seats: CatalogSeat[]): string {
+  const jobsKey = jobs.map((job) => job.trim().toLowerCase()).join("\n");
+  const urls = seats.map((seat) => seat.grokTemplateUrl).join("\n");
+  return `${jobsKey}\n${urls}`;
+}
+
+function rankSeatsOnce(
+  seats: CatalogSeat[],
+  jobs: string[],
+  signal?: AbortSignal
+): Promise<CatalogSeat[]> {
+  const key = seatRankKey(jobs, seats);
+  const now = Date.now();
+  const hit = seatRanks.get(key);
+  if (hit && now - hit.at < SEAT_RANK_REUSE_MS) return hit.pending;
+  const pending = rankSeatsByFit(seats, jobs, { signal });
+  seatRanks.set(key, { at: now, pending });
+  return pending;
+}
 
 export const searchSeats = createTool({
   id: "searchSeats",
@@ -19,12 +47,10 @@ export const searchSeats = createTool({
     seats: z.array(catalogSeatSchema),
   }),
   execute: async ({ q, jobs }, context) => {
-    const catalog = await listPublicSeats();
+    const catalog = listMemorySeats();
     const requirement = jobs?.length ? jobs : q ? parseRequirementJobs(q) : [];
     if (requirement.length > 0) {
-      const ranked = await rankSeatsByFit(catalog, requirement, {
-        signal: context?.abortSignal,
-      });
+      const ranked = await rankSeatsOnce(catalog, requirement, context?.abortSignal);
       if (ranked.length > 0) return { empty: false, seats: ranked };
     }
     const needle = q?.trim().toLowerCase();
@@ -61,7 +87,7 @@ export const searchPacks = createTool({
     );
     const queryText = q?.trim();
     if (!queryText) return { ...packs, seats: [] };
-    const catalog = await listPublicSeats();
+    const catalog = listMemorySeats();
     const ownerLogin = owner?.trim().toLowerCase();
     const allowed = featured
       ? new Set(packs.packs.map((pack) => `${pack.owner.toLowerCase()}/${pack.slug.toLowerCase()}`))
@@ -73,24 +99,7 @@ export const searchPacks = createTool({
       }
       return true;
     });
-    const seats = await rankSeatsByFit(scoped, [queryText], { signal: context?.abortSignal });
+    const seats = await rankSeatsOnce(scoped, [queryText], context?.abortSignal);
     return { ...packs, seats };
-  },
-});
-
-export const getPackTool = createTool({
-  id: "getPack",
-  description: "Get one pack by owner and slug from the catalog.",
-  inputSchema: z.object({
-    owner: z.string(),
-    slug: z.string(),
-  }),
-  outputSchema: z.object({
-    found: z.boolean(),
-    pack: z.unknown().nullable(),
-  }),
-  execute: async ({ owner, slug }) => {
-    const pack = await getPublicPack(owner, slug);
-    return { found: Boolean(pack), pack };
   },
 });
