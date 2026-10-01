@@ -1,25 +1,13 @@
 import { createUIMessageStream, createUIMessageStreamResponse, type UIMessage } from "ai";
 import type { CatalogSeat } from "@/lib/api-pack";
 import { searchCatalogSeats } from "@/src/mastra/tools/catalog";
-import { orgbotsDesk } from "@/src/mastra/agents/desk";
 
 export type RankedSeats = {
   empty: boolean;
   seats: CatalogSeat[];
 };
 
-export type DeskProseInput = {
-  query: string;
-  seats: CatalogSeat[];
-  signal?: AbortSignal;
-};
-
-export type DeskProse = (input: DeskProseInput) => AsyncIterable<string>;
-
-type DeskMemory = {
-  thread: string;
-  resource?: string;
-};
+const ROSTER_LINE = "Install each seat in Grok. This is your mix, not a listed pack.";
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object";
@@ -46,17 +34,6 @@ export function latestDeskQuery(params: unknown): string {
   return "";
 }
 
-function deskMemory(params: unknown): DeskMemory | undefined {
-  if (!isRecord(params) || !isRecord(params.memory)) return undefined;
-  const thread = params.memory.thread;
-  if (typeof thread !== "string" || thread.length === 0) return undefined;
-  const resource = params.memory.resource;
-  return {
-    thread,
-    ...(typeof resource === "string" ? { resource } : {}),
-  };
-}
-
 function uiMessages(params: unknown): UIMessage[] {
   if (!isRecord(params) || !Array.isArray(params.messages)) return [];
   return params.messages.filter((message): message is UIMessage => {
@@ -64,41 +41,8 @@ function uiMessages(params: unknown): UIMessage[] {
   });
 }
 
-function rosterText(seats: CatalogSeat[]): string {
-  return seats
-    .map((seat, index) => {
-      const handle = seat.author.xHandle ?? seat.pack.owner;
-      return `${index + 1}. ${seat.name} | ${seat.job} | @${handle} | ${seat.pack.href} | ${seat.grokTemplateUrl}`;
-    })
-    .join("\n");
-}
-
 export async function rankDeskSeats(query: string, signal?: AbortSignal): Promise<RankedSeats> {
   return searchCatalogSeats({ q: query }, signal);
-}
-
-async function* sarvamDeskProse(
-  input: DeskProseInput,
-  memory: DeskMemory | undefined
-): AsyncGenerator<string> {
-  const result = await orgbotsDesk.stream(
-    [
-      {
-        role: "user",
-        content: `${input.query}\n\nRanked seats, best first:\n${rosterText(input.seats)}`,
-      },
-    ],
-    {
-      toolChoice: "none",
-      maxSteps: 1,
-      activeTools: [],
-      ...(memory ? { memory } : {}),
-      ...(input.signal ? { abortSignal: input.signal } : {}),
-    }
-  );
-  for await (const delta of result.textStream) {
-    if (delta) yield delta;
-  }
 }
 
 function releaseQueuedCards(): Promise<void> {
@@ -110,7 +54,6 @@ function releaseQueuedCards(): Promise<void> {
 export function createDeskCardStream(options: {
   query: string;
   rankSeats: (query: string, signal?: AbortSignal) => Promise<RankedSeats>;
-  prose: DeskProse;
   signal?: AbortSignal;
   originalMessages?: UIMessage[];
 }) {
@@ -137,24 +80,9 @@ export function createDeskCardStream(options: {
       });
       await releaseQueuedCards();
       if (ranked.seats.length > 0) {
-        let open = false;
-        try {
-          for await (const delta of options.prose({
-            query: options.query,
-            seats: ranked.seats,
-            signal: options.signal,
-          })) {
-            if (!delta) continue;
-            if (!open) {
-              writer.write({ type: "text-start", id: textId });
-              open = true;
-            }
-            writer.write({ type: "text-delta", id: textId, delta });
-          }
-        } catch (error) {
-          console.error("[mix] desk prose failed", error);
-        }
-        if (open) writer.write({ type: "text-end", id: textId });
+        writer.write({ type: "text-start", id: textId });
+        writer.write({ type: "text-delta", id: textId, delta: ROSTER_LINE });
+        writer.write({ type: "text-end", id: textId });
       }
       writer.write({ type: "finish-step" });
       writer.write({ type: "finish", finishReason: "stop" });
@@ -166,7 +94,6 @@ export function streamDeskSearchResponse(params: unknown, signal?: AbortSignal):
   const stream = createDeskCardStream({
     query: latestDeskQuery(params),
     rankSeats: rankDeskSeats,
-    prose: (input) => sarvamDeskProse(input, deskMemory(params)),
     signal,
     originalMessages: uiMessages(params),
   });
