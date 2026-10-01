@@ -21546,8 +21546,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Store setup from zero. Use Weekly P&L analyst only for weekly P&L. Use Paid ads manager only for paid acquisition. Use Churn retention manager only for churn and failed payments. Use Landing page generator only for sales pages. Use Store from template only for cloning a working store. Use UGC bounty manager only for clipping/UGC bounties. Use Affiliate program manager only for affiliates. Use Partner referral outreach only for partner referrals. Use Business ops only as the front door for business ops. Use Jev router only for classification / Choice / Score / yes-no routing. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+  'Random questions stay at Store setup from zero. Use Weekly P&L analyst only for weekly P&L. Use Paid ads manager only for paid acquisition. Use Churn retention manager only for churn and failed payments. Use Landing page generator only for sales pages. Use Store from template only for cloning a working store. Use UGC bounty manager only for clipping/UGC bounties. Use Affiliate program manager only for affiliates. Use Partner referral outreach only for partner referrals. Use Business ops only as the front door for business ops. Use Jev router only for classification / Choice / Score / yes-no routing. Use Whop Economic Intelligence only for Whop next-best-action / economic-intelligence. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Whop Economic Intelligence is the Whop next-best-action / economic-intelligence lane.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000241',
@@ -29348,6 +29348,16 @@ insert into public.seats (
     false,
     29,
     'https://x.ai/bot/0boCprpn_3yaiJ5PZIGCw'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000613',
+    '10000000-0000-0000-0000-000000000240',
+    'Whop Economic Intelligence',
+    'Runs Whop Economic Intelligence for your business: shows the single best next action with evidence, executes it when you approve, then checks the ledger.',
+    null,
+    false,
+    11,
+    'https://x.ai/bot/M2ZLrLAUFFU0fFf6Aq28c'
   )
 )
 on conflict (id) do update
