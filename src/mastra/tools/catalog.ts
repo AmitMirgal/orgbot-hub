@@ -34,6 +34,25 @@ function rankSeatsOnce(
   return pending;
 }
 
+export async function searchCatalogSeats(
+  input: { q?: string; jobs?: string[] },
+  signal?: AbortSignal
+): Promise<{ empty: boolean; seats: CatalogSeat[] }> {
+  const catalog = listMemorySeats();
+  const requirement = input.jobs?.length ? input.jobs : input.q ? parseRequirementJobs(input.q) : [];
+  if (requirement.length > 0) {
+    const ranked = await rankSeatsOnce(catalog, requirement, signal);
+    if (ranked.length > 0) return { empty: false, seats: ranked };
+  }
+  const needle = input.q?.trim().toLowerCase();
+  const matched = needle
+    ? catalog.filter((seat) =>
+        [seat.name, seat.job, seat.pack.name, seat.pack.owner].join(" ").toLowerCase().includes(needle)
+      )
+    : [];
+  return { empty: matched.length === 0, seats: matched.slice(0, 6) };
+}
+
 export const searchSeats = createTool({
   id: "searchSeats",
   description:
@@ -46,24 +65,7 @@ export const searchSeats = createTool({
     empty: z.boolean(),
     seats: z.array(catalogSeatSchema),
   }),
-  execute: async ({ q, jobs }, context) => {
-    const catalog = listMemorySeats();
-    const requirement = jobs?.length ? jobs : q ? parseRequirementJobs(q) : [];
-    if (requirement.length > 0) {
-      const ranked = await rankSeatsOnce(catalog, requirement, context?.abortSignal);
-      if (ranked.length > 0) return { empty: false, seats: ranked };
-    }
-    const needle = q?.trim().toLowerCase();
-    const matched = needle
-      ? catalog.filter((seat) =>
-          [seat.name, seat.job, seat.pack.name, seat.pack.owner]
-            .join(" ")
-            .toLowerCase()
-            .includes(needle)
-        )
-      : [];
-    return { empty: matched.length === 0, seats: matched.slice(0, 6) };
-  },
+  execute: async ({ q, jobs }, context) => searchCatalogSeats({ q, jobs }, context?.abortSignal),
 });
 
 export const searchPacks = createTool({
