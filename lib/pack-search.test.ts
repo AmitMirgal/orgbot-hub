@@ -91,10 +91,15 @@ test("searchAndRerankPacks shortlists, re-ranks, and caps results", async () => 
   );
   const catalog = [billing, named, hiring, recruiter, ...extras];
   let rerankInput: string[] = [];
+  let listCalls = 0;
   const result = await searchAndRerankPacks(
     { q: "hire software engineers" },
     {
-      listPacks: async (query) => (query.q ? [] : catalog),
+      listPacks: async (query) => {
+        listCalls += 1;
+        assert.equal(query.q, undefined);
+        return catalog;
+      },
       rerank: async (_query, packs) => {
         rerankInput = packs.map((item) => item.slug);
         const preferred = packs.filter((item) => item.slug === "hiring");
@@ -103,6 +108,7 @@ test("searchAndRerankPacks shortlists, re-ranks, and caps results", async () => 
       },
     }
   );
+  assert.equal(listCalls, 1);
   assert.equal(result.empty, false);
   assert.ok(rerankInput.includes("hiring"));
   assert.equal(result.packs[0]?.slug, "hiring");

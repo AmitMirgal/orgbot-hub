@@ -2,7 +2,8 @@ import { Agent } from "@mastra/core/agent";
 import { Memory } from "@mastra/memory";
 import { mastraModel } from "../model";
 import { orgbotsStorage } from "../storage";
-import { getPackTool, searchPacks, searchSeats } from "../tools/catalog";
+import { searchPacks, searchSeats } from "../tools/catalog";
+import { getPackTool } from "../tools/get-pack";
 
 function deskMemory() {
   if (!orgbotsStorage) return undefined;
