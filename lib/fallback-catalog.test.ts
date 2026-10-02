@@ -2231,7 +2231,7 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
       topic: "founder",
       avatar: null,
       job: /Cursor spending dashboard/i,
-      seats: 30,
+      seats: 31,
     },
     {
       owner: "joepro",
