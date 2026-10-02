@@ -19,7 +19,7 @@ const seedSql = readFileSync(
 test("catalog includes existing packs plus the new verified shares", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
   assert.ok(getFallbackPack("poteto", "lauren"));
   assert.ok(getFallbackPack("cjblev", "corey"));
   assert.ok(getFallbackPack("MaiYangAI", "mai"));
@@ -390,7 +390,7 @@ test("catalog includes existing packs plus the new verified shares", () => {
   assert.equal(damiano?.seats[0]?.name, "OS: Ontology Stack");
 
   const knockAj = getFallbackPack("suddenlyjon", "knock");
-  assert.equal(knockAj?.seats.length, 30);
+  assert.equal(knockAj?.seats.length, 31);
   assert.equal(knockAj?.seats[0]?.name, "Token Accountant");
   assert.equal(knockAj?.seats[0]?.isDesk, true);
   assert.equal(knockAj?.seats[28]?.name, "Window");
@@ -400,6 +400,12 @@ test("catalog includes existing packs plus the new verified shares", () => {
   assert.equal(knockAj?.seats[29]?.sortOrder, 29);
   assert.equal(knockAj?.seats[29]?.grokTemplateUrl, "https://x.ai/bot/0boCprpn_3yaiJ5PZIGCw");
   assert.match(knockAj?.routingRule ?? "", /Fit Finder only for outfit-from-photo shopping links/);
+  assert.equal(knockAj?.seats[30]?.name, "Rebrander");
+  assert.equal(knockAj?.seats[30]?.id, "20000000-0000-0000-0000-000000000614");
+  assert.equal(knockAj?.seats[30]?.isDesk, false);
+  assert.equal(knockAj?.seats[30]?.sortOrder, 30);
+  assert.equal(knockAj?.seats[30]?.grokTemplateUrl, "https://x.ai/bot/HGorKc5KDQLynW4JONxn_");
+  assert.match(knockAj?.routingRule ?? "", /Rebrander only for business\/product rename \/ old-brand cleanup/);
 
 });
 
@@ -1855,8 +1861,8 @@ test("catalog watch adds five unofficial one-desk packs with live x.ai URLs", ()
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
 
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
@@ -2155,8 +2161,8 @@ test("catalog watch adds Andrew AvatarMaker, Scott Cookie Monster, and 14 more p
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
 
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
@@ -2646,6 +2652,13 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
         sortOrder: 29,
         grokTemplateUrl: "https://x.ai/bot/0boCprpn_3yaiJ5PZIGCw",
       },
+      {
+        id: "20000000-0000-0000-0000-000000000614",
+        name: "Rebrander",
+        isDesk: false,
+        sortOrder: 30,
+        grokTemplateUrl: "https://x.ai/bot/HGorKc5KDQLynW4JONxn_",
+      },
     ]
   );
   assert.match(knock.routingRule, /Token Accountant/);
@@ -2654,6 +2667,7 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
   assert.match(knock.routingRule, /Adventure Bot only for one GPS adventure pick/);
   assert.match(knock.routingRule, /Window only for dew-point window vs dehumidifier calls/);
   assert.match(knock.routingRule, /Fit Finder only for outfit-from-photo shopping links/);
+  assert.match(knock.routingRule, /Rebrander only for business\/product rename \/ old-brand cleanup/);
   assert.match(knock.routingRule, /Code Red only for the kill-switch/);
   assert.match(knock.routingRule, /Likeness only for named-person or animal stills and clips/);
   assert.match(knock.routingRule, /Dead Man's Bot only for the dead-man's switch/);
@@ -2821,8 +2835,8 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
   for (const url of skipped) {
     assert.ok(!uniqueFallbackUrls.has(url), `catalog should skip ${url}`);
     assert.ok(!seedSql.includes(url), `seed should skip ${url}`);
@@ -3057,8 +3071,8 @@ test("catalog watch 8pm IST 2026-09-02 adds Will Dr Web LP plus four unofficial 
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
   for (const url of skipped) {
     assert.ok(!uniqueFallbackUrls.has(url), `catalog should skip ${url}`);
     assert.ok(!seedSql.includes(url), `seed should skip ${url}`);
@@ -3368,8 +3382,8 @@ test("catalog watch adds Fondi, Tesla Bot, Table Money, and nine unofficial pack
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
   for (const url of skipped) {
     assert.ok(!uniqueFallbackUrls.has(url), `catalog should skip ${url}`);
     assert.ok(!seedSql.includes(url), `seed should skip ${url}`);
@@ -3536,8 +3550,8 @@ test("catalog adds Rinas ideabot, Thierry Rogue Bot Hunter, Jake Grok Customer S
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
   for (const url of skipped) {
     assert.ok(!uniqueFallbackUrls.has(url), `catalog should skip ${url}`);
     assert.ok(!seedSql.includes(url), `seed should skip ${url}`);
@@ -3685,7 +3699,7 @@ test("catalog adds Erinn Dean of Students, Liam QC/logistics/sales seats, and Kn
 
   const knock = getFallbackPack("suddenlyjon", "knock");
   assert.ok(knock);
-  assert.equal(knock.seats.length, 30);
+  assert.equal(knock.seats.length, 31);
   assert.equal(knock.seats[0]?.name, "Token Accountant");
   assert.equal(knock.seats[0]?.isDesk, true);
   assert.equal(knock.seats[4]?.id, "20000000-0000-0000-0000-000000000194");
@@ -3726,8 +3740,8 @@ test("catalog adds Erinn Dean of Students, Liam QC/logistics/sales seats, and Kn
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -3799,8 +3813,8 @@ test("catalog adds Liam Sarah Connor risk and Tony Montana procurement seats", (
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -3836,7 +3850,7 @@ test("catalog adds Knock SEAL Team 7, Andrew Denial Desk, and six unofficial des
   assert.ok(knock);
   assert.equal(knock.seats[0]?.name, "Token Accountant");
   assert.equal(knock.seats[0]?.isDesk, true);
-  assert.equal(knock.seats.length, 30);
+  assert.equal(knock.seats.length, 31);
   assert.deepEqual(
     knock.seats.slice(5, 12).map((item) => ({
       id: item.id,
@@ -4066,8 +4080,8 @@ test("catalog adds Knock SEAL Team 7, Andrew Denial Desk, and six unofficial des
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -4182,7 +4196,7 @@ test("catalog adds extra seats for Marc Uzi Scott Knock and nine unofficial desk
   assert.ok(knock);
   assert.equal(knock.seats[0]?.name, "Token Accountant");
   assert.equal(knock.seats[0]?.isDesk, true);
-  assert.equal(knock.seats.length, 30);
+  assert.equal(knock.seats.length, 31);
   assert.equal(knock.seats[12]?.id, "20000000-0000-0000-0000-000000000215");
   assert.equal(knock.seats[12]?.name, "Tab Janitor");
   assert.equal(knock.seats[12]?.isDesk, false);
@@ -4404,8 +4418,8 @@ test("catalog adds extra seats for Marc Uzi Scott Knock and nine unofficial desk
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -4447,7 +4461,7 @@ test("catalog adds extra seats for Marc Uzi Scott Knock and nine unofficial desk
 test("catalog adds Sep 4-11 verified x.ai/bot shares with MitchTiler isolated from tylernishida", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const mitch = getFallbackPack("MitchTiler", "mitch");
   const tyler = getFallbackPack("tylernishida", "tyler");
@@ -5079,7 +5093,7 @@ test("catalog adds Sep 4-11 verified x.ai/bot shares with MitchTiler isolated fr
 test("catalog adds Ash Fed+X Brief and updates TOATspace Optima desk URL", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const jeffrey = getFallbackPack("JeffreyLind", "jeffrey");
   assert.ok(jeffrey);
@@ -5181,8 +5195,8 @@ test("catalog adds Ash Fed+X Brief and updates TOATspace Optima desk URL", () =>
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -5225,11 +5239,11 @@ test("catalog adds Ash Fed+X Brief and updates TOATspace Optima desk URL", () =>
 test("catalog adds Knock BeneBot and 11 Sep 12 morning hunt packs", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const knock = getFallbackPack("suddenlyjon", "knock");
   assert.ok(knock);
-  assert.equal(knock.seats.length, 30);
+  assert.equal(knock.seats.length, 31);
   assert.equal(knock.seats[25]?.name, "Rosettabot");
   assert.equal(knock.seats[26]?.name, "BeneBot");
   assert.equal(knock.seats[26]?.id, "20000000-0000-0000-0000-000000000299");
@@ -5487,8 +5501,8 @@ test("catalog adds Knock BeneBot and 11 Sep 12 morning hunt packs", () => {
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -5527,7 +5541,7 @@ test("catalog adds Knock BeneBot and 11 Sep 12 morning hunt packs", () => {
 test("catalog adds Victoria + Sift + GSAP + Receipt Digester (Sep 12 noon)", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const amakelkyAaron = getFallbackPack("a-makelky", "aaron");
   const aaronInfinitea = getFallbackPack("AaronInfinitea", "aaron");
@@ -5621,8 +5635,8 @@ test("catalog adds Victoria + Sift + GSAP + Receipt Digester (Sep 12 noon)", () 
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -5658,7 +5672,7 @@ test("catalog adds Victoria + Sift + GSAP + Receipt Digester (Sep 12 noon)", () 
 test("catalog adds voidvexa/george (Skroutz) + cgnot996 (X调度员)", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const gnurioGeorge = getFallbackPack("gnurio", "george");
   const voidvexaGeorge = getFallbackPack("voidvexa", "george");
@@ -5735,8 +5749,8 @@ test("catalog adds voidvexa/george (Skroutz) + cgnot996 (X调度员)", () => {
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(uniqueFallbackUrls.size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(uniqueFallbackUrls.size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -5763,7 +5777,7 @@ test("catalog adds voidvexa/george (Skroutz) + cgnot996 (X调度员)", () => {
 test("catalog adds Sep 12 evening + Sep 13 backlog seats and packs", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const mai = getFallbackPack("MaiYangAI", "mai");
   assert.ok(mai);
@@ -6000,8 +6014,8 @@ test("catalog adds Sep 12 evening + Sep 13 backlog seats and packs", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(new Set(fallbackUrls).size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -6033,7 +6047,7 @@ test("catalog adds Sep 12 evening + Sep 13 backlog seats and packs", () => {
 test("catalog adds Sep 15 Adventure Bot + 7 new packs", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const knock = getFallbackPack("suddenlyjon", "knock");
   assert.ok(knock);
@@ -6176,8 +6190,8 @@ test("catalog adds Sep 15 Adventure Bot + 7 new packs", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(new Set(fallbackUrls).size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -6208,7 +6222,7 @@ test("catalog adds Sep 15 Adventure Bot + 7 new packs", () => {
 test("catalog adds Sep 15 3pm Root Agent + 薅羊毛 + Kun + Canonizer + WhatsApp-Bot + Flights", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const expected = [
     {
@@ -6349,8 +6363,8 @@ test("catalog adds Sep 15 3pm Root Agent + 薅羊毛 + Kun + Canonizer + WhatsAp
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(new Set(fallbackUrls).size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -6387,7 +6401,7 @@ test("catalog adds Sep 15 3pm Root Agent + 薅羊毛 + Kun + Canonizer + WhatsAp
 test("catalog adds sam_builds_ai/sam and eight Scott seats (Sep 15 eve)", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const samBuilds = getFallbackPack("sam_builds_ai", "sam");
   assert.ok(samBuilds);
@@ -6512,8 +6526,8 @@ test("catalog adds sam_builds_ai/sam and eight Scott seats (Sep 15 eve)", () => 
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(new Set(fallbackUrls).size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -6545,7 +6559,7 @@ test("catalog adds sam_builds_ai/sam and eight Scott seats (Sep 15 eve)", () => 
 test("catalog Sep 16 — Flat hunter seat + 9 new packs (8am+noon)", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const ash = getFallbackPack("0xashrk", "ash");
   assert.ok(ash);
@@ -6732,8 +6746,8 @@ test("catalog Sep 16 — Flat hunter seat + 9 new packs (8am+noon)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(new Set(fallbackUrls).size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -6764,7 +6778,7 @@ test("catalog Sep 16 — Flat hunter seat + 9 new packs (8am+noon)", () => {
 test("catalog 3pm IST 2026-09-16 — Venduto, Clip Clip, Sevvy, MonsterBot, Personal Shopper", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const expected = [
     {
@@ -6872,8 +6886,8 @@ test("catalog 3pm IST 2026-09-16 — Venduto, Clip Clip, Sevvy, MonsterBot, Pers
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(new Set(fallbackUrls).size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -6914,7 +6928,7 @@ test("catalog 3pm IST 2026-09-16 — Venduto, Clip Clip, Sevvy, MonsterBot, Pers
 test("catalog 5pm IST 2026-09-16 — fomo pilled, AutoOutreach SDR, SaaS Content Ranker, Ops, YouTube Soft-PASS Ops", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const expected = [
     {
@@ -7029,8 +7043,8 @@ test("catalog 5pm IST 2026-09-16 — fomo pilled, AutoOutreach SDR, SaaS Content
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(new Set(fallbackUrls).size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -7086,7 +7100,7 @@ test("catalog 5pm IST 2026-09-16 — fomo pilled, AutoOutreach SDR, SaaS Content
 test("catalog watch 3pm IST 2026-09-19 — 133 unfiled seats (Personal Shopper already on main)", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const expected = [
     {
@@ -9149,7 +9163,7 @@ test("catalog watch 3pm IST 2026-09-19 — 133 unfiled seats (Personal Shopper a
 
   const knock = getFallbackPack("suddenlyjon", "knock");
   assert.ok(knock);
-  assert.equal(knock.seats.length, 30);
+  assert.equal(knock.seats.length, 31);
   assert.equal(knock.seats[28]?.name, "Window");
   assert.equal(knock.seats[28]?.id, "20000000-0000-0000-0000-000000000447");
   assert.match(knock.routingRule, /Window only for dew-point window vs dehumidifier calls/);
@@ -9159,6 +9173,12 @@ test("catalog watch 3pm IST 2026-09-19 — 133 unfiled seats (Personal Shopper a
   assert.equal(knock.seats[29]?.sortOrder, 29);
   assert.equal(knock.seats[29]?.grokTemplateUrl, "https://x.ai/bot/0boCprpn_3yaiJ5PZIGCw");
   assert.match(knock.routingRule, /Fit Finder only for outfit-from-photo shopping links/);
+  assert.equal(knock.seats[30]?.name, "Rebrander");
+  assert.equal(knock.seats[30]?.id, "20000000-0000-0000-0000-000000000614");
+  assert.equal(knock.seats[30]?.isDesk, false);
+  assert.equal(knock.seats[30]?.sortOrder, 30);
+  assert.equal(knock.seats[30]?.grokTemplateUrl, "https://x.ai/bot/HGorKc5KDQLynW4JONxn_");
+  assert.match(knock.routingRule, /Rebrander only for business\/product rename \/ old-brand cleanup/);
 
   const scottAf = getFallbackPack("scottxmetcalf", "scott");
   assert.ok(scottAf);
@@ -9463,8 +9483,8 @@ test("catalog watch 3pm IST 2026-09-19 — 133 unfiled seats (Personal Shopper a
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(new Set(fallbackUrls).size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -9534,7 +9554,7 @@ test("catalog watch 3pm IST 2026-09-19 — 133 unfiled seats (Personal Shopper a
 test("catalog adds 3 named seats on existing packs (8pm 2026-09-26)", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const scott = getFallbackPack("scottxmetcalf", "scott");
   assert.ok(scott);
@@ -9614,8 +9634,8 @@ test("catalog adds 3 named seats on existing packs (8pm 2026-09-26)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(new Set(fallbackUrls).size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -9632,7 +9652,7 @@ test("catalog adds 3 named seats on existing packs (8pm 2026-09-26)", () => {
 test("catalog adds 1 named seat on existing pack (8pm 2026-09-27)", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const scott = getFallbackPack("scottxmetcalf", "scott");
   assert.ok(scott);
@@ -9664,8 +9684,8 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-09-27)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(new Set(fallbackUrls).size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -9676,7 +9696,7 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-09-27)", () => {
 test("catalog adds 1 named seat on existing pack (8pm 2026-09-30)", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const knock = getFallbackPack("suddenlyjon", "knock");
   assert.ok(knock);
@@ -9685,7 +9705,7 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-09-30)", () => {
   assert.equal(knock.owner.githubLogin, "suddenlyjon");
   assert.equal(knock.official, false);
   assert.equal(knock.featured, false);
-  assert.equal(knock.seats.length, 30);
+  assert.equal(knock.seats.length, 31);
   assert.equal(knock.seats[0]?.name, "Token Accountant");
   assert.equal(knock.seats[0]?.isDesk, true);
   assert.equal(knock.seats[29]?.id, "20000000-0000-0000-0000-000000000612");
@@ -9714,8 +9734,8 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-09-30)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(new Set(fallbackUrls).size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -9728,7 +9748,7 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-09-30)", () => {
 test("catalog adds 1 named seat on existing pack (8pm 2026-10-01)", () => {
   const stats = fallbackStats();
   assert.equal(stats.packs, 420);
-  assert.equal(stats.seats, 612);
+  assert.equal(stats.seats, 613);
 
   const colin = getFallbackPack("colinmcdermott", "colin");
   assert.ok(colin);
@@ -9773,13 +9793,73 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-10-01)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 612);
-  assert.equal(new Set(fallbackUrls).size, 612);
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
   assert.equal(fallbackUrls.filter((item) => item === "https://x.ai/bot/M2ZLrLAUFFU0fFf6Aq28c").length, 1);
   assert.equal(seedUrlMatches.filter((item) => item === "https://x.ai/bot/M2ZLrLAUFFU0fFf6Aq28c").length, 1);
+  assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
+  assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
+});
+
+test("catalog adds 1 named seat on existing pack (8pm 2026-10-02)", () => {
+  const stats = fallbackStats();
+  assert.equal(stats.packs, 420);
+  assert.equal(stats.seats, 613);
+
+  const knock = getFallbackPack("suddenlyjon", "knock");
+  assert.ok(knock);
+  assert.equal(knock.id, "10000000-0000-0000-0000-000000000126");
+  assert.equal(knock.owner.id, "00000000-0000-0000-0000-000000000118");
+  assert.equal(knock.owner.githubLogin, "suddenlyjon");
+  assert.equal(knock.owner.xHandle, "SuddenlyJon");
+  assert.equal(knock.official, false);
+  assert.equal(knock.featured, false);
+  assert.equal(knock.seats.length, 31);
+  assert.equal(knock.seats[0]?.id, "20000000-0000-0000-0000-000000000145");
+  assert.equal(knock.seats[0]?.name, "Token Accountant");
+  assert.equal(knock.seats[0]?.isDesk, true);
+  assert.equal(knock.seats[0]?.sortOrder, 0);
+  assert.equal(knock.seats[0]?.grokTemplateUrl, "https://x.ai/bot/zdnVIfLkNmRwZqqogojuc");
+  assert.equal(knock.seats[29]?.name, "Fit Finder");
+  assert.equal(knock.seats[29]?.id, "20000000-0000-0000-0000-000000000612");
+  assert.equal(knock.seats[29]?.sortOrder, 29);
+  assert.equal(knock.seats[30]?.id, "20000000-0000-0000-0000-000000000614");
+  assert.equal(knock.seats[30]?.name, "Rebrander");
+  assert.equal(knock.seats[30]?.isDesk, false);
+  assert.equal(knock.seats[30]?.sortOrder, 30);
+  assert.equal(knock.seats[30]?.repeatsWhen, null);
+  assert.equal(knock.seats[30]?.grokTemplateUrl, "https://x.ai/bot/HGorKc5KDQLynW4JONxn_");
+  assert.match(
+    knock.seats[30]?.job ?? "",
+    /Finds every trace of the old brand online, builds a step-by-step switchover plan and PDF report/
+  );
+  assert.match(
+    knock.routingRule,
+    /Use Rebrander only for business\/product rename \/ old-brand cleanup\./
+  );
+  assert.match(
+    knock.readmeMd ?? "",
+    /Rebrander is business\/product rename \/ old-brand cleanup only/
+  );
+  assert.equal(knock.seats.filter((seat) => seat.isDesk).length, 1);
+  assert.match(seedSql, /20000000-0000-0000-0000-000000000614/);
+  assert.match(seedSql, /https:\/\/x\.ai\/bot\/HGorKc5KDQLynW4JONxn_/);
+  assert.equal(getFallbackPack("examples", "stencil"), null);
+
+  const fallbackUrls = listFallbackPacks()
+    .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
+    .map((seat) => seat.grokTemplateUrl)
+    .filter((url): url is string => Boolean(url));
+  assert.equal(fallbackUrls.length, 613);
+  assert.equal(new Set(fallbackUrls).size, 613);
+  const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
+    (match) => match[0]
+  );
+  assert.equal(fallbackUrls.filter((item) => item === "https://x.ai/bot/HGorKc5KDQLynW4JONxn_").length, 1);
+  assert.equal(seedUrlMatches.filter((item) => item === "https://x.ai/bot/HGorKc5KDQLynW4JONxn_").length, 1);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
 });
