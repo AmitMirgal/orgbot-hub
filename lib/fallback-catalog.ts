@@ -431,6 +431,7 @@ const STACCOVERFLOW_OWNER_ID = "00000000-0000-0000-0000-000000000419";
 const AROUCH_SERG_OWNER_ID = "00000000-0000-0000-0000-000000000420";
 const VMVLAX_OWNER_ID = "00000000-0000-0000-0000-000000000421";
 const KSCHEVIK_OWNER_ID = "00000000-0000-0000-0000-000000000422";
+const BEKSVIE_OWNER_ID = "00000000-0000-0000-0000-000000000423";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -18565,6 +18566,45 @@ const KSCHEVIK: Pack = {
   ],
 };
 
+const BEKSVIE_OWNER: Profile = {
+  id: BEKSVIE_OWNER_ID,
+  githubLogin: "beksvie",
+  name: "Bernard",
+  avatarUrl: null,
+  xHandle: "beksvie",
+};
+
+const BEKSVIE: Pack = {
+  id: "10000000-0000-0000-0000-000000000431",
+  owner: BEKSVIE_OWNER,
+  slug: "bernard",
+  name: "Bernard",
+  description:
+    "Public Grok Bot templates Bernard (@beksvie / BeKs) has shared. One pack, his roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Bot Builder. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Bot Builder designs focused Grok Bot fleets (CoS + specialists), crawl→walk→run, and a Sunday skill/roster back-check — not a catch-all mega-helper.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000000615",
+      name: "Bot Builder",
+      job: "Designs and creates focused Grok Bots and small fleets — clear jobs, CoS routing, verification, crawl→walk→run, and a Sunday skill/roster back-check — not catch-all helpers.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/xwzDwQIkd1LYOIN1akMxy",
+    }),
+  ],
+};
+
 const ALL_PACKS: Pack[] = [
   LAUREN,
   KRISTA,
@@ -18986,6 +19026,7 @@ const ALL_PACKS: Pack[] = [
   AROUCH_SERG,
   VMVLAX,
   KSCHEVIK,
+  BEKSVIE,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -19409,6 +19450,7 @@ const ALL_PROFILES: Profile[] = [
   AROUCH_SERG_OWNER,
   VMVLAX_OWNER,
   KSCHEVIK_OWNER,
+  BEKSVIE_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {

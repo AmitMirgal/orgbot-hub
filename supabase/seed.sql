@@ -7172,6 +7172,23 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000000423',
+  'authenticated',
+  'authenticated',
+  'beksvie@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"beksvie","preferred_username":"beksvie","full_name":"Bernard"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 )
 )
@@ -12660,6 +12677,19 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000000423',
+  '00000000-0000-0000-0000-000000000423',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000000423',
+    'email', 'beksvie@orgbots.dev',
+    'user_name', 'beksvie'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 )
 )
@@ -15603,6 +15633,13 @@ values
     'Knut Schevik',
     'kschevik',
     null
+  ),
+  (
+    '00000000-0000-0000-0000-000000000423',
+    'beksvie',
+    'Bernard',
+    'beksvie',
+    null
   )
 )
 on conflict (id) do update
@@ -16041,7 +16078,8 @@ where pack_id in (
   '10000000-0000-0000-0000-000000000427',
   '10000000-0000-0000-0000-000000000428',
   '10000000-0000-0000-0000-000000000429',
-  '10000000-0000-0000-0000-000000000430'
+  '10000000-0000-0000-0000-000000000430',
+  '10000000-0000-0000-0000-000000000431'
 )
    or id in (
   '20000000-0000-0000-0000-000000000012',
@@ -16641,7 +16679,12 @@ where pack_id in (
   '20000000-0000-0000-0000-000000000607',
   '20000000-0000-0000-0000-000000000608',
   '20000000-0000-0000-0000-000000000609',
-  '20000000-0000-0000-0000-000000000610'
+  '20000000-0000-0000-0000-000000000610',
+  '20000000-0000-0000-0000-000000000611',
+  '20000000-0000-0000-0000-000000000612',
+  '20000000-0000-0000-0000-000000000613',
+  '20000000-0000-0000-0000-000000000614',
+  '20000000-0000-0000-0000-000000000615'
 );
 delete from public.packs
 where id in (
@@ -24383,6 +24426,21 @@ insert into public.packs (
   0,
   'Random questions stay at Ai Health. Use a named seat only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/kschevik/status/2102384835125764591.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000000431',
+  '00000000-0000-0000-0000-000000000423',
+  'bernard',
+  'Bernard',
+  'Public Grok Bot templates Bernard (@beksvie / BeKs) has shared. One pack, his roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Bot Builder. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Bot Builder designs focused Grok Bot fleets (CoS + specialists), crawl→walk→run, and a Sunday skill/roster back-check — not a catch-all mega-helper.$readme$
 )
 )
 on conflict (id) do update
@@ -29368,6 +29426,16 @@ insert into public.seats (
     false,
     30,
     'https://x.ai/bot/HGorKc5KDQLynW4JONxn_'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000615',
+    '10000000-0000-0000-0000-000000000431',
+    'Bot Builder',
+    'Designs and creates focused Grok Bots and small fleets — clear jobs, CoS routing, verification, crawl→walk→run, and a Sunday skill/roster back-check — not catch-all helpers.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/xwzDwQIkd1LYOIN1akMxy'
   )
 )
 on conflict (id) do update
