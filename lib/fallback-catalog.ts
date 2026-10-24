@@ -1156,6 +1156,108 @@ const RICHELLEFRITZ_OWNER_ID = "00000000-0000-0000-0000-000000001144";
 const SIEDGEGEEK_OWNER_ID = "00000000-0000-0000-0000-000000001145";
 const SIRWISESAM_OWNER_ID = "00000000-0000-0000-0000-000000001146";
 const UPESHINMARS_OWNER_ID = "00000000-0000-0000-0000-000000001147";
+const _0XBAGSAI_SOL_OWNER_ID = "00000000-0000-0000-0000-000000001148";
+const _175RNG_OWNER_ID = "00000000-0000-0000-0000-000000001149";
+const _CHUCK_HOLLOWAY_OWNER_ID = "00000000-0000-0000-0000-000000001150";
+const ABEGEHR_OWNER_ID = "00000000-0000-0000-0000-000000001151";
+const ABROMELIAD_OWNER_ID = "00000000-0000-0000-0000-000000001152";
+const ACEOP_XYZ_OWNER_ID = "00000000-0000-0000-0000-000000001153";
+const AG_ABHILASHG_OWNER_ID = "00000000-0000-0000-0000-000000001154";
+const AINPONCE_OWNER_ID = "00000000-0000-0000-0000-000000001155";
+const AMGAD_BARKAT_OWNER_ID = "00000000-0000-0000-0000-000000001156";
+const ARUSHJ01_OWNER_ID = "00000000-0000-0000-0000-000000001157";
+const AURIUKUX2_OWNER_ID = "00000000-0000-0000-0000-000000001158";
+const AUSTEN_OWNER_ID = "00000000-0000-0000-0000-000000001159";
+const BAYUNGROK_OWNER_ID = "00000000-0000-0000-0000-000000001160";
+const BNPRUITT_OWNER_ID = "00000000-0000-0000-0000-000000001161";
+const BOBRILEYJR_OWNER_ID = "00000000-0000-0000-0000-000000001162";
+const BOLDRICK_OWNER_ID = "00000000-0000-0000-0000-000000001163";
+const CHB2XX_OWNER_ID = "00000000-0000-0000-0000-000000001164";
+const CHEFMARKCOAKLEY_OWNER_ID = "00000000-0000-0000-0000-000000001165";
+const CODYLIBOLT_OWNER_ID = "00000000-0000-0000-0000-000000001166";
+const CORY_ZANER_OWNER_ID = "00000000-0000-0000-0000-000000001167";
+const D_J_HARMAN_OWNER_ID = "00000000-0000-0000-0000-000000001168";
+const DARTHUR_OWNER_ID = "00000000-0000-0000-0000-000000001169";
+const DAVIDE21187_OWNER_ID = "00000000-0000-0000-0000-000000001170";
+const DRAGHUB1_OWNER_ID = "00000000-0000-0000-0000-000000001171";
+const DREWFROMWEB3_OWNER_ID = "00000000-0000-0000-0000-000000001172";
+const DYLANBEBUILDING_OWNER_ID = "00000000-0000-0000-0000-000000001173";
+const E_ONSLEY_OWNER_ID = "00000000-0000-0000-0000-000000001174";
+const EDWARD_ATIME_OWNER_ID = "00000000-0000-0000-0000-000000001175";
+const EDWINCH43136084_OWNER_ID = "00000000-0000-0000-0000-000000001176";
+const ELBENJASSW_OWNER_ID = "00000000-0000-0000-0000-000000001177";
+const ELIJAHNICOLAS_OWNER_ID = "00000000-0000-0000-0000-000000001178";
+const EMOTOR_OWNER_ID = "00000000-0000-0000-0000-000000001179";
+const FRANKONEDIGITAL_OWNER_ID = "00000000-0000-0000-0000-000000001180";
+const GGZARIV_OWNER_ID = "00000000-0000-0000-0000-000000001181";
+const GILOZAN5_OWNER_ID = "00000000-0000-0000-0000-000000001182";
+const GIOSAIA_OWNER_ID = "00000000-0000-0000-0000-000000001183";
+const GLENNHASABEARD_OWNER_ID = "00000000-0000-0000-0000-000000001184";
+const GOODLUCKBELLS_OWNER_ID = "00000000-0000-0000-0000-000000001185";
+const GOYABEAN_ETH_OWNER_ID = "00000000-0000-0000-0000-000000001186";
+const GRIFFINJAWN_OWNER_ID = "00000000-0000-0000-0000-000000001187";
+const HACKS_JIMM53237_OWNER_ID = "00000000-0000-0000-0000-000000001188";
+const HELVIO_OWNER_ID = "00000000-0000-0000-0000-000000001189";
+const HUDSONSUTHERLA2_OWNER_ID = "00000000-0000-0000-0000-000000001190";
+const IMDEVMAN_OWNER_ID = "00000000-0000-0000-0000-000000001191";
+const IUSTINAFRACTALS_OWNER_ID = "00000000-0000-0000-0000-000000001192";
+const JACOBWELLERX_OWNER_ID = "00000000-0000-0000-0000-000000001193";
+const JASON_JASONETC_OWNER_ID = "00000000-0000-0000-0000-000000001194";
+const JAVABEANAI_OWNER_ID = "00000000-0000-0000-0000-000000001195";
+const JAYINELY_OWNER_ID = "00000000-0000-0000-0000-000000001196";
+const JESKORIOT_OWNER_ID = "00000000-0000-0000-0000-000000001197";
+const JESSEHEREDIA_OWNER_ID = "00000000-0000-0000-0000-000000001198";
+const JESUSISKING3651_OWNER_ID = "00000000-0000-0000-0000-000000001199";
+const JOHNBOYLE_OWNER_ID = "00000000-0000-0000-0000-000000001200";
+const JOHNWALKER_OWNER_ID = "00000000-0000-0000-0000-000000001201";
+const JORDANRAFEALOV_OWNER_ID = "00000000-0000-0000-0000-000000001202";
+const JUSTAGUY94_OWNER_ID = "00000000-0000-0000-0000-000000001203";
+const KALEBAUTOMATES_OWNER_ID = "00000000-0000-0000-0000-000000001204";
+const KAMILBANC_OWNER_ID = "00000000-0000-0000-0000-000000001205";
+const KENBARRETTHQ_OWNER_ID = "00000000-0000-0000-0000-000000001206";
+const KENYIP_OWNER_ID = "00000000-0000-0000-0000-000000001207";
+const KGTHEGENT88_OWNER_ID = "00000000-0000-0000-0000-000000001208";
+const LEGALLYRENEE_OWNER_ID = "00000000-0000-0000-0000-000000001209";
+const LIN_TASTIC_OWNER_ID = "00000000-0000-0000-0000-000000001210";
+const MCQUILLEN_4670_OWNER_ID = "00000000-0000-0000-0000-000000001211";
+const MOEDARE_OWNER_ID = "00000000-0000-0000-0000-000000001212";
+const MR_GODOT_OWNER_ID = "00000000-0000-0000-0000-000000001213";
+const MROZANKESICI_OWNER_ID = "00000000-0000-0000-0000-000000001214";
+const NAPERSVERYOWN_OWNER_ID = "00000000-0000-0000-0000-000000001215";
+const NASTYJERMBALL_OWNER_ID = "00000000-0000-0000-0000-000000001216";
+const NFTRAYMOND_OWNER_ID = "00000000-0000-0000-0000-000000001217";
+const NOT_BESKAR_OWNER_ID = "00000000-0000-0000-0000-000000001218";
+const ODISUS_OWNER_ID = "00000000-0000-0000-0000-000000001219";
+const OVIDIUTEPES_OWNER_ID = "00000000-0000-0000-0000-000000001220";
+const PHLEGONJOSEPH_OWNER_ID = "00000000-0000-0000-0000-000000001221";
+const PROF_EBRAL_OWNER_ID = "00000000-0000-0000-0000-000000001222";
+const RAHULJANAGOUDA_OWNER_ID = "00000000-0000-0000-0000-000000001223";
+const RAJCHUDASAMA_OWNER_ID = "00000000-0000-0000-0000-000000001224";
+const REALPETRU_OWNER_ID = "00000000-0000-0000-0000-000000001225";
+const ROBERICKSON_OWNER_ID = "00000000-0000-0000-0000-000000001226";
+const RODERIK_OWNER_ID = "00000000-0000-0000-0000-000000001227";
+const RYAN_HOLDAWAY_OWNER_ID = "00000000-0000-0000-0000-000000001228";
+const SAI_RAMANA_1999_OWNER_ID = "00000000-0000-0000-0000-000000001229";
+const SAME1311025_OWNER_ID = "00000000-0000-0000-0000-000000001230";
+const SATADRU_OWNER_ID = "00000000-0000-0000-0000-000000001231";
+const SCOTTY2SHOTTYY_OWNER_ID = "00000000-0000-0000-0000-000000001232";
+const SERGIOTAPIADEV_OWNER_ID = "00000000-0000-0000-0000-000000001233";
+const SHUBHH_HUM_OWNER_ID = "00000000-0000-0000-0000-000000001234";
+const SIGNALNOISE8020_OWNER_ID = "00000000-0000-0000-0000-000000001235";
+const SOC_BRAN_AFRICA_OWNER_ID = "00000000-0000-0000-0000-000000001236";
+const SOWASHINGTON26_OWNER_ID = "00000000-0000-0000-0000-000000001237";
+const STANTHEMAN_0128_OWNER_ID = "00000000-0000-0000-0000-000000001238";
+const SVG__COLLECTION_OWNER_ID = "00000000-0000-0000-0000-000000001239";
+const SYQCON95_OWNER_ID = "00000000-0000-0000-0000-000000001240";
+const SZILAGYIPAL_OWNER_ID = "00000000-0000-0000-0000-000000001241";
+const VALEN_HL_OWNER_ID = "00000000-0000-0000-0000-000000001242";
+const VED_CJ_OWNER_ID = "00000000-0000-0000-0000-000000001243";
+const VLADYDADDY_OWNER_ID = "00000000-0000-0000-0000-000000001244";
+const WAVEGOD_OWNER_ID = "00000000-0000-0000-0000-000000001245";
+const WEAVERWORK_OWNER_ID = "00000000-0000-0000-0000-000000001246";
+const YASHKAVAIYA_OWNER_ID = "00000000-0000-0000-0000-000000001247";
+const ZACFORRISTALL_OWNER_ID = "00000000-0000-0000-0000-000000001248";
+const ZEER0HOUR_OWNER_ID = "00000000-0000-0000-0000-000000001249";
 
 const EXAMPLES_OWNER: Profile = {
   id: EXAMPLES_OWNER_ID,
@@ -4663,7 +4765,7 @@ const AV1D: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at loops. Use Master only for master orchestration. Use Chief of Staff only for chief-of-staff work. Use Growth Desk only for growth work. Use Grok Bot Coach only for Grok Bot coaching. Use Inference Lab only for A hands-on inference lab assistant that serves. Named seats only when that job is already in this pack.",
+    "Random questions stay at loops. Use Master only for master orchestration. Use Chief of Staff only for chief-of-staff work. Use Growth Desk only for growth work. Use Grok Bot Coach only for Grok Bot coaching. Use Inference Lab only for A hands-on inference lab assistant that serves. Use Dashboard Maker only for Dashboard Maker. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Inference Lab is A hands-on inference lab assistant that serves only.",
   seats: [
@@ -4720,7 +4822,16 @@ const AV1D: Pack = {
       isDesk: false,
       sortOrder: 5,
       grokTemplateUrl: "https://x.ai/bot/2BO1SgtlCc4OCYLrzKoZ_",
-    })
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001945",
+      name: "Dashboard Maker",
+      job: "Dashboard Maker is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 6,
+      grokTemplateUrl: "https://x.ai/bot/qbiG4Q0RQuy0Y_C8Hr--l",
+    }),
   ],
 };
 
@@ -5351,6 +5462,16 @@ const KEVIN: Pack = {
       sortOrder: 1,
       grokTemplateUrl: "https://x.ai/bot/liwVNZ8sQXxJEK-bx1YvW",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002030",
+      name: "My Health Watch",
+      job: "My Health Watch is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/6tcn195_OUTz2--si-nd0",
+    }),
   ],
 };
 
@@ -5480,7 +5601,7 @@ const LIAM: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Bounty Hunter. Use Gus Fring only for QC gate. Use Beatrix Kiddo only for logistics exceptions. Use Jordan Belfort only for sales pipeline. Use Sarah Connor only for risk. Use Tony Montana only for procurement. Use Lockdown only for personal digital security account lockdown. Use Everyone only for who-is-X / relationship memory / conference follow-up. Use Handoff only for Hires real people through RentAHuman or Fiverr to get things done. Use Remembered only for Remembered work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Bounty Hunter. Use Gus Fring only for QC gate. Use Beatrix Kiddo only for logistics exceptions. Use Jordan Belfort only for sales pipeline. Use Sarah Connor only for risk. Use Tony Montana only for procurement. Use Lockdown only for personal digital security account lockdown. Use Everyone only for who-is-X / relationship memory / conference follow-up. Use Handoff only for Hires real people through RentAHuman or Fiverr to get things done. Use Remembered only for Remembered work. Use Proven only for Proven. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Handoff is Hires real people through RentAHuman or Fiverr to get things done only.",
   seats: [
@@ -5573,6 +5694,16 @@ const LIAM: Pack = {
       isDesk: false,
       sortOrder: 9,
       grokTemplateUrl: "https://x.ai/bot/v8VS1FsB0TRj9vuXcOx25",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002035",
+      name: "Proven",
+      job: "Proven is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 10,
+      grokTemplateUrl: "https://x.ai/bot/dlhjv6_TncBax75LX9GzG",
     }),
   ],
 };
@@ -6000,7 +6131,7 @@ const RYAN: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Google Agent. Use Plaud Notes only for Intake, classify, index, and route voice-recorder notes. Uses a spreadsheet as the only. Use Website Publisher only for Senior web publisher for a public static site: gated deploys. Use LinkedIn Agent only for A LinkedIn ghostwriter and networking assistant. It finds sourced topics in your lane. Use Research Project PM only for A project manager for a research collaboration. It briefs coding agents. Use Research PM only for Senior PM for a recurring research-intelligence pipeline. It reviews nightly claim runs. Use Ship Evidence Auditor only for Audits every auto-ship from your coding agents with hard evidence (CI. Use Eval Keeper only for Eval Keeper work. Use Test Cop only for Test Cop work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Google Agent. Use Plaud Notes only for Intake, classify, index, and route voice-recorder notes. Uses a spreadsheet as the only. Use Website Publisher only for Senior web publisher for a public static site: gated deploys. Use LinkedIn Agent only for A LinkedIn ghostwriter and networking assistant. It finds sourced topics in your lane. Use Research Project PM only for A project manager for a research collaboration. It briefs coding agents. Use Research PM only for Senior PM for a recurring research-intelligence pipeline. It reviews nightly claim runs. Use Ship Evidence Auditor only for Audits every auto-ship from your coding agents with hard evidence (CI. Use Eval Keeper only for Eval Keeper work. Use Test Cop only for Test Cop work. Use Dink Bot only for Dink Bot. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Plaud Notes is Intake, classify, index, and route voice-recorder notes. Uses a spreadsheet as the only only. Website Publisher is Senior web publisher for a public static site: gated deploys only. LinkedIn Agent is A LinkedIn ghostwriter and networking assistant. It finds sourced topics in your lane only. Research Project PM is A project manager for a research collaboration. It briefs coding agents only. Research PM is Senior PM for a recurring research-intelligence pipeline. It reviews nightly claim runs only. Ship Evidence Auditor is Audits every auto-ship from your coding agents with hard evidence (CI only.",
   seats: [
@@ -6084,6 +6215,16 @@ const RYAN: Pack = {
       isDesk: false,
       sortOrder: 8,
       grokTemplateUrl: "https://x.ai/bot/-IP_HE8l0UOByWip4DByf",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002067",
+      name: "Dink Bot",
+      job: "Dink Bot is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 9,
+      grokTemplateUrl: "https://x.ai/bot/aO8T9h4gksIpO1Xb6zRAh",
     }),
   ],
 };
@@ -7290,6 +7431,16 @@ const ADAM: Pack = {
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/HU7XArfGhUgLnzVcr7neB",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001932",
+      name: "Election Bot",
+      job: "Election Bot is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/klSoDdSmIv67XtCDe4wpR",
+    }),
   ],
 };
 
@@ -7308,7 +7459,7 @@ const CHASE: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Situation monitor. Use MemeBot only for A meme maker that turns your ideas into high-quality image and video memes using real. Named seats only when that job is already in this pack.",
+    "Random questions stay at Situation monitor. Use MemeBot only for A meme maker that turns your ideas into high-quality image and video memes using real. Use Product Research Bot only for Product Research Bot. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. MemeBot is A meme maker that turns your ideas into high-quality image and video memes using real only.",
   seats: [
@@ -7329,7 +7480,16 @@ const CHASE: Pack = {
       isDesk: false,
       sortOrder: 1,
       grokTemplateUrl: "https://x.ai/bot/8RvI6fjeiNF92TwFx0RNX",
-    })
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001958",
+      name: "Product Research Bot",
+      job: "Product Research Bot is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/43I3LO7v1XZlKCfggVt2q",
+    }),
   ],
 };
 
@@ -8885,7 +9045,7 @@ const MATT_RICE: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Fable 5.1 Oracle. Use Grok Bot Radar only for Grok Bot Radar work. Use a named seat only when that job is already in this pack.",
+    "Random questions stay at Fable 5.1 Oracle. Use Grok Bot Radar only for Grok Bot Radar work. Use Firstmate Builder only for Firstmate Builder. Use a named seat only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.",
   seats: [
@@ -8906,6 +9066,16 @@ const MATT_RICE: Pack = {
       isDesk: false,
       sortOrder: 1,
       grokTemplateUrl: "https://x.ai/bot/jtNRaumQu9DvvadLlHeiA",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001953",
+      name: "Firstmate Builder",
+      job: "Firstmate Builder is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/MMyecjLoLXVanmqSRtoo2",
     }),
   ],
 };
@@ -10093,7 +10263,25 @@ const PHIL: Pack = {
       isDesk: false,
       sortOrder: 8,
       grokTemplateUrl: "https://x.ai/bot/ydje9SAP_d0lIHxOdu2_j",
-    })
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002057",
+      name: "Security Audit Bot",
+      job: "Security Audit Bot is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 9,
+      grokTemplateUrl: "https://x.ai/bot/ksa8bHwOSris1UoZtCUhU",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002058",
+      name: "🎼 iBot Player",
+      job: "🎼 iBot Player is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 10,
+      grokTemplateUrl: "https://x.ai/bot/jK9aaa6Pypf_WjnaIHWah",
+    }),
   ],
 };
 
@@ -13833,6 +14021,16 @@ const HOVHANNES: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/D0DOumUGpkN-fjE_acysw",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002005",
+      name: "Disk Saver",
+      job: "Disk Saver is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/Va3fg4mNOJ7XHSmI_b7R5",
     }),
   ],
 };
@@ -18225,6 +18423,25 @@ const WEEB3DEV: Pack = {
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/tukhb8f4XyUJFkRWlHWaz",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002095",
+      name: "burrito",
+      job: "burrito is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/A-u45QsGO7eyt6d1zbwuU",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002096",
+      name: "taco",
+      job: "taco is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/kzRUNSKJpzatmaseduVUn",
+    }),
   ],
 };
 
@@ -21470,7 +21687,7 @@ const BUDJOHNSON: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Speaker. Use Bookmark Brain only for Bookmark Brain work. Use Distro only for Distro work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Speaker. Use Bookmark Brain only for Bookmark Brain work. Use Distro only for Distro work. Use Handle Grab only for Handle Grab. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/BudJohnson/status/2106888301529440511.",
   seats: [
@@ -21500,6 +21717,16 @@ const BUDJOHNSON: Pack = {
       isDesk: false,
       sortOrder: 2,
       grokTemplateUrl: "https://x.ai/bot/3ztDdRoVGeQTIz-IOlVjl",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001954",
+      name: "Handle Grab",
+      job: "Handle Grab is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 3,
+      grokTemplateUrl: "https://x.ai/bot/qRmySr_5609PmcJZ_3v8a",
     }),
   ],
 };
@@ -23612,6 +23839,16 @@ const HIGHTV: Pack = {
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/sw6dnxtAjKOyNS5KRuDkN",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002004",
+      name: "Coupon Desk",
+      job: "Coupon Desk is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/yh5H6WoF1i42RFQNVdf07",
+    }),
   ],
 };
 
@@ -23639,7 +23876,7 @@ const KRISH1403: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Idea Crucible. Use Buy or Skip only for Buy or Skip tells you whether a product is worth buying right now. You paste a product. Named seats only when that job is already in this pack.",
+    "Random questions stay at Idea Crucible. Use Buy or Skip only for Buy or Skip tells you whether a product is worth buying right now. You paste a product. Use Idea Crucible only for Idea Crucible. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/krish1403/status/2107383761281437925 and https://x.com/krish1403/status/2108462140130758833.",
   seats: [
@@ -23660,6 +23897,16 @@ const KRISH1403: Pack = {
       isDesk: false,
       sortOrder: 1,
       grokTemplateUrl: "https://x.ai/bot/dKULJ5f9nPf6_fVn5aGK4",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002032",
+      name: "Idea Crucible",
+      job: "Idea Crucible is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/HC0KHm9BA5wSRows_32M8",
     }),
   ],
 };
@@ -24191,7 +24438,7 @@ const CALILUMBERJACK: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Burn Watch. Use Bridge Bot only for Bridge Bot work. Use Fleet Lead only for Fleet Lead work. Use Burn Watch only for Burn Watch work. Use Postwright only for Postwright work. Use Tubewright only for Tubewright work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Burn Watch. Use Bridge Bot only for Bridge Bot work. Use Fleet Lead only for Fleet Lead work. Use Burn Watch only for Burn Watch work. Use Postwright only for Postwright work. Use Tubewright only for Tubewright work. Use Parent Radar only for Parent Radar. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/CaliLumberJack/status/2107559439532425340.",
   seats: [
@@ -24248,6 +24495,16 @@ const CALILUMBERJACK: Pack = {
       isDesk: false,
       sortOrder: 5,
       grokTemplateUrl: "https://x.ai/bot/DuELeZImu7B6FXzIs2bMt",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001955",
+      name: "Parent Radar",
+      job: "Parent Radar is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 6,
+      grokTemplateUrl: "https://x.ai/bot/MUOdwr9N1byHBBoPC7k4y",
     }),
   ],
 };
@@ -24641,7 +24898,7 @@ const THECSGUY: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Realtor. Use Afterglow only for Your daily X post-game. Every morning it charts how your posts did and tells you what. Use Package Pal only for Package Pal work. Use Disk Doctor only for Disk Doctor work. Use Claude Remote only for Claude Remote work. Use Burn Rate only for Burn Rate work. Use Starlink Check only for Starlink Check work. Use Vuln Scout only for Vuln Scout work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Realtor. Use Afterglow only for Your daily X post-game. Every morning it charts how your posts did and tells you what. Use Package Pal only for Package Pal work. Use Disk Doctor only for Disk Doctor work. Use Claude Remote only for Claude Remote work. Use Burn Rate only for Burn Rate work. Use Starlink Check only for Starlink Check work. Use Vuln Scout only for Vuln Scout work. Use Last Call only for Last Call. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/thecsguy/status/2107604927661097137 and https://x.com/thecsguy/status/2109380940829217184.",
   seats: [
@@ -24716,6 +24973,16 @@ const THECSGUY: Pack = {
       isDesk: false,
       sortOrder: 7,
       grokTemplateUrl: "https://x.ai/bot/IiV3YZZ2TAF63sPORZmWy",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002087",
+      name: "Last Call",
+      job: "Last Call is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 8,
+      grokTemplateUrl: "https://x.ai/bot/YuGzbyI7jVfZedsRUOLCm",
     }),
   ],
 };
@@ -24833,7 +25100,7 @@ const CHEFMCMAKIN: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Personal Chef. Use Look Up only for Watches the night sky over your home and only messages you when something is worth. Use Tavern DM only for Tavern DM work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Personal Chef. Use Look Up only for Watches the night sky over your home and only messages you when something is worth. Use Tavern DM only for Tavern DM work. Use Local AI Manager only for Local AI Manager. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/ChefMcMakin/status/2107629420538134730 and https://x.com/ChefMcMakin/status/2107695849425801723.",
   seats: [
@@ -24863,7 +25130,16 @@ const CHEFMCMAKIN: Pack = {
       isDesk: false,
       sortOrder: 2,
       grokTemplateUrl: "https://x.ai/bot/g8PfMW94P5hOCBOXXEeSj",
-    })
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001963",
+      name: "Local AI Manager",
+      job: "Local AI Manager is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 3,
+      grokTemplateUrl: "https://x.ai/bot/yQvAz8GjmB73Bv6G30iX8",
+    }),
   ],
 };
 
@@ -26346,7 +26622,7 @@ const XENAPPBLOG: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Overwatch. Use Research only for Research work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Overwatch. Use Research only for Research work. Use Design only for Design. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/xenappblog/status/2108351458248634445.",
   seats: [
@@ -26376,7 +26652,16 @@ const XENAPPBLOG: Pack = {
       isDesk: false,
       sortOrder: 2,
       grokTemplateUrl: "https://x.ai/bot/v3WI0YuJAr1DLoYdYVXh8",
-    })
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002099",
+      name: "Design",
+      job: "Design is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 3,
+      grokTemplateUrl: "https://x.ai/bot/ExPDMDgkx4V13EgIOFemK",
+    }),
   ],
 };
 
@@ -27669,7 +27954,7 @@ const AUNYSILLYME: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at X-Man. Use Lyrically only for Lyrically work. Use Content Mod only for Content Mod work. Named seats only when that job is already in this pack.",
+    "Random questions stay at X-Man. Use Lyrically only for Lyrically work. Use Content Mod only for Content Mod work. Use Vidness only for Vidness. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/AunySillyMe/status/2108626727815483743.",
   seats: [
@@ -27699,6 +27984,16 @@ const AUNYSILLYME: Pack = {
       isDesk: false,
       sortOrder: 2,
       grokTemplateUrl: "https://x.ai/bot/vyaYfy9EGxn9j6781LGWx",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001941",
+      name: "Vidness",
+      job: "Vidness is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 3,
+      grokTemplateUrl: "https://x.ai/bot/n2P7H93gdzQ28pzxz2NJx",
     }),
   ],
 };
@@ -28145,7 +28440,7 @@ const DKMITC: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Presents. Use Chef only for Chef work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Presents. Use Chef only for Chef work. Use Handyman only for Handyman. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/dkmitc/status/2108677563644072263.",
   seats: [
@@ -28166,6 +28461,16 @@ const DKMITC: Pack = {
       isDesk: false,
       sortOrder: 1,
       grokTemplateUrl: "https://x.ai/bot/Rit95fVYvgO8ulGTvVpw9",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001973",
+      name: "Handyman",
+      job: "Handyman is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/rQvB9sFrdQU7Ef43jOxgI",
     }),
   ],
 };
@@ -28246,6 +28551,16 @@ const CANNABIS_WAY: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/NOlGcAeGPPz95Vaup-FRK",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001956",
+      name: "Cannaby",
+      job: "Cannaby is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/DVNePMZfF4SREAUXhn2uY",
     }),
   ],
 };
@@ -29319,6 +29634,16 @@ const DRAGOSROUA: Pack = {
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/J7OPBxlsIUZB7IoXoB5wE",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001975",
+      name: "Apps Assistant",
+      job: "Apps Assistant is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/JaXyZXGmAwJCwwLgdRIP-",
+    }),
   ],
 };
 
@@ -30201,7 +30526,7 @@ const CANTBEATDEES: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Am I Covered?. Use What's for Dinner? only for What's for Dinner? work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Am I Covered?. Use What's for Dinner? only for What's for Dinner? work. Use XRPL Grid Bot only for XRPL Grid Bot. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/CantBeatDees/status/2109252064844906843.",
   seats: [
@@ -30222,6 +30547,16 @@ const CANTBEATDEES: Pack = {
       isDesk: false,
       sortOrder: 1,
       grokTemplateUrl: "https://x.ai/bot/K0ks73uZiVozA3BT0XSs7",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001957",
+      name: "XRPL Grid Bot",
+      job: "XRPL Grid Bot is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/NFhXvAgts3A-j9zEkvh0l",
     }),
   ],
 };
@@ -31104,6 +31439,25 @@ const ASHLEYSCHENDEL: Pack = {
       sortOrder: 3,
       grokTemplateUrl: "https://x.ai/bot/vh6EO3QKPOND6N4XKNhco",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001939",
+      name: "Inbox Zero",
+      job: "Inbox Zero is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 4,
+      grokTemplateUrl: "https://x.ai/bot/9UjZlzLTiCHz5iPNilWMd",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001940",
+      name: "Parent Command Center",
+      job: "Parent Command Center is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 5,
+      grokTemplateUrl: "https://x.ai/bot/w9x8eL__XAc_-yVR2fEfg",
+    }),
   ],
 };
 
@@ -31749,6 +32103,16 @@ const MARSHALLFRITH: Pack = {
       sortOrder: 1,
       grokTemplateUrl: "https://x.ai/bot/CXhCaQsmxAm1ym5qLwrvz",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002038",
+      name: "Mr Bot Goes to Washington",
+      job: "Mr Bot Goes to Washington is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/a5ImxsxRQtzDo-qAKWdkG",
+    }),
   ],
 };
 
@@ -31877,6 +32241,16 @@ const SOCALFSD: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/n3BVWJO3mwIVW2NMF_-2L",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002081",
+      name: "Impostor Radar",
+      job: "Impostor Radar is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/F2o7skMMxVsqUHX4N5VGH",
     }),
   ],
 };
@@ -33866,6 +34240,16 @@ const HEIDIBRIONES: Pack = {
       isDesk: false,
       sortOrder: 2,
       grokTemplateUrl: "https://x.ai/bot/klUNCIuB1VMh6ERrVISN5",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002001",
+      name: "Music Contest Enterer",
+      job: "Music Contest Enterer is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 3,
+      grokTemplateUrl: "https://x.ai/bot/BA3q2a0kMpAD1PM3qtt5c",
     }),
   ],
 };
@@ -36050,7 +36434,7 @@ const TITANIUMTOMP: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Panda 🐼 Weather 🌤️. Use Orwell (Grammar Fix) only for Orwell (Grammar Fix) work. Use Panda 🐼 Weather 🌤️ only for Panda 🐼 Weather 🌤️ work. Use Deep Search Spam-Call Scrubber only for Deep Search Spam-Call Scrubber work. Use Gork only for Gork work. Use Deep Search Email Scrubber only for Deep Search Email Scrubber work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Panda 🐼 Weather 🌤️. Use Orwell (Grammar Fix) only for Orwell (Grammar Fix) work. Use Panda 🐼 Weather 🌤️ only for Panda 🐼 Weather 🌤️ work. Use Deep Search Spam-Call Scrubber only for Deep Search Spam-Call Scrubber work. Use Gork only for Gork work. Use Deep Search Email Scrubber only for Deep Search Email Scrubber work. Use Sherlock Holmes (Fact Checker) only for Sherlock Holmes (Fact Checker). Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/TitaniumTomP/status/2110185324790132832.",
   seats: [
@@ -36107,6 +36491,16 @@ const TITANIUMTOMP: Pack = {
       isDesk: false,
       sortOrder: 5,
       grokTemplateUrl: "https://x.ai/bot/cDiDHm01Cy9gIoMacSuGL",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002088",
+      name: "Sherlock Holmes (Fact Checker)",
+      job: "Sherlock Holmes (Fact Checker) is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 6,
+      grokTemplateUrl: "https://x.ai/bot/r_TDh1tl_1k1DgYyldhfj",
     }),
   ],
 };
@@ -36572,7 +36966,7 @@ const ALL_JONAH: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Xssistant. Use Shelf only for Shelf work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Xssistant. Use Shelf only for Shelf work. Use UnmuteAmerica only for UnmuteAmerica. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/ALL_Jonah/status/2110581886703571364.",
   seats: [
@@ -36593,6 +36987,16 @@ const ALL_JONAH: Pack = {
       isDesk: false,
       sortOrder: 1,
       grokTemplateUrl: "https://x.ai/bot/HbgK5ztHyhY8Kcrc1e0H-",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001936",
+      name: "UnmuteAmerica",
+      job: "UnmuteAmerica is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/ppyKGpiWQmGkXxWqbeyCL",
     }),
   ],
 };
@@ -37848,6 +38252,16 @@ const DHALGRENMARQUIS: Pack = {
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/x3r1lzVhcU0G5vfX62Y7q",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001972",
+      name: "Unstuck",
+      job: "Unstuck is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/nzYF6uF_q7yPj5gONdLgT",
+    }),
   ],
 };
 
@@ -38012,6 +38426,25 @@ const DRSARAH: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/ZMwukO1eaUg62QTiMf2sp",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001977",
+      name: "Licensure Bot",
+      job: "Licensure Bot is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/mvPbixnZJVgJ95mfUEoet",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001978",
+      name: "Dr. Bot",
+      job: "Dr. Bot is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/d3Ab1XrF1JtVRVJw97nVD",
     }),
   ],
 };
@@ -38381,6 +38814,25 @@ const HEAVYMETALSHIP: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/9SrJdyJ6W4WC3GOxXWRtA",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001999",
+      name: "Bot Terminator",
+      job: "Bot Terminator is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/6sN-FSvkf_ntuqe-3Ofjz",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002000",
+      name: "DOGE",
+      job: "DOGE is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/5YkCIW_MDa2U8Jax7zsDF",
     }),
   ],
 };
@@ -39212,7 +39664,7 @@ const MICHAELHECKERT: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Rematch. Use Explainer Video Bot only for Explainer Video Bot work. Use Undercut only for Undercut work. Use Sponsor Scout only for Sponsor Scout work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Rematch. Use Explainer Video Bot only for Explainer Video Bot work. Use Undercut only for Undercut work. Use Sponsor Scout only for Sponsor Scout work. Use Covered only for Covered. Use Distill only for Distill. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/MichaelHeckert/status/2110734030815596670.",
   seats: [
@@ -39251,7 +39703,25 @@ const MICHAELHECKERT: Pack = {
       isDesk: false,
       sortOrder: 3,
       grokTemplateUrl: "https://x.ai/bot/HK7rbeEuMNDD3_RbYyvx6",
-    })
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002041",
+      name: "Covered",
+      job: "Covered is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 4,
+      grokTemplateUrl: "https://x.ai/bot/JE8skJITEDqsPpFOZUsBh",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002042",
+      name: "Distill",
+      job: "Distill is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 5,
+      grokTemplateUrl: "https://x.ai/bot/dPj7ysFWJ-nTtWPwiZlih",
+    }),
   ],
 };
 
@@ -39560,6 +40030,25 @@ const NOTSWIZZ: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/hIFPpNZzUvd7zLg9juZ_a",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002053",
+      name: "Fantasy Hoops GM",
+      job: "Fantasy Hoops GM is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/4yolAe3pJGfa1hEywYOwJ",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002054",
+      name: "Cold Outreach",
+      job: "Cold Outreach is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/Xfb__DmiJ_s-FAZKMA6fn",
     }),
   ],
 };
@@ -41360,7 +41849,16 @@ const FALCONORTIZ: Pack = {
       isDesk: false,
       sortOrder: 1,
       grokTemplateUrl: "https://x.ai/bot/wnBf1QOmxcGTKQe6zCtaw",
-    })
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001986",
+      name: "Short-Form Video Editor",
+      job: "Short-Form Video Editor is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/7uDg8aSUrT6Zn4l2qaaUF",
+    }),
   ],
 };
 
@@ -41561,7 +42059,7 @@ const HEROICTRIPOD297: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Budget and Subscription Hunter. Use Budget and Subscription Hunter only for Budget and Subscription Hunter work. Use Bill Haggler only for Bill Haggler work. Use PHP2Shell Patcher and Vuln Scout only for PHP2Shell Patcher and Vuln Scout work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Budget and Subscription Hunter. Use Budget and Subscription Hunter only for Budget and Subscription Hunter work. Use Bill Haggler only for Bill Haggler work. Use PHP2Shell Patcher and Vuln Scout only for PHP2Shell Patcher and Vuln Scout work. Use College Copilot only for College Copilot. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/heroictripod297/status/2110919255617413290 and https://x.com/heroictripod297/status/2110922593590997070.",
   seats: [
@@ -41600,6 +42098,16 @@ const HEROICTRIPOD297: Pack = {
       isDesk: false,
       sortOrder: 3,
       grokTemplateUrl: "https://x.ai/bot/AmWeqsgVQN-VPGbB-SRRC",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002003",
+      name: "College Copilot",
+      job: "College Copilot is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 4,
+      grokTemplateUrl: "https://x.ai/bot/Ssk1lcmxnlZIpk35h2L6Y",
     }),
   ],
 };
@@ -41783,7 +42291,7 @@ const JUST_STUFF_TM: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Klipper Print Assistant. Use 3d Cad only for 3d Cad work. Use LTE Meshcore Repeater Updater only for LTE Meshcore Repeater Updater work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Klipper Print Assistant. Use 3d Cad only for 3d Cad work. Use LTE Meshcore Repeater Updater only for LTE Meshcore Repeater Updater work. Use Department Of Grok Bot Efficiency only for Department Of Grok Bot Efficiency. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/just_stuff_tm/status/2110922415253659717 and https://x.com/just_stuff_tm/status/2110923702183366863.",
   seats: [
@@ -41813,6 +42321,16 @@ const JUST_STUFF_TM: Pack = {
       isDesk: false,
       sortOrder: 2,
       grokTemplateUrl: "https://x.ai/bot/4C3UVw82rExY2s3-YSL7s",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002023",
+      name: "Department Of Grok Bot Efficiency",
+      job: "Department Of Grok Bot Efficiency is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 3,
+      grokTemplateUrl: "https://x.ai/bot/FoA7-uy5Q4Yz7Y-lmO8S-",
     }),
   ],
 };
@@ -42008,6 +42526,16 @@ const KYLEKANE: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/LBWRqJu3RkUutDrqSlSEc",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002033",
+      name: "Live Bot Map",
+      job: "Live Bot Map is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/74waKUTMnScf5UIudfo4f",
     }),
   ],
 };
@@ -43606,6 +44134,25 @@ const BENNETTPRODUCT: Pack = {
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/xWDQL_mDu_B0E-VaXCPzc",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001947",
+      name: "Legal Awareness Model",
+      job: "Legal Awareness Model is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/irNGYr2mFZHsEEGWdgV35",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001948",
+      name: "Musk Mode",
+      job: "Musk Mode is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/b1sX0rVzUMR_flfqmD1ZR",
+    }),
   ],
 };
 
@@ -44280,6 +44827,16 @@ const MYTESLAMOONSHIP: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/tl1Ih8-CLh1fwTp51jqme",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002047",
+      name: "Lucy",
+      job: "Lucy is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/ouYfeH7lktbikzbsR7TkX",
     }),
   ],
 };
@@ -45040,7 +45597,16 @@ const KEVIN_LOGAN: Pack = {
       isDesk: false,
       sortOrder: 2,
       grokTemplateUrl: "https://x.ai/bot/9E8iw2zlg2fTWzUT6RUsP",
-    })
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002029",
+      name: "Junk Mail Stopper",
+      job: "Junk Mail Stopper is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 3,
+      grokTemplateUrl: "https://x.ai/bot/F1XZoNusJXMm92YTTT6kR",
+    }),
   ],
 };
 
@@ -46139,6 +46705,16 @@ const JOHNSON20062123: Pack = {
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/DWcrUM2ZY3g7lhp0pPA5l",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002019",
+      name: "Dreamline",
+      job: "Dreamline is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/ZYvJ1vzqv_8vc0sVQc1SK",
+    }),
   ],
 };
 
@@ -47041,6 +47617,16 @@ const ALEXCOVO_ETH: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/IvevLUjIR56OHx6trTcNA",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001935",
+      name: "StackChan Agent Builder",
+      job: "StackChan Agent Builder is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/m1luEUI_ttBpoHC1yZr2j",
     }),
   ],
 };
@@ -48096,6 +48682,16 @@ const RYO_MIU: Pack = {
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/MgbmI7yosGl_eoctazByw",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002068",
+      name: "乗り過ごし番",
+      job: "乗り過ごし番 is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/nhplJJITvVS4IJQBvtenq",
+    }),
   ],
 };
 
@@ -48962,6 +49558,16 @@ const DALEGANDY: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/uQhDO7G-zeHut15X_KHbe",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001969",
+      name: "Bill & Budget Buddy",
+      job: "Bill & Budget Buddy is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/aVyfgunuMwsn5pQBRaIQZ",
     }),
   ],
 };
@@ -50426,6 +51032,25 @@ const WRECKITABEL: Pack = {
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/GMgVqKF_rn4UU6jISZ_V_",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002097",
+      name: "Fantasy Desk",
+      job: "Fantasy Desk is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/XqtrNQYV51VLo3o9aRjlE",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002098",
+      name: "Headhunter",
+      job: "Headhunter is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/42PlIaeY24WATqx4FDmwk",
+    }),
   ],
 };
 
@@ -50874,6 +51499,16 @@ const CHORCH_MD: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/OkT4Dbjy4xVf7oVBCr8hL",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001964",
+      name: "Bookmarks X",
+      job: "Bookmarks X is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/OSNkKaxb9sfMXPyyxZaq6",
     }),
   ],
 };
@@ -52088,7 +52723,7 @@ const CORBENH414: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Any CRM. Use Salesforce Guide only for Salesforce Guide work. Use GoHighLevel Guide only for GoHighLevel Guide work. Use Wingman only for Wingman work. Use JobNimbus Guide only for JobNimbus Guide work. Use Home Designer only for Home Designer work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Any CRM. Use Salesforce Guide only for Salesforce Guide work. Use GoHighLevel Guide only for GoHighLevel Guide work. Use Wingman only for Wingman work. Use JobNimbus Guide only for JobNimbus Guide work. Use Home Designer only for Home Designer work. Use Personal Shopper only for Personal Shopper. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/CorbenH414/status/2113300082472755287 and https://x.com/CorbenH414/status/2113377610403094569 and https://x.com/CorbenH414/status/2113407439504540126 and https://x.com/CorbenH414/status/2113430627336822866 and https://x.com/CorbenH414/status/2113610340940251540 and https://x.com/CorbenH414/status/2113629469432803666.",
   seats: [
@@ -52145,6 +52780,16 @@ const CORBENH414: Pack = {
       isDesk: false,
       sortOrder: 5,
       grokTemplateUrl: "https://x.ai/bot/CNP02KiDPseDuu6-oTL8e",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000001966",
+      name: "Personal Shopper",
+      job: "Personal Shopper is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 6,
+      grokTemplateUrl: "https://x.ai/bot/K0pXH0afB-Gvipvclt8g9",
     }),
   ],
 };
@@ -52546,6 +53191,16 @@ const JPRZ1321: Pack = {
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/zafLolp-y0aoEwGpZd_qv",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002022",
+      name: "Atlas",
+      job: "Atlas is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/Qk34TQ_fBXQOWB2kbPbqd",
+    }),
   ],
 };
 
@@ -52746,6 +53401,16 @@ const LOUNGELESS: Pack = {
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/2WORXc-tiWkdWFW-BqeIV",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002037",
+      name: "Card Benefits Desk",
+      job: "Card Benefits Desk is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/K4JptVX1j3qOV9qBWkll-",
+    }),
   ],
 };
 
@@ -52898,7 +53563,7 @@ const MAVMETAX: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Roast My Account Bot. Use Doginal Dog Art Bot only for Doginal Dog Art Bot work. Named seats only when that job is already in this pack.",
+    "Random questions stay at Roast My Account Bot. Use Doginal Dog Art Bot only for Doginal Dog Art Bot work. Use Voice Clone only for Voice Clone. Named seats only when that job is already in this pack.",
   readmeMd:
     "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Mavmetax/status/2113328310549676353 and https://x.com/Mavmetax/status/2113334750228488635.",
   seats: [
@@ -52919,6 +53584,16 @@ const MAVMETAX: Pack = {
       isDesk: false,
       sortOrder: 1,
       grokTemplateUrl: "https://x.ai/bot/OwB7-1LWZIQ9smmqtfwOv",
+    }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002039",
+      name: "Voice Clone",
+      job: "Voice Clone is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/Bv1-VWUR2VsJmJ-y300_k",
     }),
   ],
 };
@@ -53200,6 +53875,16 @@ const SIEDGEGEEK: Pack = {
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/ZTQNZCP_XiSq4yozGrGP-",
     }),
+  
+    seat({
+      id: "20000000-0000-0000-0000-000000002077",
+      name: "The Billionaire Mentor",
+      job: "The Billionaire Mentor is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/o0wxduClh1Okitv6zvn-9",
+    }),
   ],
 };
 
@@ -53279,6 +53964,4220 @@ const UPESHINMARS: Pack = {
       isDesk: true,
       sortOrder: 0,
       grokTemplateUrl: "https://x.ai/bot/7-WcJeOIJKRD-hsi84dnh",
+    }),
+  ],
+};
+
+const _0XBAGSAI_SOL_OWNER: Profile = {
+  id: _0XBAGSAI_SOL_OWNER_ID,
+  githubLogin: "0xbagsai_sol",
+  name: "0xBagsAI_Sol./🌐",
+  avatarUrl: null,
+  xHandle: "0xbagsai_sol",
+};
+
+const _0XBAGSAI_SOL: Pack = {
+  id: "10000000-0000-0000-0000-000000001156",
+  owner: _0XBAGSAI_SOL_OWNER,
+  slug: "0xbagsaisol",
+  name: "0xBagsAI_Sol",
+  description:
+    "Public Grok Bot templates 0xBagsAI_Sol./🌐 (@0xbagsai_sol) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Grok Bot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/0xBagsAI_Sol/status/2113801984549777819.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001926",
+      name: "Grok Bot",
+      job: "Grok Bot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/Izj4ik7CkIU1BtCETCTFp",
+    }),
+  ],
+};
+
+
+const _175RNG_OWNER: Profile = {
+  id: _175RNG_OWNER_ID,
+  githubLogin: "175rng",
+  name: "Cleetus",
+  avatarUrl: null,
+  xHandle: "175rng",
+};
+
+const _175RNG: Pack = {
+  id: "10000000-0000-0000-0000-000000001157",
+  owner: _175RNG_OWNER,
+  slug: "cleetus",
+  name: "Cleetus",
+  description:
+    "Public Grok Bot templates Cleetus (@175rng) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Catholic Keyword Monitor. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/175rng/status/2113699097563591040.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001927",
+      name: "Catholic Keyword Monitor",
+      job: "Catholic Keyword Monitor is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/7HYVNFFVBFxCpiAaf50j0",
+    }),
+  ],
+};
+
+
+const _CHUCK_HOLLOWAY_OWNER: Profile = {
+  id: _CHUCK_HOLLOWAY_OWNER_ID,
+  githubLogin: "_chuck_holloway",
+  name: "Chuck Holloway",
+  avatarUrl: null,
+  xHandle: "_chuck_holloway",
+};
+
+const _CHUCK_HOLLOWAY: Pack = {
+  id: "10000000-0000-0000-0000-000000001158",
+  owner: _CHUCK_HOLLOWAY_OWNER,
+  slug: "chuck",
+  name: "Chuck",
+  description:
+    "Public Grok Bot templates Chuck Holloway (@_chuck_holloway) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Aidesmith. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/_Chuck_Holloway/status/2113665972741484612.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001928",
+      name: "Aidesmith",
+      job: "Aidesmith is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/vJULR6-7EehNoDVrVyOlv",
+    }),
+  ],
+};
+
+
+const ABEGEHR_OWNER: Profile = {
+  id: ABEGEHR_OWNER_ID,
+  githubLogin: "abegehr",
+  name: "Anton Begehr",
+  avatarUrl: null,
+  xHandle: "abegehr",
+};
+
+const ABEGEHR: Pack = {
+  id: "10000000-0000-0000-0000-000000001159",
+  owner: ABEGEHR_OWNER,
+  slug: "anton",
+  name: "Anton",
+  description:
+    "Public Grok Bot templates Anton Begehr (@abegehr) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Angie. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/abegehr/status/2113950516640362949.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001929",
+      name: "Angie",
+      job: "Angie is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/3SSq7wcciZdOEPi1GU_OJ",
+    }),
+  ],
+};
+
+
+const ABROMELIAD_OWNER: Profile = {
+  id: ABROMELIAD_OWNER_ID,
+  githubLogin: "abromeliad",
+  name: "The Bromeliad.",
+  avatarUrl: null,
+  xHandle: "abromeliad",
+};
+
+const ABROMELIAD: Pack = {
+  id: "10000000-0000-0000-0000-000000001160",
+  owner: ABROMELIAD_OWNER,
+  slug: "bromeliad",
+  name: "The Bromeliad.",
+  description:
+    "Public Grok Bot templates The Bromeliad. (@abromeliad) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Try Grok Bot Bot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/abromeliad/status/2113658285261754568.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001930",
+      name: "Try Grok Bot Bot",
+      job: "Try Grok Bot Bot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/dP_W6kpgaW27G2iKk_9L9",
+    }),
+  ],
+};
+
+
+const ACEOP_XYZ_OWNER: Profile = {
+  id: ACEOP_XYZ_OWNER_ID,
+  githubLogin: "aceop_xyz",
+  name: "Ace op",
+  avatarUrl: null,
+  xHandle: "aceop_xyz",
+};
+
+const ACEOP_XYZ: Pack = {
+  id: "10000000-0000-0000-0000-000000001161",
+  owner: ACEOP_XYZ_OWNER,
+  slug: "ace",
+  name: "Ace",
+  description:
+    "Public Grok Bot templates Ace op (@aceop_xyz) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Reddit Deep Mystery Hunter. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/aceop_xyz/status/2113868492575527292.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001931",
+      name: "Reddit Deep Mystery Hunter",
+      job: "Reddit Deep Mystery Hunter is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/gIU1BopSXVMB4quJPCcOi",
+    }),
+  ],
+};
+
+
+const AG_ABHILASHG_OWNER: Profile = {
+  id: AG_ABHILASHG_OWNER_ID,
+  githubLogin: "ag_abhilashg",
+  name: "Abhilash G",
+  avatarUrl: null,
+  xHandle: "ag_abhilashg",
+};
+
+const AG_ABHILASHG: Pack = {
+  id: "10000000-0000-0000-0000-000000001162",
+  owner: AG_ABHILASHG_OWNER,
+  slug: "abhilash",
+  name: "Abhilash",
+  description:
+    "Public Grok Bot templates Abhilash G (@ag_abhilashg) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Car Review. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/AG_Abhilashg/status/2113844631951868308.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001933",
+      name: "Car Review",
+      job: "Car Review is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/UikUx6t2d4x9hhfF98dPm",
+    }),
+  ],
+};
+
+
+const AINPONCE_OWNER: Profile = {
+  id: AINPONCE_OWNER_ID,
+  githubLogin: "ainponce",
+  name: "ain",
+  avatarUrl: null,
+  xHandle: "ainponce",
+};
+
+const AINPONCE: Pack = {
+  id: "10000000-0000-0000-0000-000000001163",
+  owner: AINPONCE_OWNER,
+  slug: "ain",
+  name: "Ain",
+  description:
+    "Public Grok Bot templates ain (@ainponce) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Hacky. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/ainponce/status/2113735178095124750.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001934",
+      name: "Hacky",
+      job: "Hacky is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/dbgGbYX5btC37jeD2brDy",
+    }),
+  ],
+};
+
+
+const AMGAD_BARKAT_OWNER: Profile = {
+  id: AMGAD_BARKAT_OWNER_ID,
+  githubLogin: "amgad_barkat",
+  name: "Amgad_Barakat",
+  avatarUrl: null,
+  xHandle: "amgad_barkat",
+};
+
+const AMGAD_BARKAT: Pack = {
+  id: "10000000-0000-0000-0000-000000001164",
+  owner: AMGAD_BARKAT_OWNER,
+  slug: "amgad",
+  name: "Amgad",
+  description:
+    "Public Grok Bot templates Amgad_Barakat (@amgad_barkat) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Department Sub-bot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/amgad_barkat/status/2113656804261470615.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001937",
+      name: "Department Sub-bot",
+      job: "Department Sub-bot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/l8xcxXrSoldAf4Rn9HIX3",
+    }),
+  ],
+};
+
+
+const ARUSHJ01_OWNER: Profile = {
+  id: ARUSHJ01_OWNER_ID,
+  githubLogin: "arushj01",
+  name: "Arush Jain",
+  avatarUrl: null,
+  xHandle: "arushj01",
+};
+
+const ARUSHJ01: Pack = {
+  id: "10000000-0000-0000-0000-000000001165",
+  owner: ARUSHJ01_OWNER,
+  slug: "arush",
+  name: "Arush",
+  description:
+    "Public Grok Bot templates Arush Jain (@arushj01) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Conference Lead Tracker. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Arushj01/status/2113741223584494064.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001938",
+      name: "Conference Lead Tracker",
+      job: "Conference Lead Tracker is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/xPh7biCYasptCjWHWYmfE",
+    }),
+  ],
+};
+
+
+const AURIUKUX2_OWNER: Profile = {
+  id: AURIUKUX2_OWNER_ID,
+  githubLogin: "auriukux2",
+  name: "Auriukux",
+  avatarUrl: null,
+  xHandle: "auriukux2",
+};
+
+const AURIUKUX2: Pack = {
+  id: "10000000-0000-0000-0000-000000001166",
+  owner: AURIUKUX2_OWNER,
+  slug: "auriukux",
+  name: "Auriukux",
+  description:
+    "Public Grok Bot templates Auriukux (@auriukux2) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Deaf Assistant. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Auriukux2/status/2113995732760027309.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001942",
+      name: "Deaf Assistant",
+      job: "Deaf Assistant is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/Hw3pqGYRMf7OLHpWwN_x_",
+    }),
+  ],
+};
+
+
+const AUSTEN_OWNER: Profile = {
+  id: AUSTEN_OWNER_ID,
+  githubLogin: "austen",
+  name: "Austen Allred",
+  avatarUrl: null,
+  xHandle: "austen",
+};
+
+const AUSTEN: Pack = {
+  id: "10000000-0000-0000-0000-000000001167",
+  owner: AUSTEN_OWNER,
+  slug: "austen",
+  name: "Austen",
+  description:
+    "Public Grok Bot templates Austen Allred (@austen) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Dropped-Ball Scanner. Use iOS messages connector only for iOS messages connector. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Austen/status/2113760782492000356. iOS messages connector is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001943",
+      name: "Dropped-Ball Scanner",
+      job: "Dropped-Ball Scanner is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/E-uo4CQ__9GjtWYhWLPQF",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001944",
+      name: "iOS messages connector",
+      job: "iOS messages connector is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/sleuFUT9GdxW2e4eyRAv7",
+    }),
+  ],
+};
+
+
+const BAYUNGROK_OWNER: Profile = {
+  id: BAYUNGROK_OWNER_ID,
+  githubLogin: "bayungrok",
+  name: "BA YU",
+  avatarUrl: null,
+  xHandle: "bayungrok",
+};
+
+const BAYUNGROK: Pack = {
+  id: "10000000-0000-0000-0000-000000001168",
+  owner: BAYUNGROK_OWNER,
+  slug: "bayu",
+  name: "Bayu",
+  description:
+    "Public Grok Bot templates BA YU (@bayungrok) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at SI Animation Studio. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/bayungrok/status/2113810347534721165.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001946",
+      name: "SI Animation Studio",
+      job: "SI Animation Studio is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/o0oKXiz8tBqbVJts7LpDt",
+    }),
+  ],
+};
+
+
+const BNPRUITT_OWNER: Profile = {
+  id: BNPRUITT_OWNER_ID,
+  githubLogin: "bnpruitt",
+  name: "Brandon Pruitt",
+  avatarUrl: null,
+  xHandle: "bnpruitt",
+};
+
+const BNPRUITT: Pack = {
+  id: "10000000-0000-0000-0000-000000001169",
+  owner: BNPRUITT_OWNER,
+  slug: "brandon",
+  name: "Brandon",
+  description:
+    "Public Grok Bot templates Brandon Pruitt (@bnpruitt) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Draft-First Coordinator. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/bnpruitt/status/2113966673653096941.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001949",
+      name: "Draft-First Coordinator",
+      job: "Draft-First Coordinator is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/ORp6yO8M9-GZSdvSXMSD1",
+    }),
+  ],
+};
+
+
+const BOBRILEYJR_OWNER: Profile = {
+  id: BOBRILEYJR_OWNER_ID,
+  githubLogin: "bobrileyjr",
+  name: "dcowboys",
+  avatarUrl: null,
+  xHandle: "bobrileyjr",
+};
+
+const BOBRILEYJR: Pack = {
+  id: "10000000-0000-0000-0000-000000001170",
+  owner: BOBRILEYJR_OWNER,
+  slug: "dcowboys",
+  name: "dcowboys",
+  description:
+    "Public Grok Bot templates dcowboys (@bobrileyjr) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at One-Person Product Business Bot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/bobrileyjr/status/2113969277992661387.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001950",
+      name: "One-Person Product Business Bot",
+      job: "One-Person Product Business Bot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/rL4g3tkxOOMtJ1ZGumx9l",
+    }),
+  ],
+};
+
+
+const BOLDRICK_OWNER: Profile = {
+  id: BOLDRICK_OWNER_ID,
+  githubLogin: "boldrick",
+  name: "Jeff Boldrick",
+  avatarUrl: null,
+  xHandle: "boldrick",
+};
+
+const BOLDRICK: Pack = {
+  id: "10000000-0000-0000-0000-000000001171",
+  owner: BOLDRICK_OWNER,
+  slug: "jeff",
+  name: "Jeff",
+  description:
+    "Public Grok Bot templates Jeff Boldrick (@boldrick) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Privacy Sweep. Use Cut Man only for Cut Man. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/boldrick/status/2113656421753454641. Cut Man is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001951",
+      name: "Privacy Sweep",
+      job: "Privacy Sweep is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/VKfVgGBquo1XwzFtLdynw",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001952",
+      name: "Cut Man",
+      job: "Cut Man is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/mMOxWfMcTLkCcpOQo2Sl9",
+    }),
+  ],
+};
+
+
+const CHB2XX_OWNER: Profile = {
+  id: CHB2XX_OWNER_ID,
+  githubLogin: "chb2xx",
+  name: "Coconut Chris",
+  avatarUrl: null,
+  xHandle: "chb2xx",
+};
+
+const CHB2XX: Pack = {
+  id: "10000000-0000-0000-0000-000000001172",
+  owner: CHB2XX_OWNER,
+  slug: "coconut",
+  name: "Coconut Chris",
+  description:
+    "Public Grok Bot templates Coconut Chris (@chb2xx) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Moneybot. Use Social Media Salesperson only for Social Media Salesperson. Use Local Meetup Finder only for Local Meetup Finder. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/chb2xx/status/2113778258386747608. Social Media Salesperson is the named-seat lane only. Local Meetup Finder is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001959",
+      name: "Moneybot",
+      job: "Moneybot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/3tvR-uSPVjm60lbZQmegv",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001960",
+      name: "Social Media Salesperson",
+      job: "Social Media Salesperson is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/JYf4g6Fp2mfxpEq4B-S2e",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001961",
+      name: "Local Meetup Finder",
+      job: "Local Meetup Finder is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/Y2A-wqZnS45laQ_OrLaKK",
+    }),
+  ],
+};
+
+
+const CHEFMARKCOAKLEY_OWNER: Profile = {
+  id: CHEFMARKCOAKLEY_OWNER_ID,
+  githubLogin: "chefmarkcoakley",
+  name: "Chef Mark Coakley",
+  avatarUrl: null,
+  xHandle: "chefmarkcoakley",
+};
+
+const CHEFMARKCOAKLEY: Pack = {
+  id: "10000000-0000-0000-0000-000000001173",
+  owner: CHEFMARKCOAKLEY_OWNER,
+  slug: "chef",
+  name: "Chef",
+  description:
+    "Public Grok Bot templates Chef Mark Coakley (@chefmarkcoakley) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Fantasy Sports. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Chefmarkcoakley/status/2113844945148866670.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001962",
+      name: "Fantasy Sports",
+      job: "Fantasy Sports is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/zdtZr6guuUGo0niY7AxtV",
+    }),
+  ],
+};
+
+
+const CODYLIBOLT_OWNER: Profile = {
+  id: CODYLIBOLT_OWNER_ID,
+  githubLogin: "codylibolt",
+  name: "Cody Libolt",
+  avatarUrl: null,
+  xHandle: "codylibolt",
+};
+
+const CODYLIBOLT: Pack = {
+  id: "10000000-0000-0000-0000-000000001174",
+  owner: CODYLIBOLT_OWNER,
+  slug: "cody",
+  name: "Cody",
+  description:
+    "Public Grok Bot templates Cody Libolt (@codylibolt) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at MindsetBot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/CodyLibolt/status/2113837565333983647.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001965",
+      name: "MindsetBot",
+      job: "MindsetBot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/Af2gp4UQV0Ph5CqMy0omn",
+    }),
+  ],
+};
+
+
+const CORY_ZANER_OWNER: Profile = {
+  id: CORY_ZANER_OWNER_ID,
+  githubLogin: "cory_zaner",
+  name: "CoryZ",
+  avatarUrl: null,
+  xHandle: "cory_zaner",
+};
+
+const CORY_ZANER: Pack = {
+  id: "10000000-0000-0000-0000-000000001175",
+  owner: CORY_ZANER_OWNER,
+  slug: "cory",
+  name: "Cory",
+  description:
+    "Public Grok Bot templates CoryZ (@cory_zaner) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Recon Bench. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Cory_Zaner/status/2113845261273342433.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001967",
+      name: "Recon Bench",
+      job: "Recon Bench is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/NsgYVMNwBeNOysOnGeFs7",
+    }),
+  ],
+};
+
+
+const D_J_HARMAN_OWNER: Profile = {
+  id: D_J_HARMAN_OWNER_ID,
+  githubLogin: "d_j_harman",
+  name: "DAVE HARMAN",
+  avatarUrl: null,
+  xHandle: "d_j_harman",
+};
+
+const D_J_HARMAN: Pack = {
+  id: "10000000-0000-0000-0000-000000001176",
+  owner: D_J_HARMAN_OWNER,
+  slug: "dave",
+  name: "DAVE",
+  description:
+    "Public Grok Bot templates DAVE HARMAN (@d_j_harman) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Archivist. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/d_j_harman/status/2113855225002102795.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001968",
+      name: "Archivist",
+      job: "Archivist is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/77p0qM3EAnd6e8Vt3zIVd",
+    }),
+  ],
+};
+
+
+const DARTHUR_OWNER: Profile = {
+  id: DARTHUR_OWNER_ID,
+  githubLogin: "darthur",
+  name: "Arthur Petron",
+  avatarUrl: null,
+  xHandle: "darthur",
+};
+
+const DARTHUR: Pack = {
+  id: "10000000-0000-0000-0000-000000001177",
+  owner: DARTHUR_OWNER,
+  slug: "darthur",
+  name: "darthur",
+  description:
+    "Public Grok Bot templates Arthur Petron (@darthur) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Apartment Search Bot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/darthur/status/2113655174833295785.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001970",
+      name: "Apartment Search Bot",
+      job: "Apartment Search Bot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/_TvkvyjkztXaItL0ChgmN",
+    }),
+  ],
+};
+
+
+const DAVIDE21187_OWNER: Profile = {
+  id: DAVIDE21187_OWNER_ID,
+  githubLogin: "davide21187",
+  name: "David",
+  avatarUrl: null,
+  xHandle: "davide21187",
+};
+
+const DAVIDE21187: Pack = {
+  id: "10000000-0000-0000-0000-000000001178",
+  owner: DAVIDE21187_OWNER,
+  slug: "david",
+  name: "david",
+  description:
+    "Public Grok Bot templates David (@davide21187) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Bot Activity Dashboard. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/DavidE21187/status/2113986507052925324.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001971",
+      name: "Bot Activity Dashboard",
+      job: "Bot Activity Dashboard is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/hAne3xbfdZtUi0JSkKqnA",
+    }),
+  ],
+};
+
+
+const DRAGHUB1_OWNER: Profile = {
+  id: DRAGHUB1_OWNER_ID,
+  githubLogin: "draghub1",
+  name: "Draghub Cars",
+  avatarUrl: null,
+  xHandle: "draghub1",
+};
+
+const DRAGHUB1: Pack = {
+  id: "10000000-0000-0000-0000-000000001179",
+  owner: DRAGHUB1_OWNER,
+  slug: "draghub",
+  name: "Draghub",
+  description:
+    "Public Grok Bot templates Draghub Cars (@draghub1) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at NFL fantasy. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Draghub1/status/2113822115673919546.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001974",
+      name: "NFL fantasy",
+      job: "NFL fantasy is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/tOgs5Kam7RbeVYnLMHQxb",
+    }),
+  ],
+};
+
+
+const DREWFROMWEB3_OWNER: Profile = {
+  id: DREWFROMWEB3_OWNER_ID,
+  githubLogin: "drewfromweb3",
+  name: "Drew",
+  avatarUrl: null,
+  xHandle: "drewfromweb3",
+};
+
+const DREWFROMWEB3: Pack = {
+  id: "10000000-0000-0000-0000-000000001180",
+  owner: DREWFROMWEB3_OWNER,
+  slug: "drew",
+  name: "Drew",
+  description:
+    "Public Grok Bot templates Drew (@drewfromweb3) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Socials · Henry - Manager. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Drewfromweb3/status/2113975041402782000.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001976",
+      name: "Socials · Henry - Manager",
+      job: "Socials · Henry - Manager is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/JKjtbyx4CxCiy-IWjlUQ0",
+    }),
+  ],
+};
+
+
+const DYLANBEBUILDING_OWNER: Profile = {
+  id: DYLANBEBUILDING_OWNER_ID,
+  githubLogin: "dylanbebuilding",
+  name: "dylan",
+  avatarUrl: null,
+  xHandle: "dylanbebuilding",
+};
+
+const DYLANBEBUILDING: Pack = {
+  id: "10000000-0000-0000-0000-000000001181",
+  owner: DYLANBEBUILDING_OWNER,
+  slug: "dylan",
+  name: "Dylan",
+  description:
+    "Public Grok Bot templates dylan (@dylanbebuilding) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Indie App Growth Radar. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/dylanbebuilding/status/2113805696227475816.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001979",
+      name: "Indie App Growth Radar",
+      job: "Indie App Growth Radar is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/UiuN7ZcbT7QvMUpNeSXuk",
+    }),
+  ],
+};
+
+
+const E_ONSLEY_OWNER: Profile = {
+  id: E_ONSLEY_OWNER_ID,
+  githubLogin: "e_onsley",
+  name: "Straight_Misses",
+  avatarUrl: null,
+  xHandle: "e_onsley",
+};
+
+const E_ONSLEY: Pack = {
+  id: "10000000-0000-0000-0000-000000001182",
+  owner: E_ONSLEY_OWNER,
+  slug: "straightmisses",
+  name: "Straight_Misses",
+  description:
+    "Public Grok Bot templates Straight_Misses (@e_onsley) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Email Inbox Manager. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/e_onsley/status/2114000470268420592.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001980",
+      name: "Email Inbox Manager",
+      job: "Email Inbox Manager is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/19fbVFTOUOOj_mEBi2e6f",
+    }),
+  ],
+};
+
+
+const EDWARD_ATIME_OWNER: Profile = {
+  id: EDWARD_ATIME_OWNER_ID,
+  githubLogin: "edward_atime",
+  name: "Edward_Trades",
+  avatarUrl: null,
+  xHandle: "edward_atime",
+};
+
+const EDWARD_ATIME: Pack = {
+  id: "10000000-0000-0000-0000-000000001183",
+  owner: EDWARD_ATIME_OWNER,
+  slug: "edward",
+  name: "Edward",
+  description:
+    "Public Grok Bot templates Edward_Trades (@edward_atime) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Chief Of Staff. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Edward_Atime/status/2113912833272639523.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001981",
+      name: "Chief Of Staff",
+      job: "Chief Of Staff is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/TCRHo1b1g_-KzryqkyEnj",
+    }),
+  ],
+};
+
+
+const EDWINCH43136084_OWNER: Profile = {
+  id: EDWINCH43136084_OWNER_ID,
+  githubLogin: "edwinch43136084",
+  name: "Hope C 陈刀仔",
+  avatarUrl: null,
+  xHandle: "edwinch43136084",
+};
+
+const EDWINCH43136084: Pack = {
+  id: "10000000-0000-0000-0000-000000001184",
+  owner: EDWINCH43136084_OWNER,
+  slug: "edwin",
+  name: "Edwin",
+  description:
+    "Public Grok Bot templates Hope C 陈刀仔 (@edwinch43136084) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Job Applier. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/EdwinCh43136084/status/2113868206238789818.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001982",
+      name: "Job Applier",
+      job: "Job Applier is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/Xg1_LIUG80iz5065crarS",
+    }),
+  ],
+};
+
+
+const ELBENJASSW_OWNER: Profile = {
+  id: ELBENJASSW_OWNER_ID,
+  githubLogin: "elbenjassw",
+  name: "Benjamin Garcia",
+  avatarUrl: null,
+  xHandle: "elbenjassw",
+};
+
+const ELBENJASSW: Pack = {
+  id: "10000000-0000-0000-0000-000000001185",
+  owner: ELBENJASSW_OWNER,
+  slug: "benjamin",
+  name: "Benjamin",
+  description:
+    "Public Grok Bot templates Benjamin Garcia (@elbenjassw) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at InfoFeed. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/ElbenjasSw/status/2113778893031350550.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001983",
+      name: "InfoFeed",
+      job: "InfoFeed is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/-Fyw8l82cf3q2C1Osm7oZ",
+    }),
+  ],
+};
+
+
+const ELIJAHNICOLAS_OWNER: Profile = {
+  id: ELIJAHNICOLAS_OWNER_ID,
+  githubLogin: "elijahnicolas",
+  name: "Elijah Nicolas",
+  avatarUrl: null,
+  xHandle: "elijahnicolas",
+};
+
+const ELIJAHNICOLAS: Pack = {
+  id: "10000000-0000-0000-0000-000000001186",
+  owner: ELIJAHNICOLAS_OWNER,
+  slug: "elijah",
+  name: "Elijah",
+  description:
+    "Public Grok Bot templates Elijah Nicolas (@elijahnicolas) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at DVC Booker. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/elijahnicolas/status/2113673736364929224.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001984",
+      name: "DVC Booker",
+      job: "DVC Booker is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/FhU3OkFeKttqo0SffAyGR",
+    }),
+  ],
+};
+
+
+const EMOTOR_OWNER: Profile = {
+  id: EMOTOR_OWNER_ID,
+  githubLogin: "emotor",
+  name: "Abhinav Chinnusamy",
+  avatarUrl: null,
+  xHandle: "emotor",
+};
+
+const EMOTOR: Pack = {
+  id: "10000000-0000-0000-0000-000000001187",
+  owner: EMOTOR_OWNER,
+  slug: "abhinav",
+  name: "Abhinav",
+  description:
+    "Public Grok Bot templates Abhinav Chinnusamy (@emotor) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Robotaxi Assistant. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/emotor/status/2113862551465275652.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001985",
+      name: "Robotaxi Assistant",
+      job: "Robotaxi Assistant is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/0IDQBT0eoLdWZ5FSVFj7V",
+    }),
+  ],
+};
+
+
+const FRANKONEDIGITAL_OWNER: Profile = {
+  id: FRANKONEDIGITAL_OWNER_ID,
+  githubLogin: "frankonedigital",
+  name: "Chris \"Frankly Creative\" Franklin",
+  avatarUrl: null,
+  xHandle: "frankonedigital",
+};
+
+const FRANKONEDIGITAL: Pack = {
+  id: "10000000-0000-0000-0000-000000001188",
+  owner: FRANKONEDIGITAL_OWNER,
+  slug: "chris",
+  name: "Chris",
+  description:
+    "Public Grok Bot templates Chris \"Frankly Creative\" Franklin (@frankonedigital) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at AI Message Board. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/FrankOneDigital/status/2113925523579555965.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001987",
+      name: "AI Message Board",
+      job: "AI Message Board is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/c-pCIHVsydJ1Bp_mSLAPG",
+    }),
+  ],
+};
+
+
+const GGZARIV_OWNER: Profile = {
+  id: GGZARIV_OWNER_ID,
+  githubLogin: "ggzariv",
+  name: "Gilly Maguire⚡️",
+  avatarUrl: null,
+  xHandle: "ggzariv",
+};
+
+const GGZARIV: Pack = {
+  id: "10000000-0000-0000-0000-000000001189",
+  owner: GGZARIV_OWNER,
+  slug: "gilly",
+  name: "Gilly",
+  description:
+    "Public Grok Bot templates Gilly Maguire⚡️ (@ggzariv) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at TrámiteX. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/ggzariv/status/2113796828399366538.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001988",
+      name: "TrámiteX",
+      job: "TrámiteX is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/KQ3S9bKRlOgv6BFZleD9v",
+    }),
+  ],
+};
+
+
+const GILOZAN5_OWNER: Profile = {
+  id: GILOZAN5_OWNER_ID,
+  githubLogin: "gilozan5",
+  name: "Gil Lozano",
+  avatarUrl: null,
+  xHandle: "gilozan5",
+};
+
+const GILOZAN5: Pack = {
+  id: "10000000-0000-0000-0000-000000001190",
+  owner: GILOZAN5_OWNER,
+  slug: "gil",
+  name: "Gil",
+  description:
+    "Public Grok Bot templates Gil Lozano (@gilozan5) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Lumy. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/gilozan5/status/2113867172741349504.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001989",
+      name: "Lumy",
+      job: "Lumy is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/QbZ5AXs0brclmqvERJZLS",
+    }),
+  ],
+};
+
+
+const GIOSAIA_OWNER: Profile = {
+  id: GIOSAIA_OWNER_ID,
+  githubLogin: "giosaia",
+  name: "giosaia",
+  avatarUrl: null,
+  xHandle: "giosaia",
+};
+
+const GIOSAIA: Pack = {
+  id: "10000000-0000-0000-0000-000000001191",
+  owner: GIOSAIA_OWNER,
+  slug: "giosaia",
+  name: "giosaia",
+  description:
+    "Public Grok Bot templates giosaia (@giosaia) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Job Search. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/giosaia/status/2113930991190380736.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001990",
+      name: "Job Search",
+      job: "Job Search is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/F2ylyEGwoZF6OiwXxqT5P",
+    }),
+  ],
+};
+
+
+const GLENNHASABEARD_OWNER: Profile = {
+  id: GLENNHASABEARD_OWNER_ID,
+  githubLogin: "glennhasabeard",
+  name: "Glenn Williams",
+  avatarUrl: null,
+  xHandle: "glennhasabeard",
+};
+
+const GLENNHASABEARD: Pack = {
+  id: "10000000-0000-0000-0000-000000001192",
+  owner: GLENNHASABEARD_OWNER,
+  slug: "glenn",
+  name: "Glenn",
+  description:
+    "Public Grok Bot templates Glenn Williams (@glennhasabeard) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Foreman. Use Follow Audit only for Follow Audit. Use Follow Finder only for Follow Finder. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/GlennHasABeard/status/2113763275083313309. Follow Audit is the named-seat lane only. Follow Finder is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001991",
+      name: "Foreman",
+      job: "Foreman is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/Hfm0xbUx8FqPTd5EYvjat",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001992",
+      name: "Follow Audit",
+      job: "Follow Audit is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/qoui6HKCTOoftCJiKRNst",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001993",
+      name: "Follow Finder",
+      job: "Follow Finder is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 2,
+      grokTemplateUrl: "https://x.ai/bot/szTOTq23uRdBePSzOTS60",
+    }),
+  ],
+};
+
+
+const GOODLUCKBELLS_OWNER: Profile = {
+  id: GOODLUCKBELLS_OWNER_ID,
+  githubLogin: "goodluckbells",
+  name: "KavyStones",
+  avatarUrl: null,
+  xHandle: "goodluckbells",
+};
+
+const GOODLUCKBELLS: Pack = {
+  id: "10000000-0000-0000-0000-000000001193",
+  owner: GOODLUCKBELLS_OWNER,
+  slug: "goodluckbells",
+  name: "Goodluckbells",
+  description:
+    "Public Grok Bot templates KavyStones (@goodluckbells) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Table for 2. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/GoodLuckBells/status/2114000652611563578.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001994",
+      name: "Table for 2",
+      job: "Table for 2 is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/Gut0vvFCUWcdYvd6hGShc",
+    }),
+  ],
+};
+
+
+const GOYABEAN_ETH_OWNER: Profile = {
+  id: GOYABEAN_ETH_OWNER_ID,
+  githubLogin: "goyabean_eth",
+  name: "GoYAbEaN ⌐◨-◨",
+  avatarUrl: null,
+  xHandle: "goyabean_eth",
+};
+
+const GOYABEAN_ETH: Pack = {
+  id: "10000000-0000-0000-0000-000000001194",
+  owner: GOYABEAN_ETH_OWNER,
+  slug: "goyabean",
+  name: "goyabean",
+  description:
+    "Public Grok Bot templates GoYAbEaN ⌐◨-◨ (@goyabean_eth) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Shopify Store Assistant. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/goyabean_eth/status/2113809168544997704.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001995",
+      name: "Shopify Store Assistant",
+      job: "Shopify Store Assistant is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/RxSGqoIFihQlRf5vZN5Hi",
+    }),
+  ],
+};
+
+
+const GRIFFINJAWN_OWNER: Profile = {
+  id: GRIFFINJAWN_OWNER_ID,
+  githubLogin: "griffinjawn",
+  name: "griff",
+  avatarUrl: null,
+  xHandle: "griffinjawn",
+};
+
+const GRIFFINJAWN: Pack = {
+  id: "10000000-0000-0000-0000-000000001195",
+  owner: GRIFFINJAWN_OWNER,
+  slug: "griff",
+  name: "Griff",
+  description:
+    "Public Grok Bot templates griff (@griffinjawn) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Santa. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/griffinjawn/status/2113790859569512890.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001996",
+      name: "Santa",
+      job: "Santa is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/HX_TK0pv2GI3ATJhDYQVC",
+    }),
+  ],
+};
+
+
+const HACKS_JIMM53237_OWNER: Profile = {
+  id: HACKS_JIMM53237_OWNER_ID,
+  githubLogin: "hacks_jimm53237",
+  name: "Jimmy Hacks",
+  avatarUrl: null,
+  xHandle: "hacks_jimm53237",
+};
+
+const HACKS_JIMM53237: Pack = {
+  id: "10000000-0000-0000-0000-000000001196",
+  owner: HACKS_JIMM53237_OWNER,
+  slug: "jimmy",
+  name: "Jimmy",
+  description:
+    "Public Grok Bot templates Jimmy Hacks (@hacks_jimm53237) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Claim Desk (Beta). Use Creator Desk (Beta) only for Creator Desk (Beta). Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/hacks_jimm53237/status/2113919865257865292. Creator Desk (Beta) is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000001997",
+      name: "Claim Desk (Beta)",
+      job: "Claim Desk (Beta) is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/R7eUYYeS9xBg3-iZF80AE",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000001998",
+      name: "Creator Desk (Beta)",
+      job: "Creator Desk (Beta) is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/9WRssXlaVE2PNeE6y2upq",
+    }),
+  ],
+};
+
+
+const HELVIO_OWNER: Profile = {
+  id: HELVIO_OWNER_ID,
+  githubLogin: "helvio",
+  name: "Helvio",
+  avatarUrl: null,
+  xHandle: "helvio",
+};
+
+const HELVIO: Pack = {
+  id: "10000000-0000-0000-0000-000000001197",
+  owner: HELVIO_OWNER,
+  slug: "helvio",
+  name: "Helvio",
+  description:
+    "Public Grok Bot templates Helvio (@helvio) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Nanny. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/helvio/status/2113754728748249521.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002002",
+      name: "Nanny",
+      job: "Nanny is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/Zi8B4uGVt7SdZVm5u6j2K",
+    }),
+  ],
+};
+
+
+const HUDSONSUTHERLA2_OWNER: Profile = {
+  id: HUDSONSUTHERLA2_OWNER_ID,
+  githubLogin: "hudsonsutherla2",
+  name: "Hudson S.",
+  avatarUrl: null,
+  xHandle: "hudsonsutherla2",
+};
+
+const HUDSONSUTHERLA2: Pack = {
+  id: "10000000-0000-0000-0000-000000001198",
+  owner: HUDSONSUTHERLA2_OWNER,
+  slug: "hudson",
+  name: "Hudson",
+  description:
+    "Public Grok Bot templates Hudson S. (@hudsonsutherla2) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Inbox Sweep. Use Scholarship Scout only for Scholarship Scout. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/HudsonSutherla2/status/2113827843029250160. Scholarship Scout is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002006",
+      name: "Inbox Sweep",
+      job: "Inbox Sweep is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/hEwQojsrmkKXl_lk0BpF9",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002007",
+      name: "Scholarship Scout",
+      job: "Scholarship Scout is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/TVjmqBUvLv0baNwDl8xcd",
+    }),
+  ],
+};
+
+
+const IMDEVMAN_OWNER: Profile = {
+  id: IMDEVMAN_OWNER_ID,
+  githubLogin: "imdevman",
+  name: "imdevman",
+  avatarUrl: null,
+  xHandle: "imdevman",
+};
+
+const IMDEVMAN: Pack = {
+  id: "10000000-0000-0000-0000-000000001199",
+  owner: IMDEVMAN_OWNER,
+  slug: "imdevman",
+  name: "IMDEVMAN",
+  description:
+    "Public Grok Bot templates imdevman (@imdevman) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at 지원사업 리서처. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/imdevman/status/2113694515093746056.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002008",
+      name: "지원사업 리서처",
+      job: "지원사업 리서처 is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/LV38rypxceB3HH8Mkdmg4",
+    }),
+  ],
+};
+
+
+const IUSTINAFRACTALS_OWNER: Profile = {
+  id: IUSTINAFRACTALS_OWNER_ID,
+  githubLogin: "iustinafractals",
+  name: "iustina 🐬",
+  avatarUrl: null,
+  xHandle: "iustinafractals",
+};
+
+const IUSTINAFRACTALS: Pack = {
+  id: "10000000-0000-0000-0000-000000001200",
+  owner: IUSTINAFRACTALS_OWNER,
+  slug: "iustina",
+  name: "iustina",
+  description:
+    "Public Grok Bot templates iustina 🐬 (@iustinafractals) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Social Security & Medicare Helper. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/iustinafractals/status/2114000349316956198.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002009",
+      name: "Social Security & Medicare Helper",
+      job: "Social Security & Medicare Helper is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/i2VpPjq2FEV4XJUuaxfzF",
+    }),
+  ],
+};
+
+
+const JACOBWELLERX_OWNER: Profile = {
+  id: JACOBWELLERX_OWNER_ID,
+  githubLogin: "jacobwellerx",
+  name: "Jacob",
+  avatarUrl: null,
+  xHandle: "jacobwellerx",
+};
+
+const JACOBWELLERX: Pack = {
+  id: "10000000-0000-0000-0000-000000001201",
+  owner: JACOBWELLERX_OWNER,
+  slug: "jacob",
+  name: "Jacob",
+  description:
+    "Public Grok Bot templates Jacob (@jacobwellerx) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Playstation News. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/JacobWellerX/status/2113886897089155488.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002010",
+      name: "Playstation News",
+      job: "Playstation News is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/Ilc6PvpKUOs6Is1upX7k4",
+    }),
+  ],
+};
+
+
+const JASON_JASONETC_OWNER: Profile = {
+  id: JASON_JASONETC_OWNER_ID,
+  githubLogin: "jason_jasonetc",
+  name: "Pixel Phantom",
+  avatarUrl: null,
+  xHandle: "jason_jasonetc",
+};
+
+const JASON_JASONETC: Pack = {
+  id: "10000000-0000-0000-0000-000000001202",
+  owner: JASON_JASONETC_OWNER,
+  slug: "phantom",
+  name: "Phantom",
+  description:
+    "Public Grok Bot templates Pixel Phantom (@jason_jasonetc) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Art Bot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/jason_jasonetc/status/2113802512759443472.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002011",
+      name: "Art Bot",
+      job: "Art Bot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/jGouZke197p1raRsi4RNX",
+    }),
+  ],
+};
+
+
+const JAVABEANAI_OWNER: Profile = {
+  id: JAVABEANAI_OWNER_ID,
+  githubLogin: "javabeanai",
+  name: "JavaBeanAI",
+  avatarUrl: null,
+  xHandle: "javabeanai",
+};
+
+const JAVABEANAI: Pack = {
+  id: "10000000-0000-0000-0000-000000001203",
+  owner: JAVABEANAI_OWNER,
+  slug: "javabeanai",
+  name: "JavaBeanAI",
+  description:
+    "Public Grok Bot templates JavaBeanAI (@javabeanai) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at ReceptaBot by JbAI. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/JavaBeanAI/status/2113816374317588976.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002012",
+      name: "ReceptaBot by JbAI",
+      job: "ReceptaBot by JbAI is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/w6t8hHrgmxBWTdrz5bwjj",
+    }),
+  ],
+};
+
+
+const JAYINELY_OWNER: Profile = {
+  id: JAYINELY_OWNER_ID,
+  githubLogin: "jayinely",
+  name: "Jay Correa",
+  avatarUrl: null,
+  xHandle: "jayinely",
+};
+
+const JAYINELY: Pack = {
+  id: "10000000-0000-0000-0000-000000001204",
+  owner: JAYINELY_OWNER,
+  slug: "jay",
+  name: "Jay",
+  description:
+    "Public Grok Bot templates Jay Correa (@jayinely) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at QR Creator. Use Odyssey Scenario Runner only for Odyssey Scenario Runner. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/JayinEly/status/2113924842378711466. Odyssey Scenario Runner is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002013",
+      name: "QR Creator",
+      job: "QR Creator is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/dJjlXW9IUWsU8lURRmnGX",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002014",
+      name: "Odyssey Scenario Runner",
+      job: "Odyssey Scenario Runner is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/ZrFvPF-bV8SJS8-dzh45m",
+    }),
+  ],
+};
+
+
+const JESKORIOT_OWNER: Profile = {
+  id: JESKORIOT_OWNER_ID,
+  githubLogin: "jeskoriot",
+  name: "Jesko Riot",
+  avatarUrl: null,
+  xHandle: "jeskoriot",
+};
+
+const JESKORIOT: Pack = {
+  id: "10000000-0000-0000-0000-000000001205",
+  owner: JESKORIOT_OWNER,
+  slug: "jesko",
+  name: "Jesko",
+  description:
+    "Public Grok Bot templates Jesko Riot (@jeskoriot) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Video Downloader. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/JeskoRiot/status/2113868157769429416.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002015",
+      name: "Video Downloader",
+      job: "Video Downloader is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/mdoQVOHu1FaEVIguA-nbh",
+    }),
+  ],
+};
+
+
+const JESSEHEREDIA_OWNER: Profile = {
+  id: JESSEHEREDIA_OWNER_ID,
+  githubLogin: "jesseheredia",
+  name: "Jesse Heredia",
+  avatarUrl: null,
+  xHandle: "jesseheredia",
+};
+
+const JESSEHEREDIA: Pack = {
+  id: "10000000-0000-0000-0000-000000001206",
+  owner: JESSEHEREDIA_OWNER,
+  slug: "jesse",
+  name: "Jesse",
+  description:
+    "Public Grok Bot templates Jesse Heredia (@jesseheredia) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Business Name & Domain Check. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/JesseHeredia/status/2113739673407308069.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002016",
+      name: "Business Name & Domain Check",
+      job: "Business Name & Domain Check is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/upS7aL7JP2XMCJbE4-Jtm",
+    }),
+  ],
+};
+
+
+const JESUSISKING3651_OWNER: Profile = {
+  id: JESUSISKING3651_OWNER_ID,
+  githubLogin: "jesusisking3651",
+  name: "JOHN CAVIAR",
+  avatarUrl: null,
+  xHandle: "jesusisking3651",
+};
+
+const JESUSISKING3651: Pack = {
+  id: "10000000-0000-0000-0000-000000001207",
+  owner: JESUSISKING3651_OWNER,
+  slug: "john",
+  name: "JOHN",
+  description:
+    "Public Grok Bot templates JOHN CAVIAR (@jesusisking3651) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Odin. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/JesusisKing3651/status/2113710437963382793.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002017",
+      name: "Odin",
+      job: "Odin is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/BxhyFoq6S-DTC3OrN86Se",
+    }),
+  ],
+};
+
+
+const JOHNBOYLE_OWNER: Profile = {
+  id: JOHNBOYLE_OWNER_ID,
+  githubLogin: "johnboyle",
+  name: "John Boyle",
+  avatarUrl: null,
+  xHandle: "johnboyle",
+};
+
+const JOHNBOYLE: Pack = {
+  id: "10000000-0000-0000-0000-000000001208",
+  owner: JOHNBOYLE_OWNER,
+  slug: "john",
+  name: "John",
+  description:
+    "Public Grok Bot templates John Boyle (@johnboyle) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Motivation Bot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/johnboyle/status/2113721059870671244.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002018",
+      name: "Motivation Bot",
+      job: "Motivation Bot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/KNoXvnLnkKME1TqhqJx8t",
+    }),
+  ],
+};
+
+
+const JOHNWALKER_OWNER: Profile = {
+  id: JOHNWALKER_OWNER_ID,
+  githubLogin: "johnwalker",
+  name: "John Walker",
+  avatarUrl: null,
+  xHandle: "johnwalker",
+};
+
+const JOHNWALKER: Pack = {
+  id: "10000000-0000-0000-0000-000000001209",
+  owner: JOHNWALKER_OWNER,
+  slug: "john",
+  name: "John",
+  description:
+    "Public Grok Bot templates John Walker (@johnwalker) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Bot Beginner: Your First 7 Days. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/JohnWalker/status/2113832658358694355.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002020",
+      name: "Bot Beginner: Your First 7 Days",
+      job: "Bot Beginner: Your First 7 Days is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/cMdLGSR7HxIQHHoVmfC0w",
+    }),
+  ],
+};
+
+
+const JORDANRAFEALOV_OWNER: Profile = {
+  id: JORDANRAFEALOV_OWNER_ID,
+  githubLogin: "jordanrafealov",
+  name: "Jordan Rafealov",
+  avatarUrl: null,
+  xHandle: "jordanrafealov",
+};
+
+const JORDANRAFEALOV: Pack = {
+  id: "10000000-0000-0000-0000-000000001210",
+  owner: JORDANRAFEALOV_OWNER,
+  slug: "jordan",
+  name: "Jordan",
+  description:
+    "Public Grok Bot templates Jordan Rafealov (@jordanrafealov) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at X Growth Bot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/JordanRafealov/status/2113763995048186132.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002021",
+      name: "X Growth Bot",
+      job: "X Growth Bot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/VyOfJl3R9_IOERA4en3iy",
+    }),
+  ],
+};
+
+
+const JUSTAGUY94_OWNER: Profile = {
+  id: JUSTAGUY94_OWNER_ID,
+  githubLogin: "justaguy94",
+  name: "KNVK",
+  avatarUrl: null,
+  xHandle: "justaguy94",
+};
+
+const JUSTAGUY94: Pack = {
+  id: "10000000-0000-0000-0000-000000001211",
+  owner: JUSTAGUY94_OWNER,
+  slug: "knvk",
+  name: "KNVK",
+  description:
+    "Public Grok Bot templates KNVK (@justaguy94) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Bot Tuner. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/justaguy94/status/2113909507927703689.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002024",
+      name: "Bot Tuner",
+      job: "Bot Tuner is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/h1pM0lguWGeI3Ees63OiB",
+    }),
+  ],
+};
+
+
+const KALEBAUTOMATES_OWNER: Profile = {
+  id: KALEBAUTOMATES_OWNER_ID,
+  githubLogin: "kalebautomates",
+  name: "kaleb",
+  avatarUrl: null,
+  xHandle: "kalebautomates",
+};
+
+const KALEBAUTOMATES: Pack = {
+  id: "10000000-0000-0000-0000-000000001212",
+  owner: KALEBAUTOMATES_OWNER,
+  slug: "kaleb",
+  name: "kaleb",
+  description:
+    "Public Grok Bot templates kaleb (@kalebautomates) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at OSRS Accountant. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/KalebAutomates/status/2113795815349383441.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002025",
+      name: "OSRS Accountant",
+      job: "OSRS Accountant is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/lcyL63-f4N4yE-0IST6IG",
+    }),
+  ],
+};
+
+
+const KAMILBANC_OWNER: Profile = {
+  id: KAMILBANC_OWNER_ID,
+  githubLogin: "kamilbanc",
+  name: "Kamil Banc",
+  avatarUrl: null,
+  xHandle: "kamilbanc",
+};
+
+const KAMILBANC: Pack = {
+  id: "10000000-0000-0000-0000-000000001213",
+  owner: KAMILBANC_OWNER,
+  slug: "kamil",
+  name: "Kamil",
+  description:
+    "Public Grok Bot templates Kamil Banc (@kamilbanc) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Claudia, Chief of Staff. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/kamilbanc/status/2114001663132389554.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002026",
+      name: "Claudia, Chief of Staff",
+      job: "Claudia, Chief of Staff is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/AkJewmJ9D2DlMpBD5XaCG",
+    }),
+  ],
+};
+
+
+const KENBARRETTHQ_OWNER: Profile = {
+  id: KENBARRETTHQ_OWNER_ID,
+  githubLogin: "kenbarretthq",
+  name: "Ken Barrett- LaundromatHowTo",
+  avatarUrl: null,
+  xHandle: "kenbarretthq",
+};
+
+const KENBARRETTHQ: Pack = {
+  id: "10000000-0000-0000-0000-000000001214",
+  owner: KENBARRETTHQ_OWNER,
+  slug: "ken",
+  name: "Ken",
+  description:
+    "Public Grok Bot templates Ken Barrett- LaundromatHowTo (@kenbarretthq) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at The HR Guy. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/KenBarrettHQ/status/2113722797843513837.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002027",
+      name: "The HR Guy",
+      job: "The HR Guy is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/y-A8PjqOes8hEYWtBPrAn",
+    }),
+  ],
+};
+
+
+const KENYIP_OWNER: Profile = {
+  id: KENYIP_OWNER_ID,
+  githubLogin: "kenyip",
+  name: "Ken",
+  avatarUrl: null,
+  xHandle: "kenyip",
+};
+
+const KENYIP: Pack = {
+  id: "10000000-0000-0000-0000-000000001215",
+  owner: KENYIP_OWNER,
+  slug: "ken",
+  name: "Ken",
+  description:
+    "Public Grok Bot templates Ken (@kenyip) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Bot Router: Talk to Any Bot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/kenyip/status/2113852412998062416.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002028",
+      name: "Bot Router: Talk to Any Bot",
+      job: "Bot Router: Talk to Any Bot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/ZpfBoqcne8mNh7RsSNj_h",
+    }),
+  ],
+};
+
+
+const KGTHEGENT88_OWNER: Profile = {
+  id: KGTHEGENT88_OWNER_ID,
+  githubLogin: "kgthegent88",
+  name: "Kyle Garrett",
+  avatarUrl: null,
+  xHandle: "kgthegent88",
+};
+
+const KGTHEGENT88: Pack = {
+  id: "10000000-0000-0000-0000-000000001216",
+  owner: KGTHEGENT88_OWNER,
+  slug: "kyle",
+  name: "Kyle",
+  description:
+    "Public Grok Bot templates Kyle Garrett (@kgthegent88) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Blitz. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/KGtheGent88/status/2113834093565837556.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002031",
+      name: "Blitz",
+      job: "Blitz is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/907qRmkDz_RUtjPwuZJO-",
+    }),
+  ],
+};
+
+
+const LEGALLYRENEE_OWNER: Profile = {
+  id: LEGALLYRENEE_OWNER_ID,
+  githubLogin: "legallyrenee",
+  name: "Renee Thompson",
+  avatarUrl: null,
+  xHandle: "legallyrenee",
+};
+
+const LEGALLYRENEE: Pack = {
+  id: "10000000-0000-0000-0000-000000001217",
+  owner: LEGALLYRENEE_OWNER,
+  slug: "renee",
+  name: "Renee",
+  description:
+    "Public Grok Bot templates Renee Thompson (@legallyrenee) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at HomeKeepbot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/legallyrenee/status/2113980447537680785.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002034",
+      name: "HomeKeepbot",
+      job: "HomeKeepbot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/ozF1SpAaswVhWbietmPfw",
+    }),
+  ],
+};
+
+
+const LIN_TASTIC_OWNER: Profile = {
+  id: LIN_TASTIC_OWNER_ID,
+  githubLogin: "lin_tastic",
+  name: "Caitlin Ryan",
+  avatarUrl: null,
+  xHandle: "lin_tastic",
+};
+
+const LIN_TASTIC: Pack = {
+  id: "10000000-0000-0000-0000-000000001218",
+  owner: LIN_TASTIC_OWNER,
+  slug: "caitlin",
+  name: "Caitlin",
+  description:
+    "Public Grok Bot templates Caitlin Ryan (@lin_tastic) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Penny. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/lin_tastic/status/2113927461788430629.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002036",
+      name: "Penny",
+      job: "Penny is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/VG1ONv1ds6sUsPWG3A8Ck",
+    }),
+  ],
+};
+
+
+const MCQUILLEN_4670_OWNER: Profile = {
+  id: MCQUILLEN_4670_OWNER_ID,
+  githubLogin: "mcquillen_4670",
+  name: "Kevin Mcquillen",
+  avatarUrl: null,
+  xHandle: "mcquillen_4670",
+};
+
+const MCQUILLEN_4670: Pack = {
+  id: "10000000-0000-0000-0000-000000001219",
+  owner: MCQUILLEN_4670_OWNER,
+  slug: "kevin",
+  name: "Kevin",
+  description:
+    "Public Grok Bot templates Kevin Mcquillen (@mcquillen_4670) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Interactive AI Story Studio. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/mcquillen_4670/status/2113792451106521261.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002040",
+      name: "Interactive AI Story Studio",
+      job: "Interactive AI Story Studio is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/SQVB5YWB8PzvV3bNpTiHQ",
+    }),
+  ],
+};
+
+
+const MOEDARE_OWNER: Profile = {
+  id: MOEDARE_OWNER_ID,
+  githubLogin: "moedare",
+  name: "ALX",
+  avatarUrl: null,
+  xHandle: "moedare",
+};
+
+const MOEDARE: Pack = {
+  id: "10000000-0000-0000-0000-000000001220",
+  owner: MOEDARE_OWNER,
+  slug: "alx",
+  name: "ALX",
+  description:
+    "Public Grok Bot templates ALX (@moedare) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Tinker. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/MOEDARE/status/2113887663832875470.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002043",
+      name: "Tinker",
+      job: "Tinker is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/vWQx3rxiWabBu_JMKXPqI",
+    }),
+  ],
+};
+
+
+const MR_GODOT_OWNER: Profile = {
+  id: MR_GODOT_OWNER_ID,
+  githubLogin: "mr_godot",
+  name: "Godot Huard",
+  avatarUrl: null,
+  xHandle: "mr_godot",
+};
+
+const MR_GODOT: Pack = {
+  id: "10000000-0000-0000-0000-000000001221",
+  owner: MR_GODOT_OWNER,
+  slug: "godot",
+  name: "Godot",
+  description:
+    "Public Grok Bot templates Godot Huard (@mr_godot) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Defender. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Mr_Godot/status/2114003017544679526.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002044",
+      name: "Defender",
+      job: "Defender is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/gMw0Coi1Cwi6OW0dNOhS2",
+    }),
+  ],
+};
+
+
+const MROZANKESICI_OWNER: Profile = {
+  id: MROZANKESICI_OWNER_ID,
+  githubLogin: "mrozankesici",
+  name: "Ozan Kesici",
+  avatarUrl: null,
+  xHandle: "mrozankesici",
+};
+
+const MROZANKESICI: Pack = {
+  id: "10000000-0000-0000-0000-000000001222",
+  owner: MROZANKESICI_OWNER,
+  slug: "ozan",
+  name: "Ozan",
+  description:
+    "Public Grok Bot templates Ozan Kesici (@mrozankesici) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Play Store Ops. Use Live Deploy QA Walker only for Live Deploy QA Walker. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/mrozankesici/status/2113900817459843354. Live Deploy QA Walker is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002045",
+      name: "Play Store Ops",
+      job: "Play Store Ops is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/tvuprSxtRJDAF5dehZj4b",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002046",
+      name: "Live Deploy QA Walker",
+      job: "Live Deploy QA Walker is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/tq96E6TFsZr4thkrmbWJD",
+    }),
+  ],
+};
+
+
+const NAPERSVERYOWN_OWNER: Profile = {
+  id: NAPERSVERYOWN_OWNER_ID,
+  githubLogin: "napersveryown",
+  name: "Click",
+  avatarUrl: null,
+  xHandle: "napersveryown",
+};
+
+const NAPERSVERYOWN: Pack = {
+  id: "10000000-0000-0000-0000-000000001223",
+  owner: NAPERSVERYOWN_OWNER,
+  slug: "click",
+  name: "Click",
+  description:
+    "Public Grok Bot templates Click (@napersveryown) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at City & School Scout. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/napersveryown/status/2113840811951694068.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002048",
+      name: "City & School Scout",
+      job: "City & School Scout is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/KfBM5mFgOCDlL_GvIpMVr",
+    }),
+  ],
+};
+
+
+const NASTYJERMBALL_OWNER: Profile = {
+  id: NASTYJERMBALL_OWNER_ID,
+  githubLogin: "nastyjermball",
+  name: "Mr. Nasty Jermball",
+  avatarUrl: null,
+  xHandle: "nastyjermball",
+};
+
+const NASTYJERMBALL: Pack = {
+  id: "10000000-0000-0000-0000-000000001224",
+  owner: NASTYJERMBALL_OWNER,
+  slug: "jermball",
+  name: "Jermball",
+  description:
+    "Public Grok Bot templates Mr. Nasty Jermball (@nastyjermball) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Smile More Case Watch ⚖️. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/NastyJermball/status/2113857725272633737.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002049",
+      name: "Smile More Case Watch ⚖️",
+      job: "Smile More Case Watch ⚖️ is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/iegqEvEhy8QvQya3JLZ0d",
+    }),
+  ],
+};
+
+
+const NFTRAYMOND_OWNER: Profile = {
+  id: NFTRAYMOND_OWNER_ID,
+  githubLogin: "nftraymond",
+  name: "RAY",
+  avatarUrl: null,
+  xHandle: "nftraymond",
+};
+
+const NFTRAYMOND: Pack = {
+  id: "10000000-0000-0000-0000-000000001225",
+  owner: NFTRAYMOND_OWNER,
+  slug: "raymond",
+  name: "Raymond",
+  description:
+    "Public Grok Bot templates RAY (@nftraymond) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Flight Points Tracker. Use Team Pulse only for Team Pulse. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/nftraymond/status/2113801096963527033. Team Pulse is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002050",
+      name: "Flight Points Tracker",
+      job: "Flight Points Tracker is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/a3QmuXJyhb8kwaB1SNiUx",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002051",
+      name: "Team Pulse",
+      job: "Team Pulse is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/xowYvQ0ChSVvSzQ8Yid8I",
+    }),
+  ],
+};
+
+
+const NOT_BESKAR_OWNER: Profile = {
+  id: NOT_BESKAR_OWNER_ID,
+  githubLogin: "not_beskar",
+  name: "Gabriel",
+  avatarUrl: null,
+  xHandle: "not_beskar",
+};
+
+const NOT_BESKAR: Pack = {
+  id: "10000000-0000-0000-0000-000000001226",
+  owner: NOT_BESKAR_OWNER,
+  slug: "gabriel",
+  name: "Gabriel",
+  description:
+    "Public Grok Bot templates Gabriel (@not_beskar) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at T3. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Not_Beskar/status/2113643783770513856.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002052",
+      name: "T3",
+      job: "T3 is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/7_2tb1cunMJ3DwexIpNfv",
+    }),
+  ],
+};
+
+
+const ODISUS_OWNER: Profile = {
+  id: ODISUS_OWNER_ID,
+  githubLogin: "odisus",
+  name: "Odisus",
+  avatarUrl: null,
+  xHandle: "odisus",
+};
+
+const ODISUS: Pack = {
+  id: "10000000-0000-0000-0000-000000001227",
+  owner: ODISUS_OWNER,
+  slug: "odisus",
+  name: "Odisus",
+  description:
+    "Public Grok Bot templates Odisus (@odisus) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Quick Shop. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Odisus/status/2113800124879225182.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002055",
+      name: "Quick Shop",
+      job: "Quick Shop is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/4TY9-pfd02FFeBz5rIVYC",
+    }),
+  ],
+};
+
+
+const OVIDIUTEPES_OWNER: Profile = {
+  id: OVIDIUTEPES_OWNER_ID,
+  githubLogin: "ovidiutepes",
+  name: "Tepes Ovidiu",
+  avatarUrl: null,
+  xHandle: "ovidiutepes",
+};
+
+const OVIDIUTEPES: Pack = {
+  id: "10000000-0000-0000-0000-000000001228",
+  owner: OVIDIUTEPES_OWNER,
+  slug: "ovidiu",
+  name: "Ovidiu",
+  description:
+    "Public Grok Bot templates Tepes Ovidiu (@ovidiutepes) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Feature Watch. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/OvidiuTepes/status/2113863322126979365.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002056",
+      name: "Feature Watch",
+      job: "Feature Watch is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/ldfOaRSltZrrfnKAxB-FP",
+    }),
+  ],
+};
+
+
+const PHLEGONJOSEPH_OWNER: Profile = {
+  id: PHLEGONJOSEPH_OWNER_ID,
+  githubLogin: "phlegonjoseph",
+  name: "Phlegon Joseph",
+  avatarUrl: null,
+  xHandle: "phlegonjoseph",
+};
+
+const PHLEGONJOSEPH: Pack = {
+  id: "10000000-0000-0000-0000-000000001229",
+  owner: PHLEGONJOSEPH_OWNER,
+  slug: "phlegon",
+  name: "Phlegon",
+  description:
+    "Public Grok Bot templates Phlegon Joseph (@phlegonjoseph) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Job Hunter. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/PhlegonJoseph/status/2113725220741959943.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002059",
+      name: "Job Hunter",
+      job: "Job Hunter is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/cccm6sJrQwt4KKiFstHmE",
+    }),
+  ],
+};
+
+
+const PROF_EBRAL_OWNER: Profile = {
+  id: PROF_EBRAL_OWNER_ID,
+  githubLogin: "prof_ebral",
+  name: "Vecna, King of Athas",
+  avatarUrl: null,
+  xHandle: "prof_ebral",
+};
+
+const PROF_EBRAL: Pack = {
+  id: "10000000-0000-0000-0000-000000001230",
+  owner: PROF_EBRAL_OWNER,
+  slug: "vecna",
+  name: "Vecna",
+  description:
+    "Public Grok Bot templates Vecna, King of Athas (@prof_ebral) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at KILO. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/prof_ebral/status/2113764952993366045.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002060",
+      name: "KILO",
+      job: "KILO is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/nCvvqyJrHo3D36F6TJd6d",
+    }),
+  ],
+};
+
+
+const RAHULJANAGOUDA_OWNER: Profile = {
+  id: RAHULJANAGOUDA_OWNER_ID,
+  githubLogin: "rahuljanagouda",
+  name: "Rahul Janagouda",
+  avatarUrl: null,
+  xHandle: "rahuljanagouda",
+};
+
+const RAHULJANAGOUDA: Pack = {
+  id: "10000000-0000-0000-0000-000000001231",
+  owner: RAHULJANAGOUDA_OWNER,
+  slug: "rahul",
+  name: "Rahul",
+  description:
+    "Public Grok Bot templates Rahul Janagouda (@rahuljanagouda) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Bot Scout. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/rahuljanagouda/status/2113720506729869373.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002061",
+      name: "Bot Scout",
+      job: "Bot Scout is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/BQbzWaVJYtui13XtAlBC4",
+    }),
+  ],
+};
+
+
+const RAJCHUDASAMA_OWNER: Profile = {
+  id: RAJCHUDASAMA_OWNER_ID,
+  githubLogin: "rajchudasama",
+  name: "Raj | Hotel Tech + AI",
+  avatarUrl: null,
+  xHandle: "rajchudasama",
+};
+
+const RAJCHUDASAMA: Pack = {
+  id: "10000000-0000-0000-0000-000000001232",
+  owner: RAJCHUDASAMA_OWNER,
+  slug: "raj",
+  name: "Raj",
+  description:
+    "Public Grok Bot templates Raj | Hotel Tech + AI (@rajchudasama) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Bot Team Chief of Staff. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/rajchudasama/status/2113761994583179337.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002062",
+      name: "Bot Team Chief of Staff",
+      job: "Bot Team Chief of Staff is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/OamW8zopOJaFbnyQDwqkD",
+    }),
+  ],
+};
+
+
+const REALPETRU_OWNER: Profile = {
+  id: REALPETRU_OWNER_ID,
+  githubLogin: "realpetru",
+  name: "petru",
+  avatarUrl: null,
+  xHandle: "realpetru",
+};
+
+const REALPETRU: Pack = {
+  id: "10000000-0000-0000-0000-000000001233",
+  owner: REALPETRU_OWNER,
+  slug: "petru",
+  name: "Petru",
+  description:
+    "Public Grok Bot templates petru (@realpetru) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Homy. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/realpetru/status/2113774426944598461.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002063",
+      name: "Homy",
+      job: "Homy is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/ReSFa4JXow2mFlWbJinaK",
+    }),
+  ],
+};
+
+
+const ROBERICKSON_OWNER: Profile = {
+  id: ROBERICKSON_OWNER_ID,
+  githubLogin: "roberickson",
+  name: "Rob Erickson",
+  avatarUrl: null,
+  xHandle: "roberickson",
+};
+
+const ROBERICKSON: Pack = {
+  id: "10000000-0000-0000-0000-000000001234",
+  owner: ROBERICKSON_OWNER,
+  slug: "rob",
+  name: "Rob",
+  description:
+    "Public Grok Bot templates Rob Erickson (@roberickson) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Aegis. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/RobErickson/status/2113794959341920448.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002064",
+      name: "Aegis",
+      job: "Aegis is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/W5ek_XFFPkF2Ylw69oBxS",
+    }),
+  ],
+};
+
+
+const RODERIK_OWNER: Profile = {
+  id: RODERIK_OWNER_ID,
+  githubLogin: "roderik",
+  name: "Roderik",
+  avatarUrl: null,
+  xHandle: "roderik",
+};
+
+const RODERIK: Pack = {
+  id: "10000000-0000-0000-0000-000000001235",
+  owner: RODERIK_OWNER,
+  slug: "roderik",
+  name: "Roderik",
+  description:
+    "Public Grok Bot templates Roderik (@roderik) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at 🍎Apple Inventory & Deal Bot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/roderik/status/2113702807715078213.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002065",
+      name: "🍎Apple Inventory & Deal Bot",
+      job: "🍎Apple Inventory & Deal Bot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/vBskzZFRWX5t20481zgS5",
+    }),
+  ],
+};
+
+
+const RYAN_HOLDAWAY_OWNER: Profile = {
+  id: RYAN_HOLDAWAY_OWNER_ID,
+  githubLogin: "ryan_holdaway",
+  name: "Holdy",
+  avatarUrl: null,
+  xHandle: "ryan_holdaway",
+};
+
+const RYAN_HOLDAWAY: Pack = {
+  id: "10000000-0000-0000-0000-000000001236",
+  owner: RYAN_HOLDAWAY_OWNER,
+  slug: "ryan",
+  name: "Ryan",
+  description:
+    "Public Grok Bot templates Holdy (@ryan_holdaway) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Hype Man. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Ryan_Holdaway/status/2113806846297588056.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002066",
+      name: "Hype Man",
+      job: "Hype Man is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/58Kb0_5QuysvnVfvBfim8",
+    }),
+  ],
+};
+
+
+const SAI_RAMANA_1999_OWNER: Profile = {
+  id: SAI_RAMANA_1999_OWNER_ID,
+  githubLogin: "sai_ramana_1999",
+  name: "Sai Ramana P B",
+  avatarUrl: null,
+  xHandle: "sai_ramana_1999",
+};
+
+const SAI_RAMANA_1999: Pack = {
+  id: "10000000-0000-0000-0000-000000001237",
+  owner: SAI_RAMANA_1999_OWNER,
+  slug: "sai",
+  name: "Sai",
+  description:
+    "Public Grok Bot templates Sai Ramana P B (@sai_ramana_1999) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Job Hunter. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/sai_ramana_1999/status/2113787237741822394.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002069",
+      name: "Job Hunter",
+      job: "Job Hunter is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/yNTz_oheOAvohS-m1OeM7",
+    }),
+  ],
+};
+
+
+const SAME1311025_OWNER: Profile = {
+  id: SAME1311025_OWNER_ID,
+  githubLogin: "same1311025",
+  name: "SamE 🇺🇸",
+  avatarUrl: null,
+  xHandle: "same1311025",
+};
+
+const SAME1311025: Pack = {
+  id: "10000000-0000-0000-0000-000000001238",
+  owner: SAME1311025_OWNER,
+  slug: "sam",
+  name: "Sam",
+  description:
+    "Public Grok Bot templates SamE 🇺🇸 (@same1311025) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Purrfile. Use Pawfile only for Pawfile. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/SamE1311025/status/2113999965701763478. Pawfile is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002070",
+      name: "Purrfile",
+      job: "Purrfile is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/AvoLXgs0Kcrlkxzl6VNHN",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002071",
+      name: "Pawfile",
+      job: "Pawfile is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/p9COetulQbosBUOektrRq",
+    }),
+  ],
+};
+
+
+const SATADRU_OWNER: Profile = {
+  id: SATADRU_OWNER_ID,
+  githubLogin: "satadru",
+  name: "satadru",
+  avatarUrl: null,
+  xHandle: "satadru",
+};
+
+const SATADRU: Pack = {
+  id: "10000000-0000-0000-0000-000000001239",
+  owner: SATADRU_OWNER,
+  slug: "satadru",
+  name: "satadru",
+  description:
+    "Public Grok Bot templates satadru (@satadru) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Sentinel. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/satadru/status/2113729684802617634.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002072",
+      name: "Sentinel",
+      job: "Sentinel is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/y2ytvIh3g-GFwcaMHU4HY",
+    }),
+  ],
+};
+
+
+const SCOTTY2SHOTTYY_OWNER: Profile = {
+  id: SCOTTY2SHOTTYY_OWNER_ID,
+  githubLogin: "scotty2shottyy",
+  name: "save par",
+  avatarUrl: null,
+  xHandle: "scotty2shottyy",
+};
+
+const SCOTTY2SHOTTYY: Pack = {
+  id: "10000000-0000-0000-0000-000000001240",
+  owner: SCOTTY2SHOTTYY_OWNER,
+  slug: "scott",
+  name: "Scott",
+  description:
+    "Public Grok Bot templates save par (@scotty2shottyy) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Goodreads Reading Buddy. Use Haggle Bot only for Haggle Bot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/scotty2shottyy/status/2113774448084189216. Haggle Bot is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002073",
+      name: "Goodreads Reading Buddy",
+      job: "Goodreads Reading Buddy is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/J_rIIZBilpLDRcixiQjeI",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002074",
+      name: "Haggle Bot",
+      job: "Haggle Bot is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/TVQU-1m-jBvrdx2pnXtqH",
+    }),
+  ],
+};
+
+
+const SERGIOTAPIADEV_OWNER: Profile = {
+  id: SERGIOTAPIADEV_OWNER_ID,
+  githubLogin: "sergiotapiadev",
+  name: "Yeyo",
+  avatarUrl: null,
+  xHandle: "sergiotapiadev",
+};
+
+const SERGIOTAPIADEV: Pack = {
+  id: "10000000-0000-0000-0000-000000001241",
+  owner: SERGIOTAPIADEV_OWNER,
+  slug: "yeyo",
+  name: "Yeyo",
+  description:
+    "Public Grok Bot templates Yeyo (@sergiotapiadev) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Sentinel. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/SergioTapiaDev/status/2113809359822320075.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002075",
+      name: "Sentinel",
+      job: "Sentinel is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/acKCYX4vSI0VQZvf4qOuc",
+    }),
+  ],
+};
+
+
+const SHUBHH_HUM_OWNER: Profile = {
+  id: SHUBHH_HUM_OWNER_ID,
+  githubLogin: "shubhh_hum",
+  name: "Shubham",
+  avatarUrl: null,
+  xHandle: "shubhh_hum",
+};
+
+const SHUBHH_HUM: Pack = {
+  id: "10000000-0000-0000-0000-000000001242",
+  owner: SHUBHH_HUM_OWNER,
+  slug: "shubh",
+  name: "Shubh",
+  description:
+    "Public Grok Bot templates Shubham (@shubhh_hum) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Career Counseller. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/shubhh_hum/status/2113921149373653441.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002076",
+      name: "Career Counseller",
+      job: "Career Counseller is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/4X-5Go2Ms9437HtyFoJao",
+    }),
+  ],
+};
+
+
+const SIGNALNOISE8020_OWNER: Profile = {
+  id: SIGNALNOISE8020_OWNER_ID,
+  githubLogin: "signalnoise8020",
+  name: "Ben",
+  avatarUrl: null,
+  xHandle: "signalnoise8020",
+};
+
+const SIGNALNOISE8020: Pack = {
+  id: "10000000-0000-0000-0000-000000001243",
+  owner: SIGNALNOISE8020_OWNER,
+  slug: "ben",
+  name: "Ben",
+  description:
+    "Public Grok Bot templates Ben (@signalnoise8020) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Money Finder. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/signalnoise8020/status/2113775403873497295.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002078",
+      name: "Money Finder",
+      job: "Money Finder is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/bbw5VWsbm4dvrF_-LHJf4",
+    }),
+  ],
+};
+
+
+const SOC_BRAN_AFRICA_OWNER: Profile = {
+  id: SOC_BRAN_AFRICA_OWNER_ID,
+  githubLogin: "soc_bran_africa",
+  name: "Pieter van der Westhuizen",
+  avatarUrl: null,
+  xHandle: "soc_bran_africa",
+};
+
+const SOC_BRAN_AFRICA: Pack = {
+  id: "10000000-0000-0000-0000-000000001244",
+  owner: SOC_BRAN_AFRICA_OWNER,
+  slug: "pieter",
+  name: "Pieter",
+  description:
+    "Public Grok Bot templates Pieter van der Westhuizen (@soc_bran_africa) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Grok Bot Setup Coach. Use Token Cop only for Token Cop. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Soc_Bran_Africa/status/2113891143314276507. Token Cop is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002079",
+      name: "Grok Bot Setup Coach",
+      job: "Grok Bot Setup Coach is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/duonwBK5SXXQTAy6NNg2r",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002080",
+      name: "Token Cop",
+      job: "Token Cop is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/kikx0ydzAGu5ogL2Hfato",
+    }),
+  ],
+};
+
+
+const SOWASHINGTON26_OWNER: Profile = {
+  id: SOWASHINGTON26_OWNER_ID,
+  githubLogin: "sowashington26",
+  name: "S.O. Washington",
+  avatarUrl: null,
+  xHandle: "sowashington26",
+};
+
+const SOWASHINGTON26: Pack = {
+  id: "10000000-0000-0000-0000-000000001245",
+  owner: SOWASHINGTON26_OWNER,
+  slug: "so",
+  name: "S.O. Washington",
+  description:
+    "Public Grok Bot templates S.O. Washington (@sowashington26) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Privacy. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/SOwashington26/status/2113979978140553348.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002082",
+      name: "Privacy",
+      job: "Privacy is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/m8LgFBTwlCWHQvVMy77z_",
+    }),
+  ],
+};
+
+
+const STANTHEMAN_0128_OWNER: Profile = {
+  id: STANTHEMAN_0128_OWNER_ID,
+  githubLogin: "stantheman_0128",
+  name: "Stan The Man",
+  avatarUrl: null,
+  xHandle: "stantheman_0128",
+};
+
+const STANTHEMAN_0128: Pack = {
+  id: "10000000-0000-0000-0000-000000001246",
+  owner: STANTHEMAN_0128_OWNER,
+  slug: "stan",
+  name: "Stan",
+  description:
+    "Public Grok Bot templates Stan The Man (@stantheman_0128) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Routine Butler. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/stantheman_0128/status/2113877819113734417.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002083",
+      name: "Routine Butler",
+      job: "Routine Butler is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/V-BusTaJAwV7XzaTEGHOi",
+    }),
+  ],
+};
+
+
+const SVG__COLLECTION_OWNER: Profile = {
+  id: SVG__COLLECTION_OWNER_ID,
+  githubLogin: "svg__collection",
+  name: "Melodies & Masterpieces",
+  avatarUrl: null,
+  xHandle: "svg__collection",
+};
+
+const SVG__COLLECTION: Pack = {
+  id: "10000000-0000-0000-0000-000000001247",
+  owner: SVG__COLLECTION_OWNER,
+  slug: "melodies",
+  name: "Melodies",
+  description:
+    "Public Grok Bot templates Melodies & Masterpieces (@svg__collection) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Crate Digger. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/SVG__Collection/status/2113992460301172805.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002084",
+      name: "Crate Digger",
+      job: "Crate Digger is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/E8zHAEQEU5cnDojAFkrYb",
+    }),
+  ],
+};
+
+
+const SYQCON95_OWNER: Profile = {
+  id: SYQCON95_OWNER_ID,
+  githubLogin: "syqcon95",
+  name: "Jess",
+  avatarUrl: null,
+  xHandle: "syqcon95",
+};
+
+const SYQCON95: Pack = {
+  id: "10000000-0000-0000-0000-000000001248",
+  owner: SYQCON95_OWNER,
+  slug: "jess",
+  name: "Jess",
+  description:
+    "Public Grok Bot templates Jess (@syqcon95) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Travel Agent. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/SYQCON95/status/2113759448451670358.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002085",
+      name: "Travel Agent",
+      job: "Travel Agent is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/57uOFOEX5O7ZfTWml40ny",
+    }),
+  ],
+};
+
+
+const SZILAGYIPAL_OWNER: Profile = {
+  id: SZILAGYIPAL_OWNER_ID,
+  githubLogin: "szilagyipal",
+  name: "Szilágyi Pál",
+  avatarUrl: null,
+  xHandle: "szilagyipal",
+};
+
+const SZILAGYIPAL: Pack = {
+  id: "10000000-0000-0000-0000-000000001249",
+  owner: SZILAGYIPAL_OWNER,
+  slug: "pal",
+  name: "Pal",
+  description:
+    "Public Grok Bot templates Szilágyi Pál (@szilagyipal) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at GDPR Bot. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/szilagyipal/status/2113727885148352958.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002086",
+      name: "GDPR Bot",
+      job: "GDPR Bot is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/TxD2DkGjehpQftH2lvriK",
+    }),
+  ],
+};
+
+
+const VALEN_HL_OWNER: Profile = {
+  id: VALEN_HL_OWNER_ID,
+  githubLogin: "valen_hl",
+  name: "Valen",
+  avatarUrl: null,
+  xHandle: "valen_hl",
+};
+
+const VALEN_HL: Pack = {
+  id: "10000000-0000-0000-0000-000000001250",
+  owner: VALEN_HL_OWNER,
+  slug: "valen",
+  name: "Valen",
+  description:
+    "Public Grok Bot templates Valen (@valen_hl) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Batch-Cook Kitchen. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Valen_HL/status/2113826962137374803.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002089",
+      name: "Batch-Cook Kitchen",
+      job: "Batch-Cook Kitchen is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/aC5QtJUD9gDqt7l1vKAZd",
+    }),
+  ],
+};
+
+
+const VED_CJ_OWNER: Profile = {
+  id: VED_CJ_OWNER_ID,
+  githubLogin: "ved_cj",
+  name: "Vedant",
+  avatarUrl: null,
+  xHandle: "ved_cj",
+};
+
+const VED_CJ: Pack = {
+  id: "10000000-0000-0000-0000-000000001251",
+  owner: VED_CJ_OWNER,
+  slug: "vedant",
+  name: "Vedant",
+  description:
+    "Public Grok Bot templates Vedant (@ved_cj) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Sponsorship Hunter. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Ved_CJ/status/2113842379157647749.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002090",
+      name: "Sponsorship Hunter",
+      job: "Sponsorship Hunter is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/t-gNKMTD-GSe0vSRnGDQQ",
+    }),
+  ],
+};
+
+
+const VLADYDADDY_OWNER: Profile = {
+  id: VLADYDADDY_OWNER_ID,
+  githubLogin: "vladydaddy",
+  name: "Vlad",
+  avatarUrl: null,
+  xHandle: "vladydaddy",
+};
+
+const VLADYDADDY: Pack = {
+  id: "10000000-0000-0000-0000-000000001252",
+  owner: VLADYDADDY_OWNER,
+  slug: "vlad",
+  name: "Vlad",
+  description:
+    "Public Grok Bot templates Vlad (@vladydaddy) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at ReadMe. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/vladydaddy/status/2113958010045206649.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002091",
+      name: "ReadMe",
+      job: "ReadMe is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/wTAZfxJ4BhEghg9wZWGMv",
+    }),
+  ],
+};
+
+
+const WAVEGOD_OWNER: Profile = {
+  id: WAVEGOD_OWNER_ID,
+  githubLogin: "wavegod",
+  name: "luke",
+  avatarUrl: null,
+  xHandle: "wavegod",
+};
+
+const WAVEGOD: Pack = {
+  id: "10000000-0000-0000-0000-000000001253",
+  owner: WAVEGOD_OWNER,
+  slug: "luke",
+  name: "luke",
+  description:
+    "Public Grok Bot templates luke (@wavegod) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Scriptoor. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/wavegod/status/2113721253572018636.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002092",
+      name: "Scriptoor",
+      job: "Scriptoor is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/E6eU2OIoJvUB8I3xGvZBw",
+    }),
+  ],
+};
+
+
+const WEAVERWORK_OWNER: Profile = {
+  id: WEAVERWORK_OWNER_ID,
+  githubLogin: "weaverwork",
+  name: "Jacob Weaver",
+  avatarUrl: null,
+  xHandle: "weaverwork",
+};
+
+const WEAVERWORK: Pack = {
+  id: "10000000-0000-0000-0000-000000001254",
+  owner: WEAVERWORK_OWNER,
+  slug: "jacob",
+  name: "Jacob",
+  description:
+    "Public Grok Bot templates Jacob Weaver (@weaverwork) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Account Research. Use Tech Stack Miner only for Tech Stack Miner. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/weaverwork/status/2113831740414324902. Tech Stack Miner is the named-seat lane only.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002093",
+      name: "Account Research",
+      job: "Account Research is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/0CX2DyEQoP7Y88nT7XBYi",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000002094",
+      name: "Tech Stack Miner",
+      job: "Tech Stack Miner is the named seat for that job on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 1,
+      grokTemplateUrl: "https://x.ai/bot/Tw9lIjLkrnFTth1D4YTRu",
+    }),
+  ],
+};
+
+
+const YASHKAVAIYA_OWNER: Profile = {
+  id: YASHKAVAIYA_OWNER_ID,
+  githubLogin: "yashkavaiya",
+  name: "Yash Kavaiya",
+  avatarUrl: null,
+  xHandle: "yashkavaiya",
+};
+
+const YASHKAVAIYA: Pack = {
+  id: "10000000-0000-0000-0000-000000001255",
+  owner: YASHKAVAIYA_OWNER,
+  slug: "yash",
+  name: "Yash",
+  description:
+    "Public Grok Bot templates Yash Kavaiya (@yashkavaiya) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at CricStudio Live. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/yashkavaiya/status/2113827357811499156.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002100",
+      name: "CricStudio Live",
+      job: "CricStudio Live is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/9gZr9yUi6aUG5OJaCfLLc",
+    }),
+  ],
+};
+
+
+const ZACFORRISTALL_OWNER: Profile = {
+  id: ZACFORRISTALL_OWNER_ID,
+  githubLogin: "zacforristall",
+  name: "Zac Forristall",
+  avatarUrl: null,
+  xHandle: "zacforristall",
+};
+
+const ZACFORRISTALL: Pack = {
+  id: "10000000-0000-0000-0000-000000001256",
+  owner: ZACFORRISTALL_OWNER,
+  slug: "zac",
+  name: "Zac",
+  description:
+    "Public Grok Bot templates Zac Forristall (@zacforristall) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Money Desk. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/zacforristall/status/2113728758775681339.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002101",
+      name: "Money Desk",
+      job: "Money Desk is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/puMDRy6paXAwYkYBcJuQu",
+    }),
+  ],
+};
+
+
+const ZEER0HOUR_OWNER: Profile = {
+  id: ZEER0HOUR_OWNER_ID,
+  githubLogin: "zeer0hour",
+  name: "0HOUR1",
+  avatarUrl: null,
+  xHandle: "zeer0hour",
+};
+
+const ZEER0HOUR: Pack = {
+  id: "10000000-0000-0000-0000-000000001257",
+  owner: ZEER0HOUR_OWNER,
+  slug: "0hour1",
+  name: "0HOUR1",
+  description:
+    "Public Grok Bot templates 0HOUR1 (@zeer0hour) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at X-STREAMTOP. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/ZEER0HOUR/status/2113853701014319357.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000002102",
+      name: "X-STREAMTOP",
+      job: "X-STREAMTOP is the desk on this roster. Official share only.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/5788P-A4EH0IwO6IUO_Qr",
     }),
   ],
 };
@@ -54429,6 +59328,108 @@ const ALL_PACKS: Pack[] = [
   SIEDGEGEEK,
   SIRWISESAM,
   UPESHINMARS,
+  _0XBAGSAI_SOL,
+  _175RNG,
+  _CHUCK_HOLLOWAY,
+  ABEGEHR,
+  ABROMELIAD,
+  ACEOP_XYZ,
+  AG_ABHILASHG,
+  AINPONCE,
+  AMGAD_BARKAT,
+  ARUSHJ01,
+  AURIUKUX2,
+  AUSTEN,
+  BAYUNGROK,
+  BNPRUITT,
+  BOBRILEYJR,
+  BOLDRICK,
+  CHB2XX,
+  CHEFMARKCOAKLEY,
+  CODYLIBOLT,
+  CORY_ZANER,
+  D_J_HARMAN,
+  DARTHUR,
+  DAVIDE21187,
+  DRAGHUB1,
+  DREWFROMWEB3,
+  DYLANBEBUILDING,
+  E_ONSLEY,
+  EDWARD_ATIME,
+  EDWINCH43136084,
+  ELBENJASSW,
+  ELIJAHNICOLAS,
+  EMOTOR,
+  FRANKONEDIGITAL,
+  GGZARIV,
+  GILOZAN5,
+  GIOSAIA,
+  GLENNHASABEARD,
+  GOODLUCKBELLS,
+  GOYABEAN_ETH,
+  GRIFFINJAWN,
+  HACKS_JIMM53237,
+  HELVIO,
+  HUDSONSUTHERLA2,
+  IMDEVMAN,
+  IUSTINAFRACTALS,
+  JACOBWELLERX,
+  JASON_JASONETC,
+  JAVABEANAI,
+  JAYINELY,
+  JESKORIOT,
+  JESSEHEREDIA,
+  JESUSISKING3651,
+  JOHNBOYLE,
+  JOHNWALKER,
+  JORDANRAFEALOV,
+  JUSTAGUY94,
+  KALEBAUTOMATES,
+  KAMILBANC,
+  KENBARRETTHQ,
+  KENYIP,
+  KGTHEGENT88,
+  LEGALLYRENEE,
+  LIN_TASTIC,
+  MCQUILLEN_4670,
+  MOEDARE,
+  MR_GODOT,
+  MROZANKESICI,
+  NAPERSVERYOWN,
+  NASTYJERMBALL,
+  NFTRAYMOND,
+  NOT_BESKAR,
+  ODISUS,
+  OVIDIUTEPES,
+  PHLEGONJOSEPH,
+  PROF_EBRAL,
+  RAHULJANAGOUDA,
+  RAJCHUDASAMA,
+  REALPETRU,
+  ROBERICKSON,
+  RODERIK,
+  RYAN_HOLDAWAY,
+  SAI_RAMANA_1999,
+  SAME1311025,
+  SATADRU,
+  SCOTTY2SHOTTYY,
+  SERGIOTAPIADEV,
+  SHUBHH_HUM,
+  SIGNALNOISE8020,
+  SOC_BRAN_AFRICA,
+  SOWASHINGTON26,
+  STANTHEMAN_0128,
+  SVG__COLLECTION,
+  SYQCON95,
+  SZILAGYIPAL,
+  VALEN_HL,
+  VED_CJ,
+  VLADYDADDY,
+  WAVEGOD,
+  WEAVERWORK,
+  YASHKAVAIYA,
+  ZACFORRISTALL,
+  ZEER0HOUR,
 ];
 const ALL_PROFILES: Profile[] = [
   POTETO_OWNER,
@@ -55577,6 +60578,108 @@ const ALL_PROFILES: Profile[] = [
   SIEDGEGEEK_OWNER,
   SIRWISESAM_OWNER,
   UPESHINMARS_OWNER,
+  _0XBAGSAI_SOL_OWNER,
+  _175RNG_OWNER,
+  _CHUCK_HOLLOWAY_OWNER,
+  ABEGEHR_OWNER,
+  ABROMELIAD_OWNER,
+  ACEOP_XYZ_OWNER,
+  AG_ABHILASHG_OWNER,
+  AINPONCE_OWNER,
+  AMGAD_BARKAT_OWNER,
+  ARUSHJ01_OWNER,
+  AURIUKUX2_OWNER,
+  AUSTEN_OWNER,
+  BAYUNGROK_OWNER,
+  BNPRUITT_OWNER,
+  BOBRILEYJR_OWNER,
+  BOLDRICK_OWNER,
+  CHB2XX_OWNER,
+  CHEFMARKCOAKLEY_OWNER,
+  CODYLIBOLT_OWNER,
+  CORY_ZANER_OWNER,
+  D_J_HARMAN_OWNER,
+  DARTHUR_OWNER,
+  DAVIDE21187_OWNER,
+  DRAGHUB1_OWNER,
+  DREWFROMWEB3_OWNER,
+  DYLANBEBUILDING_OWNER,
+  E_ONSLEY_OWNER,
+  EDWARD_ATIME_OWNER,
+  EDWINCH43136084_OWNER,
+  ELBENJASSW_OWNER,
+  ELIJAHNICOLAS_OWNER,
+  EMOTOR_OWNER,
+  FRANKONEDIGITAL_OWNER,
+  GGZARIV_OWNER,
+  GILOZAN5_OWNER,
+  GIOSAIA_OWNER,
+  GLENNHASABEARD_OWNER,
+  GOODLUCKBELLS_OWNER,
+  GOYABEAN_ETH_OWNER,
+  GRIFFINJAWN_OWNER,
+  HACKS_JIMM53237_OWNER,
+  HELVIO_OWNER,
+  HUDSONSUTHERLA2_OWNER,
+  IMDEVMAN_OWNER,
+  IUSTINAFRACTALS_OWNER,
+  JACOBWELLERX_OWNER,
+  JASON_JASONETC_OWNER,
+  JAVABEANAI_OWNER,
+  JAYINELY_OWNER,
+  JESKORIOT_OWNER,
+  JESSEHEREDIA_OWNER,
+  JESUSISKING3651_OWNER,
+  JOHNBOYLE_OWNER,
+  JOHNWALKER_OWNER,
+  JORDANRAFEALOV_OWNER,
+  JUSTAGUY94_OWNER,
+  KALEBAUTOMATES_OWNER,
+  KAMILBANC_OWNER,
+  KENBARRETTHQ_OWNER,
+  KENYIP_OWNER,
+  KGTHEGENT88_OWNER,
+  LEGALLYRENEE_OWNER,
+  LIN_TASTIC_OWNER,
+  MCQUILLEN_4670_OWNER,
+  MOEDARE_OWNER,
+  MR_GODOT_OWNER,
+  MROZANKESICI_OWNER,
+  NAPERSVERYOWN_OWNER,
+  NASTYJERMBALL_OWNER,
+  NFTRAYMOND_OWNER,
+  NOT_BESKAR_OWNER,
+  ODISUS_OWNER,
+  OVIDIUTEPES_OWNER,
+  PHLEGONJOSEPH_OWNER,
+  PROF_EBRAL_OWNER,
+  RAHULJANAGOUDA_OWNER,
+  RAJCHUDASAMA_OWNER,
+  REALPETRU_OWNER,
+  ROBERICKSON_OWNER,
+  RODERIK_OWNER,
+  RYAN_HOLDAWAY_OWNER,
+  SAI_RAMANA_1999_OWNER,
+  SAME1311025_OWNER,
+  SATADRU_OWNER,
+  SCOTTY2SHOTTYY_OWNER,
+  SERGIOTAPIADEV_OWNER,
+  SHUBHH_HUM_OWNER,
+  SIGNALNOISE8020_OWNER,
+  SOC_BRAN_AFRICA_OWNER,
+  SOWASHINGTON26_OWNER,
+  STANTHEMAN_0128_OWNER,
+  SVG__COLLECTION_OWNER,
+  SYQCON95_OWNER,
+  SZILAGYIPAL_OWNER,
+  VALEN_HL_OWNER,
+  VED_CJ_OWNER,
+  VLADYDADDY_OWNER,
+  WAVEGOD_OWNER,
+  WEAVERWORK_OWNER,
+  YASHKAVAIYA_OWNER,
+  ZACFORRISTALL_OWNER,
+  ZEER0HOUR_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {
