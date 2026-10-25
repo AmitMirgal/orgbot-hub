@@ -1,8 +1,12 @@
 import Link from "next/link";
+import { StartHereCategoryLink } from "@/components/start-here-category-link";
 import { Badge } from "@/components/ui/badge";
 import { START_PERSONAS } from "@/lib/start-here";
+import { getSessionUser } from "@/lib/supabase/server";
 
-export function StartHereSection() {
+export async function StartHereSection() {
+  const { user } = await getSessionUser();
+
   return (
     <section className="flex flex-col gap-3">
       <div className="flex items-center justify-between">
@@ -18,15 +22,16 @@ export function StartHereSection() {
       </p>
       <nav aria-label="Start here personas" className="flex flex-wrap gap-1.5">
         {START_PERSONAS.map((persona) => (
-          <Link
+          <StartHereCategoryLink
             key={persona.slug}
-            href={`/start/${persona.slug}`}
+            category={persona.slug}
+            userId={user?.userId ?? null}
             className="inline-flex min-h-11 items-center"
           >
-            <Badge variant="outline" className="rounded-md px-2.5 py-1 font-normal">
+            <Badge variant="accent" className="rounded-md px-2.5 py-1 font-normal">
               {persona.label}
             </Badge>
-          </Link>
+          </StartHereCategoryLink>
         ))}
       </nav>
     </section>

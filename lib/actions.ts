@@ -5,6 +5,8 @@ import { redirect } from "next/navigation";
 import { looksLikeSecret, parseGrokTemplateUrl } from "@/lib/grok-url";
 import { DEFAULT_ROUTING_RULE, slugify } from "@/lib/pack";
 import { logPrismaFailure, prisma } from "@/lib/prisma";
+import { isStartPersonaSlug } from "@/lib/start-here";
+import { insertStartHereCategoryClick } from "@/lib/start-here-clicks";
 import { getSessionUserId } from "@/lib/supabase/server";
 import { SUBMIT_STATUS } from "@/lib/submit-status";
 import { isTopic } from "@/lib/topics";
@@ -269,4 +271,11 @@ export async function recordVisit(
   revalidatePath(`/${owner}`);
   revalidatePath(`/${owner}/${slug}`);
   return { error: null, visitsCount };
+}
+
+export async function recordStartHereCategoryClick(category: string) {
+  if (!isStartPersonaSlug(category)) return { error: "Unknown category." };
+  const { userId } = await getSessionUserId();
+  const saved = await insertStartHereCategoryClick(category, userId);
+  return saved ? { error: null } : { error: "Catalog is not reachable." };
 }
