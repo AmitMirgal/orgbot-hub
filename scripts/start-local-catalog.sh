@@ -46,6 +46,8 @@ sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/migration
 
 sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/migrations/20261025060000_pack_visits_start_here.sql"
 
+sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/migrations/20261025143000_start_here_clicks.sql"
+
 sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 -f "$ROOT/supabase/seed.sql"
 
 sudo -u postgres psql -d orgbots -v ON_ERROR_STOP=1 <<'SQL'

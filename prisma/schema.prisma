@@ -105,6 +105,17 @@ model PackVisit {
   @@map("pack_visits")
 }
 
+/// One row per Start Here category click. Not a pack, so there is no pack id.
+model StartHereClick {
+  id        String   @id @default(cuid())
+  category  String
+  userId    String?  @map("user_id") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  @@index([category], map: "start_here_clicks_category_idx")
+  @@map("start_here_clicks")
+}
+
 /// Daily mixer quota. No Auth User relation — `auth.users` stays in Supabase Auth.
 /// Enforced in the Next server via Prisma, not PostgREST RPCs.
 model TeamChatUsage {
