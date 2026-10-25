@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import { AuthorMarquee } from "@/components/author-marquee";
 import { SearchHero } from "@/components/search-hero";
 import { ParticleText } from "@/components/ui/particle-text";
@@ -54,6 +55,11 @@ export function HeroBanner({ authors = [] }: { authors?: TopAuthor[] }) {
           <h2 className="max-w-md text-xl font-semibold tracking-tight text-foreground sm:text-2xl sm:leading-snug">
             {SUBHEADING}
           </h2>
+          <p className="max-w-md text-sm text-muted-foreground">
+            <Link href="/start" className="underline-offset-4 hover:text-foreground hover:underline">
+              New to Grok Bot? Start here.
+            </Link>
+          </p>
           <SearchHero className="w-full items-center md:items-stretch" />
           <AuthorMarquee authors={authors} className="md:mx-0 md:max-w-none" />
         </div>

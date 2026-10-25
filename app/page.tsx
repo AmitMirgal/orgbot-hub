@@ -5,6 +5,7 @@ import { HeroBanner } from "@/components/hero-banner";
 import { Leaderboard } from "@/components/leaderboard";
 import { PackCardView } from "@/components/pack-card";
 import { PackGrid } from "@/components/pack-grid";
+import { StartHereSection } from "@/components/start-here-section";
 import { catalogStats, listPacks, readCatalog } from "@/lib/catalog";
 import { formatCount } from "@/lib/pack";
 import { topAuthors } from "@/lib/top-authors";
@@ -22,6 +23,7 @@ export default async function Home() {
       <>
         <HeroBanner />
         <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
+          <StartHereSection />
           <CatalogOffline message={packsResult.message} />
         </main>
       </>
@@ -38,6 +40,7 @@ export default async function Home() {
     <>
       <HeroBanner authors={authors} />
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-10">
+        <StartHereSection />
         <section className="flex flex-wrap gap-6 text-base text-muted-foreground">
           <p>
             <span className="font-mono text-foreground">{formatCount(stats.packs)}</span> packs
