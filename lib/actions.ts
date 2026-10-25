@@ -229,7 +229,8 @@ export async function recordVisit(
   owner: string,
   slug: string,
   source: VisitSource = "add_to_grok",
-  seatName?: string
+  seatName?: string,
+  persona?: string
 ) {
   if (!prisma) return { error: "Catalog is not reachable." };
   let visitsCount: number;
@@ -241,6 +242,7 @@ export async function recordVisit(
         packSlug: slug,
         source,
         seatName: seatName ?? null,
+        persona: persona ?? null,
       },
     });
     visitsCount = await prisma.packVisit.count({

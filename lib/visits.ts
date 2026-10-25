@@ -12,4 +12,5 @@ export type VisitCapture = {
   identity: PackIdentity;
   source: VisitSource;
   seatName?: string;
+  persona?: string;
 };

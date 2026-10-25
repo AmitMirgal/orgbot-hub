@@ -13,6 +13,7 @@ export function useRecordVisit() {
     slug: string;
     source?: VisitSource;
     seatName?: string;
+    persona?: string;
   }) => {
     const source = input.source ?? "add_to_grok";
     captureVisit({
@@ -20,13 +21,15 @@ export function useRecordVisit() {
       identity: { owner: input.owner, slug: input.slug },
       source,
       seatName: input.seatName,
+      persona: input.persona,
     });
     return recordVisit(
       input.packId,
       input.owner,
       input.slug,
       source,
-      input.seatName
+      input.seatName,
+      input.persona
     ).then((result) => {
       if (!result.error) router.refresh();
       return result;

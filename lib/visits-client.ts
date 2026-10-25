@@ -12,6 +12,7 @@ export function captureVisit(event: VisitCapture): void {
       pack_slug: event.identity.slug,
       source: event.source,
       ...(event.seatName ? { seat_name: event.seatName } : {}),
+      ...(event.persona ? { persona: event.persona } : {}),
     });
   } catch {
     // Analytics must never block the Supabase increment.
