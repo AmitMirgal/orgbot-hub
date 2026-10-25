@@ -200,6 +200,7 @@ test("home lists packs and does not embed chat", () => {
     "utf8"
   );
   assert.match(src, /HeroBanner/);
+  assert.match(src, /StartHereSection/);
   assert.doesNotMatch(src, /CatalogChat/);
   assert.doesNotMatch(src, /HomeCatalogChat/);
   assert.doesNotMatch(src, /getSessionUserId/);
@@ -330,7 +331,9 @@ test("home hero uses particle text instead of the halftone banner", () => {
   assert.match(hero, /ParticleText/);
   assert.match(hero, /SearchHero/);
   assert.match(hero, /AuthorMarquee/);
+  assert.match(hero, /New to Grok Bot\? Start here\./);
   assert.match(page, /topAuthors/);
+  assert.match(page, /StartHereSection/);
   assert.doesNotMatch(hero, /HalftoneReveal/);
 });
 

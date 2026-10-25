@@ -151,6 +151,7 @@ test("local catalog start points Prisma at Postgres", () => {
   assert.match(start, /team_chat_usage\.sql/);
   assert.match(start, /pack_visits_server_owned\.sql/);
   assert.match(start, /team_chat_usage_server_owned\.sql/);
+  assert.match(start, /pack_visits_start_here\.sql/);
   assert.match(example, /DATABASE_URL=/);
   assert.match(example, /DIRECT_URL=/);
   assert.match(example, /Table CRUD goes through Prisma, not Supabase PostgREST/);
@@ -324,6 +325,38 @@ test("one consume turn leaves 19 of 20 messages", async () => {
     assert.equal(quotaMeterText(quota), "19 / 20 left today");
   } finally {
     await prisma.teamChatUsage.deleteMany({ where: { userId } });
+  }
+});
+
+test("pack_visits can record a start_here click with a persona", async () => {
+  if (!prisma) return;
+  const labels = await prisma.$queryRaw<Array<{ enumlabel: string }>>`
+    select e.enumlabel
+    from pg_enum e
+    join pg_type t on e.enumtypid = t.oid
+    where t.typname = 'visit_source'
+  `;
+  if (!labels.some((row) => row.enumlabel === "start_here")) return;
+  const packId = "99999999-0000-4000-8000-000000000002";
+  const visitId = "visit-start-here-parent";
+  await prisma.packVisit.deleteMany({ where: { id: visitId } });
+  try {
+    await prisma.packVisit.create({
+      data: {
+        id: visitId,
+        packId,
+        packOwner: "BowieHole",
+        packSlug: "bowie",
+        source: "start_here",
+        seatName: "School Desk",
+        persona: "parent",
+      },
+    });
+    const row = await prisma.packVisit.findUnique({ where: { id: visitId } });
+    assert.equal(row?.source, "start_here");
+    assert.equal(row?.persona, "parent");
+  } finally {
+    await prisma.packVisit.deleteMany({ where: { id: visitId } });
   }
 });
 
