@@ -11,6 +11,7 @@ enum VisitSource {
   add_to_grok
   add_every_bot
   desk_mix
+  start_here
 
   @@map("visit_source")
 }
@@ -94,6 +95,7 @@ model PackVisit {
   packSlug  String      @map("pack_slug")
   source    VisitSource
   seatName  String?     @map("seat_name")
+  persona   String?
   createdAt DateTime    @default(now()) @map("created_at") @db.Timestamptz
   updatedAt DateTime    @updatedAt @map("updated_at") @db.Timestamptz
 

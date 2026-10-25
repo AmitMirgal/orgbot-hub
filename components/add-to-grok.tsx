@@ -15,6 +15,7 @@ export function AddToGrok({
   slug,
   seatName,
   source = "add_to_grok",
+  persona,
   onRecorded,
 }: {
   url: string | null;
@@ -24,6 +25,7 @@ export function AddToGrok({
   slug: string;
   seatName?: string;
   source?: VisitSource;
+  persona?: string;
   onRecorded?: (visitsCount: number) => void;
 }) {
   const href = parseGrokTemplateUrl(url);
@@ -44,7 +46,7 @@ export function AddToGrok({
   }
 
   function onAdd() {
-    void record({ packId, owner, slug, source, seatName }).then((result) => {
+    void record({ packId, owner, slug, source, seatName, persona }).then((result) => {
       if (typeof result.visitsCount === "number") onRecorded?.(result.visitsCount);
     });
   }
