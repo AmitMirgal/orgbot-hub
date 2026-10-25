@@ -18,3 +18,15 @@ export function captureVisit(event: VisitCapture): void {
     // Analytics must never block the Supabase increment.
   }
 }
+
+export function captureStartHereCategory(category: string, userId: string | null): void {
+  try {
+    if (!process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN) return;
+    posthog.capture("start_here_category_clicked", {
+      category,
+      ...(userId ? { user_id: userId } : {}),
+    });
+  } catch {
+    // Analytics must never block the category navigation.
+  }
+}

@@ -83,6 +83,7 @@ test("Start Here pages show no popularity, install, like, or visit counts", () =
     "app/start/[persona]/page.tsx",
     "components/start-here-card.tsx",
     "components/start-here-section.tsx",
+    "components/start-here-category-link.tsx",
     "lib/start-here.ts",
   ];
   for (const rel of files) {
@@ -170,7 +171,15 @@ test("Start Here data is hand-curated and unknown slugs 404", () => {
   assert.match(home, /StartHereSection/);
   assert.match(hero, /New to Grok Bot\? Start here\./);
   assert.match(picker, /Who are you\?/);
-  assert.match(picker, /href=\{`\/start\/\$\{persona\.slug\}`\}/);
+  assert.match(picker, /category=\{persona\.slug\}/);
+  const section = read("components/start-here-section.tsx");
+  assert.match(section, /variant="accent"/);
+  assert.match(section, /StartHereCategoryLink/);
+  assert.doesNotMatch(section, /variant="outline"/);
+  const link = read("components/start-here-category-link.tsx");
+  assert.match(link, /href=\{`\/start\/\$\{category\}`\}/);
+  assert.match(link, /captureStartHereCategory/);
+  assert.match(link, /recordStartHereCategoryClick/);
   assert.match(picker, /START_PERSONAS\.map/);
   assert.match(workflow, /cron:/);
   assert.match(workflow, /check-start-here-links\.ts/);
