@@ -46,6 +46,7 @@ const PRISMA_CRUD_FILES = [
   "lib/actions.ts",
   "lib/visits-store.ts",
   "lib/team-quota-store.ts",
+  "lib/start-here-clicks.ts",
 ] as const;
 
 const SUPABASE_CLIENT_FILES = [
@@ -59,11 +60,11 @@ const SUPABASE_CLIENT_FILES = [
 ] as const;
 
 const TABLE_CRUD =
-  /\.from\(\s*["'](packs|seats|profiles|likes|pack_visits|team_chat_usage)["']/;
+  /\.from\(\s*["'](packs|seats|profiles|likes|pack_visits|team_chat_usage|start_here_clicks)["']/;
 const RPC_CRUD =
   /\.rpc\(\s*["'](increment_installs|increment_clones|team_chat_quota|consume_team_chat_turn|refund_team_chat_turn)["']/;
 const PRISMA_MODEL =
-  /prisma\.(pack|seat|profile|like|packVisit|teamChatUsage)\b/;
+  /prisma\.(pack|seat|profile|like|packVisit|teamChatUsage|startHereClick)\b/;
 
 const SKIP_DIRS = new Set([
   "node_modules",
@@ -152,6 +153,7 @@ test("local catalog start points Prisma at Postgres", () => {
   assert.match(start, /pack_visits_server_owned\.sql/);
   assert.match(start, /team_chat_usage_server_owned\.sql/);
   assert.match(start, /pack_visits_start_here\.sql/);
+  assert.match(start, /start_here_clicks\.sql/);
   assert.match(example, /DATABASE_URL=/);
   assert.match(example, /DIRECT_URL=/);
   assert.match(example, /Table CRUD goes through Prisma, not Supabase PostgREST/);
