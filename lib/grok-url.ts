@@ -1,7 +1,7 @@
 const ALLOWED_HOSTS = new Set(["x.ai", "www.x.ai"]);
 const BOT_PATH = /^\/bot\/(s\/)?([A-Za-z0-9_-]{6,})(?:\/[A-Za-z0-9_-]+)?\/?$/;
 const SECRET_HINT =
-  /(?:sk-|api[_-]?key|bearer\s+|-----BEGIN|xai-[A-Za-z0-9]{10,}|secret=|token=)/i;
+  /(?:(?<![A-Za-z0-9])sk-|api[_-]?key|bearer\s+|-----BEGIN|xai-[A-Za-z0-9]{10,}|secret=|token=)/i;
 
 export function looksLikeSecret(value: string): boolean {
   return SECRET_HINT.test(value);

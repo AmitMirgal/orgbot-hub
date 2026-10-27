@@ -131,6 +131,10 @@ test("accepts official x.ai bot URLs", () => {
     parseGrokTemplateUrl("https://x.ai/bot/eydijdzrfgtnmlnUyPSI-"),
     "https://x.ai/bot/eydijdzrfgtnmlnUyPSI-"
   );
+  assert.equal(
+    parseGrokTemplateUrl("https://x.ai/bot/VAA8VnAkz2sk-XCEWWDYX"),
+    "https://x.ai/bot/VAA8VnAkz2sk-XCEWWDYX"
+  );
 });
 
 test("strips username suffixes from official bot URLs", () => {
