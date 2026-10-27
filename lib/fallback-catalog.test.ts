@@ -1894,7 +1894,7 @@ test("catalog watch adds six unofficial one-desk packs with live x.ai URLs", () 
       packId: "10000000-0000-0000-0000-000000000098",
       topic: "founder",
       avatar: null as string | null,
-      seats: 3,
+      seats: 4,
     },
     {
       owner: "NikolaFYI",
