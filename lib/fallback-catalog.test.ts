@@ -1586,7 +1586,7 @@ test("grokbots.best gap-fill packs are unofficial with one desk and dual-written
   assert.equal(av1d.owner.avatarUrl, null);
   assert.deepEqual(
     av1d.seats.map((item) => item.name),
-    ["loops", "Master", "Chief of Staff", "Growth Desk", "Grok Bot Coach", "Inference Lab", "Dashboard Maker", "Forensic Writing, Persuasion and Psychology Analysis"]
+    ["loops", "Master", "Chief of Staff", "Growth Desk", "Grok Bot Coach", "Inference Lab", "Dashboard Maker", "Forensic Writing, Persuasion and Psychology Analysis", "Inbox Drop"]
   );
 
   const dataNexus = getFallbackPack("data_nexus", "data-nexus");
@@ -23980,7 +23980,7 @@ test("catalog adds Oct 22 8pm IST hunt (45 seats, 26 new packs)", () => {
     "slug": "auny",
     "path": "/AunySillyMe/auny",
     "oldSeats": 2,
-    "newSeats": 6,
+    "newSeats": 5,
     "added": [
       {
         "name": "Content Mod",
@@ -33784,7 +33784,7 @@ test("catalog adds Oct 27 hunt (173 seats, 92 new packs)", () => {
     "slug": "zahra",
     "path": "/0xarewah/zahra",
     "oldSeats": 1,
-    "newSeats": 5,
+    "newSeats": 3,
     "added": [
       {
         "name": "Trenches Trading Desk",
