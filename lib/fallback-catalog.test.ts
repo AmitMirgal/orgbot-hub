@@ -18,8 +18,8 @@ const seedSql = readFileSync(
 
 test("catalog includes existing packs plus the new verified shares", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
   assert.ok(getFallbackPack("0xkingskuan", "kingskuan"));
   assert.ok(getFallbackPack("_arob", "allan"));
   assert.ok(getFallbackPack("_mintydoge", "gaz"));
@@ -104,6 +104,40 @@ test("catalog includes existing packs plus the new verified shares", () => {
   assert.ok(getFallbackPack("x_research_kr", "xresearch"));
   assert.ok(getFallbackPack("yishengjiang", "yisheng"));
   assert.ok(getFallbackPack("zacshen", "zacshen"));
+  assert.ok(getFallbackPack("_sarant", "sara"));
+  assert.ok(getFallbackPack("amberdawnatx", "amber"));
+  assert.ok(getFallbackPack("bebryanmichaels", "bryan"));
+  assert.ok(getFallbackPack("bleeping_blank", "bleeping"));
+  assert.ok(getFallbackPack("brianlu365", "brian"));
+  assert.ok(getFallbackPack("chill4life94", "chill4life94"));
+  assert.ok(getFallbackPack("coreycolman", "corey"));
+  assert.ok(getFallbackPack("dontbesilent", "dontbe"));
+  assert.ok(getFallbackPack("dr_chrontell", "digital"));
+  assert.ok(getFallbackPack("drxejr", "eidan"));
+  assert.ok(getFallbackPack("enekomontero", "eneko"));
+  assert.ok(getFallbackPack("galfrevn", "valentin"));
+  assert.ok(getFallbackPack("georgadrian1", "ayn"));
+  assert.ok(getFallbackPack("jared413", "jared"));
+  assert.ok(getFallbackPack("jasonl_capital", "jason"));
+  assert.ok(getFallbackPack("jtr2342", "jt"));
+  assert.ok(getFallbackPack("kroll_uri", "uri"));
+  assert.ok(getFallbackPack("lonbaker", "lon"));
+  assert.ok(getFallbackPack("maxfalstein", "max"));
+  assert.ok(getFallbackPack("mehi689297161", "meshi"));
+  assert.ok(getFallbackPack("mitchelllong43", "mitchell"));
+  assert.ok(getFallbackPack("mspd4100", "mspd"));
+  assert.ok(getFallbackPack("musingit", "musi"));
+  assert.ok(getFallbackPack("panama_james", "james"));
+  assert.ok(getFallbackPack("petebiggam", "pete"));
+  assert.ok(getFallbackPack("phillipstewart", "phillippng"));
+  assert.ok(getFallbackPack("rafalmmmmm", "rafal"));
+  assert.ok(getFallbackPack("redtbolt", "red"));
+  assert.ok(getFallbackPack("scottexplores29", "scott"));
+  assert.ok(getFallbackPack("tifoden", "jaden"));
+  assert.ok(getFallbackPack("tommy_alderman", "tommy"));
+  assert.ok(getFallbackPack("unicodef1wn", "unicode"));
+  assert.ok(getFallbackPack("usmanqayyum", "usmanq"));
+  assert.ok(getFallbackPack("virtust", "virtus"));
   assert.ok(getFallbackPack("0xsapgun", "sapgun"));
   assert.ok(getFallbackPack("austinzierke", "chris"));
   assert.ok(getFallbackPack("blankspeaker", "blank"));
@@ -2027,7 +2061,7 @@ test("catalog watch adds six unofficial one-desk packs with live x.ai URLs", () 
       packId: "10000000-0000-0000-0000-000000000098",
       topic: "founder",
       avatar: null as string | null,
-      seats: 4,
+      seats: 5,
     },
     {
       owner: "NikolaFYI",
@@ -2126,7 +2160,7 @@ test("catalog watch adds six unofficial one-desk packs with live x.ai URLs", () 
 
   const marc = getFallbackPack("MSaintjour", "marc");
   assert.ok(marc);
-  assert.equal(marc.seats.length, 4);
+  assert.equal(marc.seats.length, 5);
   assert.equal(marc.seats[0]?.name, "Copay Compass");
   assert.equal(marc.seats[0]?.isDesk, true);
   assert.match(marc.seats[0]?.job ?? "", /copay assistance/i);
@@ -2220,7 +2254,7 @@ test("catalog watch adds five unofficial one-desk packs with live x.ai URLs", ()
     assert.equal(pack.visitsCount, 0);
     assert.equal(
       pack.seats.length,
-      item.slug === "chase" ? 3 : item.slug === "dennison" || item.slug === "adam" ? 2 : 1
+      item.slug === "chase" ? 4 : item.slug === "dennison" || item.slug === "adam" ? 2 : 1
     );
     assert.equal(pack.seats[0]?.name, item.desk);
     assert.equal(pack.seats[0]?.isDesk, true);
@@ -2250,8 +2284,8 @@ test("catalog watch adds five unofficial one-desk packs with live x.ai URLs", ()
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
 
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
@@ -2550,8 +2584,8 @@ test("catalog watch adds Andrew AvatarMaker, Scott Cookie Monster, and 14 more p
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
 
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
@@ -3163,7 +3197,7 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
 
   const marc = getFallbackPack("MSaintjour", "marc");
   assert.ok(marc);
-  assert.equal(marc.seats.length, 4);
+  assert.equal(marc.seats.length, 5);
   assert.equal(marc.seats[0]?.name, "Copay Compass");
   assert.equal(marc.seats[0]?.isDesk, true);
   assert.ok(marc.seats.some((item) => item.name === "Medical Bill Review"));
@@ -3225,8 +3259,8 @@ test("catalog adds ten unofficial packs plus Lauren tinkabot", () => {
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
   for (const url of skipped) {
     assert.ok(!uniqueFallbackUrls.has(url), `catalog should skip ${url}`);
     assert.ok(!seedSql.includes(url), `seed should skip ${url}`);
@@ -3461,8 +3495,8 @@ test("catalog watch 8pm IST 2026-09-02 adds Will Dr Web LP plus four unofficial 
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
   for (const url of skipped) {
     assert.ok(!uniqueFallbackUrls.has(url), `catalog should skip ${url}`);
     assert.ok(!seedSql.includes(url), `seed should skip ${url}`);
@@ -3779,8 +3813,8 @@ test("catalog watch adds Fondi, Tesla Bot, Table Money, and nine unofficial pack
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
   for (const url of skipped) {
     assert.ok(!uniqueFallbackUrls.has(url), `catalog should skip ${url}`);
     assert.ok(!seedSql.includes(url), `seed should skip ${url}`);
@@ -3947,8 +3981,8 @@ test("catalog adds Rinas ideabot, Thierry Rogue Bot Hunter, Jake Grok Customer S
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
   for (const url of skipped) {
     assert.ok(!uniqueFallbackUrls.has(url), `catalog should skip ${url}`);
     assert.ok(!seedSql.includes(url), `seed should skip ${url}`);
@@ -4158,8 +4192,8 @@ test("catalog adds Erinn Dean of Students, Liam QC/logistics/sales seats, and Kn
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -4231,8 +4265,8 @@ test("catalog adds Liam Sarah Connor risk and Tony Montana procurement seats", (
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -4498,8 +4532,8 @@ test("catalog adds Knock SEAL Team 7, Andrew Denial Desk, and six unofficial des
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -4540,7 +4574,7 @@ test("catalog adds extra seats for Marc Uzi Scott Knock and nine unofficial desk
   assert.equal(marc.seats[0]?.name, "Copay Compass");
   assert.equal(marc.seats[0]?.isDesk, true);
   assert.equal(marc.seats[0]?.grokTemplateUrl, "https://x.ai/bot/ehxj2Wdxq9M04jvaAqyBD");
-  assert.equal(marc.seats.length, 4);
+  assert.equal(marc.seats.length, 5);
   assert.equal(marc.seats[1]?.id, "20000000-0000-0000-0000-000000000211");
   assert.equal(marc.seats[1]?.name, "Medical Bill Review");
   assert.equal(marc.seats[1]?.isDesk, false);
@@ -4836,8 +4870,8 @@ test("catalog adds extra seats for Marc Uzi Scott Knock and nine unofficial desk
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -4878,8 +4912,8 @@ test("catalog adds extra seats for Marc Uzi Scott Knock and nine unofficial desk
 
 test("catalog adds Sep 4-11 verified x.ai/bot shares with MitchTiler isolated from tylernishida", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const mitch = getFallbackPack("MitchTiler", "mitch");
   const tyler = getFallbackPack("tylernishida", "tyler");
@@ -5517,8 +5551,8 @@ test("catalog adds Sep 4-11 verified x.ai/bot shares with MitchTiler isolated fr
 
 test("catalog adds Ash Fed+X Brief and updates TOATspace Optima desk URL", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const jeffrey = getFallbackPack("JeffreyLind", "jeffrey");
   assert.ok(jeffrey);
@@ -5620,8 +5654,8 @@ test("catalog adds Ash Fed+X Brief and updates TOATspace Optima desk URL", () =>
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -5663,8 +5697,8 @@ test("catalog adds Ash Fed+X Brief and updates TOATspace Optima desk URL", () =>
 
 test("catalog adds Knock BeneBot and 11 Sep 12 morning hunt packs", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const knock = getFallbackPack("suddenlyjon", "knock");
   assert.ok(knock);
@@ -5926,8 +5960,8 @@ test("catalog adds Knock BeneBot and 11 Sep 12 morning hunt packs", () => {
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -5965,8 +5999,8 @@ test("catalog adds Knock BeneBot and 11 Sep 12 morning hunt packs", () => {
 
 test("catalog adds Victoria + Sift + GSAP + Receipt Digester (Sep 12 noon)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const amakelkyAaron = getFallbackPack("a-makelky", "aaron");
   const aaronInfinitea = getFallbackPack("AaronInfinitea", "aaron");
@@ -6060,8 +6094,8 @@ test("catalog adds Victoria + Sift + GSAP + Receipt Digester (Sep 12 noon)", () 
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -6096,8 +6130,8 @@ test("catalog adds Victoria + Sift + GSAP + Receipt Digester (Sep 12 noon)", () 
 
 test("catalog adds voidvexa/george (Skroutz) + cgnot996 (X调度员)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const gnurioGeorge = getFallbackPack("gnurio", "george");
   const voidvexaGeorge = getFallbackPack("voidvexa", "george");
@@ -6174,8 +6208,8 @@ test("catalog adds voidvexa/george (Skroutz) + cgnot996 (X调度员)", () => {
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
   const uniqueFallbackUrls = new Set(fallbackUrls);
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(uniqueFallbackUrls.size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(uniqueFallbackUrls.size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -6201,8 +6235,8 @@ test("catalog adds voidvexa/george (Skroutz) + cgnot996 (X调度员)", () => {
 
 test("catalog adds Sep 12 evening + Sep 13 backlog seats and packs", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const mai = getFallbackPack("MaiYangAI", "mai");
   assert.ok(mai);
@@ -6439,8 +6473,8 @@ test("catalog adds Sep 12 evening + Sep 13 backlog seats and packs", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -6471,8 +6505,8 @@ test("catalog adds Sep 12 evening + Sep 13 backlog seats and packs", () => {
 
 test("catalog adds Sep 15 Adventure Bot + 7 new packs", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const knock = getFallbackPack("suddenlyjon", "knock");
   assert.ok(knock);
@@ -6615,8 +6649,8 @@ test("catalog adds Sep 15 Adventure Bot + 7 new packs", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -6646,8 +6680,8 @@ test("catalog adds Sep 15 Adventure Bot + 7 new packs", () => {
 
 test("catalog adds Sep 15 3pm Root Agent + 薅羊毛 + Kun + Canonizer + WhatsApp-Bot + Flights", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
     {
@@ -6788,8 +6822,8 @@ test("catalog adds Sep 15 3pm Root Agent + 薅羊毛 + Kun + Canonizer + WhatsAp
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -6825,8 +6859,8 @@ test("catalog adds Sep 15 3pm Root Agent + 薅羊毛 + Kun + Canonizer + WhatsAp
 
 test("catalog adds sam_builds_ai/sam and eight Scott seats (Sep 15 eve)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const samBuilds = getFallbackPack("sam_builds_ai", "sam");
   assert.ok(samBuilds);
@@ -6951,8 +6985,8 @@ test("catalog adds sam_builds_ai/sam and eight Scott seats (Sep 15 eve)", () => 
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -6983,8 +7017,8 @@ test("catalog adds sam_builds_ai/sam and eight Scott seats (Sep 15 eve)", () => 
 
 test("catalog Sep 16 — Flat hunter seat + 9 new packs (8am+noon)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const ash = getFallbackPack("0xashrk", "ash");
   assert.ok(ash);
@@ -7171,8 +7205,8 @@ test("catalog Sep 16 — Flat hunter seat + 9 new packs (8am+noon)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -7202,8 +7236,8 @@ test("catalog Sep 16 — Flat hunter seat + 9 new packs (8am+noon)", () => {
 
 test("catalog 3pm IST 2026-09-16 — Venduto, Clip Clip, Sevvy, MonsterBot, Personal Shopper", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
     {
@@ -7311,8 +7345,8 @@ test("catalog 3pm IST 2026-09-16 — Venduto, Clip Clip, Sevvy, MonsterBot, Pers
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -7352,8 +7386,8 @@ test("catalog 3pm IST 2026-09-16 — Venduto, Clip Clip, Sevvy, MonsterBot, Pers
 
 test("catalog 5pm IST 2026-09-16 — fomo pilled, AutoOutreach SDR, SaaS Content Ranker, Ops, YouTube Soft-PASS Ops", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
     {
@@ -7468,8 +7502,8 @@ test("catalog 5pm IST 2026-09-16 — fomo pilled, AutoOutreach SDR, SaaS Content
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -7524,8 +7558,8 @@ test("catalog 5pm IST 2026-09-16 — fomo pilled, AutoOutreach SDR, SaaS Content
 });
 test("catalog watch 3pm IST 2026-09-19 — 133 unfiled seats (Personal Shopper already on main)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
     {
@@ -9921,8 +9955,8 @@ test("catalog watch 3pm IST 2026-09-19 — 133 unfiled seats (Personal Shopper a
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -9988,8 +10022,8 @@ test("catalog watch 3pm IST 2026-09-19 — 133 unfiled seats (Personal Shopper a
 
 test("catalog adds 3 named seats on existing packs (8pm 2026-09-26)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const scott = getFallbackPack("scottxmetcalf", "scott");
   assert.ok(scott);
@@ -10069,8 +10103,8 @@ test("catalog adds 3 named seats on existing packs (8pm 2026-09-26)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -10086,8 +10120,8 @@ test("catalog adds 3 named seats on existing packs (8pm 2026-09-26)", () => {
 
 test("catalog adds 1 named seat on existing pack (8pm 2026-09-27)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const scott = getFallbackPack("scottxmetcalf", "scott");
   assert.ok(scott);
@@ -10119,8 +10153,8 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-09-27)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -10130,8 +10164,8 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-09-27)", () => {
 
 test("catalog adds 1 named seat on existing pack (8pm 2026-09-30)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const knock = getFallbackPack("suddenlyjon", "knock");
   assert.ok(knock);
@@ -10169,8 +10203,8 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-09-30)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -10182,8 +10216,8 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-09-30)", () => {
 
 test("catalog adds 1 named seat on existing pack (8pm 2026-10-01)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const colin = getFallbackPack("colinmcdermott", "colin");
   assert.ok(colin);
@@ -10228,8 +10262,8 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-10-01)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -10241,8 +10275,8 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-10-01)", () => {
 
 test("catalog adds 1 named seat on existing pack (8pm 2026-10-02)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const knock = getFallbackPack("suddenlyjon", "knock");
   assert.ok(knock);
@@ -10288,8 +10322,8 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-10-02)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -10301,8 +10335,8 @@ test("catalog adds 1 named seat on existing pack (8pm 2026-10-02)", () => {
 
 test("catalog adds 1 new pack (8pm 2026-10-03)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const bernard = getFallbackPack("beksvie", "bernard");
   assert.ok(bernard);
@@ -10357,8 +10391,8 @@ test("catalog adds 1 new pack (8pm 2026-10-03)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url): url is string => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
@@ -10369,8 +10403,8 @@ test("catalog adds 1 new pack (8pm 2026-10-03)", () => {
 });
 test("catalog adds Oct 4–13 official public Grok Bot backlog", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -13566,7 +13600,7 @@ test("catalog adds Oct 4–13 official public Grok Bot backlog", () => {
     "slug": "chase",
     "path": "/chasemc67/chase",
     "oldSeats": 1,
-    "newSeats": 3,
+    "newSeats": 4,
     "added": [
       {
         "name": "MemeBot",
@@ -13911,12 +13945,12 @@ test("catalog adds Oct 4–13 official public Grok Bot backlog", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   for (const url of ["https://x.ai/bot/TaE2o0Y-lp8MpmBDC1jos","https://x.ai/bot/tHo33t3IaAhpxds5IpNbD","https://x.ai/bot/sy364bgoJN8Rb5vZo4Abo","https://x.ai/bot/-j00v29rSvOvd-ht6q_vi","https://x.ai/bot/w1d4ZVJ6ag9AljTBvZqkN","https://x.ai/bot/a3EwtQPjFkXZaPZEMGHgY","https://x.ai/bot/CFLaWCGlZ6RzBSU7D1r6r","https://x.ai/bot/6XD2O5ulgL-dNxQUyU90s","https://x.ai/bot/KaC99w7qlJ0QTtrKwxqFm","https://x.ai/bot/029xyNepam5LGMNYLIDP8","https://x.ai/bot/1xkIClLvscskj-Q4LsQIy","https://x.ai/bot/EJYTBBKPwAOdZPrKZCp8v","https://x.ai/bot/XjfLn_WyeGXzwHjPLL6jW","https://x.ai/bot/_fIQxxNowoMaubTPzBnrf","https://x.ai/bot/7eBE-1qFTRraHtd5WpUbr","https://x.ai/bot/9VWen13yCOgJi--kDJtcW","https://x.ai/bot/pfhAjpJ4AZTTE2yfpZggS","https://x.ai/bot/xQbNgBdjjo1o2bCQNxbp7","https://x.ai/bot/QC12jiAl0xs4kd6y_RD3g","https://x.ai/bot/riczwdCYInopYttucptao","https://x.ai/bot/x3G0dAD1zxRXa5pdHw9NQ","https://x.ai/bot/8obMM4mRWRLf51EB2n4JV","https://x.ai/bot/qocgykNssAv63yc1kdNnN","https://x.ai/bot/Wu7RQdOP-OY84e4NPOKqM","https://x.ai/bot/-zRQeViL06G-7XZYeD5hZ","https://x.ai/bot/40yecp78USuXhCXVnuUSo","https://x.ai/bot/NHDcLbHnQyb1nWlfkVAjm","https://x.ai/bot/i-AGTTurx7EvXBqJ4U5Rw","https://x.ai/bot/BIukNWeAKCCDQHZUNp2jo","https://x.ai/bot/zVd3aZG061Qi2kyusWFXA","https://x.ai/bot/hOJli2-3VyJs256JXFBWY","https://x.ai/bot/qTkPQpwaJVnMknRKZN6a-","https://x.ai/bot/0E12F_0k-qpDRxdBU_gy4","https://x.ai/bot/KZEcx_uMDR-zJIXLlYw5I","https://x.ai/bot/uPcfO_n3R-y8vDn0Kru9T","https://x.ai/bot/Jx7uzFMG-dQ9q636btZrS","https://x.ai/bot/di6vIWc5BcaN7aghHpC8C","https://x.ai/bot/-GucfzHVWJljNVuyWjFSE","https://x.ai/bot/9AsX0Exx7P4m2IwZXJ4tp","https://x.ai/bot/EUuVhfdZMiZZYYmeK3F7I","https://x.ai/bot/3v6ebv-qBDNCFkTDeH68W","https://x.ai/bot/7X7bJpKNFugFLcLCd3F3B","https://x.ai/bot/i8zkL9ZfVEgxWJI0Meqvz","https://x.ai/bot/0I8SH6XKWmBYc2HynER9i","https://x.ai/bot/0yRl8b9gk0AYDPhTyJVKN","https://x.ai/bot/fINpFEqNy4DPyZ5hZmTKT","https://x.ai/bot/aXd23Y92YukH8W2Kj7pye","https://x.ai/bot/x42lRBd-njEddcsdVXcvb","https://x.ai/bot/GZeqDkOuBOEzGMrNH3Jhf","https://x.ai/bot/jwWCnlq7VAvEodiz8zlgX","https://x.ai/bot/NsCDfZMFctaP1WIp_48k4","https://x.ai/bot/fJoloWNDTl7ee9VwxNJxH","https://x.ai/bot/aDCypdpubEzCy_lvlLu3-","https://x.ai/bot/LjDRYoJZtHs0r3pd-kAY6","https://x.ai/bot/-ka4rm8qG-NpPgMgz6ETf","https://x.ai/bot/sdCslo3yFiCHrWZ2JVPh9","https://x.ai/bot/MNAkssnLggwp3t74suuPs","https://x.ai/bot/gpPjBLipn7IDb7AWPBnmV","https://x.ai/bot/8kas3kfny1p0N7PsT5jAT","https://x.ai/bot/z7pQN9VX-vOK5Bo69G9OJ","https://x.ai/bot/_z8j7TViBpvmQ9mlxRDec","https://x.ai/bot/TeEdtOdobgymTchbFqzzW","https://x.ai/bot/wUGvc7oqCZPj_mHaYxYbi","https://x.ai/bot/w4d1Qj-byuNtISAyyitYa","https://x.ai/bot/1gepkjYj4Ogl2nKxgopZV","https://x.ai/bot/Wcrnj5KLs35EV2LO1Jxq7","https://x.ai/bot/9eRmhgjSdrIlHfW_ZXfl3","https://x.ai/bot/IwF-RUsXtrV-_TZl8Df6I","https://x.ai/bot/TP0urJDwrm-_qRQhGI74A","https://x.ai/bot/p2u8R0kbcN5IWcQi9Cpfn","https://x.ai/bot/Ww-RXj-lLqpg_oWqzccKZ","https://x.ai/bot/tTcuv64Y0_fNnZ_qw-TJN","https://x.ai/bot/QZVEWbU8K1BeQbqTXi02N","https://x.ai/bot/HFW0hBjHobqdNUfY2cn9L","https://x.ai/bot/y_QOhpnXyS7Rap9CE4Ir8","https://x.ai/bot/TaRhODlVo4N5mKKH6gTW6","https://x.ai/bot/iQ9BMmGzaCUN8M8j6CerX","https://x.ai/bot/Y3xV-T0yxz2UihvOrlIK6","https://x.ai/bot/_jOdbfkB16zxu7MRcmReE","https://x.ai/bot/ETwbAVBi1bweFPvBqWC2E","https://x.ai/bot/61Gc886_QmH9dALQaFrr_","https://x.ai/bot/1k1nfNzus_-WXY-nOYM2V","https://x.ai/bot/rkL_NVRxxmYs4IeOObGH5","https://x.ai/bot/RgivaqZM6x_meep2iaobm","https://x.ai/bot/ZchETiHIEo5BvllONepSI","https://x.ai/bot/e5UBnGbfvCyML0pahKPNw","https://x.ai/bot/E-kJk5BzNtNzcjAYNknTE","https://x.ai/bot/RhW5Ygqpl03B7fTkBIoGH","https://x.ai/bot/b9AG0Idri9x39jYSlHkTm","https://x.ai/bot/oAfWMWKilafIUG1sod4Dp","https://x.ai/bot/XmJ-Sxch8GtvtGX63Z795","https://x.ai/bot/ojRGlp3tVO75MAzhEoVEv","https://x.ai/bot/h2c1pK5fFqKPvzfm-rvQV","https://x.ai/bot/C2hHOX-gwODZjsy1YB5FX","https://x.ai/bot/fKmJNdkjP_tN2sMqLlPko","https://x.ai/bot/s2YEW2exxqk-BhcWfGziz","https://x.ai/bot/iJYZ4GQ775Sts3COWP3aY","https://x.ai/bot/tSa26E3PoBOXehxJzglsR","https://x.ai/bot/uGxaqcDRbn8cO4k-p3bAg","https://x.ai/bot/WAwConHijO4KArfb4-OnP","https://x.ai/bot/d20O3Bx5NypE-O-E_vKtp","https://x.ai/bot/JcuatE94VVR3njSPDBulv","https://x.ai/bot/YtRVHX01SsOc74HBJYcOP","https://x.ai/bot/js1pBP-lLlivKHY8Q_d4v","https://x.ai/bot/Fwf_OUvMYPcvVkKsy9jNd","https://x.ai/bot/w_ZtwODCJMhKuq6k0Nz4k","https://x.ai/bot/UbUz8dhpG1Gw7NDAokBXo","https://x.ai/bot/dOR0cOKRCW1s10CTeEPIN","https://x.ai/bot/drXeYVtu5klgMh3pf0gKS","https://x.ai/bot/j8hYIlXmkEZgiU4jw76r8","https://x.ai/bot/-MWo_XFJRkd4yBmS5MHTH","https://x.ai/bot/fznImG9Tm3a0C374KERZb","https://x.ai/bot/guKZ5V775hPM-RP2ufLfh","https://x.ai/bot/sZQ25eb9d1C5kFHpfE8_N","https://x.ai/bot/zJCG8H4aahs5Ex1bwrTum","https://x.ai/bot/0IhyZWxwbf2cFmsmroZQL","https://x.ai/bot/8mi67EcgDUS2FDtOAIKcJ","https://x.ai/bot/tZd9mNpvCmnm4pxr-pBpA","https://x.ai/bot/LENrKV-0QXmE_TGv3_hem","https://x.ai/bot/OY2K6DPosnK6ijDNpWJL3","https://x.ai/bot/5UgsqdCgNWCagSjvMyzfF","https://x.ai/bot/omWM6Xdf2cqSFqwCzEFIM","https://x.ai/bot/o7SoQoQE5KN4K_2pptSvV","https://x.ai/bot/ay0PGygsBxYONJRITWABE","https://x.ai/bot/sla0SUw2xJ3oc7sKdRtVO","https://x.ai/bot/9oAPhd9MbGIWmpO7oE5Fa","https://x.ai/bot/yF9Z-RMzHW1SpLC94-BmM","https://x.ai/bot/s8oV9Jm4Cs8MvLPGsGXyi","https://x.ai/bot/xWzmqrAs6JGivQQskJyNy","https://x.ai/bot/cAV3aRWNNP8ArGjOSJ7g9","https://x.ai/bot/C0Y39IIyol0PV6GDN9OgX","https://x.ai/bot/SLLBNwseegBForG62KVRC","https://x.ai/bot/gj3IlHOOpzecm6xpmPJOt","https://x.ai/bot/hLtN-c5Vw-JWIehFEeoTm","https://x.ai/bot/lMGxli1bCAdof_EqRRdvH","https://x.ai/bot/Qsqan7PbltFggoJukvmtT","https://x.ai/bot/B4VFNYBoeE4N3lBG_jj_g","https://x.ai/bot/W-GZduBEhE-fDFW4SwQ0k","https://x.ai/bot/wyZbu6Il_0RtaKEToCBFp","https://x.ai/bot/XkyuX648dekpInVtBr44n","https://x.ai/bot/CJvgkBx_INfugO8TtH7gp","https://x.ai/bot/zgQuwpX78Yn09ddfIJkzU","https://x.ai/bot/171bkwBAjpc2eJgdOyAPL","https://x.ai/bot/tnz0pflI7D3u1d0_Nzrgc","https://x.ai/bot/bjQEhCBsWNSK6soqaLjaM","https://x.ai/bot/_5N1Ov6ac1S_MGijPXtvO","https://x.ai/bot/zZr88f32ojF8OBvLSZ8V7","https://x.ai/bot/sGX1MPOtVLAMzSUScPaxi","https://x.ai/bot/QcUllqY5WpAPMMWjWkn71","https://x.ai/bot/lDp666Fm-QgyBGqK7ee4l","https://x.ai/bot/xbQ3-2zMNc1hma58OiaTg","https://x.ai/bot/zU2WY6PaaY2EWzuo4GxP5","https://x.ai/bot/Fm11uT5RgbXAzKNo04oWf","https://x.ai/bot/oJMtF1ij29K03tKPhEDFN","https://x.ai/bot/d48QaYERwvgtUmYsGlyz8","https://x.ai/bot/GxxsLOoweuJpbgKVwrBWU","https://x.ai/bot/aAeRtbjk9VJoVylt35cfh","https://x.ai/bot/PCWM_xFhmFIxpA3lTShSE","https://x.ai/bot/9vnd_iLPbZMPN3iQaVtU_","https://x.ai/bot/Nf0M-LgnNsLDvtvAKnASf","https://x.ai/bot/i8BWHsB7B1PF_6td6mlVD","https://x.ai/bot/u3dFfq5q52a_p4tZU62Dg","https://x.ai/bot/87ziT4BuuJZmtIQm7IW-e","https://x.ai/bot/MEhuzSRmddJAr5DBllCRt","https://x.ai/bot/wCkZhl2memJD5XYkcxyys","https://x.ai/bot/Q7jzCnVHMmVhhBC3hwyQb","https://x.ai/bot/KE7y0gGJRdbb-9ozqUwDc","https://x.ai/bot/Q6AwABs_6Nt0Lx8LzR-A_","https://x.ai/bot/BrNtGdBpIkprn_Nr8Hy4f","https://x.ai/bot/_BZaF6XfMK_kPsmrLSqRK"]) {
     assert.ok(!fallbackUrls.includes(url), `held url leaked ${url}`);
   }
@@ -13932,8 +13966,8 @@ test("catalog adds Oct 4–13 official public Grok Bot backlog", () => {
 
 test("catalog adds Oct 14 8pm IST hunt (165 seats, 91 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -15203,7 +15237,7 @@ test("catalog adds Oct 14 8pm IST hunt (165 seats, 91 new packs)", () => {
     "slug": "calix",
     "path": "/CaliLumberJack/calix",
     "oldSeats": 1,
-    "newSeats": 14,
+    "newSeats": 15,
     "added": [
       {
         "name": "Bridge Bot",
@@ -15518,7 +15552,7 @@ test("catalog adds Oct 14 8pm IST hunt (165 seats, 91 new packs)", () => {
     "slug": "rich",
     "path": "/richsilver/rich",
     "oldSeats": 1,
-    "newSeats": 4,
+    "newSeats": 5,
     "added": [
       {
         "name": "Memory Reel",
@@ -15709,12 +15743,12 @@ test("catalog adds Oct 14 8pm IST hunt (165 seats, 91 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -15733,8 +15767,8 @@ test("catalog adds Oct 14 8pm IST hunt (165 seats, 91 new packs)", () => {
 
 test("catalog adds Oct 15 8pm IST hunt (184 seats, 88 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -17714,12 +17748,12 @@ test("catalog adds Oct 15 8pm IST hunt (184 seats, 88 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -17740,8 +17774,8 @@ test("catalog adds Oct 15 8pm IST hunt (184 seats, 88 new packs)", () => {
 
 test("catalog adds Oct 16 8pm IST hunt (139 seats, 69 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -19049,7 +19083,7 @@ test("catalog adds Oct 16 8pm IST hunt (139 seats, 69 new packs)", () => {
     "slug": "althetime",
     "path": "/madmenai/althetime",
     "oldSeats": 1,
-    "newSeats": 3,
+    "newSeats": 5,
     "added": [
       {
         "name": "Dip Desk",
@@ -19348,12 +19382,12 @@ test("catalog adds Oct 16 8pm IST hunt (139 seats, 69 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -19388,8 +19422,8 @@ test("catalog adds Oct 16 8pm IST hunt (139 seats, 69 new packs)", () => {
 
 test("catalog adds Oct 17 8pm IST hunt (70 seats, 30 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -20123,12 +20157,12 @@ test("catalog adds Oct 17 8pm IST hunt (70 seats, 30 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -20153,8 +20187,8 @@ test("catalog adds Oct 17 8pm IST hunt (70 seats, 30 new packs)", () => {
 
 test("catalog adds Oct 18 8pm IST hunt (45 seats, 17 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -20516,7 +20550,7 @@ test("catalog adds Oct 18 8pm IST hunt (45 seats, 17 new packs)", () => {
     "slug": "althetime",
     "path": "/madmenai/althetime",
     "oldSeats": 2,
-    "newSeats": 3,
+    "newSeats": 5,
     "added": [
       {
         "name": "Privacy Scrub",
@@ -20707,12 +20741,12 @@ test("catalog adds Oct 18 8pm IST hunt (45 seats, 17 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -20730,8 +20764,8 @@ test("catalog adds Oct 18 8pm IST hunt (45 seats, 17 new packs)", () => {
 
 test("catalog adds Oct 19 8pm IST hunt (55 seats, 32 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -21258,7 +21292,7 @@ test("catalog adds Oct 19 8pm IST hunt (55 seats, 32 new packs)", () => {
     "slug": "adam",
     "path": "/Adamdesgns/adam",
     "oldSeats": 1,
-    "newSeats": 2,
+    "newSeats": 8,
     "added": [
       {
         "name": "Vid E Yo",
@@ -21303,7 +21337,7 @@ test("catalog adds Oct 19 8pm IST hunt (55 seats, 32 new packs)", () => {
     "slug": "calix",
     "path": "/CaliLumberJack/calix",
     "oldSeats": 2,
-    "newSeats": 14,
+    "newSeats": 15,
     "added": [
       {
         "name": "Fleet Lead",
@@ -21536,12 +21570,12 @@ test("catalog adds Oct 19 8pm IST hunt (55 seats, 32 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -21566,8 +21600,8 @@ test("catalog adds Oct 19 8pm IST hunt (55 seats, 32 new packs)", () => {
 
 test("catalog adds Oct 20 8pm IST hunt (63 seats, 39 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -22208,7 +22242,7 @@ test("catalog adds Oct 20 8pm IST hunt (63 seats, 39 new packs)", () => {
     "slug": "calix",
     "path": "/CaliLumberJack/calix",
     "oldSeats": 3,
-    "newSeats": 14,
+    "newSeats": 15,
     "added": [
       {
         "name": "Burn Watch",
@@ -22307,7 +22341,7 @@ test("catalog adds Oct 20 8pm IST hunt (63 seats, 39 new packs)", () => {
     "slug": "althetime",
     "path": "/madmenai/althetime",
     "oldSeats": 3,
-    "newSeats": 6,
+    "newSeats": 8,
     "added": [
       {
         "name": "Reno Planner",
@@ -22453,12 +22487,12 @@ test("catalog adds Oct 20 8pm IST hunt (63 seats, 39 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -22501,8 +22535,8 @@ test("catalog adds Oct 20 8pm IST hunt (63 seats, 39 new packs)", () => {
 
 test("catalog adds Oct 21 8pm IST hunt (79 seats, 47 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -23258,7 +23292,7 @@ test("catalog adds Oct 21 8pm IST hunt (79 seats, 47 new packs)", () => {
     "slug": "adam",
     "path": "/Adamdesgns/adam",
     "oldSeats": 2,
-    "newSeats": 3,
+    "newSeats": 9,
     "added": [
       {
         "name": "Don Bot Corleone",
@@ -23348,7 +23382,7 @@ test("catalog adds Oct 21 8pm IST hunt (79 seats, 47 new packs)", () => {
     "slug": "calix",
     "path": "/CaliLumberJack/calix",
     "oldSeats": 4,
-    "newSeats": 14,
+    "newSeats": 15,
     "added": [
       {
         "name": "Postwright",
@@ -23498,7 +23532,7 @@ test("catalog adds Oct 21 8pm IST hunt (79 seats, 47 new packs)", () => {
     "slug": "justin",
     "path": "/mstrhappyjustin/justin",
     "oldSeats": 1,
-    "newSeats": 4,
+    "newSeats": 5,
     "added": [
       {
         "name": "Sweep",
@@ -23641,12 +23675,12 @@ test("catalog adds Oct 21 8pm IST hunt (79 seats, 47 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -23689,8 +23723,8 @@ test("catalog adds Oct 21 8pm IST hunt (79 seats, 47 new packs)", () => {
 
 test("catalog adds Oct 22 8pm IST hunt (45 seats, 26 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -24150,7 +24184,7 @@ test("catalog adds Oct 22 8pm IST hunt (45 seats, 26 new packs)", () => {
     "slug": "calix",
     "path": "/CaliLumberJack/calix",
     "oldSeats": 5,
-    "newSeats": 14,
+    "newSeats": 15,
     "added": [
       {
         "name": "Tubewright",
@@ -24368,12 +24402,12 @@ test("catalog adds Oct 22 8pm IST hunt (45 seats, 26 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -24415,8 +24449,8 @@ test("catalog adds Oct 22 8pm IST hunt (45 seats, 26 new packs)", () => {
 
 test("catalog adds Oct 23 8pm IST hunt (89 seats, 41 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -25614,12 +25648,12 @@ test("catalog adds Oct 23 8pm IST hunt (89 seats, 41 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -25651,14 +25685,14 @@ test("catalog adds Oct 23 8pm IST hunt (89 seats, 41 new packs)", () => {
   assert.equal(getFallbackPack("loungeless", "loungeless")?.owner.name, "Harrison Greanias");
   assert.equal(getFallbackPack("loungeless", "loungeless")?.name, "Loungeless");
   assert.equal(getFallbackPack("wikiwayne", "wayne")?.seats.some((seat) => seat.name === "Finance"), true);
-  assert.equal(getFallbackPack("corbenh414", "corben")?.seats.length, 7);
+  assert.equal(getFallbackPack("corbenh414", "corben")?.seats.length, 8);
   assert.equal(getFallbackPack("mattnorman1029", "matt")?.seats.length, 6);
 });
 
 test("catalog adds Oct 24 8pm IST hunt (177 seats, 102 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -27383,7 +27417,7 @@ test("catalog adds Oct 24 8pm IST hunt (177 seats, 102 new packs)", () => {
     "slug": "calix",
     "path": "/CaliLumberJack/calix",
     "oldSeats": 6,
-    "newSeats": 14,
+    "newSeats": 15,
     "added": [
       {
         "name": "Parent Radar",
@@ -27428,7 +27462,7 @@ test("catalog adds Oct 24 8pm IST hunt (177 seats, 102 new packs)", () => {
     "slug": "chase",
     "path": "/chasemc67/chase",
     "oldSeats": 2,
-    "newSeats": 3,
+    "newSeats": 4,
     "added": [
       {
         "name": "Product Research Bot",
@@ -27473,7 +27507,7 @@ test("catalog adds Oct 24 8pm IST hunt (177 seats, 102 new packs)", () => {
     "slug": "corben",
     "path": "/corbenh414/corben",
     "oldSeats": 6,
-    "newSeats": 7,
+    "newSeats": 8,
     "added": [
       {
         "name": "Personal Shopper",
@@ -27998,7 +28032,7 @@ test("catalog adds Oct 24 8pm IST hunt (177 seats, 102 new packs)", () => {
     "slug": "alberto",
     "path": "/weeb3dev/alberto",
     "oldSeats": 1,
-    "newSeats": 3,
+    "newSeats": 4,
     "added": [
       {
         "name": "burrito",
@@ -28072,12 +28106,12 @@ test("catalog adds Oct 24 8pm IST hunt (177 seats, 102 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -28115,8 +28149,8 @@ test("catalog adds Oct 24 8pm IST hunt (177 seats, 102 new packs)", () => {
 
 test("catalog adds Oct 25 hunt (204 seats, 86 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -29613,7 +29647,7 @@ test("catalog adds Oct 25 hunt (204 seats, 86 new packs)", () => {
     "slug": "calix",
     "path": "/CaliLumberJack/calix",
     "oldSeats": 7,
-    "newSeats": 14,
+    "newSeats": 15,
     "added": [
       {
         "name": "Inbox Triage",
@@ -29847,7 +29881,7 @@ test("catalog adds Oct 25 hunt (204 seats, 86 new packs)", () => {
     "slug": "iustina",
     "path": "/iustinafractals/iustina",
     "oldSeats": 1,
-    "newSeats": 4,
+    "newSeats": 5,
     "added": [
       {
         "name": "IRS Demystifier",
@@ -30404,12 +30438,12 @@ test("catalog adds Oct 25 hunt (204 seats, 86 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -30444,8 +30478,8 @@ test("catalog adds Oct 25 hunt (204 seats, 86 new packs)", () => {
 
 test("catalog adds Oct 26 hunt (160 seats, 69 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -31711,7 +31745,7 @@ test("catalog adds Oct 26 hunt (160 seats, 69 new packs)", () => {
     "slug": "calix",
     "path": "/CaliLumberJack/calix",
     "oldSeats": 8,
-    "newSeats": 14,
+    "newSeats": 15,
     "added": [
       {
         "name": "Chop Bot",
@@ -32353,7 +32387,7 @@ test("catalog adds Oct 26 hunt (160 seats, 69 new packs)", () => {
     "slug": "jacob",
     "path": "/weaverwork/jacob",
     "oldSeats": 2,
-    "newSeats": 3,
+    "newSeats": 4,
     "added": [
       {
         "name": "Box Solution Builder",
@@ -32415,12 +32449,12 @@ test("catalog adds Oct 26 hunt (160 seats, 69 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -32464,8 +32498,8 @@ test("catalog adds Oct 26 hunt (160 seats, 69 new packs)", () => {
 
 test("catalog adds Oct 27 hunt (173 seats, 92 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -34050,7 +34084,7 @@ test("catalog adds Oct 27 hunt (173 seats, 92 new packs)", () => {
     "slug": "calix",
     "path": "/CaliLumberJack/calix",
     "oldSeats": 11,
-    "newSeats": 14,
+    "newSeats": 15,
     "added": [
       {
         "name": "Home Helper",
@@ -34287,7 +34321,7 @@ test("catalog adds Oct 27 hunt (173 seats, 92 new packs)", () => {
     "slug": "john",
     "path": "/johnboyle/john",
     "oldSeats": 1,
-    "newSeats": 3,
+    "newSeats": 4,
     "added": [
       {
         "name": "Backlink Specialist",
@@ -34302,7 +34336,7 @@ test("catalog adds Oct 27 hunt (173 seats, 92 new packs)", () => {
     "slug": "john",
     "path": "/johnwalker/john",
     "oldSeats": 1,
-    "newSeats": 2,
+    "newSeats": 3,
     "added": [
       {
         "name": "NextStep: ADHD Helper",
@@ -34488,7 +34522,7 @@ test("catalog adds Oct 27 hunt (173 seats, 92 new packs)", () => {
     "slug": "marc",
     "path": "/MSaintjour/marc",
     "oldSeats": 3,
-    "newSeats": 4,
+    "newSeats": 5,
     "added": [
       {
         "name": "Renewal Rescue",
@@ -34575,7 +34609,7 @@ test("catalog adds Oct 27 hunt (173 seats, 92 new packs)", () => {
     "slug": "rich",
     "path": "/richsilver/rich",
     "oldSeats": 2,
-    "newSeats": 4,
+    "newSeats": 5,
     "added": [
       {
         "name": "Artie",
@@ -34763,12 +34797,12 @@ test("catalog adds Oct 27 hunt (173 seats, 92 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -34816,8 +34850,8 @@ test("catalog adds Oct 27 hunt (173 seats, 92 new packs)", () => {
 
 test("catalog adds Oct 28 hunt (140 seats, 75 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -36060,7 +36094,7 @@ test("catalog adds Oct 28 hunt (140 seats, 75 new packs)", () => {
     "slug": "andy",
     "path": "/ahalvor/andy",
     "oldSeats": 1,
-    "newSeats": 2,
+    "newSeats": 3,
     "added": [
       {
         "name": "Project Desk",
@@ -36243,7 +36277,7 @@ test("catalog adds Oct 28 hunt (140 seats, 75 new packs)", () => {
     "slug": "iustina",
     "path": "/iustinafractals/iustina",
     "oldSeats": 2,
-    "newSeats": 4,
+    "newSeats": 5,
     "added": [
       {
         "name": "Grant Journal",
@@ -36438,7 +36472,7 @@ test("catalog adds Oct 28 hunt (140 seats, 75 new packs)", () => {
     "slug": "monokern",
     "path": "/monokern/monokern",
     "oldSeats": 1,
-    "newSeats": 2,
+    "newSeats": 3,
     "added": [
       {
         "name": "Outbound Desk",
@@ -36504,7 +36538,7 @@ test("catalog adds Oct 28 hunt (140 seats, 75 new packs)", () => {
     "slug": "ounce",
     "path": "/ounce_online/ounce",
     "oldSeats": 1,
-    "newSeats": 2,
+    "newSeats": 3,
     "added": [
       {
         "name": "AI 깔까말까봇",
@@ -36662,12 +36696,12 @@ test("catalog adds Oct 28 hunt (140 seats, 75 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -36706,8 +36740,8 @@ test("catalog adds Oct 28 hunt (140 seats, 75 new packs)", () => {
 
 test("catalog adds Oct 29 hunt (115 seats, 54 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
 
   const expected = [
   {
@@ -37667,7 +37701,7 @@ test("catalog adds Oct 29 hunt (115 seats, 54 new packs)", () => {
     "slug": "christian",
     "path": "/buckleyplanet/christian",
     "oldSeats": 1,
-    "newSeats": 3,
+    "newSeats": 4,
     "added": [
       {
         "name": "Microsoft AI Licensing Advisor",
@@ -37682,7 +37716,7 @@ test("catalog adds Oct 29 hunt (115 seats, 54 new packs)", () => {
     "slug": "calix",
     "path": "/CaliLumberJack/calix",
     "oldSeats": 12,
-    "newSeats": 14,
+    "newSeats": 15,
     "added": [
       {
         "name": "Future-Proof",
@@ -38024,7 +38058,7 @@ test("catalog adds Oct 29 hunt (115 seats, 54 new packs)", () => {
     "slug": "justin",
     "path": "/mstrhappyjustin/justin",
     "oldSeats": 2,
-    "newSeats": 4,
+    "newSeats": 5,
     "added": [
       {
         "name": "Carts",
@@ -38060,7 +38094,7 @@ test("catalog adds Oct 29 hunt (115 seats, 54 new packs)", () => {
     "slug": "rich",
     "path": "/richsilver/rich",
     "oldSeats": 3,
-    "newSeats": 4,
+    "newSeats": 5,
     "added": [
       {
         "name": "Make Me Famous",
@@ -38224,12 +38258,12 @@ test("catalog adds Oct 29 hunt (115 seats, 54 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -38264,8 +38298,8 @@ test("catalog adds Oct 29 hunt (115 seats, 54 new packs)", () => {
 
 test("catalog dual-writes the Oct 31 hunt (89 seats, 43 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
   const newPacks = [
   {
     "owner": "0xsapgun",
@@ -38947,7 +38981,7 @@ test("catalog dual-writes the Oct 31 hunt (89 seats, 43 new packs)", () => {
     "slug": "ann",
     "path": "/AnnDiegoUSA/ann",
     "oldSeats": 1,
-    "newSeats": 2,
+    "newSeats": 4,
     "added": [
       {
         "name": "Keepers - Book Scout",
@@ -39082,7 +39116,7 @@ test("catalog dual-writes the Oct 31 hunt (89 seats, 43 new packs)", () => {
     "slug": "christian",
     "path": "/buckleyplanet/christian",
     "oldSeats": 2,
-    "newSeats": 3,
+    "newSeats": 4,
     "added": [
       {
         "name": "Brand Guardian",
@@ -39235,7 +39269,7 @@ test("catalog dual-writes the Oct 31 hunt (89 seats, 43 new packs)", () => {
     "slug": "john",
     "path": "/johnboyle/john",
     "oldSeats": 2,
-    "newSeats": 3,
+    "newSeats": 4,
     "added": [
       {
         "name": "Marketplace Bot",
@@ -39250,7 +39284,7 @@ test("catalog dual-writes the Oct 31 hunt (89 seats, 43 new packs)", () => {
     "slug": "jpipo86",
     "path": "/jpipo86/jpipo86",
     "oldSeats": 1,
-    "newSeats": 7,
+    "newSeats": 8,
     "added": [
       {
         "name": "Launch Tracker",
@@ -39355,7 +39389,7 @@ test("catalog dual-writes the Oct 31 hunt (89 seats, 43 new packs)", () => {
     "slug": "meesesrfriends",
     "path": "/meesesrfriends/meesesrfriends",
     "oldSeats": 1,
-    "newSeats": 2,
+    "newSeats": 3,
     "added": [
       {
         "name": "Class Action Finder",
@@ -39495,12 +39529,12 @@ test("catalog dual-writes the Oct 31 hunt (89 seats, 43 new packs)", () => {
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -39525,7 +39559,7 @@ test("catalog dual-writes the Oct 31 hunt (89 seats, 43 new packs)", () => {
   assert.equal(getFallbackPack("lokeshrana_ai", "lokesh")?.seats.length, 2);
   assert.equal(getFallbackPack("sevierlyblessed", "sevierly")?.seats.length, 2);
   assert.equal(getFallbackPack("sidv", "sidv")?.seats.length, 3);
-  assert.equal(getFallbackPack("jpipo86", "jpipo86")?.seats.length, 8);
+  assert.equal(getFallbackPack("jpipo86", "jpipo86")?.seats.length, 9);
   assert.equal(getFallbackPack("fringedotcom", "fringe")?.seats.length, 5);
   assert.equal(getFallbackPack("thecryptostewrd", "thecryptosteward")?.seats.length, 7);
   assert.equal(getFallbackPack("socalfsd", "socal")?.seats.length, 11);
@@ -39533,8 +39567,8 @@ test("catalog dual-writes the Oct 31 hunt (89 seats, 43 new packs)", () => {
 
 test("catalog dual-writes the Nov 1 hunt + #84 refile (175 seats, 84 new packs)", () => {
   const stats = fallbackStats();
-  assert.equal(stats.packs, 1750);
-  assert.equal(stats.seats, 3157);
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
   const newPacks = [
   {
     "owner": "0xkingskuan",
@@ -40204,7 +40238,7 @@ test("catalog dual-writes the Nov 1 hunt + #84 refile (175 seats, 84 new packs)"
     "slug": "iustina",
     "path": "/iustinafractals/iustina",
     "oldSeats": 4,
-    "newSeats": 5,
+    "newSeats": 6,
     "added": [
       {
         "name": "Medical Bill Power Assistant",
@@ -40234,7 +40268,7 @@ test("catalog dual-writes the Nov 1 hunt + #84 refile (175 seats, 84 new packs)"
     "slug": "john",
     "path": "/johnp_creates/john",
     "oldSeats": 1,
-    "newSeats": 2,
+    "newSeats": 3,
     "added": [
       {
         "name": "ProofCheck",
@@ -40249,7 +40283,7 @@ test("catalog dual-writes the Nov 1 hunt + #84 refile (175 seats, 84 new packs)"
     "slug": "jpipo86",
     "path": "/jpipo86/jpipo86",
     "oldSeats": 7,
-    "newSeats": 8,
+    "newSeats": 9,
     "added": [
       {
         "name": "Thrift Sourcing Scout",
@@ -40549,7 +40583,7 @@ test("catalog dual-writes the Nov 1 hunt + #84 refile (175 seats, 84 new packs)"
     "slug": "ounce",
     "path": "/ounce_online/ounce",
     "oldSeats": 2,
-    "newSeats": 3,
+    "newSeats": 4,
     "added": [
       {
         "name": "토큰 다이어트봇",
@@ -40949,12 +40983,12 @@ test("catalog dual-writes the Nov 1 hunt + #84 refile (175 seats, 84 new packs)"
     .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
     .map((seat) => seat.grokTemplateUrl)
     .filter((url) => Boolean(url));
-  assert.equal(fallbackUrls.length, 3157);
-  assert.equal(new Set(fallbackUrls).size, 3157);
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
   const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
     (match) => match[0]
   );
-  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3157);
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
   assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
   assert.equal(getFallbackPack("examples", "stencil"), null);
@@ -40985,3 +41019,1058 @@ test("catalog dual-writes the Nov 1 hunt + #84 refile (175 seats, 84 new packs)"
   assert.equal(getFallbackPack("theogcg888", "caleb")?.seats.length, 2);
 });
 
+test("catalog dual-writes the Nov 2 hunt (79 seats, 34 new packs)", () => {
+  const stats = fallbackStats();
+  assert.equal(stats.packs, 1784);
+  assert.equal(stats.seats, 3236);
+  const newPacks = [
+  {
+    "owner": "_sarant",
+    "slug": "sara",
+    "packName": "Sara",
+    "ownerName": "Sara",
+    "xHandle": "_sarant",
+    "ownerId": "00000000-0000-0000-0000-000000001800",
+    "packId": "10000000-0000-0000-0000-000000001808",
+    "desk": "Job search bot",
+    "seatId": "20000000-0000-0000-0000-000000003255",
+    "url": "https://x.ai/bot/J-wW65CmuMGk1yPB6kJe5",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "amberdawnatx",
+    "slug": "amber",
+    "packName": "Amber",
+    "ownerName": "Amber Dawn",
+    "xHandle": "amberdawnatx",
+    "ownerId": "00000000-0000-0000-0000-000000001801",
+    "packId": "10000000-0000-0000-0000-000000001809",
+    "desk": "Scotty",
+    "seatId": "20000000-0000-0000-0000-000000003263",
+    "url": "https://x.ai/bot/ZGqwvjAbpLzVhPwBY6Hya",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "bebryanmichaels",
+    "slug": "bryan",
+    "packName": "Bryan",
+    "ownerName": "Bryan Michaels",
+    "xHandle": "bebryanmichaels",
+    "ownerId": "00000000-0000-0000-0000-000000001802",
+    "packId": "10000000-0000-0000-0000-000000001810",
+    "desk": "Travel Agent",
+    "seatId": "20000000-0000-0000-0000-000000003267",
+    "url": "https://x.ai/bot/PIhMWfUfxYKdhphfFjtcT",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "bleeping_blank",
+    "slug": "bleeping",
+    "packName": "Bleeping",
+    "ownerName": "Bleeping Blank",
+    "xHandle": "bleeping_blank",
+    "ownerId": "00000000-0000-0000-0000-000000001803",
+    "packId": "10000000-0000-0000-0000-000000001811",
+    "desk": "Code Review Gate",
+    "seatId": "20000000-0000-0000-0000-000000003268",
+    "url": "https://x.ai/bot/bzzmA5KSCP4Rg3lbxxUvi",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "brianlu365",
+    "slug": "brian",
+    "packName": "Brian",
+    "ownerName": "Brian Lu",
+    "xHandle": "brianlu365",
+    "ownerId": "00000000-0000-0000-0000-000000001804",
+    "packId": "10000000-0000-0000-0000-000000001812",
+    "desk": "Send to Kindle",
+    "seatId": "20000000-0000-0000-0000-000000003269",
+    "url": "https://x.ai/bot/IJPTTz1XGwaTQlfo6Zi4-",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "chill4life94",
+    "slug": "chill4life94",
+    "packName": "Chill4life94",
+    "ownerName": "Chill4life94",
+    "xHandle": "chill4life94",
+    "ownerId": "00000000-0000-0000-0000-000000001805",
+    "packId": "10000000-0000-0000-0000-000000001813",
+    "desk": "Ops Lead",
+    "seatId": "20000000-0000-0000-0000-000000003273",
+    "url": "https://x.ai/bot/HYoqEfgFRFykhQN0pC85_",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "coreycolman",
+    "slug": "corey",
+    "packName": "Corey",
+    "ownerName": "Corey Colman",
+    "xHandle": "coreycolman",
+    "ownerId": "00000000-0000-0000-0000-000000001806",
+    "packId": "10000000-0000-0000-0000-000000001814",
+    "desk": "CA Ballot Guide",
+    "seatId": "20000000-0000-0000-0000-000000003275",
+    "url": "https://x.ai/bot/HzsvUMVejYlN__BhEkUTh",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "dontbesilent",
+    "slug": "dontbe",
+    "packName": "dontbesilent",
+    "ownerName": "dontbesilent",
+    "xHandle": "dontbesilent",
+    "ownerId": "00000000-0000-0000-0000-000000001807",
+    "packId": "10000000-0000-0000-0000-000000001815",
+    "desk": "dbs 创业教练",
+    "seatId": "20000000-0000-0000-0000-000000003276",
+    "url": "https://x.ai/bot/kpZtlm5CADHoXaaAqTV5Z",
+    "seats": 2,
+    "named": [
+      "dbs 内容教练"
+    ]
+  },
+  {
+    "owner": "dr_chrontell",
+    "slug": "digital",
+    "packName": "Digital Wizard",
+    "ownerName": "Digital Wizard",
+    "xHandle": "dr_chrontell",
+    "ownerId": "00000000-0000-0000-0000-000000001808",
+    "packId": "10000000-0000-0000-0000-000000001816",
+    "desk": "Usage Steward",
+    "seatId": "20000000-0000-0000-0000-000000003278",
+    "url": "https://x.ai/bot/62dgM8mQt2kl22HsD0p9T",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "drxejr",
+    "slug": "eidan",
+    "packName": "Eidan",
+    "ownerName": "Dr. Eidan J. Rosado",
+    "xHandle": "drxejr",
+    "ownerId": "00000000-0000-0000-0000-000000001809",
+    "packId": "10000000-0000-0000-0000-000000001817",
+    "desk": "Miilo Control",
+    "seatId": "20000000-0000-0000-0000-000000003279",
+    "url": "https://x.ai/bot/eT3S9HPEU7FD_6RkMWcju",
+    "seats": 5,
+    "named": [
+      "Miilo Daily Brief",
+      "Fractional Lead Scout",
+      "X Voice Editor",
+      "X Post Analyzer"
+    ]
+  },
+  {
+    "owner": "enekomontero",
+    "slug": "eneko",
+    "packName": "Eneko",
+    "ownerName": "Eneko Montero",
+    "xHandle": "enekomontero",
+    "ownerId": "00000000-0000-0000-0000-000000001810",
+    "packId": "10000000-0000-0000-0000-000000001818",
+    "desk": "Filmbot",
+    "seatId": "20000000-0000-0000-0000-000000003284",
+    "url": "https://x.ai/bot/lGHtTxD_lhGIVYMDc6m1J",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "galfrevn",
+    "slug": "valentin",
+    "packName": "Valentín",
+    "ownerName": "Valentín Galfré",
+    "xHandle": "galfrevn",
+    "ownerId": "00000000-0000-0000-0000-000000001811",
+    "packId": "10000000-0000-0000-0000-000000001819",
+    "desk": "Cazador de Ofertas",
+    "seatId": "20000000-0000-0000-0000-000000003285",
+    "url": "https://x.ai/bot/tSqrpVGlngwZH_rCYHeQd",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "georgadrian1",
+    "slug": "ayn",
+    "packName": "Ayn",
+    "ownerName": "Ayn Friedman",
+    "xHandle": "georgadrian1",
+    "ownerId": "00000000-0000-0000-0000-000000001812",
+    "packId": "10000000-0000-0000-0000-000000001820",
+    "desk": "Open Enrollment Advisor",
+    "seatId": "20000000-0000-0000-0000-000000003286",
+    "url": "https://x.ai/bot/6weZGRVyB_EKSREnFX38O",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "jared413",
+    "slug": "jared",
+    "packName": "Jared",
+    "ownerName": "Jared Maldonado",
+    "xHandle": "jared413",
+    "ownerId": "00000000-0000-0000-0000-000000001813",
+    "packId": "10000000-0000-0000-0000-000000001821",
+    "desk": "Chief of Staff",
+    "seatId": "20000000-0000-0000-0000-000000003289",
+    "url": "https://x.ai/bot/NS5I1t84pW45WBSg4dyWd",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "jasonl_capital",
+    "slug": "jason",
+    "packName": "Jason",
+    "ownerName": "Jason Luongo",
+    "xHandle": "jasonl_capital",
+    "ownerId": "00000000-0000-0000-0000-000000001814",
+    "packId": "10000000-0000-0000-0000-000000001822",
+    "desk": "Stock Sentiment & News",
+    "seatId": "20000000-0000-0000-0000-000000003290",
+    "url": "https://x.ai/bot/hgOQy7gfmmWkb-apfHRws",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "jtr2342",
+    "slug": "jt",
+    "packName": "JT",
+    "ownerName": "JT",
+    "xHandle": "jtr2342",
+    "ownerId": "00000000-0000-0000-0000-000000001815",
+    "packId": "10000000-0000-0000-0000-000000001823",
+    "desk": "Redline",
+    "seatId": "20000000-0000-0000-0000-000000003295",
+    "url": "https://x.ai/bot/Pojm9y9xc_ZVnnBMIpOJI",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "kroll_uri",
+    "slug": "uri",
+    "packName": "Uri",
+    "ownerName": "Uri Kroll",
+    "xHandle": "kroll_uri",
+    "ownerId": "00000000-0000-0000-0000-000000001816",
+    "packId": "10000000-0000-0000-0000-000000001824",
+    "desk": "Screen Question Bot",
+    "seatId": "20000000-0000-0000-0000-000000003297",
+    "url": "https://x.ai/bot/-dgs5IiFlb8m2xzHEAwe0",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "lonbaker",
+    "slug": "lon",
+    "packName": "Lon",
+    "ownerName": "Lon Baker",
+    "xHandle": "lonbaker",
+    "ownerId": "00000000-0000-0000-0000-000000001817",
+    "packId": "10000000-0000-0000-0000-000000001825",
+    "desk": "Roadrunner · Bot Optimizer",
+    "seatId": "20000000-0000-0000-0000-000000003299",
+    "url": "https://x.ai/bot/g-m5pDVEjklVWOovjOhI8",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "maxfalstein",
+    "slug": "max",
+    "packName": "MaX",
+    "ownerName": "MaX Falstein",
+    "xHandle": "maxfalstein",
+    "ownerId": "00000000-0000-0000-0000-000000001818",
+    "packId": "10000000-0000-0000-0000-000000001826",
+    "desk": "Grok Build Helper",
+    "seatId": "20000000-0000-0000-0000-000000003302",
+    "url": "https://x.ai/bot/_4l8W-Etvs_dVC0qVmlnw",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "mehi689297161",
+    "slug": "meshi",
+    "packName": "meshi",
+    "ownerName": "meshi🎃",
+    "xHandle": "mehi689297161",
+    "ownerId": "00000000-0000-0000-0000-000000001819",
+    "packId": "10000000-0000-0000-0000-000000001827",
+    "desk": "Comfy Atelier｜RunPod × ComfyUI 画像制作室",
+    "seatId": "20000000-0000-0000-0000-000000003304",
+    "url": "https://x.ai/bot/R4dHvcmzYjYLCmTxj_dUN",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "mitchelllong43",
+    "slug": "mitchell",
+    "packName": "Mitchell",
+    "ownerName": "Mitchell Long",
+    "xHandle": "mitchelllong43",
+    "ownerId": "00000000-0000-0000-0000-000000001820",
+    "packId": "10000000-0000-0000-0000-000000001828",
+    "desk": "Genealogy",
+    "seatId": "20000000-0000-0000-0000-000000003305",
+    "url": "https://x.ai/bot/G9G6pCoTccOCnyeImEBnK",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "mspd4100",
+    "slug": "mspd",
+    "packName": "mspd",
+    "ownerName": "鸡骑猫",
+    "xHandle": "mspd4100",
+    "ownerId": "00000000-0000-0000-0000-000000001821",
+    "packId": "10000000-0000-0000-0000-000000001829",
+    "desk": "X Pulse",
+    "seatId": "20000000-0000-0000-0000-000000003308",
+    "url": "https://x.ai/bot/WXXQICyJA3NiSUumZ8uPq",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "musingit",
+    "slug": "musi",
+    "packName": "Musi",
+    "ownerName": "Musi",
+    "xHandle": "musingit",
+    "ownerId": "00000000-0000-0000-0000-000000001822",
+    "packId": "10000000-0000-0000-0000-000000001830",
+    "desk": "StockieX",
+    "seatId": "20000000-0000-0000-0000-000000003310",
+    "url": "https://x.ai/bot/YQMrTIlnVm2F9QRK2bbOo",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "panama_james",
+    "slug": "james",
+    "packName": "James",
+    "ownerName": "James",
+    "xHandle": "panama_james",
+    "ownerId": "00000000-0000-0000-0000-000000001823",
+    "packId": "10000000-0000-0000-0000-000000001831",
+    "desk": "Family Calendar",
+    "seatId": "20000000-0000-0000-0000-000000003316",
+    "url": "https://x.ai/bot/BT04arkmg57PzVWz_ITgL",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "petebiggam",
+    "slug": "pete",
+    "packName": "Pete",
+    "ownerName": "Pete Biggam",
+    "xHandle": "petebiggam",
+    "ownerId": "00000000-0000-0000-0000-000000001824",
+    "packId": "10000000-0000-0000-0000-000000001832",
+    "desk": "ButuBot",
+    "seatId": "20000000-0000-0000-0000-000000003317",
+    "url": "https://x.ai/bot/1MJ49UuH3iBiT8inT8Wn9",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "phillipstewart",
+    "slug": "phillippng",
+    "packName": "Phillip.png",
+    "ownerName": "Phillip.png",
+    "xHandle": "phillipstewart",
+    "ownerId": "00000000-0000-0000-0000-000000001825",
+    "packId": "10000000-0000-0000-0000-000000001833",
+    "desk": "Prediction Keeper",
+    "seatId": "20000000-0000-0000-0000-000000003318",
+    "url": "https://x.ai/bot/ce19YpYi6cEutgVPHaGXf",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "rafalmmmmm",
+    "slug": "rafal",
+    "packName": "Rafal",
+    "ownerName": "Rafal",
+    "xHandle": "rafalmmmmm",
+    "ownerId": "00000000-0000-0000-0000-000000001826",
+    "packId": "10000000-0000-0000-0000-000000001834",
+    "desk": "Avatar Maker",
+    "seatId": "20000000-0000-0000-0000-000000003320",
+    "url": "https://x.ai/bot/WghK4WQ3X-n83_ovWq_zR",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "redtbolt",
+    "slug": "red",
+    "packName": "Red",
+    "ownerName": "Red TBolt",
+    "xHandle": "redtbolt",
+    "ownerId": "00000000-0000-0000-0000-000000001827",
+    "packId": "10000000-0000-0000-0000-000000001835",
+    "desk": "LinkedIn Lex",
+    "seatId": "20000000-0000-0000-0000-000000003321",
+    "url": "https://x.ai/bot/pttLYE6P2VZrPHJRmkh9i",
+    "seats": 2,
+    "named": [
+      "BCDR Benny"
+    ]
+  },
+  {
+    "owner": "scottexplores29",
+    "slug": "scott",
+    "packName": "Scott",
+    "ownerName": "scottexplores.base.eth",
+    "xHandle": "scottexplores29",
+    "ownerId": "00000000-0000-0000-0000-000000001828",
+    "packId": "10000000-0000-0000-0000-000000001836",
+    "desk": "Print Lab",
+    "seatId": "20000000-0000-0000-0000-000000003324",
+    "url": "https://x.ai/bot/xJijPjgnHPDHr9wDGS1tl",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "tifoden",
+    "slug": "jaden",
+    "packName": "Jaden",
+    "ownerName": "Jaden Son",
+    "xHandle": "tifoden",
+    "ownerId": "00000000-0000-0000-0000-000000001829",
+    "packId": "10000000-0000-0000-0000-000000001837",
+    "desk": "재무·금융 봇",
+    "seatId": "20000000-0000-0000-0000-000000003325",
+    "url": "https://x.ai/bot/7BkBWGPPdhP8w2ITnQeeT",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "tommy_alderman",
+    "slug": "tommy",
+    "packName": "Tommy",
+    "ownerName": "Tommy Alderman (GeauxTigers!)",
+    "xHandle": "tommy_alderman",
+    "ownerId": "00000000-0000-0000-0000-000000001830",
+    "packId": "10000000-0000-0000-0000-000000001838",
+    "desk": "Audio Editor",
+    "seatId": "20000000-0000-0000-0000-000000003326",
+    "url": "https://x.ai/bot/SkD4eLOanzojiX7tyodeq",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "unicodef1wn",
+    "slug": "unicode",
+    "packName": "Unicode",
+    "ownerName": "unicode",
+    "xHandle": "unicodef1wn",
+    "ownerId": "00000000-0000-0000-0000-000000001831",
+    "packId": "10000000-0000-0000-0000-000000001839",
+    "desk": "Trip Deal",
+    "seatId": "20000000-0000-0000-0000-000000003327",
+    "url": "https://x.ai/bot/Kwb0OlBmnVchYsVwZxbRN",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "usmanqayyum",
+    "slug": "usmanq",
+    "packName": "Usman Qayyum",
+    "ownerName": "Usman Qayyum",
+    "xHandle": "usmanqayyum",
+    "ownerId": "00000000-0000-0000-0000-000000001832",
+    "packId": "10000000-0000-0000-0000-000000001840",
+    "desk": "whatsappbot",
+    "seatId": "20000000-0000-0000-0000-000000003328",
+    "url": "https://x.ai/bot/rPvWzmVLaZSh46nOZHYru",
+    "seats": 1,
+    "named": []
+  },
+  {
+    "owner": "virtust",
+    "slug": "virtus",
+    "packName": "Virtus",
+    "ownerName": "virtusT",
+    "xHandle": "virtust",
+    "ownerId": "00000000-0000-0000-0000-000000001833",
+    "packId": "10000000-0000-0000-0000-000000001841",
+    "desk": "Spritesmith",
+    "seatId": "20000000-0000-0000-0000-000000003329",
+    "url": "https://x.ai/bot/LnzIK0NhhiDn7zt64iw6y",
+    "seats": 2,
+    "named": [
+      "Polysmith"
+    ]
+  }
+];
+  for (const row of newPacks) {
+    const pack = getFallbackPack(row.owner, row.slug);
+    assert.ok(pack, row.owner);
+    assert.equal(pack.id, row.packId);
+    assert.equal(pack.owner.id, row.ownerId);
+    assert.equal(pack.name, row.packName);
+    assert.equal(pack.owner.name, row.ownerName);
+    assert.equal(pack.owner.xHandle, row.xHandle);
+    assert.equal(pack.official, false);
+    assert.equal(pack.featured, false);
+    assert.ok(pack.seats.length >= row.seats);
+    assert.equal(pack.seats[0]?.isDesk, true);
+    assert.equal(pack.seats[0]?.name, row.desk);
+    assert.equal(pack.seats[0]?.id, row.seatId);
+    assert.equal(pack.seats[0]?.grokTemplateUrl, row.url);
+    assert.equal(pack.seats.filter((seat) => seat.isDesk).length, 1);
+    for (const named of row.named) {
+      const seat = pack.seats.find((item) => item.name === named);
+      assert.ok(seat, named);
+      assert.equal(seat?.isDesk, false);
+    }
+    assert.match(seedSql, new RegExp(row.url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.match(seedSql, new RegExp(row.packId.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.match(seedSql, new RegExp(row.ownerId.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+  const onExisting = [
+  {
+    "owner": "_mintydoge",
+    "slug": "gaz",
+    "path": "/_mintydoge/gaz",
+    "oldSeats": 1,
+    "newSeats": 2,
+    "added": [
+      {
+        "name": "Creative Director",
+        "id": "20000000-0000-0000-0000-000000003254",
+        "url": "https://x.ai/bot/XWBKgRnDOw7uR5SpKx3Af",
+        "sortOrder": 1
+      }
+    ]
+  },
+  {
+    "owner": "Adamdesgns",
+    "slug": "adam",
+    "path": "/Adamdesgns/adam",
+    "oldSeats": 3,
+    "newSeats": 9,
+    "added": [
+      {
+        "name": "Professor Forge",
+        "id": "20000000-0000-0000-0000-000000003256",
+        "url": "https://x.ai/bot/1Cyv1S6kTXtMSVcIJspGp",
+        "sortOrder": 3
+      },
+      {
+        "name": "Two Times",
+        "id": "20000000-0000-0000-0000-000000003257",
+        "url": "https://x.ai/bot/2Kz23JfcMfN42T42Pz2Y-",
+        "sortOrder": 4
+      },
+      {
+        "name": "Rank · SEO Specialist",
+        "id": "20000000-0000-0000-0000-000000003258",
+        "url": "https://x.ai/bot/8yRC3MWysXYTy_FtTZlyK",
+        "sortOrder": 5
+      },
+      {
+        "name": "Ms. SAYLES",
+        "id": "20000000-0000-0000-0000-000000003259",
+        "url": "https://x.ai/bot/Cvv6bJgyJWEoi3MnZZa0K",
+        "sortOrder": 6
+      },
+      {
+        "name": "Mason · The Incorporator",
+        "id": "20000000-0000-0000-0000-000000003260",
+        "url": "https://x.ai/bot/P4UiFNUcfH-751NuybyV1",
+        "sortOrder": 7
+      },
+      {
+        "name": "The Reaper · X Spam Blocker",
+        "id": "20000000-0000-0000-0000-000000003261",
+        "url": "https://x.ai/bot/bcmrf2uP7_B3xyfXMGy8y",
+        "sortOrder": 8
+      }
+    ]
+  },
+  {
+    "owner": "ahalvor",
+    "slug": "andy",
+    "path": "/ahalvor/andy",
+    "oldSeats": 2,
+    "newSeats": 3,
+    "added": [
+      {
+        "name": "Chef",
+        "id": "20000000-0000-0000-0000-000000003262",
+        "url": "https://x.ai/bot/rAWbQxFCOfATbhtRPePxr",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "owner": "AnnDiegoUSA",
+    "slug": "ann",
+    "path": "/AnnDiegoUSA/ann",
+    "oldSeats": 2,
+    "newSeats": 4,
+    "added": [
+      {
+        "name": "Santa - Gift Shopper",
+        "id": "20000000-0000-0000-0000-000000003264",
+        "url": "https://x.ai/bot/OENNUAzGPQaNZUOQy8cp6",
+        "sortOrder": 2
+      },
+      {
+        "name": "Elf - Wish List Keeper",
+        "id": "20000000-0000-0000-0000-000000003265",
+        "url": "https://x.ai/bot/i25u2i5oHFy7WJX4SA9_K",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "owner": "avery_jones",
+    "slug": "avery",
+    "path": "/avery_jones/avery",
+    "oldSeats": 1,
+    "newSeats": 2,
+    "added": [
+      {
+        "name": "Github Wrapped",
+        "id": "20000000-0000-0000-0000-000000003266",
+        "url": "https://x.ai/bot/ALRzyEC7mPkc0iwcbzCZj",
+        "sortOrder": 1
+      }
+    ]
+  },
+  {
+    "owner": "buckleyplanet",
+    "slug": "christian",
+    "path": "/buckleyplanet/christian",
+    "oldSeats": 3,
+    "newSeats": 4,
+    "added": [
+      {
+        "name": "Personal Security Monitor",
+        "id": "20000000-0000-0000-0000-000000003270",
+        "url": "https://x.ai/bot/PcQvw5B-sZQDQ7GTBoPun",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "owner": "CaliLumberJack",
+    "slug": "calix",
+    "path": "/CaliLumberJack/calix",
+    "oldSeats": 14,
+    "newSeats": 15,
+    "added": [
+      {
+        "name": "AbleLatch",
+        "id": "20000000-0000-0000-0000-000000003271",
+        "url": "https://x.ai/bot/M6gJAA-Hlh1u3rcwychpu",
+        "sortOrder": 14
+      }
+    ]
+  },
+  {
+    "owner": "chasemc67",
+    "slug": "chase",
+    "path": "/chasemc67/chase",
+    "oldSeats": 3,
+    "newSeats": 4,
+    "added": [
+      {
+        "name": "SwarmCoordinator Bot",
+        "id": "20000000-0000-0000-0000-000000003272",
+        "url": "https://x.ai/bot/tlPYGlEEruj2J2V6SOudb",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "owner": "corbenh414",
+    "slug": "corben",
+    "path": "/corbenh414/corben",
+    "oldSeats": 7,
+    "newSeats": 8,
+    "added": [
+      {
+        "name": "Election Day FREEDOM Bot",
+        "id": "20000000-0000-0000-0000-000000003274",
+        "url": "https://x.ai/bot/YnKJxi4wHKcgmPvg5XlXp",
+        "sortOrder": 7
+      }
+    ]
+  },
+  {
+    "owner": "ishuagra02",
+    "slug": "ishu",
+    "path": "/ishuagra02/ishu",
+    "oldSeats": 1,
+    "newSeats": 2,
+    "added": [
+      {
+        "name": "Taste Bot",
+        "id": "20000000-0000-0000-0000-000000003287",
+        "url": "https://x.ai/bot/_8iIneBUwOa06iIHpvCr5",
+        "sortOrder": 1
+      }
+    ]
+  },
+  {
+    "owner": "iustinafractals",
+    "slug": "iustina",
+    "path": "/iustinafractals/iustina",
+    "oldSeats": 5,
+    "newSeats": 6,
+    "added": [
+      {
+        "name": "All Art Calls",
+        "id": "20000000-0000-0000-0000-000000003288",
+        "url": "https://x.ai/bot/cX8izZ4tOnoniyBefx1pX",
+        "sortOrder": 5
+      }
+    ]
+  },
+  {
+    "owner": "johnboyle",
+    "slug": "john",
+    "path": "/johnboyle/john",
+    "oldSeats": 3,
+    "newSeats": 4,
+    "added": [
+      {
+        "name": "Finance Bot",
+        "id": "20000000-0000-0000-0000-000000003291",
+        "url": "https://x.ai/bot/n-LVavRHTPJnFnBS50XTk",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "owner": "johnp_creates",
+    "slug": "john",
+    "path": "/johnp_creates/john",
+    "oldSeats": 2,
+    "newSeats": 3,
+    "added": [
+      {
+        "name": "BotDoctor",
+        "id": "20000000-0000-0000-0000-000000003292",
+        "url": "https://x.ai/bot/v_nXdMs_P3vL7RtMd95KB",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "owner": "johnwalker",
+    "slug": "john",
+    "path": "/johnwalker/john",
+    "oldSeats": 2,
+    "newSeats": 3,
+    "added": [
+      {
+        "name": "Daily Journal",
+        "id": "20000000-0000-0000-0000-000000003293",
+        "url": "https://x.ai/bot/2sZkeh2-lLOUpmitZxWwU",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "owner": "jpipo86",
+    "slug": "jpipo86",
+    "path": "/jpipo86/jpipo86",
+    "oldSeats": 8,
+    "newSeats": 9,
+    "added": [
+      {
+        "name": "Fantasy Lineup Coach",
+        "id": "20000000-0000-0000-0000-000000003294",
+        "url": "https://x.ai/bot/WupzkTCX86ymUAV1pz4J3",
+        "sortOrder": 8
+      }
+    ]
+  },
+  {
+    "owner": "kasike",
+    "slug": "mike",
+    "path": "/kasike/mike",
+    "oldSeats": 1,
+    "newSeats": 2,
+    "added": [
+      {
+        "name": "Creator Sponsorship Pipeline",
+        "id": "20000000-0000-0000-0000-000000003296",
+        "url": "https://x.ai/bot/Fw54B1MeitT0ivVkVWBrI",
+        "sortOrder": 1
+      }
+    ]
+  },
+  {
+    "owner": "kunchenguid",
+    "slug": "kun",
+    "path": "/kunchenguid/kun",
+    "oldSeats": 2,
+    "newSeats": 3,
+    "added": [
+      {
+        "name": "Kun",
+        "id": "20000000-0000-0000-0000-000000003298",
+        "url": "https://x.ai/bot/xK8W0ukRv4iZjglzz-FRE",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "owner": "madmenai",
+    "slug": "althetime",
+    "path": "/madmenai/althetime",
+    "oldSeats": 6,
+    "newSeats": 8,
+    "added": [
+      {
+        "name": "Car Cost Compare",
+        "id": "20000000-0000-0000-0000-000000003300",
+        "url": "https://x.ai/bot/fwvUrf2WHJqZF2nGnYQAM",
+        "sortOrder": 6
+      },
+      {
+        "name": "Options Ideas",
+        "id": "20000000-0000-0000-0000-000000003301",
+        "url": "https://x.ai/bot/4fWNEfEYa_ckHNQpePA44",
+        "sortOrder": 7
+      }
+    ]
+  },
+  {
+    "owner": "meesesrfriends",
+    "slug": "meesesrfriends",
+    "path": "/meesesrfriends/meesesrfriends",
+    "oldSeats": 2,
+    "newSeats": 3,
+    "added": [
+      {
+        "name": "Case Law Desk",
+        "id": "20000000-0000-0000-0000-000000003303",
+        "url": "https://x.ai/bot/Rt-vOEJqjc0aiVcp0NUdq",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "owner": "monokern",
+    "slug": "monokern",
+    "path": "/monokern/monokern",
+    "oldSeats": 2,
+    "newSeats": 3,
+    "added": [
+      {
+        "name": "Research Desk",
+        "id": "20000000-0000-0000-0000-000000003306",
+        "url": "https://x.ai/bot/fZ0ZkZLEhozE_J-lmW5d9",
+        "sortOrder": 2
+      }
+    ]
+  },
+  {
+    "owner": "MSaintjour",
+    "slug": "marc",
+    "path": "/MSaintjour/marc",
+    "oldSeats": 4,
+    "newSeats": 5,
+    "added": [
+      {
+        "name": "Study Cartoons",
+        "id": "20000000-0000-0000-0000-000000003307",
+        "url": "https://x.ai/bot/U8o9QCutuyeFJ9Jdbrqui",
+        "sortOrder": 4
+      }
+    ]
+  },
+  {
+    "owner": "mstrhappyjustin",
+    "slug": "justin",
+    "path": "/mstrhappyjustin/justin",
+    "oldSeats": 4,
+    "newSeats": 5,
+    "added": [
+      {
+        "name": "Studio Lead",
+        "id": "20000000-0000-0000-0000-000000003309",
+        "url": "https://x.ai/bot/hv9ZXcjcVKI27_fW7UL--",
+        "sortOrder": 4
+      }
+    ]
+  },
+  {
+    "owner": "mypassion_m9t",
+    "slug": "martin",
+    "path": "/mypassion_m9t/martin",
+    "oldSeats": 1,
+    "newSeats": 5,
+    "added": [
+      {
+        "name": "Watch Scout",
+        "id": "20000000-0000-0000-0000-000000003311",
+        "url": "https://x.ai/bot/4Z6aRR8A3CsZ7trJaoo_7",
+        "sortOrder": 1
+      },
+      {
+        "name": "Tesla · Update Scout",
+        "id": "20000000-0000-0000-0000-000000003312",
+        "url": "https://x.ai/bot/IzSBsS5MZfpyGOVTPG6AR",
+        "sortOrder": 2
+      },
+      {
+        "name": "Running Coach",
+        "id": "20000000-0000-0000-0000-000000003313",
+        "url": "https://x.ai/bot/QI0KHubMrxAt3iRtZQZIS",
+        "sortOrder": 3
+      },
+      {
+        "name": "Weekend Outing Scout",
+        "id": "20000000-0000-0000-0000-000000003314",
+        "url": "https://x.ai/bot/j_CYY1zYj6oqUUgLK4SeZ",
+        "sortOrder": 4
+      }
+    ]
+  },
+  {
+    "owner": "ounce_online",
+    "slug": "ounce",
+    "path": "/ounce_online/ounce",
+    "oldSeats": 3,
+    "newSeats": 4,
+    "added": [
+      {
+        "name": "레포컬렉터",
+        "id": "20000000-0000-0000-0000-000000003315",
+        "url": "https://x.ai/bot/tJYR5RCclS8xNsbOWiEri",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "owner": "rachelvt42",
+    "slug": "rachel",
+    "path": "/rachelvt42/rachel",
+    "oldSeats": 1,
+    "newSeats": 2,
+    "added": [
+      {
+        "name": "Meal planner",
+        "id": "20000000-0000-0000-0000-000000003319",
+        "url": "https://x.ai/bot/04sgrpvtAre-Khtz6KDyg",
+        "sortOrder": 1
+      }
+    ]
+  },
+  {
+    "owner": "richsilver",
+    "slug": "rich",
+    "path": "/richsilver/rich",
+    "oldSeats": 4,
+    "newSeats": 5,
+    "added": [
+      {
+        "name": "Explain Like I'm Five",
+        "id": "20000000-0000-0000-0000-000000003323",
+        "url": "https://x.ai/bot/76OxtIBZQQ_WpwaZcq4_a",
+        "sortOrder": 4
+      }
+    ]
+  },
+  {
+    "owner": "weaverwork",
+    "slug": "jacob",
+    "path": "/weaverwork/jacob",
+    "oldSeats": 3,
+    "newSeats": 4,
+    "added": [
+      {
+        "name": "Family History Researcher",
+        "id": "20000000-0000-0000-0000-000000003331",
+        "url": "https://x.ai/bot/i3T6-VHjRdJqxzXo3xHyk",
+        "sortOrder": 3
+      }
+    ]
+  },
+  {
+    "owner": "weeb3dev",
+    "slug": "alberto",
+    "path": "/weeb3dev/alberto",
+    "oldSeats": 3,
+    "newSeats": 4,
+    "added": [
+      {
+        "name": "cline",
+        "id": "20000000-0000-0000-0000-000000003332",
+        "url": "https://x.ai/bot/gL7FcTFcs1SHMCD3pozTM",
+        "sortOrder": 3
+      }
+    ]
+  }
+];
+  for (const row of onExisting) {
+    const pack = getFallbackPack(row.owner, row.slug);
+    assert.ok(pack, row.path);
+    assert.equal(pack.seats.length, row.newSeats);
+    assert.equal(pack.seats.filter((seat) => seat.isDesk).length, 1);
+    for (const added of row.added) {
+      const seat = pack.seats.find((item) => item.id === added.id);
+      assert.ok(seat, added.url);
+      assert.equal(seat?.name, added.name);
+      assert.equal(seat?.isDesk, false);
+      assert.equal(seat?.sortOrder, added.sortOrder);
+      assert.equal(seat?.grokTemplateUrl, added.url);
+      assert.equal(seat?.repeatsWhen, null);
+      assert.match(seedSql, new RegExp(added.url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    }
+  }
+  const fallbackUrls = listFallbackPacks()
+    .flatMap((pack) => getFallbackPack(pack.owner.githubLogin, pack.slug)?.seats ?? [])
+    .map((seat) => seat.grokTemplateUrl)
+    .filter((url) => Boolean(url));
+  assert.equal(fallbackUrls.length, 3236);
+  assert.equal(new Set(fallbackUrls).size, 3236);
+  const seedUrlMatches = [...seedSql.matchAll(/https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+/g)].map(
+    (match) => match[0]
+  );
+  assert.equal(new Set(seedUrlMatches.filter((url) => fallbackUrls.includes(url))).size, 3236);
+  assert.ok(!fallbackUrls.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
+  assert.ok(!seedSql.includes("https://x.ai/bot/l82Fnugc2EEblUuMwyeaV"));
+  assert.equal(getFallbackPack("examples", "stencil"), null);
+  assert.equal(getFallbackPack("poteto", "lauren")?.seats.length, 2);
+  assert.ok(!getFallbackPack("kristaletz", "krista")?.seats.some((seat) => seat.name === "Terminus"));
+  assert.equal(getFallbackPack("suddenlyjon", "knock")?.seats.length, 63);
+  assert.equal(getFallbackPack("Adamdesgns", "adam")?.seats.length, 9);
+  assert.equal(getFallbackPack("mypassion_m9t", "martin")?.seats.length, 5);
+  assert.equal(getFallbackPack("AnnDiegoUSA", "ann")?.seats.length, 4);
+  assert.equal(getFallbackPack("madmenai", "althetime")?.seats.length, 8);
+  assert.equal(getFallbackPack("drxejr", "eidan")?.seats.length, 5);
+  assert.equal(getFallbackPack("redtbolt", "red")?.seats.length, 2);
+  assert.equal(getFallbackPack("dontbesilent", "dontbe")?.seats.length, 2);
+  assert.equal(getFallbackPack("virtust", "virtus")?.seats.length, 2);
+  assert.equal(getFallbackPack("dontbesilent", "dontbe")?.name, "dontbesilent");
+  assert.equal(getFallbackPack("dr_chrontell", "digital")?.name, "Digital Wizard");
+  assert.equal(getFallbackPack("mehi689297161", "meshi")?.name, "meshi");
+  assert.equal(getFallbackPack("mehi689297161", "meshi")?.owner.name, "meshi🎃");
+  assert.equal(getFallbackPack("mspd4100", "mspd")?.name, "mspd");
+  assert.equal(getFallbackPack("mspd4100", "mspd")?.owner.name, "鸡骑猫");
+  assert.equal(getFallbackPack("phillipstewart", "phillippng")?.name, "Phillip.png");
+  assert.equal(getFallbackPack("usmanqayyum", "usmanq")?.name, "Usman Qayyum");
+  assert.equal(getFallbackPack("galfrevn", "valentin")?.name, "Valentín");
+  assert.equal(getFallbackPack("tifoden", "jaden")?.name, "Jaden");
+  assert.notEqual(getFallbackPack("panama_james", "james")?.id, getFallbackPack("johnboyle", "john")?.id);
+  assert.notEqual(getFallbackPack("jasonl_capital", "jason")?.id, getFallbackPack("johnwalker", "john")?.id);
+  assert.notEqual(getFallbackPack("redtbolt", "red")?.id, getFallbackPack("petebiggam", "pete")?.id);
+  assert.notEqual(getFallbackPack("brianlu365", "brian")?.id, getFallbackPack("scottexplores29", "scott")?.id);
+});
