@@ -30258,6 +30258,618 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001862',
+  'authenticated',
+  'authenticated',
+  'al3rez@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "al3rez", "preferred_username": "al3rez", "full_name": "Alireza Bashiri"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001863',
+  'authenticated',
+  'authenticated',
+  'aryanvij02@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "aryanvij02", "preferred_username": "aryanvij02", "full_name": "Aryan Vij"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001864',
+  'authenticated',
+  'authenticated',
+  'biscuitweb@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "biscuitweb", "preferred_username": "biscuitweb", "full_name": "Biscuit"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001865',
+  'authenticated',
+  'authenticated',
+  'butala_aryan@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "butala_aryan", "preferred_username": "butala_aryan", "full_name": "Aryan Butala"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001866',
+  'authenticated',
+  'authenticated',
+  'chasen_liao@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "chasen_liao", "preferred_username": "chasen_liao", "full_name": "Chasen"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001867',
+  'authenticated',
+  'authenticated',
+  'chesus@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "chesus", "preferred_username": "chesus", "full_name": "CHESUS"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001868',
+  'authenticated',
+  'authenticated',
+  'davideverist350@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "davideverist350", "preferred_username": "davideverist350", "full_name": "David Everist"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001869',
+  'authenticated',
+  'authenticated',
+  'ethansde@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "ethansde", "preferred_username": "ethansde", "full_name": "Ethan"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001870',
+  'authenticated',
+  'authenticated',
+  'g_ameman@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "g_ameman", "preferred_username": "g_ameman", "full_name": "G_ameman"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001871',
+  'authenticated',
+  'authenticated',
+  'herefelixk@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "herefelixk", "preferred_username": "herefelixk", "full_name": "Felix Kang"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001872',
+  'authenticated',
+  'authenticated',
+  'jenflood17@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "jenflood17", "preferred_username": "jenflood17", "full_name": "Jennifer Flood"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001873',
+  'authenticated',
+  'authenticated',
+  'jodahak@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "jodahak", "preferred_username": "jodahak", "full_name": "Joseph Hakim"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001874',
+  'authenticated',
+  'authenticated',
+  'kanesimms@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "kanesimms", "preferred_username": "kanesimms", "full_name": "Kane Simms"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001875',
+  'authenticated',
+  'authenticated',
+  'libertarianlars@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "libertarianlars", "preferred_username": "libertarianlars", "full_name": "Lars Mapstead"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001876',
+  'authenticated',
+  'authenticated',
+  'liminalprompt@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "liminalprompt", "preferred_username": "liminalprompt", "full_name": "daniel kelly jr."}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001877',
+  'authenticated',
+  'authenticated',
+  'luciferstaker@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "luciferstaker", "preferred_username": "luciferstaker", "full_name": "Lucifers Caretaker"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001878',
+  'authenticated',
+  'authenticated',
+  'materiawealth@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "materiawealth", "preferred_username": "materiawealth", "full_name": "The Materia Reserve"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001879',
+  'authenticated',
+  'authenticated',
+  'metcarksis@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "metcarksis", "preferred_username": "metcarksis", "full_name": "Metcarksis"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001880',
+  'authenticated',
+  'authenticated',
+  'mijinions@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "mijinions", "preferred_username": "mijinions", "full_name": "Mijinion"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001881',
+  'authenticated',
+  'authenticated',
+  'mikeyerke@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "mikeyerke", "preferred_username": "mikeyerke", "full_name": "Mike Yerke"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001882',
+  'authenticated',
+  'authenticated',
+  'muse_inmotion@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "muse_inmotion", "preferred_username": "muse_inmotion", "full_name": "Sara"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001883',
+  'authenticated',
+  'authenticated',
+  'natebuildshq@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "natebuildshq", "preferred_username": "natebuildshq", "full_name": "Nathan"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001884',
+  'authenticated',
+  'authenticated',
+  'nathansavedlive@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "nathansavedlive", "preferred_username": "nathansavedlive", "full_name": "Nathan"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001885',
+  'authenticated',
+  'authenticated',
+  'nfterramike@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "nfterramike", "preferred_username": "nfterramike", "full_name": "Terramike"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001886',
+  'authenticated',
+  'authenticated',
+  'phosphenq@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "phosphenq", "preferred_username": "phosphenq", "full_name": "Phosphen"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001887',
+  'authenticated',
+  'authenticated',
+  'ringodontpanic@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "ringodontpanic", "preferred_username": "ringodontpanic", "full_name": "Ringo"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001888',
+  'authenticated',
+  'authenticated',
+  'robertmerkel_@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "robertmerkel_", "preferred_username": "robertmerkel_", "full_name": "Robert Merkel"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001889',
+  'authenticated',
+  'authenticated',
+  'saayman_riaan@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "saayman_riaan", "preferred_username": "saayman_riaan", "full_name": "Riaan"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001890',
+  'authenticated',
+  'authenticated',
+  'sebs_tweets@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "sebs_tweets", "preferred_username": "sebs_tweets", "full_name": "Sebastian David Lees"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001891',
+  'authenticated',
+  'authenticated',
+  'seralichtenhahn@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "seralichtenhahn", "preferred_username": "seralichtenhahn", "full_name": "Serafin Lichtenhahn"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001892',
+  'authenticated',
+  'authenticated',
+  'shaivpidadi@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "shaivpidadi", "preferred_username": "shaivpidadi", "full_name": "Shaishav Pidadi"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001893',
+  'authenticated',
+  'authenticated',
+  'starai82685@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "starai82685", "preferred_username": "starai82685", "full_name": "Emily Starai"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001894',
+  'authenticated',
+  'authenticated',
+  'tanderson9@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "tanderson9", "preferred_username": "tanderson9", "full_name": "Tommy"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001895',
+  'authenticated',
+  'authenticated',
+  'teedubya@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "teedubya", "preferred_username": "teedubya", "full_name": "Travis Wright"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001896',
+  'authenticated',
+  'authenticated',
+  'zchance@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "zchance", "preferred_username": "zchance", "full_name": "Chance of Zion"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001897',
+  'authenticated',
+  'authenticated',
+  'zkwifsats@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "zkwifsats", "preferred_username": "zkwifsats", "full_name": "ZK.hl"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 )
 )
@@ -53403,6 +54015,474 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000001862',
+  '00000000-0000-0000-0000-000000001862',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001862',
+    'email', 'al3rez@orgbots.dev',
+    'user_name', 'al3rez'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001863',
+  '00000000-0000-0000-0000-000000001863',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001863',
+    'email', 'aryanvij02@orgbots.dev',
+    'user_name', 'aryanvij02'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001864',
+  '00000000-0000-0000-0000-000000001864',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001864',
+    'email', 'biscuitweb@orgbots.dev',
+    'user_name', 'biscuitweb'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001865',
+  '00000000-0000-0000-0000-000000001865',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001865',
+    'email', 'butala_aryan@orgbots.dev',
+    'user_name', 'butala_aryan'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001866',
+  '00000000-0000-0000-0000-000000001866',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001866',
+    'email', 'chasen_liao@orgbots.dev',
+    'user_name', 'chasen_liao'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001867',
+  '00000000-0000-0000-0000-000000001867',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001867',
+    'email', 'chesus@orgbots.dev',
+    'user_name', 'chesus'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001868',
+  '00000000-0000-0000-0000-000000001868',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001868',
+    'email', 'davideverist350@orgbots.dev',
+    'user_name', 'davideverist350'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001869',
+  '00000000-0000-0000-0000-000000001869',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001869',
+    'email', 'ethansde@orgbots.dev',
+    'user_name', 'ethansde'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001870',
+  '00000000-0000-0000-0000-000000001870',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001870',
+    'email', 'g_ameman@orgbots.dev',
+    'user_name', 'g_ameman'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001871',
+  '00000000-0000-0000-0000-000000001871',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001871',
+    'email', 'herefelixk@orgbots.dev',
+    'user_name', 'herefelixk'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001872',
+  '00000000-0000-0000-0000-000000001872',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001872',
+    'email', 'jenflood17@orgbots.dev',
+    'user_name', 'jenflood17'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001873',
+  '00000000-0000-0000-0000-000000001873',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001873',
+    'email', 'jodahak@orgbots.dev',
+    'user_name', 'jodahak'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001874',
+  '00000000-0000-0000-0000-000000001874',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001874',
+    'email', 'kanesimms@orgbots.dev',
+    'user_name', 'kanesimms'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001875',
+  '00000000-0000-0000-0000-000000001875',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001875',
+    'email', 'libertarianlars@orgbots.dev',
+    'user_name', 'libertarianlars'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001876',
+  '00000000-0000-0000-0000-000000001876',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001876',
+    'email', 'liminalprompt@orgbots.dev',
+    'user_name', 'liminalprompt'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001877',
+  '00000000-0000-0000-0000-000000001877',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001877',
+    'email', 'luciferstaker@orgbots.dev',
+    'user_name', 'luciferstaker'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001878',
+  '00000000-0000-0000-0000-000000001878',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001878',
+    'email', 'materiawealth@orgbots.dev',
+    'user_name', 'materiawealth'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001879',
+  '00000000-0000-0000-0000-000000001879',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001879',
+    'email', 'metcarksis@orgbots.dev',
+    'user_name', 'metcarksis'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001880',
+  '00000000-0000-0000-0000-000000001880',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001880',
+    'email', 'mijinions@orgbots.dev',
+    'user_name', 'mijinions'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001881',
+  '00000000-0000-0000-0000-000000001881',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001881',
+    'email', 'mikeyerke@orgbots.dev',
+    'user_name', 'mikeyerke'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001882',
+  '00000000-0000-0000-0000-000000001882',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001882',
+    'email', 'muse_inmotion@orgbots.dev',
+    'user_name', 'muse_inmotion'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001883',
+  '00000000-0000-0000-0000-000000001883',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001883',
+    'email', 'natebuildshq@orgbots.dev',
+    'user_name', 'natebuildshq'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001884',
+  '00000000-0000-0000-0000-000000001884',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001884',
+    'email', 'nathansavedlive@orgbots.dev',
+    'user_name', 'nathansavedlive'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001885',
+  '00000000-0000-0000-0000-000000001885',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001885',
+    'email', 'nfterramike@orgbots.dev',
+    'user_name', 'nfterramike'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001886',
+  '00000000-0000-0000-0000-000000001886',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001886',
+    'email', 'phosphenq@orgbots.dev',
+    'user_name', 'phosphenq'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001887',
+  '00000000-0000-0000-0000-000000001887',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001887',
+    'email', 'ringodontpanic@orgbots.dev',
+    'user_name', 'ringodontpanic'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001888',
+  '00000000-0000-0000-0000-000000001888',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001888',
+    'email', 'robertmerkel_@orgbots.dev',
+    'user_name', 'robertmerkel_'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001889',
+  '00000000-0000-0000-0000-000000001889',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001889',
+    'email', 'saayman_riaan@orgbots.dev',
+    'user_name', 'saayman_riaan'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001890',
+  '00000000-0000-0000-0000-000000001890',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001890',
+    'email', 'sebs_tweets@orgbots.dev',
+    'user_name', 'sebs_tweets'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001891',
+  '00000000-0000-0000-0000-000000001891',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001891',
+    'email', 'seralichtenhahn@orgbots.dev',
+    'user_name', 'seralichtenhahn'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001892',
+  '00000000-0000-0000-0000-000000001892',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001892',
+    'email', 'shaivpidadi@orgbots.dev',
+    'user_name', 'shaivpidadi'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001893',
+  '00000000-0000-0000-0000-000000001893',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001893',
+    'email', 'starai82685@orgbots.dev',
+    'user_name', 'starai82685'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001894',
+  '00000000-0000-0000-0000-000000001894',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001894',
+    'email', 'tanderson9@orgbots.dev',
+    'user_name', 'tanderson9'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001895',
+  '00000000-0000-0000-0000-000000001895',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001895',
+    'email', 'teedubya@orgbots.dev',
+    'user_name', 'teedubya'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001896',
+  '00000000-0000-0000-0000-000000001896',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001896',
+    'email', 'zchance@orgbots.dev',
+    'user_name', 'zchance'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001897',
+  '00000000-0000-0000-0000-000000001897',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001897',
+    'email', 'zkwifsats@orgbots.dev',
+    'user_name', 'zkwifsats'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 )
 )
@@ -65857,6 +66937,258 @@ values
     'Daniel Frohlich',
     'ziggyfro',
     null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001862',
+    'al3rez',
+    'Alireza Bashiri',
+    'al3rez',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001863',
+    'aryanvij02',
+    'Aryan Vij',
+    'aryanvij02',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001864',
+    'biscuitweb',
+    'Biscuit',
+    'biscuitweb',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001865',
+    'butala_aryan',
+    'Aryan Butala',
+    'butala_aryan',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001866',
+    'chasen_liao',
+    'Chasen',
+    'chasen_liao',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001867',
+    'chesus',
+    'CHESUS',
+    'chesus',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001868',
+    'davideverist350',
+    'David Everist',
+    'davideverist350',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001869',
+    'ethansde',
+    'Ethan',
+    'ethansde',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001870',
+    'g_ameman',
+    'G_ameman',
+    'g_ameman',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001871',
+    'herefelixk',
+    'Felix Kang',
+    'herefelixk',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001872',
+    'jenflood17',
+    'Jennifer Flood',
+    'jenflood17',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001873',
+    'jodahak',
+    'Joseph Hakim',
+    'jodahak',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001874',
+    'kanesimms',
+    'Kane Simms',
+    'kanesimms',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001875',
+    'libertarianlars',
+    'Lars Mapstead',
+    'libertarianlars',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001876',
+    'liminalprompt',
+    'daniel kelly jr.',
+    'liminalprompt',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001877',
+    'luciferstaker',
+    'Lucifers Caretaker',
+    'luciferstaker',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001878',
+    'materiawealth',
+    'The Materia Reserve',
+    'materiawealth',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001879',
+    'metcarksis',
+    'Metcarksis',
+    'metcarksis',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001880',
+    'mijinions',
+    'Mijinion',
+    'mijinions',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001881',
+    'mikeyerke',
+    'Mike Yerke',
+    'mikeyerke',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001882',
+    'muse_inmotion',
+    'Sara',
+    'muse_inmotion',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001883',
+    'natebuildshq',
+    'Nathan',
+    'natebuildshq',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001884',
+    'nathansavedlive',
+    'Nathan',
+    'nathansavedlive',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001885',
+    'nfterramike',
+    'Terramike',
+    'nfterramike',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001886',
+    'phosphenq',
+    'Phosphen',
+    'phosphenq',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001887',
+    'ringodontpanic',
+    'Ringo',
+    'ringodontpanic',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001888',
+    'robertmerkel_',
+    'Robert Merkel',
+    'robertmerkel_',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001889',
+    'saayman_riaan',
+    'Riaan',
+    'saayman_riaan',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001890',
+    'sebs_tweets',
+    'Sebastian David Lees',
+    'sebs_tweets',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001891',
+    'seralichtenhahn',
+    'Serafin Lichtenhahn',
+    'seralichtenhahn',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001892',
+    'shaivpidadi',
+    'Shaishav Pidadi',
+    'shaivpidadi',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001893',
+    'starai82685',
+    'Emily Starai',
+    'starai82685',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001894',
+    'tanderson9',
+    'Tommy',
+    'tanderson9',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001895',
+    'teedubya',
+    'Travis Wright',
+    'teedubya',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001896',
+    'zchance',
+    'Chance of Zion',
+    'zchance',
+    null
+  ),
+  (
+    '00000000-0000-0000-0000-000000001897',
+    'zkwifsats',
+    'ZK.hl',
+    'zkwifsats',
+    null
   )
 )
 on conflict (id) do update
@@ -69096,8 +70428,8 @@ insert into public.packs (
   array['developer'],
   0,
   0,
-  'Random questions stay at Google Agent. Use Plaud Notes only for Intake, classify, index, and route voice-recorder notes. Uses a spreadsheet as the only. Use Website Publisher only for Senior web publisher for a public static site: gated deploys. Use LinkedIn Agent only for A LinkedIn ghostwriter and networking assistant. It finds sourced topics in your lane. Use Research Project PM only for A project manager for a research collaboration. It briefs coding agents. Use Research PM only for Senior PM for a recurring research-intelligence pipeline. It reviews nightly claim runs. Use Ship Evidence Auditor only for Audits every auto-ship from your coding agents with hard evidence (CI. Use Eval Keeper only for Eval Keeper work. Use Test Cop only for Test Cop work. Use Dink Bot only for Dink Bot. Use Groklexa only for Groklexa. Use Knowledge Graph Keeper only for Knowledge Graph Keeper. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Plaud Notes is Intake, classify, index, and route voice-recorder notes. Uses a spreadsheet as the only only. Website Publisher is Senior web publisher for a public static site: gated deploys only. LinkedIn Agent is A LinkedIn ghostwriter and networking assistant. It finds sourced topics in your lane only. Research Project PM is A project manager for a research collaboration. It briefs coding agents only. Research PM is Senior PM for a recurring research-intelligence pipeline. It reviews nightly claim runs only. Ship Evidence Auditor is Audits every auto-ship from your coding agents with hard evidence (CI only. Also shared under https://x.com/ryanthawks/status/2114456760412983616. Knowledge Graph Keeper is the named-seat lane only.$readme$
+  'Random questions stay at Google Agent. Use Plaud Notes only for Intake, classify, index, and route voice-recorder notes. Uses a spreadsheet as the only. Use Website Publisher only for Senior web publisher for a public static site: gated deploys. Use LinkedIn Agent only for A LinkedIn ghostwriter and networking assistant. It finds sourced topics in your lane. Use Research Project PM only for A project manager for a research collaboration. It briefs coding agents. Use Research PM only for Senior PM for a recurring research-intelligence pipeline. It reviews nightly claim runs. Use Ship Evidence Auditor only for Audits every auto-ship from your coding agents with hard evidence (CI. Use Eval Keeper only for Eval Keeper work. Use Test Cop only for Test Cop work. Use Dink Bot only for Dink Bot. Use Groklexa only for Groklexa. Use Knowledge Graph Keeper only for Knowledge Graph Keeper. Use Model Router only for Model Router. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Plaud Notes is Intake, classify, index, and route voice-recorder notes. Uses a spreadsheet as the only only. Website Publisher is Senior web publisher for a public static site: gated deploys only. LinkedIn Agent is A LinkedIn ghostwriter and networking assistant. It finds sourced topics in your lane only. Research Project PM is A project manager for a research collaboration. It briefs coding agents only. Research PM is Senior PM for a recurring research-intelligence pipeline. It reviews nightly claim runs only. Ship Evidence Auditor is Audits every auto-ship from your coding agents with hard evidence (CI only. Also shared under https://x.com/ryanthawks/status/2114456760412983616. Knowledge Graph Keeper is the named-seat lane only. Also shared under https://x.com/ryanthawks/status/2117750274186203253. Model Router is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000079',
@@ -73882,8 +75214,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Unicron. Use Net Positive only for Keeps a monthly ledger for your Grok Bot crew: value in (revenue. Use Doorcheck only for Before you add someone else''s bot template. Use Liftoff only for A pre-launch checklist bot for anyone shipping an app. Use Nash only for Nash work. Use Loose Ends only for Loose Ends work. Use Crewfold only for Crewfold work. Use LaneKeep only for LaneKeep work. Use Goal Delta only for Goal Delta work. Use Keep Park Kill only for Keep Park Kill work. Use Sourbro only for Sourbro. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/the_Arow_H/status/2100527286269153333. Net Positive is Keeps a monthly ledger for your Grok Bot crew: value in (revenue only. Doorcheck is Before you add someone else's bot template only. Liftoff is A pre-launch checklist bot for anyone shipping an app only. Also shared under https://x.com/the_Arow_H/status/2116195587536441463. Sourbro is the named-seat lane only.$readme$
+  'Random questions stay at Unicron. Use Net Positive only for Keeps a monthly ledger for your Grok Bot crew: value in (revenue. Use Doorcheck only for Before you add someone else''s bot template. Use Liftoff only for A pre-launch checklist bot for anyone shipping an app. Use Nash only for Nash work. Use Loose Ends only for Loose Ends work. Use Crewfold only for Crewfold work. Use LaneKeep only for LaneKeep work. Use Goal Delta only for Goal Delta work. Use Keep Park Kill only for Keep Park Kill work. Use Sourbro only for Sourbro. Use Chefanny only for Chefanny. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/the_Arow_H/status/2100527286269153333. Net Positive is Keeps a monthly ledger for your Grok Bot crew: value in (revenue only. Doorcheck is Before you add someone else's bot template only. Liftoff is A pre-launch checklist bot for anyone shipping an app only. Also shared under https://x.com/the_Arow_H/status/2116195587536441463. Sourbro is the named-seat lane only. Also shared under https://x.com/the_Arow_H/status/2117628333273776409. Chefanny is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000332',
@@ -74498,7 +75830,7 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at obsidian. Use a named seat only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/weeb3dev/status/2101063917959311821.$readme$
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/weeb3dev/status/2101063917959311821. Also shared under https://x.com/weeb3dev/status/2117761853719798012. gmi is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000374',
@@ -75952,8 +77284,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Asana Task Master. Use Spanish Tutor only for A daily Spanish speaking coach built for ADHD and dyslexic learners: short audio-first. Use Daily Verse only for A personal Bible-verse-of-the-day companion. Each morning it sends one verse (text and. Use Sprite Bot only for Turns a photo or a description into a 2D game character with walk. Use The Algorithm only for The Algorithm work. Use Finance only for Finance work. Use Counsel only for Counsel work. Use Mission only for Mission work. Use Operator only for Operator work. Use Skeptic only for Skeptic work. Use Chair only for Chair work. Use Prompt Lab only for Prompt Lab work. Use Clip Scout only for Clip Scout. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/wikiwayne/status/2107252465955487944 and https://x.com/wikiwayne/status/2107252540236775666 and https://x.com/wikiwayne/status/2107252704691036474 and https://x.com/wikiwayne/status/2107252887344611365. Also shared under https://x.com/wikiwayne/status/2115790009559134534. Prompt Lab is the named-seat lane only. Also shared under https://x.com/wikiwayne/status/2117274785239519328. Clip Scout is the named-seat lane only.$readme$
+  'Random questions stay at Asana Task Master. Use Spanish Tutor only for A daily Spanish speaking coach built for ADHD and dyslexic learners: short audio-first. Use Daily Verse only for A personal Bible-verse-of-the-day companion. Each morning it sends one verse (text and. Use Sprite Bot only for Turns a photo or a description into a 2D game character with walk. Use The Algorithm only for The Algorithm work. Use Finance only for Finance work. Use Counsel only for Counsel work. Use Mission only for Mission work. Use Operator only for Operator work. Use Skeptic only for Skeptic work. Use Chair only for Chair work. Use Prompt Lab only for Prompt Lab work. Use Clip Scout only for Clip Scout. Use Riffrow only for Riffrow. Use Thumbs only for Thumbs. Use Versus only for Versus. Use Director only for Director. Use Shorts only for Shorts. Use Gauntlet only for Gauntlet. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/wikiwayne/status/2107252465955487944 and https://x.com/wikiwayne/status/2107252540236775666 and https://x.com/wikiwayne/status/2107252704691036474 and https://x.com/wikiwayne/status/2107252887344611365. Also shared under https://x.com/wikiwayne/status/2115790009559134534. Prompt Lab is the named-seat lane only. Also shared under https://x.com/wikiwayne/status/2117274785239519328. Clip Scout is the named-seat lane only. Also shared under https://x.com/wikiwayne/status/2117712167114068146. Riffrow is the named-seat lane only. Also shared under https://x.com/wikiwayne/status/2117712167114068146. Thumbs is the named-seat lane only. Also shared under https://x.com/wikiwayne/status/2117712167114068146. Versus is the named-seat lane only. Also shared under https://x.com/wikiwayne/status/2117712167114068146. Director is the named-seat lane only. Also shared under https://x.com/wikiwayne/status/2117712167114068146. Shorts is the named-seat lane only. Also shared under https://x.com/wikiwayne/status/2117712167114068146. Gauntlet is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000471',
@@ -77332,8 +78664,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Trading Bot 4.0. Use Trading Bot 5.0 only for Trading Bot 5.0 work. Use Crypto News Desk only for Crypto News Desk work. Use Crypto Budget & Tax Keeper 2.0 only for Crypto Budget & Tax Keeper 2.0 work. Use Crypto Coach 2.0 only for Crypto Coach 2.0 work. Use Crypto Scam Shield only for Crypto Scam Shield work. Use Quick Calendar Bot only for Quick Calendar Bot work. Use Crypto Wallet Safety Checker only for Crypto Wallet Safety Checker work. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/allthemoney/status/2108577525152518372.$readme$
+  'Random questions stay at Trading Bot 4.0. Use Trading Bot 5.0 only for Trading Bot 5.0 work. Use Crypto News Desk only for Crypto News Desk work. Use Crypto Budget & Tax Keeper 2.0 only for Crypto Budget & Tax Keeper 2.0 work. Use Crypto Coach 2.0 only for Crypto Coach 2.0 work. Use Crypto Scam Shield only for Crypto Scam Shield work. Use Quick Calendar Bot only for Quick Calendar Bot work. Use Crypto Wallet Safety Checker only for Crypto Wallet Safety Checker work. Use Phone Assistant 1.0 only for Phone Assistant 1.0. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/allthemoney/status/2108577525152518372. Also shared under https://x.com/allthemoney/status/2117988503342768480. Phone Assistant 1.0 is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000563',
@@ -77677,8 +79009,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Presents. Use Chef only for Chef work. Use Handyman only for Handyman. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/dkmitc/status/2108677563644072263.$readme$
+  'Random questions stay at Presents. Use Chef only for Chef work. Use Handyman only for Handyman. Use Broker only for Broker. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/dkmitc/status/2108677563644072263. Also shared under https://x.com/dkmitc/status/2117631285803835838. Broker is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000586',
@@ -79372,8 +80704,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Bill. Use Travel Guru only for Travel Guru work. Use Arthur only for Arthur work. Use Edna only for Edna work. Use Starlink Scout only for Starlink Scout work. Use Magnum P.I. only for Magnum P.I. work. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/congressdj/status/2110040359002616145 and https://x.com/congressdj/status/2110358379969536329.$readme$
+  'Random questions stay at Bill. Use Travel Guru only for Travel Guru work. Use Arthur only for Arthur work. Use Edna only for Edna work. Use Starlink Scout only for Starlink Scout work. Use Magnum P.I. only for Magnum P.I. work. Use Eff Those Guys only for Eff Those Guys. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/congressdj/status/2110040359002616145 and https://x.com/congressdj/status/2110358379969536329. Also shared under https://x.com/congressdj/status/2117826975704224109. Eff Those Guys is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000699',
@@ -79552,8 +80884,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Concierge. Use Sports Agent only for Sports Agent work. Use Chief Technology Officer only for Chief Technology Officer work. Use Personal CFO only for Personal CFO work. Use Legal Advisor only for Legal Advisor work. Use Side Hustle Builder only for Side Hustle Builder. Use APA League Manager only for APA League Manager. Use Fantasy Football Manager only for Fantasy Football Manager. Use Family App Builder only for Family App Builder. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/hjackson2/status/2110191707761320376 and https://x.com/hjackson2/status/2110192325079011615 and https://x.com/hjackson2/status/2110192638125039832 and https://x.com/hjackson2/status/2110192926928015452 and https://x.com/hjackson2/status/2110193583756062836 and https://x.com/hjackson2/status/2114708880504524914. Side Hustle Builder is the named-seat lane only. Also shared under https://x.com/hjackson2/status/2115114176121037177 and https://x.com/hjackson2/status/2115148347241816467. APA League Manager is the named-seat lane only. Fantasy Football Manager is the named-seat lane only. Also shared under https://x.com/hjackson2/status/2117626452602466516. Family App Builder is the named-seat lane only.$readme$
+  'Random questions stay at Concierge. Use Sports Agent only for Sports Agent work. Use Chief Technology Officer only for Chief Technology Officer work. Use Personal CFO only for Personal CFO work. Use Legal Advisor only for Legal Advisor work. Use Side Hustle Builder only for Side Hustle Builder. Use APA League Manager only for APA League Manager. Use Fantasy Football Manager only for Fantasy Football Manager. Use Family App Builder only for Family App Builder. Use Sports Scout only for Sports Scout. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/hjackson2/status/2110191707761320376 and https://x.com/hjackson2/status/2110192325079011615 and https://x.com/hjackson2/status/2110192638125039832 and https://x.com/hjackson2/status/2110192926928015452 and https://x.com/hjackson2/status/2110193583756062836 and https://x.com/hjackson2/status/2114708880504524914. Side Hustle Builder is the named-seat lane only. Also shared under https://x.com/hjackson2/status/2115114176121037177 and https://x.com/hjackson2/status/2115148347241816467. APA League Manager is the named-seat lane only. Fantasy Football Manager is the named-seat lane only. Also shared under https://x.com/hjackson2/status/2117626452602466516. Family App Builder is the named-seat lane only. Also shared under https://x.com/hjackson2/status/2117794627902210342. Sports Scout is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000711',
@@ -82777,7 +84109,7 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at Night Out. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/ALKTrading/status/2111130588459802836.$readme$
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/ALKTrading/status/2111130588459802836. Also shared under https://x.com/ALKTrading/status/2117986891970511297. Idea Bot is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000926',
@@ -83047,7 +84379,7 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at Vivian. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/MyTeslaMoonship/status/2111449265490833656.$readme$
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/MyTeslaMoonship/status/2111449265490833656. Also shared under https://x.com/MyTeslaMoonship/status/2117851082227355956. Wayne is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000944',
@@ -83692,7 +85024,7 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at Kroger Coupons & Dinner Planner. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/jrd_cincy/status/2112186149154521093.$readme$
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/jrd_cincy/status/2112186149154521093. Also shared under https://x.com/jrd_cincy/status/2117706274934583566. Safeway is the named-seat lane only. Also shared under https://x.com/jrd_cincy/status/2117711327926059127. Kids Lifting Coach is the named-seat lane only. Also shared under https://x.com/jrd_cincy/status/2117962687519088879. Meijer is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000987',
@@ -85627,7 +86959,7 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at X Growth Operator. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/0xPaulvibe/status/2113589420100108653.$readme$
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/0xPaulvibe/status/2113589420100108653. Also shared under https://x.com/0xPaulvibe/status/2117680769477014003. Revenue Rex is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001116',
@@ -87787,7 +89119,7 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at X Growth Coach. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/0ooooo0/status/2114361670328058239. Also shared under https://x.com/0ooooo0/status/2116093457223794886. Token Saver is the named-seat lane only. Also shared under https://x.com/0ooooo0/status/2117296828425408952. Routinizer is the named-seat lane only.$readme$
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/0ooooo0/status/2114361670328058239. Also shared under https://x.com/0ooooo0/status/2116093457223794886. Token Saver is the named-seat lane only. Also shared under https://x.com/0ooooo0/status/2117296828425408952. Routinizer is the named-seat lane only. Also shared under https://x.com/0ooooo0/status/2117921697060008045. Reply Bot Checker is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001260',
@@ -88821,8 +90153,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Samsung TV Privacy & Debloat. Use REVbot: Ghidra Reverse Engineering only for REVbot: Ghidra Reverse Engineering. Use TailslopBot only for TailslopBot. Use HotelRoomBot only for HotelRoomBot. Use GenealogyBot only for GenealogyBot. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/scottcjordan/status/2114036931571130873 and https://x.com/scottcjordan/status/2114362399482651080 and https://x.com/scottcjordan/status/2114455113599520935 and https://x.com/scottcjordan/status/2114461828554297756. REVbot: Ghidra Reverse Engineering is the named-seat lane only. TailslopBot is the named-seat lane only. HotelRoomBot is the named-seat lane only. Also shared under https://x.com/scottcjordan/status/2117436007926915386. GenealogyBot is the named-seat lane only.$readme$
+  'Random questions stay at Samsung TV Privacy & Debloat. Use REVbot: Ghidra Reverse Engineering only for REVbot: Ghidra Reverse Engineering. Use TailslopBot only for TailslopBot. Use HotelRoomBot only for HotelRoomBot. Use GenealogyBot only for GenealogyBot. Use BloatBot only for BloatBot. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/scottcjordan/status/2114036931571130873 and https://x.com/scottcjordan/status/2114362399482651080 and https://x.com/scottcjordan/status/2114455113599520935 and https://x.com/scottcjordan/status/2114461828554297756. REVbot: Ghidra Reverse Engineering is the named-seat lane only. TailslopBot is the named-seat lane only. HotelRoomBot is the named-seat lane only. Also shared under https://x.com/scottcjordan/status/2117436007926915386. GenealogyBot is the named-seat lane only. Also shared under https://x.com/scottcjordan/status/2117674082774994946. BloatBot is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001329',
@@ -90201,8 +91533,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at X link triager. Use Stream Producer only for Stream Producer. Use Idea Lab & Brainstorm Logger only for Idea Lab & Brainstorm Logger. Use X Growth & Voice-Learning Coach only for X Growth & Voice-Learning Coach. Use Short-Form Clip & Cross-Post Studio only for Short-Form Clip & Cross-Post Studio. Use Spam Text Tracker only for Spam Text Tracker. Use Creator Analytics & Channel Optimizer only for Creator Analytics & Channel Optimizer. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/beastnug8/status/2114895319402217791 and https://x.com/beastnug8/status/2114971104494211159 and https://x.com/beastnug8/status/2115034019389948125. Stream Producer is the named-seat lane only. Idea Lab & Brainstorm Logger is the named-seat lane only. Also shared under https://x.com/beastnug8/status/2115125371439833331 and https://x.com/beastnug8/status/2115397917238505665. X Growth & Voice-Learning Coach is the named-seat lane only. Short-Form Clip & Cross-Post Studio is the named-seat lane only. Also shared under https://x.com/beastnug8/status/2116002895984267432. Spam Text Tracker is the named-seat lane only. Also shared under https://x.com/beastnug8/status/2116605877063225490. Creator Analytics & Channel Optimizer is the named-seat lane only.$readme$
+  'Random questions stay at X link triager. Use Stream Producer only for Stream Producer. Use Idea Lab & Brainstorm Logger only for Idea Lab & Brainstorm Logger. Use X Growth & Voice-Learning Coach only for X Growth & Voice-Learning Coach. Use Short-Form Clip & Cross-Post Studio only for Short-Form Clip & Cross-Post Studio. Use Spam Text Tracker only for Spam Text Tracker. Use Creator Analytics & Channel Optimizer only for Creator Analytics & Channel Optimizer. Use X Algorithm Watch only for X Algorithm Watch. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/beastnug8/status/2114895319402217791 and https://x.com/beastnug8/status/2114971104494211159 and https://x.com/beastnug8/status/2115034019389948125. Stream Producer is the named-seat lane only. Idea Lab & Brainstorm Logger is the named-seat lane only. Also shared under https://x.com/beastnug8/status/2115125371439833331 and https://x.com/beastnug8/status/2115397917238505665. X Growth & Voice-Learning Coach is the named-seat lane only. Short-Form Clip & Cross-Post Studio is the named-seat lane only. Also shared under https://x.com/beastnug8/status/2116002895984267432. Spam Text Tracker is the named-seat lane only. Also shared under https://x.com/beastnug8/status/2116605877063225490. Creator Analytics & Channel Optimizer is the named-seat lane only. Also shared under https://x.com/beastnug8/status/2117782275597410337. X Algorithm Watch is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001421',
@@ -90412,7 +91744,7 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at Move Ready. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/draftandfocus/status/2114910091950604576.$readme$
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/draftandfocus/status/2114910091950604576. Also shared under https://x.com/draftandfocus/status/2117976470912188634. Zen is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001435',
@@ -90891,8 +92223,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Local Website Audit. Use Class Action Finder only for Class Action Finder. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/MeesesRfriends/status/2114872826557829273. Also shared under https://x.com/MeesesRfriends/status/2116200710622560637. Class Action Finder is the named-seat lane only.$readme$
+  'Random questions stay at Local Website Audit. Use Class Action Finder only for Class Action Finder. Use Data Privacy Cleanup only for Data Privacy Cleanup. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/MeesesRfriends/status/2114872826557829273. Also shared under https://x.com/MeesesRfriends/status/2116200710622560637. Class Action Finder is the named-seat lane only. Also shared under https://x.com/MeesesRfriends/status/2117773681791512597. Data Privacy Cleanup is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001467',
@@ -90951,8 +92283,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Bot Architect. Use Quiet Mogul only for Quiet Mogul. Use Job Requirements Scout only for Job Requirements Scout. Use Rivaldo bot only for Rivaldo bot. Use Unreplied Comments only for Unreplied Comments. Use Bounty Radar only for Bounty Radar. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/nahjuin/status/2114776916427157800 and https://x.com/nahjuin/status/2115084310449463362. Quiet Mogul is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2114174234842853405 and https://x.com/nahjuin/status/2114179958407098747. Job Requirements Scout is the named-seat lane only. Rivaldo bot is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2115829413954875780. Unreplied Comments is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2117602508176752765. Bounty Radar is the named-seat lane only.$readme$
+  'Random questions stay at Bot Architect. Use Quiet Mogul only for Quiet Mogul. Use Job Requirements Scout only for Job Requirements Scout. Use Rivaldo bot only for Rivaldo bot. Use Unreplied Comments only for Unreplied Comments. Use Bounty Radar only for Bounty Radar. Use GM Morgan only for GM Morgan. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/nahjuin/status/2114776916427157800 and https://x.com/nahjuin/status/2115084310449463362. Quiet Mogul is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2114174234842853405 and https://x.com/nahjuin/status/2114179958407098747. Job Requirements Scout is the named-seat lane only. Rivaldo bot is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2115829413954875780. Unreplied Comments is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2117602508176752765. Bounty Radar is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2117969435952587038. GM Morgan is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001471',
@@ -91042,7 +92374,7 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at 한국어 교정봇. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/reallygood83/status/2115066252322648543. Also shared under https://x.com/reallygood83/status/2115955127236604294. Shotcraft is the named-seat lane only.$readme$
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/reallygood83/status/2115066252322648543. Also shared under https://x.com/reallygood83/status/2115955127236604294. Shotcraft is the named-seat lane only. Also shared under https://x.com/reallygood83/status/2117880110602977487. 지식쇼츠 생성기 is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001477',
@@ -91656,8 +92988,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Run Game Coach. Use Certified Car Deals only for Certified Car Deals. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/CoachFerg25/status/2115129995769340294 and https://x.com/CoachFerg25/status/2115277343933497474. Certified Car Deals is the named-seat lane only.$readme$
+  'Random questions stay at Run Game Coach. Use Certified Car Deals only for Certified Car Deals. Use Shelf Help only for Shelf Help. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/CoachFerg25/status/2115129995769340294 and https://x.com/CoachFerg25/status/2115277343933497474. Certified Car Deals is the named-seat lane only. Also shared under https://x.com/CoachFerg25/status/2117776361444045082. Shelf Help is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001518',
@@ -91927,7 +93259,7 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at DM Screen. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/JonHolland1776/status/2115223359067951239.$readme$
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/JonHolland1776/status/2115223359067951239. Also shared under https://x.com/JonHolland1776/status/2117788921811578958. Block Watch is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001536',
@@ -93922,7 +95254,7 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at Mr. Shorts by SMS. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/smsonx/status/2116463614794273207.$readme$
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/smsonx/status/2116463614794273207. Also shared under https://x.com/smsonx/status/2117650541287268849. Fiona is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001716',
@@ -95723,6 +97055,546 @@ insert into public.packs (
   0,
   'Random questions stay at Game of Life. Named seats only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/ziggyfro/status/2117489674365383060.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001870',
+  '00000000-0000-0000-0000-000000001862',
+  'alireza',
+  'Alireza',
+  'Public Grok Bot templates Alireza Bashiri (@al3rez) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at t3code link. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/al3rez/status/2117655498220814794.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001871',
+  '00000000-0000-0000-0000-000000001863',
+  'aryan',
+  'Aryan',
+  'Public Grok Bot templates Aryan Vij (@aryanvij02) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Freebot. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/aryanvij02/status/2117676113820549208.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001872',
+  '00000000-0000-0000-0000-000000001864',
+  'biscuit',
+  'Biscuit',
+  'Public Grok Bot templates Biscuit (@biscuitweb) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Brand Hunter. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/biscuitweb/status/2117982025164419404.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001873',
+  '00000000-0000-0000-0000-000000001865',
+  'aryan',
+  'Aryan',
+  'Public Grok Bot templates Aryan Butala (@butala_aryan) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at parking payment bot. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/butala_aryan/status/2117786056279928989.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001874',
+  '00000000-0000-0000-0000-000000001866',
+  'chasen',
+  'Chasen',
+  'Public Grok Bot templates Chasen (@chasen_liao) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at 𝕏 Bot. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/chasen_liao/status/2117807293760713052.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001875',
+  '00000000-0000-0000-0000-000000001867',
+  'chesus',
+  'CHESUS',
+  'Public Grok Bot templates CHESUS (@chesus) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Grok Empire Cadet. Use Grok Empire Conqueror only for Grok Empire Conqueror. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/chesus/status/2117638393601442129. Also shared under https://x.com/chesus/status/2117638400303874144. Grok Empire Conqueror is the named-seat lane only.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001876',
+  '00000000-0000-0000-0000-000000001868',
+  'david',
+  'David',
+  'Public Grok Bot templates David Everist (@davideverist350) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Morning Market Brief. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/davideverist350/status/2117665469947928851.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001877',
+  '00000000-0000-0000-0000-000000001869',
+  'ethan',
+  'Ethan',
+  'Public Grok Bot templates Ethan (@ethansde) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at X-algo. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/EthanSDE/status/2117750574989144388.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001878',
+  '00000000-0000-0000-0000-000000001870',
+  'gameman',
+  'G_ameman',
+  'Public Grok Bot templates G_ameman (@g_ameman) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at 봇 군집 지도. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/G_ameman/status/2117851288079917559.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001879',
+  '00000000-0000-0000-0000-000000001871',
+  'felix',
+  'Felix',
+  'Public Grok Bot templates Felix Kang (@herefelixk) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at X Reply & Networking Assistant. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/hereFelixK/status/2117645629698519403.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001880',
+  '00000000-0000-0000-0000-000000001872',
+  'jennifer',
+  'Jennifer',
+  'Public Grok Bot templates Jennifer Flood (@jenflood17) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at FAFO Homestead Helper. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/JenFlood17/status/2117711986066882577.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001881',
+  '00000000-0000-0000-0000-000000001873',
+  'joseph',
+  'Joseph',
+  'Public Grok Bot templates Joseph Hakim (@jodahak) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Intel. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/jodahak/status/2117694015466508453.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001882',
+  '00000000-0000-0000-0000-000000001874',
+  'kane',
+  'Kane',
+  'Public Grok Bot templates Kane Simms (@kanesimms) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Throughput. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/kanesimms/status/2117765216263938302.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001883',
+  '00000000-0000-0000-0000-000000001875',
+  'lars',
+  'Lars',
+  'Public Grok Bot templates Lars Mapstead (@libertarianlars) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at DOGE Bot. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/LibertarianLars/status/2117652817368498257.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001884',
+  '00000000-0000-0000-0000-000000001876',
+  'daniel',
+  'Daniel',
+  'Public Grok Bot templates daniel kelly jr. (@liminalprompt) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at AI Text Detector & Editor. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/liminalprompt/status/2117644125117796625.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001885',
+  '00000000-0000-0000-0000-000000001877',
+  'lucifers',
+  'Lucifers',
+  'Public Grok Bot templates Lucifers Caretaker (@luciferstaker) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Coinbase Trading Bot. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/LucifersTaker/status/2117867185695764984.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001886',
+  '00000000-0000-0000-0000-000000001878',
+  'materia',
+  'Materia',
+  'Public Grok Bot templates The Materia Reserve (@materiawealth) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Crypto Tax Assistant. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/MateriaWealth/status/2117738221493002392.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001887',
+  '00000000-0000-0000-0000-000000001879',
+  'metcarksis',
+  'Metcarksis',
+  'Public Grok Bot templates Metcarksis (@metcarksis) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Social Media. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/metcarksis/status/2117799476718903314.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001888',
+  '00000000-0000-0000-0000-000000001880',
+  'mijinion',
+  'Mijinion',
+  'Public Grok Bot templates Mijinion (@mijinions) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Usage Dashboard. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Mijinions/status/2117646645521465554.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001889',
+  '00000000-0000-0000-0000-000000001881',
+  'mike',
+  'Mike',
+  'Public Grok Bot templates Mike Yerke (@mikeyerke) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Genealogist Bot. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/mikeyerke/status/2117703363899076955.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001890',
+  '00000000-0000-0000-0000-000000001882',
+  'sara',
+  'Sara',
+  'Public Grok Bot templates Sara (@muse_inmotion) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at 𝕏 Twin. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/muse_inmotion/status/2117751243447922847.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001891',
+  '00000000-0000-0000-0000-000000001883',
+  'natebuildshq',
+  'NateBuildsHQ',
+  'Public Grok Bot templates Nathan (@natebuildshq) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at BotRank Scout. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/natebuildsHQ/status/2117766227439554889.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001892',
+  '00000000-0000-0000-0000-000000001884',
+  'nathan',
+  'Nathan',
+  'Public Grok Bot templates Nathan (@nathansavedlive) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at 主簿. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/NathanSavedLive/status/2117988759098782020.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001893',
+  '00000000-0000-0000-0000-000000001885',
+  'terramike',
+  'Terramike',
+  'Public Grok Bot templates Terramike (@nfterramike) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at XRPL Grok Bot. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/NFTerramike/status/2117787943012356112.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001894',
+  '00000000-0000-0000-0000-000000001886',
+  'phosphen',
+  'Phosphen',
+  'Public Grok Bot templates Phosphen (@phosphenq) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Quant Tutor. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/phosphenq/status/2117705358613348504.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001895',
+  '00000000-0000-0000-0000-000000001887',
+  'ringo',
+  'Ringo',
+  'Public Grok Bot templates Ringo (@ringodontpanic) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at 盘面助手. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/RingoDontpanic/status/2117960390135198182.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001896',
+  '00000000-0000-0000-0000-000000001888',
+  'robert',
+  'Robert',
+  'Public Grok Bot templates Robert Merkel (@robertmerkel_) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Routine Slimmer. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/RobertMerkel_/status/2117643805323088159.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001897',
+  '00000000-0000-0000-0000-000000001889',
+  'riaan',
+  'Riaan',
+  'Public Grok Bot templates Riaan (@saayman_riaan) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Coach Kettle. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/saayman_riaan/status/2117776270192959812.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001898',
+  '00000000-0000-0000-0000-000000001890',
+  'sebastian',
+  'Sebastian',
+  'Public Grok Bot templates Sebastian David Lees (@sebs_tweets) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Unbait. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/sebs_tweets/status/2117672426842509439.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001899',
+  '00000000-0000-0000-0000-000000001891',
+  'serafin',
+  'Serafin',
+  'Public Grok Bot templates Serafin Lichtenhahn (@seralichtenhahn) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at X Junky. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/seralichtenhahn/status/2117915059582091507.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001900',
+  '00000000-0000-0000-0000-000000001892',
+  'shaishav',
+  'Shaishav',
+  'Public Grok Bot templates Shaishav Pidadi (@shaivpidadi) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at WWID. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/shaivpidadi/status/2117651911973183811.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001901',
+  '00000000-0000-0000-0000-000000001893',
+  'emily',
+  'Emily',
+  'Public Grok Bot templates Emily Starai (@starai82685) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Keyword Tagging Suite. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/starai82685/status/2117901709980864911.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001902',
+  '00000000-0000-0000-0000-000000001894',
+  'tommy',
+  'Tommy',
+  'Public Grok Bot templates Tommy (@tanderson9) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Breach Watch. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/tanderson9/status/2117797823291015548.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001903',
+  '00000000-0000-0000-0000-000000001895',
+  'travis',
+  'Travis',
+  'Public Grok Bot templates Travis Wright (@teedubya) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Grokvis. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/teedubya/status/2117724369413964244.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001904',
+  '00000000-0000-0000-0000-000000001896',
+  'chance',
+  'Chance',
+  'Public Grok Bot templates Chance of Zion (@zchance) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at EV Bot. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/zchance/status/2117755226019267052.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001905',
+  '00000000-0000-0000-0000-000000001897',
+  'zk',
+  'ZK',
+  'Public Grok Bot templates ZK.hl (@zkwifsats) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Brief Out. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/zkwifsats/status/2117927347387351274.$readme$
 )
 )
 )
@@ -126740,6 +128612,666 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/UsGYY-MNcyVTQiSLoA9mV'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003392',
+    '10000000-0000-0000-0000-000000001259',
+    'Reply Bot Checker',
+    'Reply Bot Checker is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    3,
+    'https://x.ai/bot/_vvLQwVU2Lyq78fDaVo_A'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003393',
+    '10000000-0000-0000-0000-000000001115',
+    'Revenue Rex',
+    'Revenue Rex is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/1OnUg1oZyw2c49tpKkez9'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003394',
+    '10000000-0000-0000-0000-000000001870',
+    't3code link',
+    't3code link is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/tPyb8jNCNQtsGr7xITn8p'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003395',
+    '10000000-0000-0000-0000-000000000925',
+    'Idea Bot',
+    'Idea Bot is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    2,
+    'https://x.ai/bot/rTZQlYcR-FB2JoGsk5GXh'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003396',
+    '10000000-0000-0000-0000-000000000562',
+    'Phone Assistant 1.0',
+    'Phone Assistant 1.0 is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    8,
+    'https://x.ai/bot/noLtUQd0VlpAkxkJkVWow'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003397',
+    '10000000-0000-0000-0000-000000001871',
+    'Freebot',
+    'Freebot is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/mrEaEhbIahB380oYB8N19'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003398',
+    '10000000-0000-0000-0000-000000001420',
+    'X Algorithm Watch',
+    'X Algorithm Watch is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    7,
+    'https://x.ai/bot/tVJGnGCRNiXKKnR_EKBh3'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003399',
+    '10000000-0000-0000-0000-000000001872',
+    'Brand Hunter',
+    'Brand Hunter is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/IUTnNTbS9nIlkLJ5c9lhi'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003400',
+    '10000000-0000-0000-0000-000000001873',
+    'parking payment bot',
+    'parking payment bot is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/AzyDKmEfbn9Z96cL8kPbA'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003401',
+    '10000000-0000-0000-0000-000000001874',
+    '𝕏 Bot',
+    '𝕏 Bot is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/Kna9e8eEPbGmj1uQ0ftPM'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003402',
+    '10000000-0000-0000-0000-000000001875',
+    'Grok Empire Cadet',
+    'Grok Empire Cadet is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/z77z3sw63yyGqxhpkK-rU'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003403',
+    '10000000-0000-0000-0000-000000001875',
+    'Grok Empire Conqueror',
+    'Grok Empire Conqueror is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/QeB8Otmjqtat9L87VRA31'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003404',
+    '10000000-0000-0000-0000-000000001517',
+    'Shelf Help',
+    'Shelf Help is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    2,
+    'https://x.ai/bot/aba6Zfq3H8dXyxOwTt4Of'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003405',
+    '10000000-0000-0000-0000-000000000698',
+    'Eff Those Guys',
+    'Eff Those Guys is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    6,
+    'https://x.ai/bot/UPHX3T__ybr5pCT5sOb21'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003406',
+    '10000000-0000-0000-0000-000000001876',
+    'Morning Market Brief',
+    'Morning Market Brief is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/bDtC23xInV7JQzWmLOR95'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003407',
+    '10000000-0000-0000-0000-000000000585',
+    'Broker',
+    'Broker is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    3,
+    'https://x.ai/bot/_lwaVlXcjTz2RnZHfJjiD'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003408',
+    '10000000-0000-0000-0000-000000001434',
+    'Zen',
+    'Zen is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/AHAWA7vodPGfsEjR33tNs'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003409',
+    '10000000-0000-0000-0000-000000001877',
+    'X-algo',
+    'X-algo is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/138yNvmimSez4w_hTXEo0'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003410',
+    '10000000-0000-0000-0000-000000001878',
+    '봇 군집 지도',
+    '봇 군집 지도 is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/SVp-Fgwgswv2d9I_vMA7W'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003411',
+    '10000000-0000-0000-0000-000000001879',
+    'X Reply & Networking Assistant',
+    'X Reply & Networking Assistant is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/SDKTO3mMc0NDQljmbOubN'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003412',
+    '10000000-0000-0000-0000-000000000710',
+    'Sports Scout',
+    'Sports Scout is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    9,
+    'https://x.ai/bot/u48XxowMdnReL-jw1xMIs'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003413',
+    '10000000-0000-0000-0000-000000001880',
+    'FAFO Homestead Helper',
+    'FAFO Homestead Helper is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/deZ5MwQ-PJaPLAmi_LAY1'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003414',
+    '10000000-0000-0000-0000-000000001881',
+    'Intel',
+    'Intel is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/oel1-Isexx2sFb0t83i7H'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003415',
+    '10000000-0000-0000-0000-000000001535',
+    'Block Watch',
+    'Block Watch is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/b6bEsiPO_ZRoUal-S-PLj'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003416',
+    '10000000-0000-0000-0000-000000000986',
+    'Safeway',
+    'Safeway is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    2,
+    'https://x.ai/bot/DjjuCiefk-gCfACqogjas'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003417',
+    '10000000-0000-0000-0000-000000000986',
+    'Kids Lifting Coach',
+    'Kids Lifting Coach is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    3,
+    'https://x.ai/bot/42pcFjka9AoN9reS0SQ49'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003418',
+    '10000000-0000-0000-0000-000000000986',
+    'Meijer',
+    'Meijer is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    4,
+    'https://x.ai/bot/UUqIVFhe8sefR8DvAqXu2'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003419',
+    '10000000-0000-0000-0000-000000001882',
+    'Throughput',
+    'Throughput is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/S30ZPAp12AqWnlc05gND4'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003420',
+    '10000000-0000-0000-0000-000000001883',
+    'DOGE Bot',
+    'DOGE Bot is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/i4HDAyqDFzbHots7gQOFL'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003421',
+    '10000000-0000-0000-0000-000000001884',
+    'AI Text Detector & Editor',
+    'AI Text Detector & Editor is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/yYsPajAZ18gCh95GuYEUU'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003422',
+    '10000000-0000-0000-0000-000000001885',
+    'Coinbase Trading Bot',
+    'Coinbase Trading Bot is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/SH92PQrQzpZ0u5Tbdo3vi'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003423',
+    '10000000-0000-0000-0000-000000001886',
+    'Crypto Tax Assistant',
+    'Crypto Tax Assistant is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/YZ-9DQTxLsCgVt3zMUSbw'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003424',
+    '10000000-0000-0000-0000-000000001466',
+    'Data Privacy Cleanup',
+    'Data Privacy Cleanup is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    2,
+    'https://x.ai/bot/scxdn90P1uQpdvGB3Au5j'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003425',
+    '10000000-0000-0000-0000-000000001887',
+    'Social Media',
+    'Social Media is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/Mll3Pp1EzlDNFc289GCzb'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003426',
+    '10000000-0000-0000-0000-000000001888',
+    'Usage Dashboard',
+    'Usage Dashboard is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/uru7DsAamYpDSkUnuodC0'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003427',
+    '10000000-0000-0000-0000-000000001889',
+    'Genealogist Bot',
+    'Genealogist Bot is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/XPAutriAEFfiu9jxqQN7k'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003428',
+    '10000000-0000-0000-0000-000000001890',
+    '𝕏 Twin',
+    '𝕏 Twin is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/AFtZlQY7LQaCnoYHw1t1I'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003429',
+    '10000000-0000-0000-0000-000000000943',
+    'Wayne',
+    'Wayne is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    2,
+    'https://x.ai/bot/PCYNLxoy1jOYMNxM86MpR'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003430',
+    '10000000-0000-0000-0000-000000001470',
+    'GM Morgan',
+    'GM Morgan is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    6,
+    'https://x.ai/bot/bkArX2I0yj2NiqdvqyN2K'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003431',
+    '10000000-0000-0000-0000-000000001891',
+    'BotRank Scout',
+    'BotRank Scout is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/vAlR7Qh5UUQRQ4IKUyn8S'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003432',
+    '10000000-0000-0000-0000-000000001892',
+    '主簿',
+    '主簿 is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/17ANmACWRe1PIuyhZ438B'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003433',
+    '10000000-0000-0000-0000-000000001893',
+    'XRPL Grok Bot',
+    'XRPL Grok Bot is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/JXS3htpTXEXUQUGpLPqeY'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003434',
+    '10000000-0000-0000-0000-000000001894',
+    'Quant Tutor',
+    'Quant Tutor is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/eqsjxgqMhiNo0U03FDmda'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003435',
+    '10000000-0000-0000-0000-000000001476',
+    '지식쇼츠 생성기',
+    '지식쇼츠 생성기 is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    2,
+    'https://x.ai/bot/Qj7o-92_I-uhPqZ_zHCmQ'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003436',
+    '10000000-0000-0000-0000-000000001895',
+    '盘面助手',
+    '盘面助手 is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/HqFR5KwuQuPiY8FG2N376'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003437',
+    '10000000-0000-0000-0000-000000001896',
+    'Routine Slimmer',
+    'Routine Slimmer is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/vAbvc0ys9gwEUg2w0cVzI'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003438',
+    '10000000-0000-0000-0000-000000000078',
+    'Model Router',
+    'Model Router is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    12,
+    'https://x.ai/bot/6qRMrFEGaJws41x-BWJLH'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003439',
+    '10000000-0000-0000-0000-000000001897',
+    'Coach Kettle',
+    'Coach Kettle is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/zuNJiDS1XJzyYRP2srK1E'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003440',
+    '10000000-0000-0000-0000-000000001328',
+    'BloatBot',
+    'BloatBot is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    5,
+    'https://x.ai/bot/Lv3i6LS69DYQ0l-Ya8iKp'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003441',
+    '10000000-0000-0000-0000-000000001898',
+    'Unbait',
+    'Unbait is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/40wlwmt9OINkBw3daAcNR'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003442',
+    '10000000-0000-0000-0000-000000001899',
+    'X Junky',
+    'X Junky is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/_3n9ournPs_tdZZRbtGuf'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003443',
+    '10000000-0000-0000-0000-000000001900',
+    'WWID',
+    'WWID is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/xqY6kH7E_q5JMMbL5Xwoc'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003444',
+    '10000000-0000-0000-0000-000000001715',
+    'Fiona',
+    'Fiona is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/ZVKgxwJoYy40r4sjn7Brb'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003445',
+    '10000000-0000-0000-0000-000000001901',
+    'Keyword Tagging Suite',
+    'Keyword Tagging Suite is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/mA92FsTcyDVegzVf7BZcz'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003446',
+    '10000000-0000-0000-0000-000000001902',
+    'Breach Watch',
+    'Breach Watch is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/PoHak8r9Bo76500L5mpHC'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003447',
+    '10000000-0000-0000-0000-000000001903',
+    'Grokvis',
+    'Grokvis is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/dOrBkhpwk1lUNPmyRC2Mo'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003448',
+    '10000000-0000-0000-0000-000000000331',
+    'Chefanny',
+    'Chefanny is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    11,
+    'https://x.ai/bot/6bN54c4SULd6N37G4-V0M'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003449',
+    '10000000-0000-0000-0000-000000000373',
+    'gmi',
+    'gmi is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    3,
+    'https://x.ai/bot/5IFu9DKwavLtu18sinCSv'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003450',
+    '10000000-0000-0000-0000-000000000470',
+    'Riffrow',
+    'Riffrow is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    13,
+    'https://x.ai/bot/2_uBthmv20DacnSl1bAAu'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003451',
+    '10000000-0000-0000-0000-000000000470',
+    'Thumbs',
+    'Thumbs is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    14,
+    'https://x.ai/bot/9F6v_TeHcioiD9uiP6VG5'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003452',
+    '10000000-0000-0000-0000-000000000470',
+    'Versus',
+    'Versus is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    15,
+    'https://x.ai/bot/9RuGvNg6YS66-crQDZ1rj'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003453',
+    '10000000-0000-0000-0000-000000000470',
+    'Director',
+    'Director is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    16,
+    'https://x.ai/bot/E6NdmXG5F9O_B6nFiDIJW'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003454',
+    '10000000-0000-0000-0000-000000000470',
+    'Shorts',
+    'Shorts is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    17,
+    'https://x.ai/bot/Gz5l1KsT-Tn0sV7D3WUyi'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003455',
+    '10000000-0000-0000-0000-000000000470',
+    'Gauntlet',
+    'Gauntlet is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    18,
+    'https://x.ai/bot/V8PEtwUMDHq3kFVOcyizc'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003456',
+    '10000000-0000-0000-0000-000000001904',
+    'EV Bot',
+    'EV Bot is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/UsNsanjPXXfSVb-UWUZsS'
+  ),
+  (
+    '20000000-0000-0000-0000-000000003457',
+    '10000000-0000-0000-0000-000000001905',
+    'Brief Out',
+    'Brief Out is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/5zfmqYcALd5jF7cJ6yKDX'
   )
 )
 on conflict (id) do update
