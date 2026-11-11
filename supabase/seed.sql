@@ -32740,6 +32740,57 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001974',
+  'authenticated',
+  'authenticated',
+  'vhbmsp@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "vhbmsp", "preferred_username": "vhbmsp", "full_name": "Vasco Pinheiro"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001975',
+  'authenticated',
+  'authenticated',
+  'jc50000000@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "jc50000000", "preferred_username": "jc50000000", "full_name": "jc"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000001976',
+  'authenticated',
+  'authenticated',
+  'HiTw93@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name": "HiTw93", "preferred_username": "HiTw93", "full_name": "Tw93"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 )
 )
 )
@@ -57783,6 +57834,45 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000001974',
+  '00000000-0000-0000-0000-000000001974',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001974',
+    'email', 'vhbmsp@orgbots.dev',
+    'user_name', 'vhbmsp'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001975',
+  '00000000-0000-0000-0000-000000001975',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001975',
+    'email', 'jc50000000@orgbots.dev',
+    'user_name', 'jc50000000'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000001976',
+  '00000000-0000-0000-0000-000000001976',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000001976',
+    'email', 'HiTw93@orgbots.dev',
+    'user_name', 'HiTw93'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 )
 )
 )
@@ -71259,6 +71349,27 @@ values
     'Stacy Burnett',
     'saburnet33',
     null
+  ),
+(
+    '00000000-0000-0000-0000-000000001974',
+    'vhbmsp',
+    'Vasco Pinheiro',
+    'vhbmsp',
+    null
+  ),
+(
+    '00000000-0000-0000-0000-000000001975',
+    'jc50000000',
+    'jc',
+    'jc50000000',
+    null
+  ),
+(
+    '00000000-0000-0000-0000-000000001976',
+    'HiTw93',
+    'Tw93',
+    'HiTw93',
+    null
   )
 )
 on conflict (id) do update
@@ -76480,7 +76591,7 @@ insert into public.packs (
   0,
   0,
   'Random questions stay at Funhouse. Use a named seat only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots.$readme$
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots he published as https://x.ai/bot/… belong here. When he publishes another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/AdemVessell_o/status/2119774968062115954. Viz Explainer is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000145',
@@ -95378,8 +95489,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Clipper. Use Scout only for Scout. Named seats only when that job is already in this pack.'',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/techechohq/status/2114707008255561937 and https://x.com/techechohq/status/2115068791260385300. Scout is the named-seat lane only.$readme$
+  'Random questions stay at Clipper. Use Scout only for Scout. Use Forge only for Forge. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/techechohq/status/2114707008255561937 and https://x.com/techechohq/status/2115068791260385300. Scout is the named-seat lane only. Also shared under https://x.com/techechohq/status/2119792747271876673. Forge is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001406',
@@ -103315,6 +103426,51 @@ insert into public.packs (
   0,
   'Random questions stay at Recipes. Named seats only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/saburnet33/status/2119034015915143243.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001982',
+  '00000000-0000-0000-0000-000000001974',
+  'vasco',
+  'Vasco',
+  'Public Grok Bot templates Vasco Pinheiro (@vhbmsp) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Mobbi Grok. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/vhbmsp/status/2119789598440128677.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001983',
+  '00000000-0000-0000-0000-000000001975',
+  'jc',
+  'jc',
+  'Public Grok Bot templates jc (@jc50000000) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at nietsche. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/jc50000000/status/2119784921971773688.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000001984',
+  '00000000-0000-0000-0000-000000001976',
+  'tw93',
+  'Tw93',
+  'Public Grok Bot templates Tw93 (@HiTw93) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Police · 清道夫. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/HiTw93/status/2119783486588641454.$readme$
 )
 )
 )
@@ -137442,6 +137598,56 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/fzMH-d8m57p0oHu2oh4mi'
+  ),
+(
+    '20000000-0000-0000-0000-000000003624',
+    '10000000-0000-0000-0000-000000001405',
+    'Forge',
+    'Forge is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    2,
+    'https://x.ai/bot/fHUfj7QKrEt6_QHBDbRwX'
+  ),
+(
+    '20000000-0000-0000-0000-000000003625',
+    '10000000-0000-0000-0000-000000000144',
+    'Viz Explainer',
+    'Viz Explainer is the named seat for that job on this roster. Official share only.',
+    null,
+    false,
+    1,
+    'https://x.ai/bot/lWk8eIHf8obN-j8ihW6_1'
+  ),
+(
+    '20000000-0000-0000-0000-000000003626',
+    '10000000-0000-0000-0000-000000001982',
+    'Mobbi Grok',
+    'Mobbi Grok is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/ZkYt-p7_BweHRkUoqUD_d'
+  ),
+(
+    '20000000-0000-0000-0000-000000003627',
+    '10000000-0000-0000-0000-000000001983',
+    'nietsche',
+    'nietsche is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/zqbNleWyIEhz8EoF1TnyB'
+  ),
+(
+    '20000000-0000-0000-0000-000000003628',
+    '10000000-0000-0000-0000-000000001984',
+    'Police · 清道夫',
+    'Police · 清道夫 is the desk on this roster. Official share only.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/XvhWkfMugCBcScHY2TzZ3'
   )
 )
 on conflict (id) do update
