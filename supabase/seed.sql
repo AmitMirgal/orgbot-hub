@@ -33914,6 +33914,40 @@ insert into auth.users (
   '',
   '',
   ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000002060',
+  'authenticated',
+  'authenticated',
+  'kickscosmo@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"kickscosmo","preferred_username":"kickscosmo","full_name":"kicks"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
+),
+(
+  '00000000-0000-0000-0000-000000000000',
+  '00000000-0000-0000-0000-000000002061',
+  'authenticated',
+  'authenticated',
+  'p45c41@orgbots.dev',
+  extensions.crypt('not-a-login', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"github","providers":["github"]}'::jsonb,
+  '{"user_name":"p45c41","preferred_username":"p45c41","full_name":"Pascal"}'::jsonb,
+  now(),
+  now(),
+  '',
+  '',
+  '',
+  ''
 ))
 )
 )
@@ -59855,6 +59889,32 @@ insert into auth.identities (
   now(),
   now(),
   now()
+),
+(
+  '00000000-0000-0000-0000-000000002060',
+  '00000000-0000-0000-0000-000000002060',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000002060',
+    'email', 'kickscosmo@orgbots.dev',
+    'user_name', 'kickscosmo'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
+),
+(
+  '00000000-0000-0000-0000-000000002061',
+  '00000000-0000-0000-0000-000000002061',
+  jsonb_build_object(
+    'sub', '00000000-0000-0000-0000-000000002061',
+    'email', 'p45c41@orgbots.dev',
+    'user_name', 'p45c41'
+  ),
+  'github',
+  now(),
+  now(),
+  now()
 ))
 )
 )
@@ -73815,6 +73875,20 @@ values
     'Zach',
     'zherring',
     null
+  ),
+(
+    '00000000-0000-0000-0000-000000002060',
+    'kickscosmo',
+    'kicks',
+    'kickscosmo',
+    null
+  ),
+(
+    '00000000-0000-0000-0000-000000002061',
+    'p45c41',
+    'Pascal',
+    'p45c41',
+    null
   ))
 on conflict (id) do update
   set github_login = excluded.github_login,
@@ -86129,8 +86203,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at micDrop. Use ATC Baby only for ATC Baby. Use ATC Baby only for ATC Baby. Use Promo Motion Video Maker, Made Easy only for Promo Motion Video Maker, Made Easy. Use Show Companion only for Show Companion. Use Max Capital · Your Vest Coach only for Max Capital · Your Vest Coach. Use Chart Vader · Trade Setups only for Chart Vader · Trade Setups. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/DCBK2LA/status/2109001936947081497. Also shared under https://x.com/DCBK2LA/status/2116320449508594124. Max Capital · Your Vest Coach is the named-seat lane only. Also shared under https://x.com/DCBK2LA/status/2116626323791925335. Chart Vader · Trade Setups is the named-seat lane only.$readme$
+  'Random questions stay at micDrop. Use ATC Baby only for ATC Baby. Use ATC Baby only for ATC Baby. Use Promo Motion Video Maker, Made Easy only for Promo Motion Video Maker, Made Easy. Use Show Companion only for Show Companion. Use Max Capital · Your Vest Coach only for Max Capital · Your Vest Coach. Use Chart Vader · Trade Setups only for Chart Vader · Trade Setups. Use Tenant Rights only for Tenant Rights. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/DCBK2LA/status/2109001936947081497. Also shared under https://x.com/DCBK2LA/status/2116320449508594124. Max Capital · Your Vest Coach is the named-seat lane only. Also shared under https://x.com/DCBK2LA/status/2116626323791925335. Chart Vader · Trade Setups is the named-seat lane only. Also shared under https://x.com/DCBK2LA/status/2121856256289730635. Tenant Rights is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000619',
@@ -91258,8 +91332,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Junk Mail Stopper. Use Subscription Scout only for Subscription Scout. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Kevin_Logan/status/2111688901966667931. Also shared under https://x.com/Kevin_Logan/status/2115108518290182655. Also shared under https://x.com/Kevin_Logan/status/2115732118986764492. Also shared under https://x.com/Kevin_Logan/status/2116626792631128512. Bot Sounds is the named-seat lane only. Also shared under https://x.com/Kevin_Logan/status/2121786925988143177. Subscription Scout is the named-seat lane only.$readme$
+  'Random questions stay at Junk Mail Stopper. Use Subscription Scout only for Subscription Scout. Use Script This Routine only for Script This Routine. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Kevin_Logan/status/2111688901966667931. Also shared under https://x.com/Kevin_Logan/status/2115108518290182655. Also shared under https://x.com/Kevin_Logan/status/2115732118986764492. Also shared under https://x.com/Kevin_Logan/status/2116626792631128512. Bot Sounds is the named-seat lane only. Also shared under https://x.com/Kevin_Logan/status/2121786925988143177. Subscription Scout is the named-seat lane only. Also shared under https://x.com/Kevin_Logan/status/2122326571746746738. Script This Routine is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000000961',
@@ -97738,8 +97812,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Research. Use Watch Scout only for Watch Scout. Use Tesla · Update Scout only for Tesla · Update Scout. Use Running Coach only for Running Coach. Use Weekend Outing Scout only for Weekend Outing Scout. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/MyPassion_M9T/status/2114433769608253606. Also shared under https://x.com/MyPassion_M9T/status/2116914605121261631. Watch Scout is the named-seat lane only. Tesla · Update Scout is the named-seat lane only. Running Coach is the named-seat lane only. Weekend Outing Scout is the named-seat lane only.$readme$
+  'Random questions stay at Research. Use Watch Scout only for Watch Scout. Use Tesla · Update Scout only for Tesla · Update Scout. Use Running Coach only for Running Coach. Use Weekend Outing Scout only for Weekend Outing Scout. Use Horst Lüning · Zehn-Punkte-Philosoph only for Horst Lüning · Zehn-Punkte-Philosoph. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/MyPassion_M9T/status/2114433769608253606. Also shared under https://x.com/MyPassion_M9T/status/2116914605121261631. Watch Scout is the named-seat lane only. Tesla · Update Scout is the named-seat lane only. Running Coach is the named-seat lane only. Weekend Outing Scout is the named-seat lane only. Also shared under https://x.com/MyPassion_M9T/status/2122332218907627783. Horst Lüning · Zehn-Punkte-Philosoph is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001393',
@@ -97933,8 +98007,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Clipper. Use Scout only for Scout. Use Forge only for Forge. Use Mint only for Mint. Use Foreman only for Foreman. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/techechohq/status/2114707008255561937 and https://x.com/techechohq/status/2115068791260385300. Scout is the named-seat lane only. Also shared under https://x.com/techechohq/status/2119792747271876673. Forge is the named-seat lane only. Also shared under https://x.com/techechohq/status/2121242426304078066. Mint is the named-seat lane only. Also shared under https://x.com/techechohq/status/2120155169971224973. Foreman is the named-seat lane only.$readme$
+  'Random questions stay at Clipper. Use Scout only for Scout. Use Forge only for Forge. Use Mint only for Mint. Use Foreman only for Foreman. Use Boss only for Boss. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/techechohq/status/2114707008255561937 and https://x.com/techechohq/status/2115068791260385300. Scout is the named-seat lane only. Also shared under https://x.com/techechohq/status/2119792747271876673. Forge is the named-seat lane only. Also shared under https://x.com/techechohq/status/2121242426304078066. Mint is the named-seat lane only. Also shared under https://x.com/techechohq/status/2120155169971224973. Foreman is the named-seat lane only. Also shared under https://x.com/techechohq/status/2122329668699164778. Boss is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001406',
@@ -98908,8 +98982,8 @@ insert into public.packs (
   array['founder'],
   0,
   0,
-  'Random questions stay at Bot Architect. Use Quiet Mogul only for Quiet Mogul. Use Job Requirements Scout only for Job Requirements Scout. Use Rivaldo bot only for Rivaldo bot. Use Unreplied Comments only for Unreplied Comments. Use Bounty Radar only for Bounty Radar. Use GM Morgan only for GM Morgan. Use Seamless Split only for Seamless Split. Named seats only when that job is already in this pack.',
-  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/nahjuin/status/2114776916427157800 and https://x.com/nahjuin/status/2115084310449463362. Quiet Mogul is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2114174234842853405 and https://x.com/nahjuin/status/2114179958407098747. Job Requirements Scout is the named-seat lane only. Rivaldo bot is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2115829413954875780. Unreplied Comments is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2117602508176752765. Bounty Radar is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2117969435952587038. GM Morgan is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2121597014375018664. Seamless Split is the named-seat lane only.$readme$
+  'Random questions stay at Bot Architect. Use Quiet Mogul only for Quiet Mogul. Use Job Requirements Scout only for Job Requirements Scout. Use Rivaldo bot only for Rivaldo bot. Use Unreplied Comments only for Unreplied Comments. Use Bounty Radar only for Bounty Radar. Use GM Morgan only for GM Morgan. Use Seamless Split only for Seamless Split. Use Black Friday Scout only for Black Friday Scout. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/nahjuin/status/2114776916427157800 and https://x.com/nahjuin/status/2115084310449463362. Quiet Mogul is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2114174234842853405 and https://x.com/nahjuin/status/2114179958407098747. Job Requirements Scout is the named-seat lane only. Rivaldo bot is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2115829413954875780. Unreplied Comments is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2117602508176752765. Bounty Radar is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2117969435952587038. GM Morgan is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2121597014375018664. Seamless Split is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2122003442218811743. Black Friday Scout is the named-seat lane only.$readme$
 ),
 (
   '10000000-0000-0000-0000-000000001471',
@@ -106906,6 +106980,36 @@ insert into public.packs (
   0,
   'Random questions stay at Splits Agent Wallet. Named seats only when that job is already in this pack.',
   $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/zherring/status/2119953418731323650.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000002068',
+  '00000000-0000-0000-0000-000000002060',
+  'kicks',
+  'kicks',
+  'Public Grok Bot templates kicks (@kickscosmo) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['founder'],
+  0,
+  0,
+  'Random questions stay at Business scraper. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/kickscosmo/status/2122011630393290806.$readme$
+),
+(
+  '10000000-0000-0000-0000-000000002069',
+  '00000000-0000-0000-0000-000000002061',
+  'pascal',
+  'Pascal',
+  'Public Grok Bot templates Pascal (@p45c41) has shared. One pack, their roster, official Grok install per seat.',
+  null,
+  false,
+  false,
+  array['media'],
+  0,
+  0,
+  'Random questions stay at Local Gazette. Named seats only when that job is already in this pack.',
+  $readme$Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/p45c41/status/2122064818139976073.$readme$
 ))
 )
 )
@@ -142654,6 +142758,76 @@ insert into public.seats (
     true,
     0,
     'https://x.ai/bot/IJZRIkuvNscDGxH1CiClo'
+  ),
+(
+    '20000000-0000-0000-0000-000000003818',
+    '10000000-0000-0000-0000-000000001470',
+    'Black Friday Scout',
+    'Finds the Black Friday deals worth buying, not the thousands being advertised. Seeks out and purchases the item you want with explicit permission.',
+    null,
+    false,
+    8,
+    'https://x.ai/bot/2N5hwFss2JOp16H5XQJVb'
+  ),
+(
+    '20000000-0000-0000-0000-000000003819',
+    '10000000-0000-0000-0000-000000002068',
+    'Business scraper',
+    'Finds small local businesses with no website of their own, so web designers can pitch them, then helps write preview-site prompts, track outreach and follow up.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/PWNI_c4EPb-0Qb2_RhPxp'
+  ),
+(
+    '20000000-0000-0000-0000-000000003820',
+    '10000000-0000-0000-0000-000000002069',
+    'Local Gazette',
+    'Your own private local newspaper for any town, in any country and language: it finds your town''s news sources, collects them up to twice a day, and lays them out as a fun gazette-style Page.',
+    null,
+    true,
+    0,
+    'https://x.ai/bot/rgDSVcuH-K8hlPZqwFuFN'
+  ),
+(
+    '20000000-0000-0000-0000-000000003821',
+    '10000000-0000-0000-0000-000000000960',
+    'Script This Routine',
+    'Cuts the tokens your Grok Bots spend without making them worse. It turns mechanical routine checks into small tested scripts, then audits personas, skills, tool habits, and chattiness, and you pick every change.',
+    null,
+    false,
+    8,
+    'https://x.ai/bot/opM4RljMN_9IfQAIdybZv'
+  ),
+(
+    '20000000-0000-0000-0000-000000003822',
+    '10000000-0000-0000-0000-000000001405',
+    'Boss',
+    'A friendly chief of staff for people who are new to Grok Bot. It learns what you want help with, handles it or sets it up as a routine, and suggests helper bots as you grow.',
+    null,
+    false,
+    5,
+    'https://x.ai/bot/lUT5xM-xqmuJlwzqUAlvU'
+  ),
+(
+    '20000000-0000-0000-0000-000000003823',
+    '10000000-0000-0000-0000-000000001392',
+    'Horst Lüning · Zehn-Punkte-Philosoph',
+    'Begleitet dich bei Horst Lünings Zehn-Punkte-Methode: Du schreibst jeden Morgen zehn Ziele in Prioritätsreihenfolge auf, und der Bot hilft dir, sie zu schärfen und in Notion festzuhalten. Für alle, die bewusst leben wollen, statt sich treiben zu lassen.',
+    null,
+    false,
+    5,
+    'https://x.ai/bot/QYQMe2QGDqjB0ZZ32tWt-'
+  ),
+(
+    '20000000-0000-0000-0000-000000003824',
+    '10000000-0000-0000-0000-000000000618',
+    'Tenant Rights',
+    'You are Tenant Rights. ONLY job: help renters in the United States know and use their rights with their landlord, on any issue, big or small, using the actual law for their state and city.',
+    null,
+    false,
+    8,
+    'https://x.ai/bot/tK1XNLedxwtql67Bgp_Mv'
   ))
 on conflict (id) do update
   set pack_id = excluded.pack_id,

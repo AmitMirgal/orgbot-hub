@@ -32186,9 +32186,9 @@ const DCBK2LA: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at micDrop. Use ATC Baby only for ATC Baby. Use ATC Baby only for ATC Baby. Use Promo Motion Video Maker, Made Easy only for Promo Motion Video Maker, Made Easy. Use Show Companion only for Show Companion. Use Max Capital · Your Vest Coach only for Max Capital · Your Vest Coach. Use Chart Vader · Trade Setups only for Chart Vader · Trade Setups. Named seats only when that job is already in this pack.",
+    "Random questions stay at micDrop. Use ATC Baby only for ATC Baby. Use ATC Baby only for ATC Baby. Use Promo Motion Video Maker, Made Easy only for Promo Motion Video Maker, Made Easy. Use Show Companion only for Show Companion. Use Max Capital · Your Vest Coach only for Max Capital · Your Vest Coach. Use Chart Vader · Trade Setups only for Chart Vader · Trade Setups. Use Tenant Rights only for Tenant Rights. Named seats only when that job is already in this pack.",
   readmeMd:
-    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/DCBK2LA/status/2109001936947081497. Also shared under https://x.com/DCBK2LA/status/2116320449508594124. Max Capital · Your Vest Coach is the named-seat lane only. Also shared under https://x.com/DCBK2LA/status/2116626323791925335. Chart Vader · Trade Setups is the named-seat lane only.",
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/DCBK2LA/status/2109001936947081497. Also shared under https://x.com/DCBK2LA/status/2116320449508594124. Max Capital · Your Vest Coach is the named-seat lane only. Also shared under https://x.com/DCBK2LA/status/2116626323791925335. Chart Vader · Trade Setups is the named-seat lane only. Also shared under https://x.com/DCBK2LA/status/2121856256289730635. Tenant Rights is the named-seat lane only.",
   seats: [
     seat({
       id: "20000000-0000-0000-0000-000000000918",
@@ -32261,6 +32261,15 @@ const DCBK2LA: Pack = {
       isDesk: false,
       sortOrder: 7,
       grokTemplateUrl: "https://x.ai/bot/NepDSF7-aKxWwjRyxk37t",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000003824",
+      name: "Tenant Rights",
+      job: "You are Tenant Rights. ONLY job: help renters in the United States know and use their rights with their landlord, on any issue, big or small, using the actual law for their state and city.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 8,
+      grokTemplateUrl: "https://x.ai/bot/tK1XNLedxwtql67Bgp_Mv",
     }),
   ],
 };
@@ -49079,9 +49088,9 @@ const KEVIN_LOGAN: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Junk Mail Stopper. Use Subscription Scout only for Subscription Scout. Named seats only when that job is already in this pack.",
+    "Random questions stay at Junk Mail Stopper. Use Subscription Scout only for Subscription Scout. Use Script This Routine only for Script This Routine. Named seats only when that job is already in this pack.",
   readmeMd:
-    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Kevin_Logan/status/2111688901966667931. Also shared under https://x.com/Kevin_Logan/status/2115108518290182655. Also shared under https://x.com/Kevin_Logan/status/2115732118986764492. Also shared under https://x.com/Kevin_Logan/status/2116626792631128512. Bot Sounds is the named-seat lane only. Also shared under https://x.com/Kevin_Logan/status/2121786925988143177. Subscription Scout is the named-seat lane only.",
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/Kevin_Logan/status/2111688901966667931. Also shared under https://x.com/Kevin_Logan/status/2115108518290182655. Also shared under https://x.com/Kevin_Logan/status/2115732118986764492. Also shared under https://x.com/Kevin_Logan/status/2116626792631128512. Bot Sounds is the named-seat lane only. Also shared under https://x.com/Kevin_Logan/status/2121786925988143177. Subscription Scout is the named-seat lane only. Also shared under https://x.com/Kevin_Logan/status/2122326571746746738. Script This Routine is the named-seat lane only.",
   seats: [
     seat({
       id: "20000000-0000-0000-0000-000000001563",
@@ -49154,6 +49163,15 @@ const KEVIN_LOGAN: Pack = {
       isDesk: false,
       sortOrder: 7,
       grokTemplateUrl: "https://x.ai/bot/VQs_AGNstOXSKRYCh_hu4",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000003821",
+      name: "Script This Routine",
+      job: "Cuts the tokens your Grok Bots spend without making them worse. It turns mechanical routine checks into small tested scripts, then audits personas, skills, tool habits, and chattiness, and you pick every change.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 8,
+      grokTemplateUrl: "https://x.ai/bot/opM4RljMN_9IfQAIdybZv",
     }),
   ],
 };
@@ -69505,9 +69523,9 @@ const MYPASSION_M9T: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Research. Use Watch Scout only for Watch Scout. Use Tesla · Update Scout only for Tesla · Update Scout. Use Running Coach only for Running Coach. Use Weekend Outing Scout only for Weekend Outing Scout. Named seats only when that job is already in this pack.",
+    "Random questions stay at Research. Use Watch Scout only for Watch Scout. Use Tesla · Update Scout only for Tesla · Update Scout. Use Running Coach only for Running Coach. Use Weekend Outing Scout only for Weekend Outing Scout. Use Horst Lüning · Zehn-Punkte-Philosoph only for Horst Lüning · Zehn-Punkte-Philosoph. Named seats only when that job is already in this pack.",
   readmeMd:
-    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/MyPassion_M9T/status/2114433769608253606. Also shared under https://x.com/MyPassion_M9T/status/2116914605121261631. Watch Scout is the named-seat lane only. Tesla · Update Scout is the named-seat lane only. Running Coach is the named-seat lane only. Weekend Outing Scout is the named-seat lane only.",
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/MyPassion_M9T/status/2114433769608253606. Also shared under https://x.com/MyPassion_M9T/status/2116914605121261631. Watch Scout is the named-seat lane only. Tesla · Update Scout is the named-seat lane only. Running Coach is the named-seat lane only. Weekend Outing Scout is the named-seat lane only. Also shared under https://x.com/MyPassion_M9T/status/2122332218907627783. Horst Lüning · Zehn-Punkte-Philosoph is the named-seat lane only.",
   seats: [
     seat({
       id: "20000000-0000-0000-0000-000000002419",
@@ -69553,6 +69571,15 @@ const MYPASSION_M9T: Pack = {
       isDesk: false,
       sortOrder: 4,
       grokTemplateUrl: "https://x.ai/bot/j_CYY1zYj6oqUUgLK4SeZ",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000003823",
+      name: "Horst Lüning · Zehn-Punkte-Philosoph",
+      job: "Begleitet dich bei Horst Lünings Zehn-Punkte-Methode: Du schreibst jeden Morgen zehn Ziele in Prioritätsreihenfolge auf, und der Bot hilft dir, sie zu schärfen und in Notion festzuhalten. Für alle, die bewusst leben wollen, statt sich treiben zu lassen.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 5,
+      grokTemplateUrl: "https://x.ai/bot/QYQMe2QGDqjB0ZZ32tWt-",
     }),
   ],
 };
@@ -70084,9 +70111,9 @@ const TECHECHOHQ: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Clipper. Use Scout only for Scout. Use Forge only for Forge. Use Mint only for Mint. Use Foreman only for Foreman. Named seats only when that job is already in this pack.",
+    "Random questions stay at Clipper. Use Scout only for Scout. Use Forge only for Forge. Use Mint only for Mint. Use Foreman only for Foreman. Use Boss only for Boss. Named seats only when that job is already in this pack.",
   readmeMd:
-    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/techechohq/status/2114707008255561937 and https://x.com/techechohq/status/2115068791260385300. Scout is the named-seat lane only. Also shared under https://x.com/techechohq/status/2119792747271876673. Forge is the named-seat lane only. Also shared under https://x.com/techechohq/status/2121242426304078066. Mint is the named-seat lane only. Also shared under https://x.com/techechohq/status/2120155169971224973. Foreman is the named-seat lane only.",
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/techechohq/status/2114707008255561937 and https://x.com/techechohq/status/2115068791260385300. Scout is the named-seat lane only. Also shared under https://x.com/techechohq/status/2119792747271876673. Forge is the named-seat lane only. Also shared under https://x.com/techechohq/status/2121242426304078066. Mint is the named-seat lane only. Also shared under https://x.com/techechohq/status/2120155169971224973. Foreman is the named-seat lane only. Also shared under https://x.com/techechohq/status/2122329668699164778. Boss is the named-seat lane only.",
   seats: [
     seat({
       id: "20000000-0000-0000-0000-000000002447",
@@ -70132,6 +70159,15 @@ const TECHECHOHQ: Pack = {
       isDesk: false,
       sortOrder: 4,
       grokTemplateUrl: "https://x.ai/bot/u_CJDYG42N8gt6l-t-S6H",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000003822",
+      name: "Boss",
+      job: "A friendly chief of staff for people who are new to Grok Bot. It learns what you want help with, handles it or sets it up as a routine, and suggests helper bots as you grow.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 5,
+      grokTemplateUrl: "https://x.ai/bot/lUT5xM-xqmuJlwzqUAlvU",
     }),
   ],
 };
@@ -73016,9 +73052,9 @@ const NAHJUIN: Pack = {
   installsCount: 0,
   visitsCount: 0,
   routingRule:
-    "Random questions stay at Bot Architect. Use Quiet Mogul only for Quiet Mogul. Use Job Requirements Scout only for Job Requirements Scout. Use Rivaldo bot only for Rivaldo bot. Use Unreplied Comments only for Unreplied Comments. Use Bounty Radar only for Bounty Radar. Use GM Morgan only for GM Morgan. Use Seamless Split only for Seamless Split. Named seats only when that job is already in this pack.",
+    "Random questions stay at Bot Architect. Use Quiet Mogul only for Quiet Mogul. Use Job Requirements Scout only for Job Requirements Scout. Use Rivaldo bot only for Rivaldo bot. Use Unreplied Comments only for Unreplied Comments. Use Bounty Radar only for Bounty Radar. Use GM Morgan only for GM Morgan. Use Seamless Split only for Seamless Split. Use Black Friday Scout only for Black Friday Scout. Named seats only when that job is already in this pack.",
   readmeMd:
-    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/nahjuin/status/2114776916427157800 and https://x.com/nahjuin/status/2115084310449463362. Quiet Mogul is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2114174234842853405 and https://x.com/nahjuin/status/2114179958407098747. Job Requirements Scout is the named-seat lane only. Rivaldo bot is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2115829413954875780. Unreplied Comments is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2117602508176752765. Bounty Radar is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2117969435952587038. GM Morgan is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2121597014375018664. Seamless Split is the named-seat lane only.",
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/nahjuin/status/2114776916427157800 and https://x.com/nahjuin/status/2115084310449463362. Quiet Mogul is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2114174234842853405 and https://x.com/nahjuin/status/2114179958407098747. Job Requirements Scout is the named-seat lane only. Rivaldo bot is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2115829413954875780. Unreplied Comments is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2117602508176752765. Bounty Radar is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2117969435952587038. GM Morgan is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2121597014375018664. Seamless Split is the named-seat lane only. Also shared under https://x.com/nahjuin/status/2122003442218811743. Black Friday Scout is the named-seat lane only.",
   seats: [
     seat({
       id: "20000000-0000-0000-0000-000000002576",
@@ -73091,6 +73127,15 @@ const NAHJUIN: Pack = {
       isDesk: false,
       sortOrder: 7,
       grokTemplateUrl: "https://x.ai/bot/u0kjn2MT9RWiOXqMiC0Hj",
+    }),
+    seat({
+      id: "20000000-0000-0000-0000-000000003818",
+      name: "Black Friday Scout",
+      job: "Finds the Black Friday deals worth buying, not the thousands being advertised. Seeks out and purchases the item you want with explicit permission.",
+      repeatsWhen: null,
+      isDesk: false,
+      sortOrder: 8,
+      grokTemplateUrl: "https://x.ai/bot/2N5hwFss2JOp16H5XQJVb",
     }),
 ],
 };
@@ -95955,6 +96000,88 @@ const ZHERRING: Pack = {
   ],
 };
 
+
+
+const KICKSCOSMO_OWNER_ID = "00000000-0000-0000-0000-000000002060";
+const KICKSCOSMO_OWNER: Profile = {
+  id: KICKSCOSMO_OWNER_ID,
+  githubLogin: "kickscosmo",
+  name: "kicks",
+  avatarUrl: null,
+  xHandle: "kickscosmo",
+};
+
+const KICKSCOSMO: Pack = {
+  id: "10000000-0000-0000-0000-000000002068",
+  owner: KICKSCOSMO_OWNER,
+  slug: "kicks",
+  name: "kicks",
+  description:
+    "Public Grok Bot templates kicks (@kickscosmo) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["founder"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Business scraper. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/kickscosmo/status/2122011630393290806.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000003819",
+      name: "Business scraper",
+      job: "Finds small local businesses with no website of their own, so web designers can pitch them, then helps write preview-site prompts, track outreach and follow up.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/PWNI_c4EPb-0Qb2_RhPxp",
+    }),
+  ],
+};
+
+const P45C41_OWNER_ID = "00000000-0000-0000-0000-000000002061";
+const P45C41_OWNER: Profile = {
+  id: P45C41_OWNER_ID,
+  githubLogin: "p45c41",
+  name: "Pascal",
+  avatarUrl: null,
+  xHandle: "p45c41",
+};
+
+const P45C41: Pack = {
+  id: "10000000-0000-0000-0000-000000002069",
+  owner: P45C41_OWNER,
+  slug: "pascal",
+  name: "Pascal",
+  description:
+    "Public Grok Bot templates Pascal (@p45c41) has shared. One pack, their roster, official Grok install per seat.",
+  githubUrl: null,
+  official: false,
+  featured: false,
+  topics: ["media"],
+  likesCount: 0,
+  installsCount: 0,
+  visitsCount: 0,
+  routingRule:
+    "Random questions stay at Local Gazette. Named seats only when that job is already in this pack.",
+  readmeMd:
+    "Third-party templates. Read before you add. Never paste a key. Only bots they published as https://x.ai/bot/… belong here. When they publish another official link, add a seat. Do not invent unpublished bots. Also shared under https://x.com/p45c41/status/2122064818139976073.",
+  seats: [
+    seat({
+      id: "20000000-0000-0000-0000-000000003820",
+      name: "Local Gazette",
+      job: "Your own private local newspaper for any town, in any country and language: it finds your town's news sources, collects them up to twice a day, and lays them out as a fun gazette-style Page.",
+      repeatsWhen: null,
+      isDesk: true,
+      sortOrder: 0,
+      grokTemplateUrl: "https://x.ai/bot/rgDSVcuH-K8hlPZqwFuFN",
+    }),
+  ],
+};
+
 const ALL_PACKS: Pack[] = [
   LAUREN,
   KRISTA,
@@ -97949,6 +98076,8 @@ const ALL_PACKS: Pack[] = [
   WHITENOISE301,
   ZEESHAN_UTD,
   ZHERRING,
+  KICKSCOSMO,
+  P45C41,
 ];
 
 const ALL_PROFILES: Profile[] = [
@@ -99946,6 +100075,8 @@ const ALL_PROFILES: Profile[] = [
   WHITENOISE301_OWNER,
   ZEESHAN_UTD_OWNER,
   ZHERRING_OWNER,
+  KICKSCOSMO_OWNER,
+  P45C41_OWNER,
 ];
 
 function toCard(pack: Pack): PackCard {
